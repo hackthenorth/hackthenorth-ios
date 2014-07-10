@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA63DCB0196E1A42001D9768 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCAF196E1A42001D9768 /* main.m */; };
+		AA63DCB3196E1A42001D9768 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCB2196E1A42001D9768 /* AppDelegate.m */; };
+		AA63DCB6196E1A42001D9768 /* HNNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCB5196E1A42001D9768 /* HNNotificationViewController.m */; };
+		AA63DCB9196E1A42001D9768 /* HNTwitterFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCB8196E1A42001D9768 /* HNTwitterFeedViewController.m */; };
+		AA63DCBC196E1A42001D9768 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA63DCBA196E1A42001D9768 /* Main.storyboard */; };
+		AA63DCBE196E1A42001D9768 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA63DCBD196E1A42001D9768 /* Images.xcassets */; };
+		AA63DCCA196E1A42001D9768 /* HackTheNorthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCC9196E1A42001D9768 /* HackTheNorthTests.m */; };
+		AA63DCDA196E24C6001D9768 /* JPGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCD5196E24C6001D9768 /* JPGlobal.m */; };
+		AA63DCDB196E24C6001D9768 /* JPStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCD7196E24C6001D9768 /* JPStyle.m */; };
+		AA63DCDC196E24C6001D9768 /* JPFont.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCD9196E24C6001D9768 /* JPFont.m */; };
+		AA63DCE0196E25A6001D9768 /* HNBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCDF196E25A6001D9768 /* HNBannerView.m */; };
+		AA63DCE3196E32F6001D9768 /* HNNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCE2196E32F6001D9768 /* HNNotificationTableViewCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA63DCC4196E1A42001D9768 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA63DCA2196E1A42001D9768 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA63DCA9196E1A42001D9768;
+			remoteInfo = HackTheNorth;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AA63DCAA196E1A42001D9768 /* HackTheNorth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackTheNorth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA63DCAE196E1A42001D9768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA63DCAF196E1A42001D9768 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AA63DCB1196E1A42001D9768 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AA63DCB2196E1A42001D9768 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AA63DCB4196E1A42001D9768 /* HNNotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNNotificationViewController.h; sourceTree = "<group>"; };
+		AA63DCB5196E1A42001D9768 /* HNNotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNNotificationViewController.m; sourceTree = "<group>"; };
+		AA63DCB7196E1A42001D9768 /* HNTwitterFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNTwitterFeedViewController.h; sourceTree = "<group>"; };
+		AA63DCB8196E1A42001D9768 /* HNTwitterFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNTwitterFeedViewController.m; sourceTree = "<group>"; };
+		AA63DCBB196E1A42001D9768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AA63DCBD196E1A42001D9768 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AA63DCC3196E1A42001D9768 /* HackTheNorthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackTheNorthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA63DCC8196E1A42001D9768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA63DCC9196E1A42001D9768 /* HackTheNorthTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackTheNorthTests.m; sourceTree = "<group>"; };
+		AA63DCD3196E24C6001D9768 /* UserInterfaceConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInterfaceConstants.h; sourceTree = "<group>"; };
+		AA63DCD4196E24C6001D9768 /* JPGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPGlobal.h; sourceTree = "<group>"; };
+		AA63DCD5196E24C6001D9768 /* JPGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPGlobal.m; sourceTree = "<group>"; };
+		AA63DCD6196E24C6001D9768 /* JPStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPStyle.h; sourceTree = "<group>"; };
+		AA63DCD7196E24C6001D9768 /* JPStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPStyle.m; sourceTree = "<group>"; };
+		AA63DCD8196E24C6001D9768 /* JPFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPFont.h; sourceTree = "<group>"; };
+		AA63DCD9196E24C6001D9768 /* JPFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPFont.m; sourceTree = "<group>"; };
+		AA63DCDE196E25A6001D9768 /* HNBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNBannerView.h; sourceTree = "<group>"; };
+		AA63DCDF196E25A6001D9768 /* HNBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNBannerView.m; sourceTree = "<group>"; };
+		AA63DCE1196E32F6001D9768 /* HNNotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNNotificationTableViewCell.h; sourceTree = "<group>"; };
+		AA63DCE2196E32F6001D9768 /* HNNotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNNotificationTableViewCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA63DCA7196E1A42001D9768 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA63DCC0196E1A42001D9768 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA63DCA1196E1A42001D9768 = {
+			isa = PBXGroup;
+			children = (
+				AA63DCAC196E1A42001D9768 /* HackTheNorth */,
+				AA63DCC6196E1A42001D9768 /* HackTheNorthTests */,
+				AA63DCAB196E1A42001D9768 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA63DCAB196E1A42001D9768 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA63DCAA196E1A42001D9768 /* HackTheNorth.app */,
+				AA63DCC3196E1A42001D9768 /* HackTheNorthTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA63DCAC196E1A42001D9768 /* HackTheNorth */ = {
+			isa = PBXGroup;
+			children = (
+				AA63DCB1196E1A42001D9768 /* AppDelegate.h */,
+				AA63DCB2196E1A42001D9768 /* AppDelegate.m */,
+				AA63DCDD196E24CB001D9768 /* Convenience Classes */,
+				AA63DCE4196E32FC001D9768 /* Notification View Controller */,
+				AA63DCB7196E1A42001D9768 /* HNTwitterFeedViewController.h */,
+				AA63DCB8196E1A42001D9768 /* HNTwitterFeedViewController.m */,
+				AA63DCBA196E1A42001D9768 /* Main.storyboard */,
+				AA63DCBD196E1A42001D9768 /* Images.xcassets */,
+				AA63DCAD196E1A42001D9768 /* Supporting Files */,
+			);
+			path = HackTheNorth;
+			sourceTree = "<group>";
+		};
+		AA63DCAD196E1A42001D9768 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA63DCAE196E1A42001D9768 /* Info.plist */,
+				AA63DCAF196E1A42001D9768 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA63DCC6196E1A42001D9768 /* HackTheNorthTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA63DCC9196E1A42001D9768 /* HackTheNorthTests.m */,
+				AA63DCC7196E1A42001D9768 /* Supporting Files */,
+			);
+			path = HackTheNorthTests;
+			sourceTree = "<group>";
+		};
+		AA63DCC7196E1A42001D9768 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA63DCC8196E1A42001D9768 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA63DCDD196E24CB001D9768 /* Convenience Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AA63DCD3196E24C6001D9768 /* UserInterfaceConstants.h */,
+				AA63DCD4196E24C6001D9768 /* JPGlobal.h */,
+				AA63DCD5196E24C6001D9768 /* JPGlobal.m */,
+				AA63DCD6196E24C6001D9768 /* JPStyle.h */,
+				AA63DCD7196E24C6001D9768 /* JPStyle.m */,
+				AA63DCD8196E24C6001D9768 /* JPFont.h */,
+				AA63DCD9196E24C6001D9768 /* JPFont.m */,
+			);
+			name = "Convenience Classes";
+			sourceTree = "<group>";
+		};
+		AA63DCE4196E32FC001D9768 /* Notification View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AA63DCB4196E1A42001D9768 /* HNNotificationViewController.h */,
+				AA63DCB5196E1A42001D9768 /* HNNotificationViewController.m */,
+				AA63DCDE196E25A6001D9768 /* HNBannerView.h */,
+				AA63DCDF196E25A6001D9768 /* HNBannerView.m */,
+				AA63DCE1196E32F6001D9768 /* HNNotificationTableViewCell.h */,
+				AA63DCE2196E32F6001D9768 /* HNNotificationTableViewCell.m */,
+			);
+			name = "Notification View Controller";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA63DCA9196E1A42001D9768 /* HackTheNorth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA63DCCD196E1A42001D9768 /* Build configuration list for PBXNativeTarget "HackTheNorth" */;
+			buildPhases = (
+				AA63DCA6196E1A42001D9768 /* Sources */,
+				AA63DCA7196E1A42001D9768 /* Frameworks */,
+				AA63DCA8196E1A42001D9768 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HackTheNorth;
+			productName = HackTheNorth;
+			productReference = AA63DCAA196E1A42001D9768 /* HackTheNorth.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA63DCC2196E1A42001D9768 /* HackTheNorthTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA63DCD0196E1A42001D9768 /* Build configuration list for PBXNativeTarget "HackTheNorthTests" */;
+			buildPhases = (
+				AA63DCBF196E1A42001D9768 /* Sources */,
+				AA63DCC0196E1A42001D9768 /* Frameworks */,
+				AA63DCC1196E1A42001D9768 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA63DCC5196E1A42001D9768 /* PBXTargetDependency */,
+			);
+			name = HackTheNorthTests;
+			productName = HackTheNorthTests;
+			productReference = AA63DCC3196E1A42001D9768 /* HackTheNorthTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA63DCA2196E1A42001D9768 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Si Te Feng";
+				TargetAttributes = {
+					AA63DCA9196E1A42001D9768 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					AA63DCC2196E1A42001D9768 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = AA63DCA9196E1A42001D9768;
+					};
+				};
+			};
+			buildConfigurationList = AA63DCA5196E1A42001D9768 /* Build configuration list for PBXProject "HackTheNorth" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA63DCA1196E1A42001D9768;
+			productRefGroup = AA63DCAB196E1A42001D9768 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA63DCA9196E1A42001D9768 /* HackTheNorth */,
+				AA63DCC2196E1A42001D9768 /* HackTheNorthTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA63DCA8196E1A42001D9768 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA63DCBC196E1A42001D9768 /* Main.storyboard in Resources */,
+				AA63DCBE196E1A42001D9768 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA63DCC1196E1A42001D9768 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA63DCA6196E1A42001D9768 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA63DCB9196E1A42001D9768 /* HNTwitterFeedViewController.m in Sources */,
+				AA63DCDA196E24C6001D9768 /* JPGlobal.m in Sources */,
+				AA63DCE3196E32F6001D9768 /* HNNotificationTableViewCell.m in Sources */,
+				AA63DCE0196E25A6001D9768 /* HNBannerView.m in Sources */,
+				AA63DCB3196E1A42001D9768 /* AppDelegate.m in Sources */,
+				AA63DCB6196E1A42001D9768 /* HNNotificationViewController.m in Sources */,
+				AA63DCDC196E24C6001D9768 /* JPFont.m in Sources */,
+				AA63DCB0196E1A42001D9768 /* main.m in Sources */,
+				AA63DCDB196E24C6001D9768 /* JPStyle.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA63DCBF196E1A42001D9768 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA63DCCA196E1A42001D9768 /* HackTheNorthTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA63DCC5196E1A42001D9768 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA63DCA9196E1A42001D9768 /* HackTheNorth */;
+			targetProxy = AA63DCC4196E1A42001D9768 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AA63DCBA196E1A42001D9768 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA63DCBB196E1A42001D9768 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AA63DCCB196E1A42001D9768 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AA63DCCC196E1A42001D9768 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA63DCCE196E1A42001D9768 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = HackTheNorth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AA63DCCF196E1A42001D9768 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = HackTheNorth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AA63DCD1196E1A42001D9768 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HackTheNorth.app/HackTheNorth";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HackTheNorthTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		AA63DCD2196E1A42001D9768 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HackTheNorth.app/HackTheNorth";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HackTheNorthTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA63DCA5196E1A42001D9768 /* Build configuration list for PBXProject "HackTheNorth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA63DCCB196E1A42001D9768 /* Debug */,
+				AA63DCCC196E1A42001D9768 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA63DCCD196E1A42001D9768 /* Build configuration list for PBXNativeTarget "HackTheNorth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA63DCCE196E1A42001D9768 /* Debug */,
+				AA63DCCF196E1A42001D9768 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AA63DCD0196E1A42001D9768 /* Build configuration list for PBXNativeTarget "HackTheNorthTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA63DCD1196E1A42001D9768 /* Debug */,
+				AA63DCD2196E1A42001D9768 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA63DCA2196E1A42001D9768 /* Project object */;
+}
