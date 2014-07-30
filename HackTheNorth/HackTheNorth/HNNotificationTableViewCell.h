@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class HNAvatarView;
 @interface HNNotificationTableViewCell : UITableViewCell
 {
-    UIImageView* avatarView;
+    HNAvatarView* avatarView;
     
     UILabel*     nameLabel;
     UILabel*     timeLabel;
+    UILabel*     dayLabel;
+    
     UITextView*  messageView;
     
     
@@ -23,7 +26,7 @@
 @property (nonatomic, strong) UIImage* avatarImage;
 
 @property (nonatomic, strong) NSString* name;
-@property (nonatomic, strong) NSString* time;
+@property (nonatomic, strong) NSDate*   date;
 @property (nonatomic, strong) NSString* message;
 
 

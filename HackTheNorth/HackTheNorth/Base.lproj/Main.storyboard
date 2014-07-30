@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="13E19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
         <capability name="Unknown constraint types" minToolsVersion="5.1"/>
@@ -24,32 +24,52 @@
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Updates" image="notification" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Updates" image="updatesIcon" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3042" y="672"/>
         </scene>
-        <!--View Controller - Event Info-->
+        <!--Schedule View Controller - Schedule-->
         <scene sceneID="CkT-uu-Zef">
             <objects>
-                <viewController id="DVp-Ff-TD1" sceneMemberID="viewController">
+                <viewController id="DVp-Ff-TD1" customClass="HNScheduleViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ddv-CW-WYc"/>
                         <viewControllerLayoutGuide type="bottom" id="Kuy-5g-rBQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lM8-3R-kUS">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Event Info" image="eventInfo" id="E3y-Oz-mhY"/>
+                    <tabBarItem key="tabBarItem" title="Schedule" image="scheduleIcon" id="E3y-Oz-mhY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NYI-dd-5uB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2952" y="2304"/>
+            <point key="canvasLocation" x="3042" y="1218"/>
         </scene>
-        <!--View Controller - FAQ-->
+        <!--View Controller - Team-->
+        <scene sceneID="7Jg-xa-fF2">
+            <objects>
+                <viewController id="wck-Cw-fD5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FuF-65-ffu"/>
+                        <viewControllerLayoutGuide type="bottom" id="rHe-B7-RLu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NcJ-MC-9qB">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Team" image="teamIcon" id="fV0-5X-kSi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7gC-je-2fT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3042" y="2880"/>
+        </scene>
+        <!--View Controller - Mentors-->
         <scene sceneID="7Md-lg-BMq">
             <objects>
                 <viewController id="wEu-5N-udR" sceneMemberID="viewController">
@@ -58,20 +78,21 @@
                         <viewControllerLayoutGuide type="bottom" id="FOz-4H-b7A"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HeS-YA-Bvg">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="FAQ" image="faq" id="uEw-5L-opY"/>
+                    <tabBarItem key="tabBarItem" title="Mentors" image="mentorsIcon" id="uEw-5L-opY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dW1-Lr-snd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3016.5" y="1760"/>
+            <point key="canvasLocation" x="3042" y="2338"/>
         </scene>
-        <!--Twitter Feed View Controller - Twitter Feed-->
+        <!--View Controller - Prizes-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="HNTwitterFeedViewController" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -87,11 +108,11 @@
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Twitter Feed" image="twitter" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Prizes" image="prizesIcon" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3016.5" y="1210"/>
+            <point key="canvasLocation" x="3042" y="1762"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -105,20 +126,22 @@
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="DVp-Ff-TD1" kind="relationship" relationship="viewControllers" id="YZz-05-MbW"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="wEu-5N-udR" kind="relationship" relationship="viewControllers" id="QUm-8x-7Xk"/>
-                        <segue destination="DVp-Ff-TD1" kind="relationship" relationship="viewControllers" id="YZz-05-MbW"/>
+                        <segue destination="wck-Cw-fD5" kind="relationship" relationship="viewControllers" id="a8S-1W-S5Y"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2160" y="1576"/>
+            <point key="canvasLocation" x="2049" y="1827"/>
         </scene>
     </scenes>
     <resources>
-        <image name="eventInfo" width="28" height="26"/>
-        <image name="faq" width="24" height="22"/>
-        <image name="notification" width="14" height="21"/>
-        <image name="twitter" width="25" height="25"/>
+        <image name="mentorsIcon" width="30" height="22"/>
+        <image name="prizesIcon" width="22" height="26"/>
+        <image name="scheduleIcon" width="28" height="26"/>
+        <image name="teamIcon" width="32" height="21"/>
+        <image name="updatesIcon" width="14" height="21"/>
     </resources>
 </document>

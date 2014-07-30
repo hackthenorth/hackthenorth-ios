@@ -14,7 +14,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"blueBackground"]];
         
         _frame = frame;
         

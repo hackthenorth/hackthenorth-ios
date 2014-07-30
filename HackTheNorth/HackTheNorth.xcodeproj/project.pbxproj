@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA34FA3E1988888200A73292 /* HNAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA34FA3D1988888200A73292 /* HNAvatarView.m */; };
+		AA34FA4419888CD300A73292 /* LDProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA34FA4119888CD300A73292 /* LDProgressView.m */; };
+		AA34FA4519888CD300A73292 /* UIColor+RGBValues.m in Sources */ = {isa = PBXBuildFile; fileRef = AA34FA4319888CD300A73292 /* UIColor+RGBValues.m */; };
+		AA34FA4819888CF300A73292 /* HNScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA34FA4719888CF300A73292 /* HNScheduleViewController.m */; };
+		AA34FA4B1988919800A73292 /* HNScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA34FA4A1988919800A73292 /* HNScheduleTableViewCell.m */; };
+		AA34FA4F198891CF00A73292 /* HNScheduleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA34FA4E198891CF00A73292 /* HNScheduleProgressView.m */; };
 		AA63DCB0196E1A42001D9768 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCAF196E1A42001D9768 /* main.m */; };
 		AA63DCB3196E1A42001D9768 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCB2196E1A42001D9768 /* AppDelegate.m */; };
 		AA63DCB6196E1A42001D9768 /* HNNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCB5196E1A42001D9768 /* HNNotificationViewController.m */; };
-		AA63DCB9196E1A42001D9768 /* HNTwitterFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCB8196E1A42001D9768 /* HNTwitterFeedViewController.m */; };
 		AA63DCBC196E1A42001D9768 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA63DCBA196E1A42001D9768 /* Main.storyboard */; };
 		AA63DCBE196E1A42001D9768 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA63DCBD196E1A42001D9768 /* Images.xcassets */; };
 		AA63DCCA196E1A42001D9768 /* HackTheNorthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCC9196E1A42001D9768 /* HackTheNorthTests.m */; };
@@ -32,6 +37,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA34FA3C1988888200A73292 /* HNAvatarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNAvatarView.h; sourceTree = "<group>"; };
+		AA34FA3D1988888200A73292 /* HNAvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNAvatarView.m; sourceTree = "<group>"; };
+		AA34FA4019888CD300A73292 /* LDProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDProgressView.h; sourceTree = "<group>"; };
+		AA34FA4119888CD300A73292 /* LDProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDProgressView.m; sourceTree = "<group>"; };
+		AA34FA4219888CD300A73292 /* UIColor+RGBValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGBValues.h"; sourceTree = "<group>"; };
+		AA34FA4319888CD300A73292 /* UIColor+RGBValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RGBValues.m"; sourceTree = "<group>"; };
+		AA34FA4619888CF300A73292 /* HNScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNScheduleViewController.h; sourceTree = "<group>"; };
+		AA34FA4719888CF300A73292 /* HNScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNScheduleViewController.m; sourceTree = "<group>"; };
+		AA34FA491988919800A73292 /* HNScheduleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNScheduleTableViewCell.h; sourceTree = "<group>"; };
+		AA34FA4A1988919800A73292 /* HNScheduleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNScheduleTableViewCell.m; sourceTree = "<group>"; };
+		AA34FA4D198891CF00A73292 /* HNScheduleProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNScheduleProgressView.h; sourceTree = "<group>"; };
+		AA34FA4E198891CF00A73292 /* HNScheduleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNScheduleProgressView.m; sourceTree = "<group>"; };
 		AA63DCAA196E1A42001D9768 /* HackTheNorth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackTheNorth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA63DCAE196E1A42001D9768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA63DCAF196E1A42001D9768 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -39,8 +56,6 @@
 		AA63DCB2196E1A42001D9768 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AA63DCB4196E1A42001D9768 /* HNNotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNNotificationViewController.h; sourceTree = "<group>"; };
 		AA63DCB5196E1A42001D9768 /* HNNotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNNotificationViewController.m; sourceTree = "<group>"; };
-		AA63DCB7196E1A42001D9768 /* HNTwitterFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNTwitterFeedViewController.h; sourceTree = "<group>"; };
-		AA63DCB8196E1A42001D9768 /* HNTwitterFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNTwitterFeedViewController.m; sourceTree = "<group>"; };
 		AA63DCBB196E1A42001D9768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AA63DCBD196E1A42001D9768 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AA63DCC3196E1A42001D9768 /* HackTheNorthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackTheNorthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,10 +92,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA34FA3F19888CD300A73292 /* LDProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				AA34FA4019888CD300A73292 /* LDProgressView.h */,
+				AA34FA4119888CD300A73292 /* LDProgressView.m */,
+				AA34FA4219888CD300A73292 /* UIColor+RGBValues.h */,
+				AA34FA4319888CD300A73292 /* UIColor+RGBValues.m */,
+			);
+			path = LDProgressView;
+			sourceTree = "<group>";
+		};
+		AA34FA4C198891AD00A73292 /* Schedule View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AA34FA4619888CF300A73292 /* HNScheduleViewController.h */,
+				AA34FA4719888CF300A73292 /* HNScheduleViewController.m */,
+				AA34FA4D198891CF00A73292 /* HNScheduleProgressView.h */,
+				AA34FA4E198891CF00A73292 /* HNScheduleProgressView.m */,
+				AA34FA491988919800A73292 /* HNScheduleTableViewCell.h */,
+				AA34FA4A1988919800A73292 /* HNScheduleTableViewCell.m */,
+			);
+			name = "Schedule View Controller";
+			sourceTree = "<group>";
+		};
 		AA63DCA1196E1A42001D9768 = {
 			isa = PBXGroup;
 			children = (
 				AA63DCAC196E1A42001D9768 /* HackTheNorth */,
+				AA34FA3F19888CD300A73292 /* LDProgressView */,
 				AA63DCC6196E1A42001D9768 /* HackTheNorthTests */,
 				AA63DCAB196E1A42001D9768 /* Products */,
 			);
@@ -100,11 +140,10 @@
 			children = (
 				AA63DCB1196E1A42001D9768 /* AppDelegate.h */,
 				AA63DCB2196E1A42001D9768 /* AppDelegate.m */,
+				AA63DCBA196E1A42001D9768 /* Main.storyboard */,
 				AA63DCDD196E24CB001D9768 /* Convenience Classes */,
 				AA63DCE4196E32FC001D9768 /* Notification View Controller */,
-				AA63DCB7196E1A42001D9768 /* HNTwitterFeedViewController.h */,
-				AA63DCB8196E1A42001D9768 /* HNTwitterFeedViewController.m */,
-				AA63DCBA196E1A42001D9768 /* Main.storyboard */,
+				AA34FA4C198891AD00A73292 /* Schedule View Controller */,
 				AA63DCBD196E1A42001D9768 /* Images.xcassets */,
 				AA63DCAD196E1A42001D9768 /* Supporting Files */,
 			);
@@ -160,6 +199,8 @@
 				AA63DCDF196E25A6001D9768 /* HNBannerView.m */,
 				AA63DCE1196E32F6001D9768 /* HNNotificationTableViewCell.h */,
 				AA63DCE2196E32F6001D9768 /* HNNotificationTableViewCell.m */,
+				AA34FA3C1988888200A73292 /* HNAvatarView.h */,
+				AA34FA3D1988888200A73292 /* HNAvatarView.m */,
 			);
 			name = "Notification View Controller";
 			sourceTree = "<group>";
@@ -263,15 +304,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA63DCB9196E1A42001D9768 /* HNTwitterFeedViewController.m in Sources */,
+				AA34FA4B1988919800A73292 /* HNScheduleTableViewCell.m in Sources */,
 				AA63DCDA196E24C6001D9768 /* JPGlobal.m in Sources */,
 				AA63DCE3196E32F6001D9768 /* HNNotificationTableViewCell.m in Sources */,
+				AA34FA3E1988888200A73292 /* HNAvatarView.m in Sources */,
+				AA34FA4419888CD300A73292 /* LDProgressView.m in Sources */,
 				AA63DCE0196E25A6001D9768 /* HNBannerView.m in Sources */,
+				AA34FA4F198891CF00A73292 /* HNScheduleProgressView.m in Sources */,
+				AA34FA4519888CD300A73292 /* UIColor+RGBValues.m in Sources */,
 				AA63DCB3196E1A42001D9768 /* AppDelegate.m in Sources */,
 				AA63DCB6196E1A42001D9768 /* HNNotificationViewController.m in Sources */,
 				AA63DCDC196E24C6001D9768 /* JPFont.m in Sources */,
 				AA63DCB0196E1A42001D9768 /* main.m in Sources */,
 				AA63DCDB196E24C6001D9768 /* JPStyle.m in Sources */,
+				AA34FA4819888CF300A73292 /* HNScheduleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +506,7 @@
 				AA63DCCF196E1A42001D9768 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA63DCD0196E1A42001D9768 /* Build configuration list for PBXNativeTarget "HackTheNorthTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +515,7 @@
 				AA63DCD2196E1A42001D9768 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
