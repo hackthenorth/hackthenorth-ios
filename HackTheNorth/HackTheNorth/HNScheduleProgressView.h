@@ -8,9 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+@class LDProgressView;
 @interface HNScheduleProgressView : UIView
+{
+    BOOL   _progressBarStyleIsSet;
+    
+    NSTimer* _updateTimer;
+    
+    UILabel*  timeLabel;
+    UILabel*  timeLeftLabel;
+    
+    
+}
 
+@property (nonatomic, strong) LDProgressView* progressBar;
 
+@property (nonatomic, strong) NSDate* startDate;
+@property (nonatomic, strong) NSDate* endDate;
 
 
 

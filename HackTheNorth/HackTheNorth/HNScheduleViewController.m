@@ -24,17 +24,17 @@
     
     NSDate* startDate = [NSDate dateWithTimeIntervalSinceNow:-9000];
     
-    NSDate* endDate = [NSDate dateWithTimeIntervalSinceNow:20000];
+    NSDate* endDate = [NSDate dateWithTimeIntervalSinceNow:3609];
     
-    self.scheduleView = [[HNScheduleProgressView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight, kiPhoneWidthPortrait, 100) startDate:startDate endDate:endDate];
+    self.scheduleView = [[HNScheduleProgressView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, 90) startDate:startDate endDate:endDate];
     
     [self.view addSubview:self.scheduleView];
     
-    UIView* blueBar = [[UIView alloc] initWithFrame:CGRectMake(0, 120, kiPhoneWidthPortrait, 5)];
+    UIView* blueBar = [[UIView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 90, kiPhoneWidthPortrait, 5)];
     blueBar.backgroundColor = [JPStyle colorWithName:@"blue"];
     [self.view addSubview:blueBar];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+105, kiPhoneWidthPortrait, kiPhoneHeightPortrait-120-kiPhoneTabBarHeight) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 95, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait - 95) style:UITableViewStyleGrouped];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -77,11 +77,20 @@
 }
 
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+    
+    
+}
 
 
-
-
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 90;
+}
 
 
 

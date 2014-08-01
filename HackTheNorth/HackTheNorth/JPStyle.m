@@ -195,10 +195,6 @@
     {
         returnColor = [self colorWithHex:@"FFA73D" alpha:1];
     }
-    else if([colorName isEqualToString:@"darkRed"]) //dark red text
-    {
-        returnColor = [self colorWithHex:@"000000" alpha:1];
-    }
     else if([colorName isEqual:@"tBlack"])
     {
         returnColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
@@ -210,6 +206,10 @@
     else if([colorName isEqual:@"white"])
     {
         returnColor = [UIColor whiteColor];
+    }
+    else if([colorName isEqual: @"darkGreen"])
+    {
+        returnColor = [self colorWithHex:@"00A202" alpha:1];
     }
     else
     {

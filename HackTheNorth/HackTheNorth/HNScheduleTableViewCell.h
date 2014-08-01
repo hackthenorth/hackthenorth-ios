@@ -8,6 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
+@class HNAvatarView;
 @interface HNScheduleTableViewCell : UITableViewCell
+{
+    HNAvatarView* avatarView;
+    
+    UILabel*     nameLabel;
+    UILabel*     timeLabel;
+    UILabel*     locationLabel;
+    
+    UILabel*     speakerLabel;
+
+
+}
+
+
+
+
+
+
+
 
 @end
+

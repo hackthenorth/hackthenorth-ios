@@ -44,11 +44,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Schedule" image="scheduleIcon" id="E3y-Oz-mhY"/>
+                    <navigationItem key="navigationItem" title="Schedule" id="bCp-ej-pGE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NYI-dd-5uB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3042" y="1218"/>
+            <point key="canvasLocation" x="3840" y="1218"/>
         </scene>
         <!--View Controller - Team-->
         <scene sceneID="7Jg-xa-fF2">
@@ -59,15 +59,16 @@
                         <viewControllerLayoutGuide type="bottom" id="rHe-B7-RLu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NcJ-MC-9qB">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Team" image="teamIcon" id="fV0-5X-kSi"/>
+                    <navigationItem key="navigationItem" title="Team" id="lSZ-Az-e6o"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gC-je-2fT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3042" y="2880"/>
+            <point key="canvasLocation" x="3840" y="2880"/>
         </scene>
         <!--View Controller - Mentors-->
         <scene sceneID="7Md-lg-BMq">
@@ -83,11 +84,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Mentors" image="mentorsIcon" id="uEw-5L-opY"/>
+                    <navigationItem key="navigationItem" title="Mentors" id="fMa-qw-Q2J"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dW1-Lr-snd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3042" y="2338"/>
+            <point key="canvasLocation" x="3840" y="2338"/>
         </scene>
         <!--View Controller - Prizes-->
         <scene sceneID="wg7-f3-ORb">
@@ -108,11 +109,11 @@
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Prizes" image="prizesIcon" id="cPa-gy-q4n"/>
+                    <navigationItem key="navigationItem" title="Prizes" id="e6g-tm-R13"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3042" y="1762"/>
+            <point key="canvasLocation" x="3840" y="1762"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -126,15 +127,91 @@
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="DVp-Ff-TD1" kind="relationship" relationship="viewControllers" id="YZz-05-MbW"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="wEu-5N-udR" kind="relationship" relationship="viewControllers" id="QUm-8x-7Xk"/>
-                        <segue destination="wck-Cw-fD5" kind="relationship" relationship="viewControllers" id="a8S-1W-S5Y"/>
+                        <segue destination="ZfA-bC-jtX" kind="relationship" relationship="viewControllers" id="YZz-05-MbW"/>
+                        <segue destination="R4O-j1-Pjp" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="B8B-Ug-AoW" kind="relationship" relationship="viewControllers" id="QUm-8x-7Xk"/>
+                        <segue destination="q4h-FY-JuH" kind="relationship" relationship="viewControllers" id="a8S-1W-S5Y"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2049" y="1827"/>
+        </scene>
+        <!--Navigation Controller - Schedule-->
+        <scene sceneID="Ggu-D3-NRQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZfA-bC-jtX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Schedule" image="scheduleIcon" id="E3y-Oz-mhY"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="adA-Tu-a6h">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DVp-Ff-TD1" kind="relationship" relationship="rootViewController" id="fwH-42-FT0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="olJ-og-DNd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3042" y="1218"/>
+        </scene>
+        <!--Navigation Controller - Prizes-->
+        <scene sceneID="see-3N-EVu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R4O-j1-Pjp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Prizes" image="prizesIcon" id="cPa-gy-q4n"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="owh-gr-eNB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="ezz-4B-6iN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Bi-4k-COy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3042" y="1762"/>
+        </scene>
+        <!--Navigation Controller - Mentors-->
+        <scene sceneID="8b4-z9-7Vw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B8B-Ug-AoW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Mentors" image="mentorsIcon" id="uEw-5L-opY"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y2O-RO-ATc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wEu-5N-udR" kind="relationship" relationship="rootViewController" id="UnN-Mq-sEg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="84c-9O-hBM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3042" y="2338"/>
+        </scene>
+        <!--Navigation Controller - Team-->
+        <scene sceneID="qOo-he-MCg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q4h-FY-JuH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Team" image="teamIcon" id="fV0-5X-kSi"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="N6w-aQ-Kiq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wck-Cw-fD5" kind="relationship" relationship="rootViewController" id="Uic-t6-bV6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tmP-LQ-3Or" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3042" y="2880"/>
         </scene>
     </scenes>
     <resources>
