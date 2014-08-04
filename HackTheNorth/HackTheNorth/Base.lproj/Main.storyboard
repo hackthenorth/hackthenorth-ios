@@ -50,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="3840" y="1218"/>
         </scene>
-        <!--View Controller - Team-->
+        <!--Team View Controller - Team-->
         <scene sceneID="7Jg-xa-fF2">
             <objects>
-                <viewController id="wck-Cw-fD5" sceneMemberID="viewController">
+                <viewController id="wck-Cw-fD5" customClass="HNTeamViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FuF-65-ffu"/>
                         <viewControllerLayoutGuide type="bottom" id="rHe-B7-RLu"/>
@@ -70,10 +70,10 @@
             </objects>
             <point key="canvasLocation" x="3840" y="2880"/>
         </scene>
-        <!--View Controller - Mentors-->
+        <!--Mentors View Controller - Mentors-->
         <scene sceneID="7Md-lg-BMq">
             <objects>
-                <viewController id="wEu-5N-udR" sceneMemberID="viewController">
+                <viewController id="wEu-5N-udR" customClass="HNMentorsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g5x-MC-x8p"/>
                         <viewControllerLayoutGuide type="bottom" id="FOz-4H-b7A"/>
@@ -90,10 +90,10 @@
             </objects>
             <point key="canvasLocation" x="3840" y="2338"/>
         </scene>
-        <!--View Controller - Prizes-->
+        <!--Prizes View Controller - Prizes-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="HNPrizesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -135,7 +135,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2049" y="1827"/>
+            <point key="canvasLocation" x="2077.5" y="1762"/>
         </scene>
         <!--Navigation Controller - Schedule-->
         <scene sceneID="Ggu-D3-NRQ">

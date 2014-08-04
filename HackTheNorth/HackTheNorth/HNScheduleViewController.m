@@ -11,6 +11,7 @@
 #import "HNScheduleProgressView.h"
 #import "HNScheduleTableViewCell.h"
 #import "JPStyle.h"
+#import "HNScheduleDetailViewController.h"
 
 @implementation HNScheduleViewController
 
@@ -20,11 +21,21 @@
     
     _sectionTitles = @[@"Friday Presentations", @"Saturday Presentations", @"Sunday Presentations"];
     
+    NSDateComponents* startComp = [[NSDateComponents alloc] init];
+    [startComp setDay:20];
+    [startComp setMonth:9];
+    [startComp setYear:2014];
+    [startComp setHour:0];
     
+    NSDateComponents* endComp = [[NSDateComponents alloc] init];
+    [endComp setDay:21];
+    [endComp setMonth:9];
+    [endComp setYear:2014];
+    [endComp setHour:11];
     
-    NSDate* startDate = [NSDate dateWithTimeIntervalSinceNow:-9000];
-    
-    NSDate* endDate = [NSDate dateWithTimeIntervalSinceNow:3609];
+    NSDate* startDate = [[NSCalendar currentCalendar] dateFromComponents:startComp];
+    NSDate* endDate = [[NSCalendar currentCalendar] dateFromComponents:endComp];
+
     
     self.scheduleView = [[HNScheduleProgressView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, 90) startDate:startDate endDate:endDate];
     
@@ -66,6 +77,10 @@
 {
     HNScheduleTableViewCell* cell = (HNScheduleTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier"];
     
+    cell.name = @"Introductory Talk for Hack the North Event";
+    cell.location = @"E5 2001";
+    cell.time = @"12:00";
+    cell.speaker = @"Ariel Garten";
     
     return cell;
 }
@@ -81,9 +96,12 @@
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    HNScheduleDetailViewController* detailContorller=  [[HNScheduleDetailViewController alloc] initWithNibName:nil bundle:nil];
+    
+    detailContorller.cell = [(HNScheduleTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath] copy];
     
     
-    
+    [self.navigationController pushViewController:detailContorller animated:YES];
 }
 
 

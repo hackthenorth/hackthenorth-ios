@@ -24,7 +24,10 @@
 
 
 
-
+@property (nonatomic, strong) NSString* name;
+@property (nonatomic, strong) NSString* location;
+@property (nonatomic, strong) NSString* time;
+@property (nonatomic, strong) NSString* speaker;
 
 
 

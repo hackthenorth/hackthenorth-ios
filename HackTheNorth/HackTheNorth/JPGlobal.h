@@ -13,6 +13,7 @@
 
 
 + (NSString*)monthStringWithInt: (int)month;
++ (NSString*)monthFullStringWithInt: (int)month;
 
 + (NSString*)ratingStringWithIndex: (NSInteger)index;
 

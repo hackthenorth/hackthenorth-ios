@@ -21,6 +21,7 @@
     
     // Initialization code
     self.separatorInset = UIEdgeInsetsMake(0, kiPhoneWidthPortrait, 0, 0);
+    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     avatarView = [[HNAvatarView alloc] initWithFrame:CGRectMake(20, 10, 40, 40)];
     [self addSubview:avatarView];
@@ -28,18 +29,18 @@
     nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(65, 10, kiPhoneWidthPortrait - 70, 40)];
     nameLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:17];
     nameLabel.numberOfLines = 2;
-    nameLabel.text = @"Introductory Talk for Hack the North Event";
+
     [self addSubview:nameLabel];
     
     locationLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 60, 100, 20)];
-    locationLabel.text = @"MC 4042";
+
     locationLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:15];
     locationLabel.textColor = [UIColor grayColor];
     locationLabel.textAlignment = NSTextAlignmentLeft;
     [self addSubview:locationLabel];
     
     timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(130, 60, 70, 20)];
-    timeLabel.text = @"12:00";
+
     timeLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:15];
     timeLabel.textColor = [UIColor grayColor];
     timeLabel.textAlignment = NSTextAlignmentLeft;
@@ -47,7 +48,7 @@
     
     
     speakerLabel = [[UILabel alloc] initWithFrame:CGRectMake(200, 60, 120, 20)];
-    speakerLabel.text = @"Ariel Garten";
+
     speakerLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:15];
     speakerLabel.textColor = [UIColor grayColor];
     speakerLabel.textAlignment = NSTextAlignmentLeft;
@@ -69,6 +70,44 @@
 }
 
 
+- (void)setName:(NSString *)name
+{
+    _name = name;
+    nameLabel.text = name;
+    
+}
+
+
+- (void)setLocation:(NSString *)location
+{
+    _location = location;
+    locationLabel.text = location;
+}
+
+- (void)setTime:(NSString *)time
+{
+    _time = time;
+    timeLabel.text = time;
+}
+
+
+- (void)setSpeaker:(NSString *)speaker
+{
+    _speaker = speaker;
+    speakerLabel.text = speaker;
+}
+
+
+- (id)copy
+{
+    HNScheduleTableViewCell* newCell = [[HNScheduleTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuseIdentifier"];
+    newCell.name = self.name;
+    newCell.time = self.time;
+    newCell.location = self.location;
+    newCell.speaker = self.speaker;
+    
+    return newCell;
+}
 
 
 @end

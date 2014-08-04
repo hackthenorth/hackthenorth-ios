@@ -65,9 +65,11 @@
 {
     
     HNNotificationTableViewCell* cell = [[HNNotificationTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuseIdentifier"];
+    cell.name = @"Hack The North";
     
+    cell.date = [NSDate date];
     
-    
+    cell.message = @"Most people have a natural talent for persuasion. The problem for many is that they wield it against themselves and convince themselves either that";
     
     return cell;
     
@@ -86,16 +88,6 @@
 {
     return NO;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

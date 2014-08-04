@@ -107,11 +107,11 @@
     
     //Top Labels
     //left
-    double currSeconds = fmod(currentInterval, 60);
+    double currSeconds = floor( fmod(currentInterval, 60) );
     
-    double currMinutes = fmod(currentInterval/60, 60);
+    double currMinutes = floor( fmod(currentInterval/60, 60) );
     
-    double currHours = currentInterval/ 3600;
+    double currHours = floor( currentInterval/ 3600 );
     
     NSString* currSecondsStr = [NSString stringWithFormat:@"%.00f", currSeconds];
     if(currSeconds< 9.5)
@@ -125,10 +125,10 @@
         currMinutesStr = [NSString stringWithFormat:@"0%.00f", currMinutes];
     }
 
-    NSString* currHoursStr = [NSString stringWithFormat:@"%.00f", currHours];
+    NSString* currHoursStr = [NSString stringWithFormat:@"%.00f",currHours];
     if(currHours< 9.5)
     {
-        currHoursStr = [NSString stringWithFormat:@"0%.00f", currHours];
+        currHoursStr = [NSString stringWithFormat:@"0%.00f",currHours];
     }
     
     if(currentInterval >= 0) {
@@ -137,52 +137,58 @@
     
     
     //right
-    double leftSeconds = fmod(timeLeftInterval, 60);
-    double leftMinutes = fmod(timeLeftInterval/60, 60);
-    double leftHours   = timeLeftInterval/ 3600;
+
+    NSTimeInterval nowToStart = [self.startDate timeIntervalSinceNow];
     
-    if(leftHours >= 1)
+    if(nowToStart > 0)
     {
-        if(leftHours > totalInterval/3600)
+        double leftDays  = nowToStart/ 3600 / 24;
+        NSString* leftDaysStr = [NSString stringWithFormat:@"%.00f", leftDays];
+        if([leftDaysStr isEqual:@"1"])
         {
-            NSTimeInterval nowToStart = [self.startDate timeIntervalSinceNow];
-            double leftDays  = nowToStart/ 3600*24;
-            NSString* leftDaysStr = [NSString stringWithFormat:@"%.00f", leftDays];
-            if([leftDaysStr isEqual:@"1"])
-            {
-                timeLeftLabel.text = @"1 More Day!";
-            } else if([leftDaysStr isEqual:@"0"]) {
-                timeLeftLabel.text = @"Starting Soon...";
-            } else {
-                timeLeftLabel.text = [NSString stringWithFormat:@"%.00f days to go", leftDays];
-            }
-            
-            timeLeftLabel.textColor = [UIColor grayColor];
+            timeLeftLabel.text = @"1 More Day!";
+        } else if([leftDaysStr isEqual:@"0"]) {
+            timeLeftLabel.text = @"Starting Soon...";
+        } else {
+            timeLeftLabel.text = [NSString stringWithFormat:@"%.00f days to go", leftDays];
         }
-        else {
-            timeLeftLabel.text = [NSString stringWithFormat:@"%.00f Hrs Left", leftHours];
-            timeLeftLabel.textColor = [JPStyle colorWithName:@"darkGreen"];
-        }
-    }
-    else if(leftMinutes >= 1)
-    {
-        timeLeftLabel.text = [NSString stringWithFormat:@"%.00f Mins Left", leftMinutes];
-        timeLeftLabel.textColor = [[UIColor orangeColor] darkerColor];
-        if(leftMinutes<20)
-        {
-            timeLeftLabel.textColor = [[UIColor redColor] darkerColor];
-        }
-    }
-    else if(leftSeconds >= 0.5)
-    {
-        timeLeftLabel.text = [NSString stringWithFormat:@"%.00f Secs Left", leftSeconds];
-        timeLeftLabel.textColor = [UIColor redColor];
-    }
-    else {
-        timeLeftLabel.text = @"Completed!";
+        
         timeLeftLabel.textColor = [UIColor grayColor];
     }
+    else
+    {
+        
+        double leftSeconds = fmod(timeLeftInterval, 60);
+        double leftMinutes = fmod(timeLeftInterval/60, 60);
+        double leftHours   = timeLeftInterval/ 3600;
+        
+        if(leftHours >= 1)
+        {
+          
+            timeLeftLabel.text = [NSString stringWithFormat:@"%.00f Hrs Left", leftHours];
+            timeLeftLabel.textColor = [JPStyle colorWithName:@"darkGreen"];
+            
+        }
+        else if(leftMinutes >= 1)
+        {
+            timeLeftLabel.text = [NSString stringWithFormat:@"%.00f Mins Left", leftMinutes];
+            timeLeftLabel.textColor = [[UIColor orangeColor] darkerColor];
+            if(leftMinutes<20)
+            {
+                timeLeftLabel.textColor = [[UIColor redColor] darkerColor];
+            }
+        }
+        else if(leftSeconds >= 0.5)
+        {
+            timeLeftLabel.text = [NSString stringWithFormat:@"%.00f Secs Left", leftSeconds];
+            timeLeftLabel.textColor = [UIColor redColor];
+        }
+        else {
+            timeLeftLabel.text = @"Completed!";
+            timeLeftLabel.textColor = [UIColor grayColor];
+        }
     
+    }
     
     
 }

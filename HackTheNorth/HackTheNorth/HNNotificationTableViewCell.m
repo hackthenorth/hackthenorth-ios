@@ -10,6 +10,7 @@
 #import "UserInterfaceConstants.h"
 #import "JPFont.h"
 #import "HNAvatarView.h"
+#import "JPGlobal.h"
 
 
 NSString* dateTextColor = @"0D7EA0";
@@ -26,21 +27,19 @@ NSString* dateTextColor = @"0D7EA0";
         avatarView = [[HNAvatarView alloc] initWithFrame:CGRectMake(20, 10, 40, 40)];
         [self addSubview:avatarView];
         
-        nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(65, 10, 195, 40)];
+        nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(65, 10, 190, 40)];
         nameLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:18];
-        nameLabel.text = @"Anonymous";
+        nameLabel.numberOfLines = 2;
         [self addSubview:nameLabel];
         
-        timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(kiPhoneWidthPortrait - 60, 10, 50, 16)];
-        timeLabel.text = @"12:00";
-        timeLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:14];
+        timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(kiPhoneWidthPortrait - 65, 10, 60, 16)];
+        timeLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:13];
         timeLabel.textColor = [UIColor grayColor];
         timeLabel.textAlignment = NSTextAlignmentRight;
         [self addSubview:timeLabel];
         
-        dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(kiPhoneWidthPortrait - 60, 26, 50, 16)];
-        dayLabel.text = @"July 29";
-        dayLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:14];
+        dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(kiPhoneWidthPortrait - 65, 26, 60, 16)];
+        dayLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:13];
         dayLabel.textColor = [UIColor grayColor];
         dayLabel.textAlignment = NSTextAlignmentRight;
         [self addSubview:dayLabel];
@@ -49,13 +48,8 @@ NSString* dateTextColor = @"0D7EA0";
         messageView.backgroundColor = [UIColor clearColor];
         messageView.editable = NO;
         messageView.selectable = NO;
-//        messageView.text = @"Empty Message";
-        messageView.text = @"Most people have a natural talent for persuasion. The problem for many is that they wield it against themselves and convince themselves either that they don’t deserve success or that it’s unattainable for reasons beyond their control. But self-persuasion doesn’t need to be destructive. It can, with some effort, be converted to a constructive tool that helps you change your narrative from one of limitation to one of possibility. The key is to train yourself to think like an entrepreneur, one who sees potential even in problems, and to talk to yourself the same way you would talk to a friend: logically and encouragingly, with plenty of concrete examples.";
         messageView.font = [UIFont fontWithName:[JPFont defaultFont] size:13];
         [self addSubview:messageView];
-        
-        
-        
         
         
     }
@@ -94,6 +88,15 @@ NSString* dateTextColor = @"0D7EA0";
 - (void)setDate:(NSDate *)date
 {
     _date = date;
+    
+    NSDateFormatter* timeFormatter = [[NSDateFormatter alloc] init];
+    [timeFormatter setDateFormat:@"hh:mm a"];
+    
+    timeLabel.text = [timeFormatter stringFromDate:date];
+    
+    
+    NSDateComponents* dateComp = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
+    dayLabel.text = [NSString stringWithFormat:@"%@ %d", [JPGlobal monthStringWithInt:[dateComp month]], [dateComp day]];
     
 }
 

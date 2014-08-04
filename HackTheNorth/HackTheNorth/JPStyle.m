@@ -223,110 +223,114 @@
 
 + (UIColor*)colorWithLetter: (NSString*)letter
 {
+    NSString* character = @"";
+    if(letter.length > 0) {
+        character = [[letter substringToIndex:1] lowercaseString];
+    }
     
     UIColor* color = [self rainbowColorWithIndex:(arc4random()%6)];
     
-    if([[[letter substringToIndex:1] lowercaseString] isEqual:@"a"])
+    if([character isEqual:@"a"])
     {
         color = [self rainbowColorWithIndex:0];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"b"])
+    else if([character isEqual:@"b"])
     {
         color = [self rainbowColorWithIndex:1];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"c"])
+    else if([character isEqual:@"c"])
     {
         color = [self rainbowColorWithIndex:2];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"d"])
+    else if([character isEqual:@"d"])
     {
         color = [self rainbowColorWithIndex:3];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"e"])
+    else if([character isEqual:@"e"])
     {
         color = [self rainbowColorWithIndex:4];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"f"])
+    else if([character isEqual:@"f"])
     {
         color = [self rainbowColorWithIndex:5];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"g"])
+    else if([character isEqual:@"g"])
     {
         color = [UIColor grayColor];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"h"])
+    else if([character isEqual:@"h"])
     {
         color = [self backgroundRainbowColorWithIndex:0];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"i"])
+    else if([character isEqual:@"i"])
     {
         color = [self backgroundRainbowColorWithIndex:6];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"j"])
+    else if([character isEqual:@"j"])
     {
         color = [self backgroundRainbowColorWithIndex:1];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"k"])
+    else if([character isEqual:@"k"])
     {
         color = [self backgroundRainbowColorWithIndex:3];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"l"])
+    else if([character isEqual:@"l"])
     {
         color = [self backgroundRainbowColorWithIndex:4];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"m"])
+    else if([character isEqual:@"m"])
     {
         color = [self backgroundRainbowColorWithIndex:5];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"n"])
+    else if([character isEqual:@"n"])
     {
         color = [self rainbowColorWithIndex:0];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"o"])
-    {
-        color = [self rainbowColorWithIndex:1];
-    }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"p"])
-    {
-        color = [self rainbowColorWithIndex:2];
-    }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"q"])
+    else if([character isEqual:@"o"])
     {
         color = [self rainbowColorWithIndex:3];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"r"])
+    else if([character isEqual:@"p"])
+    {
+        color = [self rainbowColorWithIndex:2];
+    }
+    else if([character isEqual:@"q"])
+    {
+        color = [self rainbowColorWithIndex:1];
+    }
+    else if([character isEqual:@"r"])
     {
         color = [self rainbowColorWithIndex:4];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"s"])
+    else if([character isEqual:@"s"])
     {
         color = [self rainbowColorWithIndex:5];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"t"])
+    else if([character isEqual:@"t"])
     {
         color = [self backgroundRainbowColorWithIndex:6];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"u"])
+    else if([character isEqual:@"u"])
     {
         color = [self backgroundRainbowColorWithIndex:0];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"v"])
+    else if([character isEqual:@"v"])
     {
         color = [self backgroundRainbowColorWithIndex:1];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"w"])
+    else if([character isEqual:@"w"])
     {
         color = [self backgroundRainbowColorWithIndex:4];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"x"])
+    else if([character isEqual:@"x"])
     {
         color = [self backgroundRainbowColorWithIndex:3];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"y"])
+    else if([character isEqual:@"y"])
     {
         color = [self backgroundRainbowColorWithIndex:6];
     }
-    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"z"])
+    else if([character isEqual:@"z"])
     {
         color = [self backgroundRainbowColorWithIndex:5];
     }
