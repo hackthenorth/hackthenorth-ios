@@ -67,7 +67,7 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
     NSDictionary* infoDict = [_infoArray objectAtIndex:indexPath.row];
     
     cell.title = [infoDict objectForKey:@"name"];
-    cell.subtitle = [NSString stringWithFormat:@"%@",[infoDict objectForKey:@"phone"]];
+    cell.subtitle = [NSString stringWithFormat:@"%@",[infoDict objectForKey:@"twitter"]];
     cell.detailList = [infoDict objectForKey:@"role"];
     
     return cell;

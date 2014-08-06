@@ -11,10 +11,18 @@
 @interface HNMainTabBarController : UITabBarController
 {
     UIView*  whiteView;
+    
+    NSTimer* gearTimer;
+    int      gearSide;
+    
+    CGFloat  originalImageWidth;
 }
 
 
 @property (nonatomic, strong) UIImageView* imageView;
+
+@property (nonatomic, strong) UIImageView* gearView;
+
 
 
 @end

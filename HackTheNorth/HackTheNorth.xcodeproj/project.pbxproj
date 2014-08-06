@@ -55,7 +55,6 @@
 		AAAC61C81991F8080043A6CD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAC61C61991F7E90043A6CD /* SystemConfiguration.framework */; };
 		AAAC61CB1991F8240043A6CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAC61C91991F8130043A6CD /* UIKit.framework */; };
 		AAAC61CE1991F83B0043A6CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAC61CC1991F8300043A6CD /* Foundation.framework */; };
-		AAAC61D4199201640043A6CD /* HNEntranceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC61D3199201640043A6CD /* HNEntranceViewController.m */; };
 		AAAC61D71992049A0043A6CD /* HNMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC61D61992049A0043A6CD /* HNMainTabBarController.m */; };
 		AAAC61D9199210760043A6CD /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AAAC61D8199210760043A6CD /* data.json */; };
 /* End PBXBuildFile section */
@@ -165,8 +164,6 @@
 		AAAC61C61991F7E90043A6CD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AAAC61C91991F8130043A6CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AAAC61CC1991F8300043A6CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		AAAC61D2199201630043A6CD /* HNEntranceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNEntranceViewController.h; sourceTree = "<group>"; };
-		AAAC61D3199201640043A6CD /* HNEntranceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNEntranceViewController.m; sourceTree = "<group>"; };
 		AAAC61D51992049A0043A6CD /* HNMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNMainTabBarController.h; sourceTree = "<group>"; };
 		AAAC61D61992049A0043A6CD /* HNMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNMainTabBarController.m; sourceTree = "<group>"; };
 		AAAC61D8199210760043A6CD /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
@@ -284,8 +281,6 @@
 				AAAC61C41991C7900043A6CD /* HNDataManager.m */,
 				AA63DCBA196E1A42001D9768 /* Main.storyboard */,
 				AA63DCDD196E24CB001D9768 /* Convenience Classes */,
-				AAAC61D2199201630043A6CD /* HNEntranceViewController.h */,
-				AAAC61D3199201640043A6CD /* HNEntranceViewController.m */,
 				AAAC61D51992049A0043A6CD /* HNMainTabBarController.h */,
 				AAAC61D61992049A0043A6CD /* HNMainTabBarController.m */,
 				AA63DCE4196E32FC001D9768 /* Notification View Controller */,
@@ -558,7 +553,6 @@
 				AA63DCB0196E1A42001D9768 /* main.m in Sources */,
 				AA34FA9D198D639000A73292 /* HNPrizesViewController.m in Sources */,
 				AA63DCDB196E24C6001D9768 /* JPStyle.m in Sources */,
-				AAAC61D4199201640043A6CD /* HNEntranceViewController.m in Sources */,
 				AA34FAA0198D650100A73292 /* HNScrollListCell.m in Sources */,
 				AA1FC0A6198F443800B1B765 /* AutoScrollLabel.m in Sources */,
 				AA34FA4819888CF300A73292 /* HNScheduleViewController.m in Sources */,
