@@ -57,6 +57,7 @@
 		AAAC61CE1991F83B0043A6CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAC61CC1991F8300043A6CD /* Foundation.framework */; };
 		AAAC61D4199201640043A6CD /* HNEntranceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC61D3199201640043A6CD /* HNEntranceViewController.m */; };
 		AAAC61D71992049A0043A6CD /* HNMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC61D61992049A0043A6CD /* HNMainTabBarController.m */; };
+		AAAC61D9199210760043A6CD /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AAAC61D8199210760043A6CD /* data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +169,7 @@
 		AAAC61D3199201640043A6CD /* HNEntranceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNEntranceViewController.m; sourceTree = "<group>"; };
 		AAAC61D51992049A0043A6CD /* HNMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNMainTabBarController.h; sourceTree = "<group>"; };
 		AAAC61D61992049A0043A6CD /* HNMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNMainTabBarController.m; sourceTree = "<group>"; };
+		AAAC61D8199210760043A6CD /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,16 +283,17 @@
 				AAAC61C31991C7900043A6CD /* HNDataManager.h */,
 				AAAC61C41991C7900043A6CD /* HNDataManager.m */,
 				AA63DCBA196E1A42001D9768 /* Main.storyboard */,
+				AA63DCDD196E24CB001D9768 /* Convenience Classes */,
 				AAAC61D2199201630043A6CD /* HNEntranceViewController.h */,
 				AAAC61D3199201640043A6CD /* HNEntranceViewController.m */,
 				AAAC61D51992049A0043A6CD /* HNMainTabBarController.h */,
 				AAAC61D61992049A0043A6CD /* HNMainTabBarController.m */,
-				AA63DCDD196E24CB001D9768 /* Convenience Classes */,
 				AA63DCE4196E32FC001D9768 /* Notification View Controller */,
 				AA34FA4C198891AD00A73292 /* Schedule View Controller */,
 				AA1FC0A7198F539500B1B765 /* Prizes View Controller */,
 				AA1FC0AE198F54A000B1B765 /* Mentors & Team VCs */,
 				AA63DCBD196E1A42001D9768 /* Images.xcassets */,
+				AAAC61D8199210760043A6CD /* data.json */,
 				AA63DCAD196E1A42001D9768 /* Supporting Files */,
 			);
 			path = HackTheNorth;
@@ -495,6 +498,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAAC61D9199210760043A6CD /* data.json in Resources */,
 				AAAC61B71991C6870043A6CD /* LICENSE in Resources */,
 				AA63DCBC196E1A42001D9768 /* Main.storyboard in Resources */,
 				AA63DCBE196E1A42001D9768 /* Images.xcassets in Resources */,

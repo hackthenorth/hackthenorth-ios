@@ -108,6 +108,25 @@
 
 
 
+- (void)saveFromOfflineIfNoFile
+{
+    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
+    NSData* data = [NSData dataWithContentsOfFile:filePath];
+    NSDictionary* fileDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    
+    for(NSString* keyName in [self keyNames])
+    {
+        NSArray* keyArray = [fileDictionary objectForKey:keyName];
+        
+        NSData* localData = [NSJSONSerialization dataWithJSONObject:keyArray options:0 error:nil];
+        
+        [self saveData:localData toFileWithName:[NSString stringWithFormat:@"%@.json", keyName]];
+    }
+    
+    [self performSelectorOnMainThread:@selector(postNeedUpdateDataNotification) withObject:nil waitUntilDone:YES];
+}
+
+
 - (void)saveData: (NSData*)data toFileWithName: (NSString*)filename
 {
     if(!data || !filename)
@@ -116,7 +135,7 @@
         return;
     }
     
-    NSString* dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//    NSString* dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
     NSURL* url = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:nil];
     
@@ -132,8 +151,13 @@
     NSURL* url = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:nil];
 
     NSURL* fileURL = [url URLByAppendingPathComponent:fileName];
-    
     NSData* fileData = [[NSFileManager defaultManager] contentsAtPath:[fileURL path]];
+    
+    if(!fileData) //if Offline
+    {
+        [self saveFromOfflineIfNoFile];
+        fileData = [[NSFileManager defaultManager] contentsAtPath:[fileURL path]];
+    }
     
     NSArray* fileArray = [NSJSONSerialization JSONObjectWithData:fileData options:NSJSONReadingAllowFragments error:nil];
     
