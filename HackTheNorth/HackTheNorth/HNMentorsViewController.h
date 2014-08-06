@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class HNDataManager;
 @interface HNMentorsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+{
+    HNDataManager*  manager;
+    NSArray*     _infoArray;
+}
+
 
 
 @property (nonatomic, strong) UITableView* tableView;
+
+
 
 @end

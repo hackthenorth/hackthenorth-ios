@@ -9,6 +9,8 @@
 #import "HNPrizesViewController.h"
 #import "UserInterfaceConstants.h"
 #import "HNScrollListCell.h"
+#import "HNDataManager.h"
+
 
 static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifier";
 
@@ -19,6 +21,7 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 {
     [super viewDidLoad];
     
+    manager = [[HNDataManager alloc] init];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait) style:UITableViewStylePlain];
     
@@ -34,18 +37,24 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
-    [self.tableView reloadData];
+    [self reloadData];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kNeedUpdateDataNotification object:nil];
+    
 }
 
 
+- (void)reloadData
+{
+    _infoArray = [manager retrieveArrayFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][2]]];
+    [self.tableView reloadData];
+}
 
 
 #pragma mark - UI Table View Data Source Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return [_infoArray count];
 }
 
 
@@ -54,11 +63,14 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 {
     HNScrollListCell* cell = (HNScrollListCell*)[self.tableView dequeueReusableCellWithIdentifier:kHNScrollListCellIdentifier];
     
+    NSDictionary* infoDict = [_infoArray objectAtIndex:indexPath.row];
     
-    cell.title =  @"Most Innovative App of the Event";
-    cell.subtitle = @"YCombinator and Velocity";
     
-    cell.detailList = @[@"ARDrone", @"Kobo eReader", @"XBox One", @"Leap Motion", @"Myo", @"Moto 360"];
+    cell.title = [infoDict objectForKey:@"name"];
+    cell.subtitle = [infoDict objectForKey:@"company"];
+    
+//    cell.detailList = @[@"ARDrone", @"Kobo eReader", @"XBox One", @"Leap Motion", @"Myo", @"Moto 360"];
+    cell.detailList = [infoDict objectForKey:@"prize"];
     
     return cell;
 }
@@ -80,7 +92,12 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 
 
 
-
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
 
 
 

@@ -9,6 +9,7 @@
 #import "HNMentorsViewController.h"
 #import "UserInterfaceConstants.h"
 #import "HNScrollListCell.h"
+#import "HNDataManager.h"
 
 static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifier";
 
@@ -18,6 +19,7 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 {
     [super viewDidLoad];
     
+    manager = [[HNDataManager alloc] init];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait) style:UITableViewStylePlain];
     
@@ -33,17 +35,25 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.tableView reloadData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kNeedUpdateDataNotification object:nil];
+    
+    [self reloadData];
 }
 
 
+- (void)reloadData
+{
+    _infoArray = [manager retrieveArrayFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][3]]];
+    [self.tableView reloadData];
+}
 
 
 #pragma mark - UI Table View Data Source Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return [_infoArray count];
 }
 
 
@@ -54,11 +64,12 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
     
     HNScrollListCell* cell = (HNScrollListCell*)[self.tableView dequeueReusableCellWithIdentifier:kHNScrollListCellIdentifier];
     
+    NSDictionary* infoDict = [_infoArray objectAtIndex:indexPath.row];
     
-    cell.title =  @"Johnny Appleseed";
-    cell.subtitle = @"Foursquare";
+    cell.title =  [infoDict objectForKey:@"name"];
+    cell.subtitle = [infoDict objectForKey:@"organization"];
     
-    cell.detailList = @[@"Objective C", @"Java", @"JS", @"jQuery", @"C#", @"C++"];
+    cell.detailList = [infoDict objectForKey:@"skills"];
     
     return cell;
 }
@@ -77,7 +88,12 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 }
 
 
-
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
 
 
 

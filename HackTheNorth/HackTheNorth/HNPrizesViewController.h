@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class HNDataManager;
 @interface HNPrizesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-
+{
+    HNDataManager*  manager;
+    NSArray*     _infoArray;
+}
 
 
 

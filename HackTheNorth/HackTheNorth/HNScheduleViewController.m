@@ -12,6 +12,7 @@
 #import "HNScheduleTableViewCell.h"
 #import "JPStyle.h"
 #import "HNScheduleDetailViewController.h"
+#import "HNDataManager.h"
 
 @implementation HNScheduleViewController
 
@@ -19,7 +20,10 @@
 {
     [super viewDidLoad];
     
-    _sectionTitles = @[@"Friday Presentations", @"Saturday Presentations", @"Sunday Presentations"];
+    _sectionTitles = @[@"Friday Event", @"Saturday Event", @"Sunday Event"];
+    
+    manager = [[HNDataManager alloc] init];
+    _infoArray = @[];
     
     NSDateComponents* startComp = [[NSDateComponents alloc] init];
     [startComp setDay:20];
@@ -53,12 +57,24 @@
     [self.tableView registerClass:[HNScheduleTableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
     [self.view addSubview:self.tableView];
     
-    
-    
-    
-    
+
 }
 
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self reloadData];
+    
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kNeedUpdateDataNotification object:nil];
+}
+
+
+- (void)reloadData
+{
+    _infoArray = [manager retrieveArrayFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][1]]];
+    [self.tableView reloadData];
+}
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -68,7 +84,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return [_infoArray count];
     
 }
 
@@ -77,10 +93,15 @@
 {
     HNScheduleTableViewCell* cell = (HNScheduleTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier"];
     
-    cell.name = @"Introductory Talk for Hack the North Event";
-    cell.location = @"E5 2001";
-    cell.time = @"12:00";
-    cell.speaker = @"Ariel Garten";
+    NSDictionary* infoDict = [_infoArray objectAtIndex:indexPath.row];
+    
+    cell.name = [infoDict objectForKey:@"name"];
+    cell.location = [infoDict objectForKey:@"location"];
+
+    cell.startTime = [infoDict objectForKey:@"start_time"];
+    cell.speaker = [infoDict objectForKey:@"speaker"];
+    cell.descriptor = [infoDict objectForKey:@"description"];
+    cell.type = [infoDict objectForKey:@"type"];
     
     return cell;
 }
@@ -99,7 +120,7 @@
     HNScheduleDetailViewController* detailContorller=  [[HNScheduleDetailViewController alloc] initWithNibName:nil bundle:nil];
     
     detailContorller.cell = [(HNScheduleTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath] copy];
-    
+    detailContorller.title = _sectionTitles[indexPath.section];
     
     [self.navigationController pushViewController:detailContorller animated:YES];
 }
@@ -111,6 +132,11 @@
 }
 
 
-
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
 
 @end

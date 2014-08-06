@@ -78,10 +78,18 @@
     
     for(NSString* itemName in detailList)
     {
-        CGFloat itemWidth = [HNScrollListItem widthWithString: itemName];
+        NSString* capItemName = itemName;
+        if(itemName && ![itemName isEqual:@""])
+        {
+            NSString* cap = [[itemName substringToIndex:1] uppercaseString];
+            NSString* half = [itemName substringFromIndex:1];
+            capItemName = [cap stringByAppendingString:half];
+        }
+        
+        CGFloat itemWidth = [HNScrollListItem widthWithString: capItemName];
         
         HNScrollListItem* itemView = [[HNScrollListItem alloc] initWithFrame:CGRectMake(currXPos, 0, itemWidth, scrollListView.frame.size.height)];
-        itemView.text = itemName;
+        itemView.text = capItemName;
         currXPos += itemWidth + 10;
         
         [scrollListView addSubview:itemView];

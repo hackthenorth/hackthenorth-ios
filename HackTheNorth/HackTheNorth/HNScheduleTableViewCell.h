@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class HNAvatarView;
+@class HNAvatarView, HNDataManager;
 @interface HNScheduleTableViewCell : UITableViewCell
 {
+    HNDataManager* manager;
     HNAvatarView* avatarView;
     
     UILabel*     nameLabel;
@@ -26,11 +27,11 @@
 
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSString* location;
-@property (nonatomic, strong) NSString* time;
+@property (nonatomic, strong) NSString* startTime;
 @property (nonatomic, strong) NSString* speaker;
-
-
-
+@property (nonatomic, strong) NSString* descriptor;
+@property (nonatomic, strong) NSString* type;
+@property (nonatomic, strong) NSString* endTime;
 
 @end
 

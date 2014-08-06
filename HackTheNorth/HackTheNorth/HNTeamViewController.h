@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-
+@class HNDataManager;
 @interface HNTeamViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
-
+{
+    HNDataManager*  manager;
+    NSArray*     _infoArray;
+}
 
 @property (nonatomic, strong) UITableView* tableView;
 

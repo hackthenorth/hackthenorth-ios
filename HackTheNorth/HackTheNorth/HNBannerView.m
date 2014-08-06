@@ -8,6 +8,7 @@
 
 #import "HNBannerView.h"
 
+
 @implementation HNBannerView
 
 - (id)initWithFrame:(CGRect)frame
@@ -38,7 +39,7 @@
         [self setContentOffset:CGPointMake(_bannerWidth, 0) animated:NO];
         
         //Setting up Automatic Scrolling
-        _scrollTimer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(autoscrollBanner) userInfo:nil repeats:YES];
+        _scrollTimer = [NSTimer scheduledTimerWithTimeInterval:7 target:self selector:@selector(autoscrollBanner) userInfo:nil repeats:YES];
 
         
     }

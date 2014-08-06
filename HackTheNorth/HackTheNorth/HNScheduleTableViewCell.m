@@ -11,6 +11,7 @@
 #import "JPFont.h"
 #import "JPStyle.h"
 #import "HNAvatarView.h"
+#import "HNDataManager.h"
 
 @implementation HNScheduleTableViewCell
 
@@ -19,9 +20,11 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
+    manager = [[HNDataManager alloc] init];
+    
     // Initialization code
     self.separatorInset = UIEdgeInsetsMake(0, kiPhoneWidthPortrait, 0, 0);
-    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    self.accessoryType = UITableViewCellAccessoryNone;
     
     avatarView = [[HNAvatarView alloc] initWithFrame:CGRectMake(20, 10, 40, 40)];
     [self addSubview:avatarView];
@@ -32,15 +35,14 @@
 
     [self addSubview:nameLabel];
     
-    locationLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 60, 100, 20)];
+    locationLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 60, 70, 20)];
 
     locationLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:15];
     locationLabel.textColor = [UIColor grayColor];
     locationLabel.textAlignment = NSTextAlignmentLeft;
     [self addSubview:locationLabel];
     
-    timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(130, 60, 70, 20)];
-
+    timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(110, 60, 90, 20)];
     timeLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:15];
     timeLabel.textColor = [UIColor grayColor];
     timeLabel.textAlignment = NSTextAlignmentLeft;
@@ -54,15 +56,15 @@
     speakerLabel.textAlignment = NSTextAlignmentLeft;
     [self addSubview:speakerLabel];
     
-    UIImageView* locationIcon = [[UIImageView alloc] initWithFrame:CGRectMake(18, 64, 12, 12)];
+    UIImageView* locationIcon = [[UIImageView alloc] initWithFrame:CGRectMake(8, 64.5, 12, 12)];
     [locationIcon setImage:[UIImage imageNamed:@"locationIcon"]];
     [self addSubview:locationIcon];
     
-    UIImageView* timeIcon = [[UIImageView alloc] initWithFrame:CGRectMake(118, 64, 12, 12)];
+    UIImageView* timeIcon = [[UIImageView alloc] initWithFrame:CGRectMake(98, 64.5, 12, 12)];
     [timeIcon setImage:[UIImage imageNamed:@"timeIcon"]];
     [self addSubview:timeIcon];
     
-    UIImageView* speakerIcon = [[UIImageView alloc] initWithFrame:CGRectMake(188, 64, 12, 12)];
+    UIImageView* speakerIcon = [[UIImageView alloc] initWithFrame:CGRectMake(188, 64.5, 12, 12)];
     [speakerIcon setImage:[UIImage imageNamed:@"speakerIcon"]];
     [self addSubview:speakerIcon];
     
@@ -84,11 +86,15 @@
     locationLabel.text = location;
 }
 
-- (void)setTime:(NSString *)time
+- (void)setStartTime:(NSString *)startTime
 {
-    _time = time;
-    timeLabel.text = time;
+    _startTime = startTime;
+    
+    NSDate* startDate = [manager dateWithISO8601CompatibleString:self.startTime];
+    timeLabel.text = [manager timeStringFromDate:startDate];
+    
 }
+
 
 
 - (void)setSpeaker:(NSString *)speaker
@@ -102,9 +108,12 @@
 {
     HNScheduleTableViewCell* newCell = [[HNScheduleTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuseIdentifier"];
     newCell.name = self.name;
-    newCell.time = self.time;
+    newCell.startTime = self.startTime;
     newCell.location = self.location;
     newCell.speaker = self.speaker;
+    newCell.descriptor = self.descriptor;
+    newCell.type = self.type;
+    newCell.endTime = self.endTime;
     
     return newCell;
 }

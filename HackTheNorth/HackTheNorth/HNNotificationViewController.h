@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class HNBannerView;
+@class HNBannerView, HNDataManager;
 @interface HNNotificationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-
+{
+    HNDataManager*  manager;
+    NSArray*     _infoArray;
+}
 
 
 

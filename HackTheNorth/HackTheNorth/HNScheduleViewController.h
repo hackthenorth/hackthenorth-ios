@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class HNScheduleProgressView;
+@class HNScheduleProgressView, HNDataManager;
 @interface HNScheduleViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
+    HNDataManager*  manager;
+    NSArray*     _infoArray;
+    
     NSArray*  _sectionTitles;
     
 }

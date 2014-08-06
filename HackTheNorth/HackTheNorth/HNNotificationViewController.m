@@ -11,6 +11,7 @@
 #import "HNBannerView.h"
 #import "HNNotificationTableViewCell.h"
 #import "JPStyle.h"
+#import "HNDataManager.h"
 
 @interface HNNotificationViewController ()
             
@@ -21,7 +22,9 @@
             
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+     manager = [[HNDataManager alloc] init];
+    _infoArray = @[];
     
     self.banner = [[HNBannerView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight, kiPhoneWidthPortrait, 150)];
     self.banner.imgNameArray = [@[@"hackTheNorthBanner", @"hackersBanner", @"hoursBanner", @"locationBanner"] mutableCopy];
@@ -39,14 +42,29 @@
     [self.tableView registerClass:[HNNotificationTableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
     [self.view addSubview:self.tableView];
     
+    
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kNeedUpdateDataNotification object:nil];
     
     [self.banner activateAutoscroll];
+    [self reloadData];
 }
+
+
+- (void)reloadData
+{
+   
+    _infoArray = [manager retrieveArrayFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][0]]];
+    [self.tableView reloadData];
+    
+}
+
 
 
 #pragma mark - Table View Data Source
@@ -57,7 +75,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return [_infoArray count];
 }
 
 
@@ -65,11 +83,22 @@
 {
     
     HNNotificationTableViewCell* cell = [[HNNotificationTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuseIdentifier"];
+    
+    NSDictionary* infoDict = _infoArray[indexPath.row];
+    
+    
     cell.name = @"Hack The North";
-    
     cell.date = [NSDate date];
+    cell.message = @"No Message";
     
-    cell.message = @"Most people have a natural talent for persuasion. The problem for many is that they wield it against themselves and convince themselves either that";
+    if([infoDict objectForKey:@"name"])
+        cell.name = [infoDict objectForKey:@"name"];
+    
+    if([infoDict objectForKey:@"time"])
+        cell.date = [manager dateWithISO8601CompatibleString:[infoDict objectForKey:@"time"]];
+    
+    if([infoDict objectForKey:@"description"])
+        cell.message = [infoDict objectForKey:@"description"];
     
     return cell;
     
@@ -98,6 +127,8 @@
     [super viewWillDisappear:animated];
     
     [self.banner pauseAutoscroll];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
 }
 
 
