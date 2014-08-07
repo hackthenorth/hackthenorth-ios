@@ -36,8 +36,7 @@
 {
     [super viewDidAppear:animated];
     
-    NSTimer* timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(revealViewController) userInfo:nil repeats:NO];
-    [self silenceWarning:timer];
+    [self performSelector:@selector(revealViewController) withObject:nil afterDelay:3];
     
     gearSide = 0;
     gearTimer = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(spinGear) userInfo:nil repeats:YES];
@@ -76,14 +75,9 @@
         [UIApplication sharedApplication].statusBarHidden = NO;
     } completion:nil];
     
-    [gearTimer invalidate];
+    [gearTimer performSelector:@selector(invalidate) withObject:nil afterDelay:2];
 }
 
-
-- (void)silenceWarning: (NSTimer*)timer
-{
-    //TEMPORARY
-}
 
 
 

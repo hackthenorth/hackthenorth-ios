@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface HNScrollView : UIScrollView <UIGestureRecognizerDelegate>
-
+{
+    BOOL  _nextResponderTouchEnded;
+}
 
 
 @end

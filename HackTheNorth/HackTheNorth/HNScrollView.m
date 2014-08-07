@@ -17,6 +17,8 @@
     for(UIGestureRecognizer* rec in self.gestureRecognizers)
     {
         rec.delegate = self;
+        _nextResponderTouchEnded = YES;
+        
     }
     
     
@@ -24,11 +26,56 @@
 }
 
 
-#pragma mark - Gesture Recognizer Delegate
+#pragma mark - Touches
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    return YES;
+    if(!self.dragging)
+    {
+        [self.nextResponder touchesBegan:touches withEvent:event];
+        _nextResponderTouchEnded = NO;
+    }
+    else {
+        [super touchesBegan:touches withEvent:event];
+    }
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if(!_nextResponderTouchEnded)
+    {
+        [self.nextResponder touchesCancelled:touches withEvent:event];
+        _nextResponderTouchEnded = YES;
+    }
+    
+    [super touchesMoved:touches withEvent:event];
+}
+
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
+    if(!_nextResponderTouchEnded)
+    {
+        [self.nextResponder touchesCancelled:touches withEvent:event];
+        _nextResponderTouchEnded = YES;
+    }
+    
+    [super touchesCancelled:touches withEvent:event];
+    
+}
+
+
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if(!self.dragging)
+    {
+        [self.nextResponder touchesEnded:touches withEvent:event];
+    }
+    else {
+        [super touchesEnded:touches withEvent:event];
+    }
 }
 
 

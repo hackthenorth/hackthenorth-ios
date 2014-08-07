@@ -86,7 +86,7 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    
+    NSLog(@"Cell Selected!");
 }
 
 
