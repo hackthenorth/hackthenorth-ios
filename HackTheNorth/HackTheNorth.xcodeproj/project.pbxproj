@@ -12,6 +12,7 @@
 		AA1FC0AD198F545B00B1B765 /* HNTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1FC0AC198F545B00B1B765 /* HNTeamViewController.m */; };
 		AA1FC0B1198F595000B1B765 /* HNScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1FC0B0198F595000B1B765 /* HNScrollView.m */; };
 		AA1FC0B4198F5BD500B1B765 /* HNScheduleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1FC0B3198F5BD500B1B765 /* HNScheduleDetailViewController.m */; };
+		AA2006F0199307E0007E3F48 /* NSDate+HNConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2006EF199307E0007E3F48 /* NSDate+HNConvenience.m */; };
 		AA34FA3E1988888200A73292 /* HNAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA34FA3D1988888200A73292 /* HNAvatarView.m */; };
 		AA34FA4419888CD300A73292 /* LDProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA34FA4119888CD300A73292 /* LDProgressView.m */; };
 		AA34FA4519888CD300A73292 /* UIColor+RGBValues.m in Sources */ = {isa = PBXBuildFile; fileRef = AA34FA4319888CD300A73292 /* UIColor+RGBValues.m */; };
@@ -80,6 +81,8 @@
 		AA1FC0B0198F595000B1B765 /* HNScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNScrollView.m; sourceTree = "<group>"; };
 		AA1FC0B2198F5BD500B1B765 /* HNScheduleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNScheduleDetailViewController.h; sourceTree = "<group>"; };
 		AA1FC0B3198F5BD500B1B765 /* HNScheduleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNScheduleDetailViewController.m; sourceTree = "<group>"; };
+		AA2006EE199307E0007E3F48 /* NSDate+HNConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+HNConvenience.h"; sourceTree = "<group>"; };
+		AA2006EF199307E0007E3F48 /* NSDate+HNConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HNConvenience.m"; sourceTree = "<group>"; };
 		AA34FA3C1988888200A73292 /* HNAvatarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNAvatarView.h; sourceTree = "<group>"; };
 		AA34FA3D1988888200A73292 /* HNAvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNAvatarView.m; sourceTree = "<group>"; };
 		AA34FA4019888CD300A73292 /* LDProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDProgressView.h; sourceTree = "<group>"; };
@@ -279,6 +282,8 @@
 				AA63DCB2196E1A42001D9768 /* AppDelegate.m */,
 				AAAC61C31991C7900043A6CD /* HNDataManager.h */,
 				AAAC61C41991C7900043A6CD /* HNDataManager.m */,
+				AA2006EE199307E0007E3F48 /* NSDate+HNConvenience.h */,
+				AA2006EF199307E0007E3F48 /* NSDate+HNConvenience.m */,
 				AA63DCBA196E1A42001D9768 /* Main.storyboard */,
 				AA63DCDD196E24CB001D9768 /* Convenience Classes */,
 				AAAC61D51992049A0043A6CD /* HNMainTabBarController.h */,
@@ -542,6 +547,7 @@
 				AAAC61B01991C6870043A6CD /* AFHTTPSessionManager.m in Sources */,
 				AA34FA4519888CD300A73292 /* UIColor+RGBValues.m in Sources */,
 				AAAC61B11991C6870043A6CD /* AFNetworkReachabilityManager.m in Sources */,
+				AA2006F0199307E0007E3F48 /* NSDate+HNConvenience.m in Sources */,
 				AA1FC0B4198F5BD500B1B765 /* HNScheduleDetailViewController.m in Sources */,
 				AAAC61AF1991C6870043A6CD /* AFHTTPRequestOperationManager.m in Sources */,
 				AAAC61B41991C6870043A6CD /* AFURLRequestSerialization.m in Sources */,

@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class HNDataManager;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+{
+    HNDataManager* dataManager;
+}
+
 
 @property (strong, nonatomic) UIWindow *window;
 

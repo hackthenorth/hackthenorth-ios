@@ -12,6 +12,7 @@
 #import "HNNotificationTableViewCell.h"
 #import "JPStyle.h"
 #import "HNDataManager.h"
+#import "NSDate+HNConvenience.h"
 
 @interface HNNotificationViewController ()
             
@@ -95,7 +96,7 @@
         cell.name = [infoDict objectForKey:@"name"];
     
     if([infoDict objectForKey:@"time"])
-        cell.date = [manager dateWithISO8601CompatibleString:[infoDict objectForKey:@"time"]];
+        cell.date = [NSDate dateWithISO8601CompatibleString:[infoDict objectForKey:@"time"]];
     
     if([infoDict objectForKey:@"description"])
         cell.message = [infoDict objectForKey:@"description"];

@@ -73,6 +73,7 @@
         
         whiteView.alpha = 0;
         
+        [UIApplication sharedApplication].statusBarHidden = NO;
     } completion:nil];
     
     [gearTimer invalidate];
@@ -83,6 +84,8 @@
 {
     //TEMPORARY
 }
+
+
 
 
 @end

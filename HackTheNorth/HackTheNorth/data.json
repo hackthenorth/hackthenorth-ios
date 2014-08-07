@@ -34,7 +34,7 @@
     }
   },
   "mentors" : [ {
-    "availability" : [ [ "2014-09-21T18:30:11-04:00", "2014-09-21T18:40:11-04:00" ] ],
+    "availability" : [ [ "2014-09-21T18:30:11-05:00", "2014-09-21T18:40:11-05:00" ] ],
     "name" : "Joe Doe",
     "organization" : "Microsoft",
     "skills" : [ "Python", "Java", "C#" ]
@@ -70,11 +70,11 @@
    ],
   "schedule" : [ {
     "description" : "Do not transmit nudity, sexually harass anyone, publicize other peoples' private information, make statements that defame or libel anyone, violate intellectual property rights, or behave in any other inappropriate or illegal way on Omegle. Understand that human behavior is fundamentally uncontrollable, that the people you encounter on Omegle may not behave appropriately, and that they are solely responsible for their own behavior. Use Omegle at your own peril. Disconnect if anyone makes you feel uncomfortable. You may be denied access to Omegle for inappropriate behavior, or for any other reason. ",
-    "end_time" : "2014-09-21T19:30:11-04:00",
+    "end_time" : "2014-09-21T19:30:11-05:00",
     "location" : "E5 2001",
     "name" : "Learn from Hackers in Startups",
     "speaker" : "Velocity Manager",
-    "start_time" : "2014-09-21T18:30:11-04:00",
+    "start_time" : "2014-09-21T18:30:11-05:00",
     "type" : "event"
   } ],
   "team" : [ {
@@ -87,10 +87,10 @@
   "updates" : [ {
     "description" : "Food will be ready in a few minutes. It's time to take a break.",
     "name" : "Si Te Feng",
-    "time" : "2014-09-21T18:30:11-04:00"
+    "time" : "2014-09-21T18:30:11-05:00"
   }, {
     "description" : "Wifi is currently being interrupted by malicious attacks. Our secret agents are working to resolve the issue.",
     "name" : "Kartik Talwar",
-    "time" : "2014-09-21T19:30:11-04:00"
+    "time" : "2014-09-21T19:30:11-05:00"
   } ]
 }

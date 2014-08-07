@@ -14,6 +14,9 @@
     HNDataManager*  manager;
     NSArray*     _infoArray;
     
+    NSMutableArray* _friSatSunArray;
+    
+    
     NSArray*  _sectionTitles;
     
 }

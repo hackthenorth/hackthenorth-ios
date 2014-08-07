@@ -13,6 +13,7 @@
 #import "JPStyle.h"
 #import "HNScheduleDetailViewController.h"
 #import "HNDataManager.h"
+#import "NSDate+HNConvenience.h"
 
 @implementation HNScheduleViewController
 
@@ -66,25 +67,37 @@
     [super viewWillAppear:animated];
     [self reloadData];
     
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kNeedUpdateDataNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kNeedUpdateDataNotification object:nil];
 }
 
 
 - (void)reloadData
 {
     _infoArray = [manager retrieveArrayFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][1]]];
+    
+    _friSatSunArray = [NSMutableArray arrayWithObjects:[@[] mutableCopy],[@[]mutableCopy],[@[]mutableCopy], nil];
+    
+    for(NSDictionary* dict in _infoArray)
+    {
+        NSString* start_time = [dict objectForKey:@"start_time"];
+        NSDate* startDate = [NSDate dateWithISO8601CompatibleString:start_time];
+        NSInteger friSatSunInt = [startDate friSatSunInteger];
+        if(friSatSunInt != -1)
+            [_friSatSunArray[friSatSunInt] addObject:dict];
+    }
+    
     [self.tableView reloadData];
 }
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [_sectionTitles count];
+    return [_friSatSunArray count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_infoArray count];
+    return [_friSatSunArray[section] count];
     
 }
 
@@ -93,7 +106,7 @@
 {
     HNScheduleTableViewCell* cell = (HNScheduleTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier"];
     
-    NSDictionary* infoDict = [_infoArray objectAtIndex:indexPath.row];
+    NSDictionary* infoDict = _friSatSunArray[indexPath.section][indexPath.row];
     
     cell.name = [infoDict objectForKey:@"name"];
     cell.location = [infoDict objectForKey:@"location"];

@@ -11,7 +11,8 @@
 #import "JPFont.h"
 #import "JPStyle.h"
 #import "HNAvatarView.h"
-#import "HNDataManager.h"
+
+#import "NSDate+HNConvenience.h"
 
 @implementation HNScheduleTableViewCell
 
@@ -20,7 +21,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
-    manager = [[HNDataManager alloc] init];
+
     
     // Initialization code
     self.separatorInset = UIEdgeInsetsMake(0, kiPhoneWidthPortrait, 0, 0);
@@ -42,14 +43,14 @@
     locationLabel.textAlignment = NSTextAlignmentLeft;
     [self addSubview:locationLabel];
     
-    timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(110, 60, 90, 20)];
+    timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 60, 90, 20)];
     timeLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:15];
     timeLabel.textColor = [UIColor grayColor];
     timeLabel.textAlignment = NSTextAlignmentLeft;
     [self addSubview:timeLabel];
     
     
-    speakerLabel = [[UILabel alloc] initWithFrame:CGRectMake(200, 60, 120, 20)];
+    speakerLabel = [[UILabel alloc] initWithFrame:CGRectMake(190, 60, 130, 20)];
 
     speakerLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:15];
     speakerLabel.textColor = [UIColor grayColor];
@@ -60,11 +61,11 @@
     [locationIcon setImage:[UIImage imageNamed:@"locationIcon"]];
     [self addSubview:locationIcon];
     
-    UIImageView* timeIcon = [[UIImageView alloc] initWithFrame:CGRectMake(98, 64.5, 12, 12)];
+    UIImageView* timeIcon = [[UIImageView alloc] initWithFrame:CGRectMake(88, 64.5, 12, 12)];
     [timeIcon setImage:[UIImage imageNamed:@"timeIcon"]];
     [self addSubview:timeIcon];
     
-    UIImageView* speakerIcon = [[UIImageView alloc] initWithFrame:CGRectMake(188, 64.5, 12, 12)];
+    UIImageView* speakerIcon = [[UIImageView alloc] initWithFrame:CGRectMake(178, 64.5, 12, 12)];
     [speakerIcon setImage:[UIImage imageNamed:@"speakerIcon"]];
     [self addSubview:speakerIcon];
     
@@ -90,8 +91,8 @@
 {
     _startTime = startTime;
     
-    NSDate* startDate = [manager dateWithISO8601CompatibleString:self.startTime];
-    timeLabel.text = [manager timeStringFromDate:startDate];
+    NSDate* startDate = [NSDate dateWithISO8601CompatibleString:self.startTime];
+    timeLabel.text = [startDate timeStringForTableCell];
     
 }
 

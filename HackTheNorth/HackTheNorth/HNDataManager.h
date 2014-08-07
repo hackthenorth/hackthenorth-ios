@@ -26,6 +26,7 @@ static NSString* const kNeedUpdateDataNotification = @"kNeedUpdateDataNotificati
 
 @property (atomic, assign) BOOL displayAlert;
 
+//Networking and Files
 - (NSArray*)keyNames;
 
 - (void)startUpdating;
@@ -37,9 +38,8 @@ static NSString* const kNeedUpdateDataNotification = @"kNeedUpdateDataNotificati
 
 - (NSArray*)retrieveArrayFromFile: (NSString*)fileName;
 
-- (NSDate*)dateWithISO8601CompatibleString: (NSString*)timestamp;
 
-- (NSString*)timeStringFromDate: (NSDate*)date;
+//Other Methods 
 
 
 @end

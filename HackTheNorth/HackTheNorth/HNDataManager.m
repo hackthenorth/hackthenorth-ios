@@ -11,7 +11,7 @@
 
 
 
-#define minUpdateTime  10.0f
+#define minUpdateTime  20.0f
 
 @implementation HNDataManager
 
@@ -21,11 +21,6 @@
     self.displayAlert = NO;
     _alertDisplayed = NO;
     _shouldRetrieve = YES;
-    
-    reachability = [AFNetworkReachabilityManager sharedManager];
-    [reachability startMonitoring];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChanged:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
     
     return self;
 }
@@ -39,18 +34,25 @@
 
 - (void)startUpdating
 {
+    reachability = [AFNetworkReachabilityManager sharedManager];
+    [reachability startMonitoring];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChanged:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
+    
     _minTimer = [NSTimer scheduledTimerWithTimeInterval:minUpdateTime target:self selector:@selector(enableRetrieve) userInfo:nil repeats:YES];
-    [_minTimer fire];
     
     _timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(retrieveAppDataAndSaveToFile) userInfo:nil repeats:YES];
     [_timer fire];
 }
 
+
 - (void)stopUpdating
 {
     [_minTimer invalidate];
     [_timer invalidate];
+    [reachability stopMonitoring];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
 
 - (void)enableRetrieve
 {
@@ -100,9 +102,6 @@
         [self performSelectorOnMainThread:@selector(postNeedUpdateDataNotification) withObject:nil waitUntilDone:YES];
 
     }];
-    
-    
-    
     
 }
 
@@ -165,31 +164,7 @@
 }
 
 
-- (NSDate*)dateWithISO8601CompatibleString: (NSString*)timestamp
-{
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
-    [formatter setLocale:enUSPOSIXLocale];
-    [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
-    
-    NSDate* date = [formatter dateFromString:timestamp];
-    
-    return date;
-}
 
-
-
-- (NSString*)timeStringFromDate: (NSDate*)date
-{
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
-    [formatter setLocale:enUSPOSIXLocale];
-    [formatter setDateFormat:@"hh:mm a"];
-    
-    NSString* string = [formatter stringFromDate:date];
-    
-    return string;
-}
 
 
 - (void)postNeedUpdateDataNotification
@@ -208,16 +183,17 @@
     if([value integerValue] == AFNetworkReachabilityStatusReachableViaWiFi || [value integerValue] == AFNetworkReachabilityStatusReachableViaWWAN)
     {
         _alertDisplayed = NO;
-        [_timer fire];
+        [self retrieveAppDataAndSaveToFile];
     }
     
 }
 
 
-- (void)dealloc
-{
-    [reachability stopMonitoring];
-}
+
+
+
+
+
 
 
 

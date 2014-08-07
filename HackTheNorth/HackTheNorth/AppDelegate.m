@@ -21,10 +21,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    
-    HNDataManager* manager = [[HNDataManager alloc] init];
-    manager.displayAlert = YES;
-    [manager startUpdating];
+    dataManager = [[HNDataManager alloc] init];
+    dataManager.displayAlert = YES;
+    [dataManager startUpdating];
     
     return YES;
 }

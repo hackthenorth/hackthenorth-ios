@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class HNAvatarView, HNDataManager;
+@class HNAvatarView;
 @interface HNScheduleTableViewCell : UITableViewCell
 {
-    HNDataManager* manager;
+
     HNAvatarView* avatarView;
     
     UILabel*     nameLabel;
