@@ -72,7 +72,7 @@
     for(NSString* keyName in [self keyNames])
     {
         NSString* requestString = [NSString stringWithFormat:@"https://shane-hackthenorth.firebaseio.com/%@.json", keyName];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestString] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestString] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:20];
         [request setHTTPMethod:@"GET"];
         
         [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue currentQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -85,7 +85,7 @@
                 {
                     _shouldRetrieve = YES;
                     _alertDisplayed = YES;
-                    [[[UIAlertView alloc] initWithTitle:@"Offline Mode" message:[NSString stringWithFormat:@"App cannot update information at this time because %@", connectionError.localizedDescription] delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil] show];
+                    [[[UIAlertView alloc] initWithTitle:@"Offline Mode" message:[NSString stringWithFormat:@"App cannot update information at this time because %@.", connectionError.localizedDescription] delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil] show];
                 }
                 return;
             }

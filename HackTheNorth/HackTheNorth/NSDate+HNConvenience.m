@@ -32,6 +32,12 @@
     return floor(hours);
 }
 
++ (double)hoursTotalWithTimeInterval: (NSTimeInterval)interval
+{
+    double hours = interval/3600.0f;
+    return floor(hours);
+}
+
 
 + (NSString*)timeAgoStringWithTimeInterval: (NSTimeInterval)interval
 {
@@ -40,7 +46,7 @@
     
     NSString* returnString = @"just now";
     
-    double hour = [self hoursWithTimeInterval:interval];
+    double hour = [self hoursTotalWithTimeInterval:interval];
     double min = [self minuitesWithTimeInterval:interval];
     double sec = [self secondsWithTimeInterval:interval];
     

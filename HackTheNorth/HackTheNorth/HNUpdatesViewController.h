@@ -13,6 +13,7 @@
 {
     HNDataManager*  manager;
     NSDictionary*  _infoDict;
+    NSMutableArray* _infoArray;
 }
 
 

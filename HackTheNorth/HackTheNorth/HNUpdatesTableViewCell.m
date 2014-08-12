@@ -83,7 +83,7 @@ static const NSTimeInterval kInterfaceRefreshInterval = 10; //for time
     
     NSTimeInterval timePassed = [now timeIntervalSinceDate:date];
     
-    if([NSDate hoursWithTimeInterval:timePassed] < 9.0f && timePassed >= 0) //recent
+    if([NSDate hoursTotalWithTimeInterval:timePassed] < 9.0f && timePassed >= 0) //recent
     {
         timeLabel.text = [NSDate timeAgoStringWithTimeInterval:timePassed];
     }

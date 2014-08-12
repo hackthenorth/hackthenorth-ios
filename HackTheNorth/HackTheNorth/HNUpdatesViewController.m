@@ -33,7 +33,6 @@
     [self.view addSubview:self.banner];
     
     UIView* blueBar = [[UIView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+150, kiPhoneWidthPortrait, 5)];
-    
     blueBar.backgroundColor = [JPStyle colorWithName:@"blue"];
     [self.view addSubview:blueBar];
     
@@ -60,6 +59,37 @@
 - (void)reloadData
 {
     _infoDict = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][0]]];
+    
+    NSArray* keyNames = [_infoDict allKeys];
+    _infoArray = [@[] mutableCopy];
+    
+    for(NSString* key in keyNames)
+    {
+        NSDictionary* tagDict = [_infoDict objectForKey:key];
+        [_infoArray addObject:tagDict];
+    }
+    
+    [_infoArray sortUsingComparator:^NSComparisonResult(NSDictionary* obj1, NSDictionary* obj2) {
+        NSDate* tagDate1 = [NSDate date];
+        if([obj1 objectForKey:@"time"])
+            tagDate1 = [NSDate dateWithISO8601CompatibleString:[obj1 objectForKey:@"time"]];
+        
+        NSDate* tagDate2 = [NSDate date];
+        if([obj2 objectForKey:@"time"])
+            tagDate2 = [NSDate dateWithISO8601CompatibleString:[obj2 objectForKey:@"time"]];
+        
+        NSTimeInterval interval = [tagDate1 timeIntervalSinceDate:tagDate2];
+        
+        if(interval > 0)
+        {
+            return NSOrderedAscending;
+        } else if(interval < 0) {
+            return NSOrderedDescending;
+        } else {
+            return NSOrderedSame;
+        }
+    }];
+                  
     [self.tableView reloadData];
 }
 
@@ -79,29 +109,27 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     HNUpdatesTableViewCell* cell = [[HNUpdatesTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuseIdentifier"];
     
-    NSString* key = [[_infoDict allKeys] objectAtIndex:indexPath.row];
-    NSDictionary* infoDict = [_infoDict objectForKey:key];
+    NSDictionary* tagDict = [_infoArray objectAtIndex:indexPath.row];
     
     cell.name = @"Hack The North";
     cell.date = [NSDate date];
     cell.message = @"No Message";
     
-    if(![infoDict isEqual: [NSNull null]])
+    if(![tagDict isEqual: [NSNull null]])
     {
-        if([infoDict objectForKey:@"name"])
-            cell.name = [infoDict objectForKey:@"name"];
+        if([tagDict objectForKey:@"name"])
+            cell.name = [tagDict objectForKey:@"name"];
         
-        if([infoDict objectForKey:@"time"])
-            cell.date = [NSDate dateWithISO8601CompatibleString:[infoDict objectForKey:@"time"]];
+        if([tagDict objectForKey:@"time"])
+            cell.date = [NSDate dateWithISO8601CompatibleString:[tagDict objectForKey:@"time"]];
         
-        if([infoDict objectForKey:@"description"])
-            cell.message = [infoDict objectForKey:@"description"];
+        if([tagDict objectForKey:@"description"])
+            cell.message = [tagDict objectForKey:@"description"];
         
-        if([infoDict objectForKey:@"avatar"])
-            cell.avatarImgURL = [NSURL URLWithString:[infoDict objectForKey:@"avatar"]];
+        if([tagDict objectForKey:@"avatar"])
+            cell.avatarImgURL = [NSURL URLWithString:[tagDict objectForKey:@"avatar"]];
     }
     
     return cell;
