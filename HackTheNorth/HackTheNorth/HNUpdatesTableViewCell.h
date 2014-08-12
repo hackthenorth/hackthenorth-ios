@@ -9,21 +9,20 @@
 #import <UIKit/UIKit.h>
 
 @class HNAvatarView;
-@interface HNNotificationTableViewCell : UITableViewCell
+@interface HNUpdatesTableViewCell : UITableViewCell
 {
     HNAvatarView* avatarView;
     
     UILabel*     nameLabel;
     UILabel*     timeLabel;
-    UILabel*     dayLabel;
-    
+
     UITextView*  messageView;
     
-    
+    NSTimer*    _UIUpdateTimer;
 }
 
 
-@property (nonatomic, strong) UIImage* avatarImage;
+@property (nonatomic, strong) NSURL*   avatarImgURL;
 
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSDate*   date;

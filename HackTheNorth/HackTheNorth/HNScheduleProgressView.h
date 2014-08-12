@@ -17,9 +17,9 @@
     
     UILabel*  timeLabel;
     UILabel*  timeLeftLabel;
-    
-    
+  
 }
+
 
 @property (nonatomic, strong) LDProgressView* progressBar;
 

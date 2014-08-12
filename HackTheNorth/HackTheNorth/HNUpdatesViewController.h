@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @class HNBannerView, HNDataManager;
-@interface HNNotificationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface HNUpdatesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     HNDataManager*  manager;
-    NSArray*     _infoArray;
+    NSDictionary*  _infoDict;
 }
 
 

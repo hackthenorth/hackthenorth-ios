@@ -108,9 +108,7 @@
     //Top Labels
     //left
     double currSeconds = floor( fmod(currentInterval, 60) );
-    
     double currMinutes = floor( fmod(currentInterval/60, 60) );
-    
     double currHours = floor( currentInterval/ 3600 );
     
     NSString* currSecondsStr = [NSString stringWithFormat:@"%.00f", currSeconds];

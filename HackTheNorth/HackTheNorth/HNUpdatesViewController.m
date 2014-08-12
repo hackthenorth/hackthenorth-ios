@@ -6,26 +6,27 @@
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
-#import "HNNotificationViewController.h"
+#import "HNUpdatesViewController.h"
 #import "UserInterfaceConstants.h"
 #import "HNBannerView.h"
-#import "HNNotificationTableViewCell.h"
+#import "HNUpdatesTableViewCell.h"
 #import "JPStyle.h"
 #import "HNDataManager.h"
 #import "NSDate+HNConvenience.h"
 
-@interface HNNotificationViewController ()
+@interface HNUpdatesViewController ()
             
 
 @end
 
-@implementation HNNotificationViewController
+
+@implementation HNUpdatesViewController
             
 - (void)viewDidLoad {
     [super viewDidLoad];
     
      manager = [[HNDataManager alloc] init];
-    _infoArray = @[];
+    _infoDict = [NSDictionary dictionary];
     
     self.banner = [[HNBannerView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight, kiPhoneWidthPortrait, 150)];
     self.banner.imgNameArray = [@[@"hackTheNorthBanner", @"hackersBanner", @"hoursBanner", @"locationBanner"] mutableCopy];
@@ -40,13 +41,11 @@
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.banner.frame) + 5, kiPhoneWidthPortrait, 568-20-155-44)];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView registerClass:[HNNotificationTableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
+    [self.tableView registerClass:[HNUpdatesTableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
     [self.view addSubview:self.tableView];
     
-    
-    
-    
 }
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -60,10 +59,8 @@
 
 - (void)reloadData
 {
-   
-    _infoArray = [manager retrieveArrayFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][0]]];
+    _infoDict = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][0]]];
     [self.tableView reloadData];
-    
 }
 
 
@@ -76,34 +73,39 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_infoArray count];
+    return [[_infoDict allKeys] count];
 }
 
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    HNNotificationTableViewCell* cell = [[HNNotificationTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuseIdentifier"];
+    HNUpdatesTableViewCell* cell = [[HNUpdatesTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuseIdentifier"];
     
-    NSDictionary* infoDict = _infoArray[indexPath.row];
-    
+    NSString* key = [[_infoDict allKeys] objectAtIndex:indexPath.row];
+    NSDictionary* infoDict = [_infoDict objectForKey:key];
     
     cell.name = @"Hack The North";
     cell.date = [NSDate date];
     cell.message = @"No Message";
     
-    if([infoDict objectForKey:@"name"])
-        cell.name = [infoDict objectForKey:@"name"];
-    
-    if([infoDict objectForKey:@"time"])
-        cell.date = [NSDate dateWithISO8601CompatibleString:[infoDict objectForKey:@"time"]];
-    
-    if([infoDict objectForKey:@"description"])
-        cell.message = [infoDict objectForKey:@"description"];
+    if(![infoDict isEqual: [NSNull null]])
+    {
+        if([infoDict objectForKey:@"name"])
+            cell.name = [infoDict objectForKey:@"name"];
+        
+        if([infoDict objectForKey:@"time"])
+            cell.date = [NSDate dateWithISO8601CompatibleString:[infoDict objectForKey:@"time"]];
+        
+        if([infoDict objectForKey:@"description"])
+            cell.message = [infoDict objectForKey:@"description"];
+        
+        if([infoDict objectForKey:@"avatar"])
+            cell.avatarImgURL = [NSURL URLWithString:[infoDict objectForKey:@"avatar"]];
+    }
     
     return cell;
-    
-    
+
 }
 
 

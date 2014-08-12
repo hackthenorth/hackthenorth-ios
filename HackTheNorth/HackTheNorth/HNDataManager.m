@@ -68,40 +68,37 @@
     NSLog(@"Retrieving Data");
     _shouldRetrieve = NO;
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://shane-hackthenorth.firebaseio.com/.json"] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
-    
-    [request setHTTPMethod:@"GET"];
-    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue currentQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    for(NSString* keyName in [self keyNames])
+    {
+        NSString* requestString = [NSString stringWithFormat:@"https://shane-hackthenorth.firebaseio.com/%@.json", keyName];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestString] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
+        [request setHTTPMethod:@"GET"];
         
-        if(connectionError)
-        {
-            NSLog(@"Connection ERROR: %@", connectionError);
-            if(self.displayAlert && !_alertDisplayed)
+        [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue currentQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            
+            if(connectionError)
             {
-                _shouldRetrieve = YES;
-                _alertDisplayed = YES;
-                [[[UIAlertView alloc] initWithTitle:@"Offline Mode" message:[NSString stringWithFormat:@"App cannot update information at this time because %@", connectionError.localizedDescription] delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil] show];
+                NSLog(@"Connection ERROR: %@", connectionError);
+                if(self.displayAlert && !_alertDisplayed)
+                {
+                    _shouldRetrieve = YES;
+                    _alertDisplayed = YES;
+                    [[[UIAlertView alloc] initWithTitle:@"Offline Mode" message:[NSString stringWithFormat:@"App cannot update information at this time because %@", connectionError.localizedDescription] delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil] show];
+                }
+                return;
             }
-            return;
-        }
-        
-        NSDictionary* fileDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        
-        for(NSString* keyName in [self keyNames])
-        {
-            NSArray* keyArray = [fileDictionary objectForKey:keyName];
             
-            NSData* localData = [NSJSONSerialization dataWithJSONObject:keyArray options:0 error:nil];
+            [self saveData:data toFileWithName:[NSString stringWithFormat:@"%@.json", keyName]];
             
-            [self saveData:localData toFileWithName:[NSString stringWithFormat:@"%@.json", keyName]];
-        }
+        }];
         
         [self performSelectorOnMainThread:@selector(postNeedUpdateDataNotification) withObject:nil waitUntilDone:YES];
+    }
 
-    }];
+    
+    
     
 }
 
@@ -145,7 +142,7 @@
 }
 
 
-- (NSArray*)retrieveArrayFromFile: (NSString*)fileName
+- (id)retrieveArrayOrDictFromFile: (NSString*)fileName
 {
     NSURL* url = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:nil];
 
@@ -158,9 +155,9 @@
         fileData = [[NSFileManager defaultManager] contentsAtPath:[fileURL path]];
     }
     
-    NSArray* fileArray = [NSJSONSerialization JSONObjectWithData:fileData options:NSJSONReadingAllowFragments error:nil];
+    id fileArrayOrDict = [NSJSONSerialization JSONObjectWithData:fileData options:NSJSONReadingAllowFragments error:nil];
     
-    return fileArray;
+    return fileArrayOrDict;
 }
 
 

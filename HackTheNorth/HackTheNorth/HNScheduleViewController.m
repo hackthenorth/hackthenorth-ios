@@ -73,7 +73,7 @@
 
 - (void)reloadData
 {
-    _infoArray = [manager retrieveArrayFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][1]]];
+    _infoArray = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][1]]];
     
     _friSatSunArray = [NSMutableArray arrayWithObjects:[@[] mutableCopy],[@[]mutableCopy],[@[]mutableCopy], nil];
     
@@ -108,13 +108,16 @@
     
     NSDictionary* infoDict = _friSatSunArray[indexPath.section][indexPath.row];
     
-    cell.name = [infoDict objectForKey:@"name"];
-    cell.location = [infoDict objectForKey:@"location"];
+    if(![infoDict isEqual: [NSNull null]])
+    {
+        cell.name = [infoDict objectForKey:@"name"];
+        cell.location = [infoDict objectForKey:@"location"];
 
-    cell.startTime = [infoDict objectForKey:@"start_time"];
-    cell.speaker = [infoDict objectForKey:@"speaker"];
-    cell.descriptor = [infoDict objectForKey:@"description"];
-    cell.type = [infoDict objectForKey:@"type"];
+        cell.startTime = [infoDict objectForKey:@"start_time"];
+        cell.speaker = [infoDict objectForKey:@"speaker"];
+        cell.descriptor = [infoDict objectForKey:@"description"];
+        cell.type = [infoDict objectForKey:@"type"];
+    }
     
     return cell;
 }

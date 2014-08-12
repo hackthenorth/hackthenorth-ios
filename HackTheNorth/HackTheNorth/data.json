@@ -1,38 +1,4 @@
 {
-  "data" : {
-    "-JQtnfQgbuCnm5gg3Rj1" : {
-      "body" : "This is a message brought to you by the Hack the North team!",
-      "title" : "Title 1"
-    },
-    "-JQuRpqIBnpEOhofnYbq" : {
-      "body" : "This is another message from us.",
-      "title" : "Title 2"
-    },
-    "-JQuRtxOvdFI-uOCQxJJ" : {
-      "body" : "Message 3. Are you still there?",
-      "title" : "Title 3"
-    },
-    "-JQuU-p2vfogKyYmoUG5" : {
-      "body" : "Hey sup",
-      "title" : "Title 4"
-    },
-    "-JQuZNd8899BIsddP3TM" : {
-      "body" : "Spaceship",
-      "title" : "Everything is awesome!"
-    },
-    "-JQu_vTry_pdLp1NPXot" : {
-      "body" : "Come get your food!!!",
-      "title" : "FOOD IS COMING"
-    },
-    "-JRbyB0aJVG5XmtesBub" : {
-      "body" : "This is another title.",
-      "title" : "New Title"
-    },
-    "-JRc4U9eEpbdSo1RjYU9" : {
-      "body" : "Body text",
-      "title" : "This is a title"
-    }
-  },
   "mentors" : [ {
     "availability" : [ [ "2014-09-21T18:30:11-05:00", "2014-09-21T18:40:11-05:00" ] ],
     "name" : "Joe Doe",
@@ -84,13 +50,15 @@
     "role" : [ "transportation", "organizer" ],
     "twitter" : "@johnHackApps"
   } ],
-  "updates" : [ {
+  "updates" : {
+    "aaa" :{
     "description" : "Food will be ready in a few minutes. It's time to take a break.",
     "name" : "Si Te Feng",
     "time" : "2014-09-21T18:30:11-05:00"
-  }, {
+  },
+    "aab" :{
     "description" : "Wifi is currently being interrupted by malicious attacks. Our secret agents are working to resolve the issue.",
     "name" : "Kartik Talwar",
     "time" : "2014-09-21T19:30:11-05:00"
-  } ]
+  } }
 }

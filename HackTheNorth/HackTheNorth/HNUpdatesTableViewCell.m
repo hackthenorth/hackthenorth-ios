@@ -6,16 +6,17 @@
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
-#import "HNNotificationTableViewCell.h"
+#import "HNUpdatesTableViewCell.h"
 #import "UserInterfaceConstants.h"
 #import "JPFont.h"
 #import "HNAvatarView.h"
 #import "JPGlobal.h"
+#import "NSDate+HNConvenience.h"
+
+static const NSTimeInterval kInterfaceRefreshInterval = 10; //for time
 
 
-NSString* dateTextColor = @"0D7EA0";
-
-@implementation HNNotificationTableViewCell
+@implementation HNUpdatesTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -27,22 +28,16 @@ NSString* dateTextColor = @"0D7EA0";
         avatarView = [[HNAvatarView alloc] initWithFrame:CGRectMake(20, 10, 40, 40)];
         [self addSubview:avatarView];
         
-        nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(65, 10, 190, 40)];
+        nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(65, 10, kiPhoneWidthPortrait-70, 22)];
         nameLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:18];
         nameLabel.numberOfLines = 2;
         [self addSubview:nameLabel];
         
-        timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(kiPhoneWidthPortrait - 65, 10, 60, 16)];
+        timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(65, 32, kiPhoneWidthPortrait-70, 18)];
         timeLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:13];
         timeLabel.textColor = [UIColor grayColor];
-        timeLabel.textAlignment = NSTextAlignmentRight;
+        timeLabel.textAlignment = NSTextAlignmentLeft;
         [self addSubview:timeLabel];
-        
-        dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(kiPhoneWidthPortrait - 65, 26, 60, 16)];
-        dayLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:13];
-        dayLabel.textColor = [UIColor grayColor];
-        dayLabel.textAlignment = NSTextAlignmentRight;
-        [self addSubview:dayLabel];
         
         messageView = [[UITextView alloc] initWithFrame:CGRectMake(10, 55, kiPhoneWidthPortrait-20, 65)];
         messageView.backgroundColor = [UIColor clearColor];
@@ -51,14 +46,15 @@ NSString* dateTextColor = @"0D7EA0";
         messageView.font = [UIFont fontWithName:[JPFont defaultFont] size:13];
         [self addSubview:messageView];
         
-        
+        _UIUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:kInterfaceRefreshInterval target:self selector:@selector(reloadTimeLabel) userInfo:nil repeats:YES];
     }
     return self;
 }
 
-- (void)awakeFromNib
+
+- (void)reloadTimeLabel
 {
-    // Initialization code
+    self.date = _date;
 }
 
 
@@ -71,13 +67,6 @@ NSString* dateTextColor = @"0D7EA0";
 
 
 
-
-
-
-
-
-
-
 #pragma mark - Setters and Getters
 - (void)setName:(NSString *)name
 {
@@ -85,31 +74,43 @@ NSString* dateTextColor = @"0D7EA0";
     nameLabel.text = name;
 }
 
+
 - (void)setDate:(NSDate *)date
 {
     _date = date;
     
-    NSDateFormatter* timeFormatter = [[NSDateFormatter alloc] init];
-    [timeFormatter setDateFormat:@"hh:mm a"];
+    NSDate* now = [NSDate date];
     
-    timeLabel.text = [timeFormatter stringFromDate:date];
+    NSTimeInterval timePassed = [now timeIntervalSinceDate:date];
     
-    
-    NSDateComponents* dateComp = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
-    dayLabel.text = [NSString stringWithFormat:@"%@ %d", [JPGlobal monthStringWithInt:[dateComp month]], [dateComp day]];
+    if([NSDate hoursWithTimeInterval:timePassed] < 9.0f && timePassed >= 0) //recent
+    {
+        timeLabel.text = [NSDate timeAgoStringWithTimeInterval:timePassed];
+    }
+    else
+    {
+        NSDateFormatter* timeFormatter = [[NSDateFormatter alloc] init];
+        [timeFormatter setDateFormat:@"hh:mm a"];
+        timeLabel.text = [timeFormatter stringFromDate:date];
+
+        NSDateComponents* dateComp = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
+        NSString* dayString = [NSString stringWithFormat:@", %@ %d", [JPGlobal monthStringWithInt:[dateComp month]], [dateComp day]];
+        timeLabel.text = [timeLabel.text stringByAppendingString:dayString];
+        
+        [_UIUpdateTimer invalidate];
+    }
     
 }
 
-- (void)setAvatarImage:(UIImage *)avatarImage
-{
-    _avatarImage = avatarImage;
-    avatarView.image = avatarImage;
-}
 
 - (void)setMessage:(NSString *)message
 {
     _message = message;
     messageView.text = message;
 }
+
+
+
+
 
 @end

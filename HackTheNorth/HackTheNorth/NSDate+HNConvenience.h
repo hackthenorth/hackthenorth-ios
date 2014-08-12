@@ -10,6 +10,12 @@
 
 @interface NSDate (HNConvenience)
 
+
++ (double)secondsWithTimeInterval: (NSTimeInterval)interval; //0-59 only
++ (double)minuitesWithTimeInterval: (NSTimeInterval)interval; //0-59 only
++ (double)hoursWithTimeInterval: (NSTimeInterval)interval; //0-23 only
++ (NSString*)timeAgoStringWithTimeInterval: (NSTimeInterval)interval;
+
 + (NSDate*)dateWithISO8601CompatibleString: (NSString*)timestamp;
 
 - (NSString*)timeStringForTableCell;

@@ -10,6 +10,58 @@
 
 @implementation NSDate (HNConvenience)
 
+#pragma mark - Convenience
+
++ (double)secondsWithTimeInterval: (NSTimeInterval)interval
+{
+    return floor(fmod(interval,60.0f));
+}
+
+
++ (double)minuitesWithTimeInterval: (NSTimeInterval)interval
+{
+    double minutes = fmod((interval/60.0f), 60.0f);
+    return floor(minutes);
+}
+
+
++ (double)hoursWithTimeInterval: (NSTimeInterval)interval
+{
+    double hours = interval/3600.0f;
+    hours = fmod(hours, 24.0f);
+    return floor(hours);
+}
+
+
++ (NSString*)timeAgoStringWithTimeInterval: (NSTimeInterval)interval
+{
+    if(interval < 0)
+        return @"in the future";
+    
+    NSString* returnString = @"just now";
+    
+    double hour = [self hoursWithTimeInterval:interval];
+    double min = [self minuitesWithTimeInterval:interval];
+    double sec = [self secondsWithTimeInterval:interval];
+    
+    if(hour >= 1)
+    {
+        returnString = [NSString stringWithFormat:@"%.0f hours ago", hour];
+    }
+    else if(min >=1)
+    {
+        returnString = [NSString stringWithFormat:@"%.0f minutes ago", min];
+    }
+    else if(sec >= 30)
+    {
+        returnString = [NSString stringWithFormat:@"%.0f seconds ago", sec];
+    }
+    
+    return returnString;
+}
+
+
+
 #pragma mark - NSDate Methods
 
 + (NSDate*)dateWithISO8601CompatibleString: (NSString*)timestamp
@@ -61,6 +113,8 @@
     
     return friSatSunInteger;
 }
+
+
 
 
 

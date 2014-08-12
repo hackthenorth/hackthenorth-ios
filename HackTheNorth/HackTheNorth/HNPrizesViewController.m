@@ -45,7 +45,7 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 
 - (void)reloadData
 {
-    _infoArray = [manager retrieveArrayFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][2]]];
+    _infoArray = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][2]]];
     [self.tableView reloadData];
 }
 
@@ -65,12 +65,12 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
     
     NSDictionary* infoDict = [_infoArray objectAtIndex:indexPath.row];
     
-    
-    cell.title = [infoDict objectForKey:@"name"];
-    cell.subtitle = [infoDict objectForKey:@"company"];
-    
-//    cell.detailList = @[@"ARDrone", @"Kobo eReader", @"XBox One", @"Leap Motion", @"Myo", @"Moto 360"];
-    cell.detailList = [infoDict objectForKey:@"prize"];
+    if(![infoDict isEqual: [NSNull null]])
+    {
+        cell.title = [infoDict objectForKey:@"name"];
+        cell.subtitle = [infoDict objectForKey:@"company"];
+        cell.detailList = [infoDict objectForKey:@"prize"];
+    }
     
     return cell;
 }

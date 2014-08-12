@@ -36,10 +36,10 @@ static NSString* const kNeedUpdateDataNotification = @"kNeedUpdateDataNotificati
 
 - (void)saveData: (NSData*)data toFileWithName: (NSString*)filename;
 
-- (NSArray*)retrieveArrayFromFile: (NSString*)fileName;
+- (id)retrieveArrayOrDictFromFile: (NSString*)fileName;
 
 
-//Other Methods 
+
 
 
 @end

@@ -24,7 +24,7 @@
 		AA34FAA6198D697D00A73292 /* HNScrollListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AA34FAA5198D697D00A73292 /* HNScrollListItem.m */; };
 		AA63DCB0196E1A42001D9768 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCAF196E1A42001D9768 /* main.m */; };
 		AA63DCB3196E1A42001D9768 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCB2196E1A42001D9768 /* AppDelegate.m */; };
-		AA63DCB6196E1A42001D9768 /* HNNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCB5196E1A42001D9768 /* HNNotificationViewController.m */; };
+		AA63DCB6196E1A42001D9768 /* HNUpdatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCB5196E1A42001D9768 /* HNUpdatesViewController.m */; };
 		AA63DCBC196E1A42001D9768 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA63DCBA196E1A42001D9768 /* Main.storyboard */; };
 		AA63DCBE196E1A42001D9768 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA63DCBD196E1A42001D9768 /* Images.xcassets */; };
 		AA63DCCA196E1A42001D9768 /* HackTheNorthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCC9196E1A42001D9768 /* HackTheNorthTests.m */; };
@@ -32,7 +32,7 @@
 		AA63DCDB196E24C6001D9768 /* JPStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCD7196E24C6001D9768 /* JPStyle.m */; };
 		AA63DCDC196E24C6001D9768 /* JPFont.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCD9196E24C6001D9768 /* JPFont.m */; };
 		AA63DCE0196E25A6001D9768 /* HNBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCDF196E25A6001D9768 /* HNBannerView.m */; };
-		AA63DCE3196E32F6001D9768 /* HNNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCE2196E32F6001D9768 /* HNNotificationTableViewCell.m */; };
+		AA63DCE3196E32F6001D9768 /* HNUpdatesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCE2196E32F6001D9768 /* HNUpdatesTableViewCell.m */; };
 		AAAC61AE1991C6870043A6CD /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC61881991C6870043A6CD /* AFHTTPRequestOperation.m */; };
 		AAAC61AF1991C6870043A6CD /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC618A1991C6870043A6CD /* AFHTTPRequestOperationManager.m */; };
 		AAAC61B01991C6870043A6CD /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC618C1991C6870043A6CD /* AFHTTPSessionManager.m */; };
@@ -58,6 +58,7 @@
 		AAAC61CE1991F83B0043A6CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAC61CC1991F8300043A6CD /* Foundation.framework */; };
 		AAAC61D71992049A0043A6CD /* HNMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC61D61992049A0043A6CD /* HNMainTabBarController.m */; };
 		AAAC61D9199210760043A6CD /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AAAC61D8199210760043A6CD /* data.json */; };
+		AAF683CB19999E7D0069B2A3 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF683CA19999E7D0069B2A3 /* AsyncImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,8 +107,8 @@
 		AA63DCAF196E1A42001D9768 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AA63DCB1196E1A42001D9768 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AA63DCB2196E1A42001D9768 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		AA63DCB4196E1A42001D9768 /* HNNotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNNotificationViewController.h; sourceTree = "<group>"; };
-		AA63DCB5196E1A42001D9768 /* HNNotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNNotificationViewController.m; sourceTree = "<group>"; };
+		AA63DCB4196E1A42001D9768 /* HNUpdatesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNUpdatesViewController.h; sourceTree = "<group>"; };
+		AA63DCB5196E1A42001D9768 /* HNUpdatesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNUpdatesViewController.m; sourceTree = "<group>"; };
 		AA63DCBB196E1A42001D9768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AA63DCBD196E1A42001D9768 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AA63DCC3196E1A42001D9768 /* HackTheNorthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackTheNorthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,8 +123,8 @@
 		AA63DCD9196E24C6001D9768 /* JPFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPFont.m; sourceTree = "<group>"; };
 		AA63DCDE196E25A6001D9768 /* HNBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNBannerView.h; sourceTree = "<group>"; };
 		AA63DCDF196E25A6001D9768 /* HNBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNBannerView.m; sourceTree = "<group>"; };
-		AA63DCE1196E32F6001D9768 /* HNNotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNNotificationTableViewCell.h; sourceTree = "<group>"; };
-		AA63DCE2196E32F6001D9768 /* HNNotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNNotificationTableViewCell.m; sourceTree = "<group>"; };
+		AA63DCE1196E32F6001D9768 /* HNUpdatesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNUpdatesTableViewCell.h; sourceTree = "<group>"; };
+		AA63DCE2196E32F6001D9768 /* HNUpdatesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNUpdatesTableViewCell.m; sourceTree = "<group>"; };
 		AAAC61871991C6870043A6CD /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		AAAC61881991C6870043A6CD /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		AAAC61891991C6870043A6CD /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -170,6 +171,8 @@
 		AAAC61D51992049A0043A6CD /* HNMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNMainTabBarController.h; sourceTree = "<group>"; };
 		AAAC61D61992049A0043A6CD /* HNMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNMainTabBarController.m; sourceTree = "<group>"; };
 		AAAC61D8199210760043A6CD /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		AAF683C919999E7D0069B2A3 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		AAF683CA19999E7D0069B2A3 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +262,7 @@
 			children = (
 				AA63DCAC196E1A42001D9768 /* HackTheNorth */,
 				AAAC61851991C6870043A6CD /* AFNetworking */,
+				AAF683C819999E7D0069B2A3 /* AsyncImageView */,
 				AA1FC0A3198F443800B1B765 /* AutoScrollLabel */,
 				AA34FA3F19888CD300A73292 /* LDProgressView */,
 				AA63DCC6196E1A42001D9768 /* HackTheNorthTests */,
@@ -345,12 +349,12 @@
 		AA63DCE4196E32FC001D9768 /* Notification View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				AA63DCB4196E1A42001D9768 /* HNNotificationViewController.h */,
-				AA63DCB5196E1A42001D9768 /* HNNotificationViewController.m */,
+				AA63DCB4196E1A42001D9768 /* HNUpdatesViewController.h */,
+				AA63DCB5196E1A42001D9768 /* HNUpdatesViewController.m */,
 				AA63DCDE196E25A6001D9768 /* HNBannerView.h */,
 				AA63DCDF196E25A6001D9768 /* HNBannerView.m */,
-				AA63DCE1196E32F6001D9768 /* HNNotificationTableViewCell.h */,
-				AA63DCE2196E32F6001D9768 /* HNNotificationTableViewCell.m */,
+				AA63DCE1196E32F6001D9768 /* HNUpdatesTableViewCell.h */,
+				AA63DCE2196E32F6001D9768 /* HNUpdatesTableViewCell.m */,
 				AA34FA3C1988888200A73292 /* HNAvatarView.h */,
 				AA34FA3D1988888200A73292 /* HNAvatarView.m */,
 			);
@@ -416,6 +420,15 @@
 				AAAC61AD1991C6870043A6CD /* UIWebView+AFNetworking.m */,
 			);
 			path = "UIKit+AFNetworking";
+			sourceTree = "<group>";
+		};
+		AAF683C819999E7D0069B2A3 /* AsyncImageView */ = {
+			isa = PBXGroup;
+			children = (
+				AAF683C919999E7D0069B2A3 /* AsyncImageView.h */,
+				AAF683CA19999E7D0069B2A3 /* AsyncImageView.m */,
+			);
+			path = AsyncImageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -530,7 +543,7 @@
 				AA34FA4B1988919800A73292 /* HNScheduleTableViewCell.m in Sources */,
 				AA1FC0B1198F595000B1B765 /* HNScrollView.m in Sources */,
 				AA63DCDA196E24C6001D9768 /* JPGlobal.m in Sources */,
-				AA63DCE3196E32F6001D9768 /* HNNotificationTableViewCell.m in Sources */,
+				AA63DCE3196E32F6001D9768 /* HNUpdatesTableViewCell.m in Sources */,
 				AAAC61BB1991C6870043A6CD /* UIAlertView+AFNetworking.m in Sources */,
 				AAAC61C01991C6870043A6CD /* UIWebView+AFNetworking.m in Sources */,
 				AA34FA3E1988888200A73292 /* HNAvatarView.m in Sources */,
@@ -546,6 +559,7 @@
 				AA34FA4F198891CF00A73292 /* HNScheduleProgressView.m in Sources */,
 				AAAC61B01991C6870043A6CD /* AFHTTPSessionManager.m in Sources */,
 				AA34FA4519888CD300A73292 /* UIColor+RGBValues.m in Sources */,
+				AAF683CB19999E7D0069B2A3 /* AsyncImageView.m in Sources */,
 				AAAC61B11991C6870043A6CD /* AFNetworkReachabilityManager.m in Sources */,
 				AA2006F0199307E0007E3F48 /* NSDate+HNConvenience.m in Sources */,
 				AA1FC0B4198F5BD500B1B765 /* HNScheduleDetailViewController.m in Sources */,
@@ -553,7 +567,7 @@
 				AAAC61B41991C6870043A6CD /* AFURLRequestSerialization.m in Sources */,
 				AAAC61B81991C6870043A6CD /* README.md in Sources */,
 				AA63DCB3196E1A42001D9768 /* AppDelegate.m in Sources */,
-				AA63DCB6196E1A42001D9768 /* HNNotificationViewController.m in Sources */,
+				AA63DCB6196E1A42001D9768 /* HNUpdatesViewController.m in Sources */,
 				AA63DCDC196E24C6001D9768 /* JPFont.m in Sources */,
 				AAAC61B91991C6870043A6CD /* AFNetworkActivityIndicatorManager.m in Sources */,
 				AA63DCB0196E1A42001D9768 /* main.m in Sources */,

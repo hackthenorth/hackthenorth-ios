@@ -5,10 +5,10 @@
         <capability name="Unknown constraint types" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Notification View Controller - Updates-->
+        <!--Updates View Controller - Updates-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="HNNotificationViewController" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="HNUpdatesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
