@@ -45,7 +45,24 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 
 - (void)reloadData
 {
-    _infoArray = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][2]]];
+    NSDictionary* infoDict = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][2]]];
+    
+    NSMutableArray* array = [[infoDict allValues] mutableCopy];
+    
+    _infoArray = [array sortedArrayUsingComparator:^NSComparisonResult(NSDictionary* obj1, NSDictionary* obj2) {
+        
+        NSString* name1 = @"zzzzzz";
+        NSString* name2 = @"zzzzzz";
+        
+        if([obj1 objectForKey:@"name"])
+            name1 = [obj1 objectForKey:@"name"];
+        
+        if([obj2 objectForKey:@"name"])
+            name2 = [obj2 objectForKey:@"name"];
+        return [name1 compare:name2];
+    }];
+
+    
     [self.tableView reloadData];
 }
 

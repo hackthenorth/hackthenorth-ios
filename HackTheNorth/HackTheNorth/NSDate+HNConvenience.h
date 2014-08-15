@@ -20,6 +20,7 @@
 + (NSDate*)dateWithISO8601CompatibleString: (NSString*)timestamp;
 
 - (NSString*)timeStringForTableCell;
+- (NSString*)dateStringForTableCell;
 
 - (NSInteger)friSatSunInteger;
 

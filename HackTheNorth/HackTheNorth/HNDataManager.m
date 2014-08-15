@@ -7,7 +7,7 @@
 //
 
 #import "HNDataManager.h"
-
+#import "SVStatusHUD.h"
 
 
 
@@ -21,7 +21,7 @@
     self.displayAlert = NO;
     _alertDisplayed = NO;
     _shouldRetrieve = YES;
-    
+    _wifiStatusViewEnabled = NO;
     return self;
 }
 
@@ -75,31 +75,36 @@
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestString] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:20];
         [request setHTTPMethod:@"GET"];
         
-        [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue currentQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-            
-            if(connectionError)
-            {
-                NSLog(@"Connection ERROR: %@", connectionError);
-                if(self.displayAlert && !_alertDisplayed)
-                {
-                    _shouldRetrieve = YES;
-                    _alertDisplayed = YES;
-                    [[[UIAlertView alloc] initWithTitle:@"Offline Mode" message:[NSString stringWithFormat:@"App cannot update information at this time because %@.", connectionError.localizedDescription] delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil] show];
-                }
-                return;
-            }
-            
-            [self saveData:data toFileWithName:[NSString stringWithFormat:@"%@.json", keyName]];
-            
-        }];
+        NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
+        connection.accessibilityLabel = keyName;
+        [connection start];
         
         [self performSelectorOnMainThread:@selector(postNeedUpdateDataNotification) withObject:nil waitUntilDone:YES];
     }
 
+}
+
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+
+    NSString* keyName = connection.accessibilityLabel;
     
-    
-    
+    [self saveData:data toFileWithName:[NSString stringWithFormat:@"%@.json", keyName]];
+}
+
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    NSLog(@"Connection ERROR: %@", error.localizedDescription);
+    if(self.displayAlert && !_alertDisplayed)
+    {
+        _shouldRetrieve = YES;
+        _alertDisplayed = YES;
+        
+        [SVStatusHUD showWithImage:[UIImage imageNamed:@"noWifi.png"] status:@"Offline Mode"];
+    }
 }
 
 
@@ -123,6 +128,7 @@
 }
 
 
+
 - (void)saveData: (NSData*)data toFileWithName: (NSString*)filename
 {
     if(!data || !filename)
@@ -140,6 +146,8 @@
     [[NSFileManager defaultManager] createFileAtPath:[fileURL path] contents:data attributes:nil];
 
 }
+
+
 
 
 - (id)retrieveArrayOrDictFromFile: (NSString*)fileName
@@ -161,9 +169,6 @@
 }
 
 
-
-
-
 - (void)postNeedUpdateDataNotification
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:kNeedUpdateDataNotification object:self];
@@ -179,15 +184,19 @@
     
     if([value integerValue] == AFNetworkReachabilityStatusReachableViaWiFi || [value integerValue] == AFNetworkReachabilityStatusReachableViaWWAN)
     {
-        _alertDisplayed = NO;
         [self retrieveAppDataAndSaveToFile];
+        
+        if(!_wifiStatusViewEnabled)
+            _wifiStatusViewEnabled = YES;
+        else
+            [SVStatusHUD showWithImage:[UIImage imageNamed:@"wifi.png"] status:@"Connected!"];
+    }
+    else
+    {
+        [SVStatusHUD showWithImage:[UIImage imageNamed:@"noWifi.png"] status:@"Offline Mode"];
     }
     
 }
-
-
-
-
 
 
 

@@ -8,10 +8,11 @@
 
 #import "AppDelegate.h"
 #import "HNDataManager.h"
+#import "NSString+HNConvenience.h"
+#import <Parse/Parse.h>
 
 
 @interface AppDelegate ()
-            
 
 @end
 
@@ -25,8 +26,55 @@
     dataManager.displayAlert = YES;
     [dataManager startUpdating];
     
+
+    
     return YES;
 }
+
+
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+    //Parse
+    [Parse setApplicationId:@"37qNFOlw7SmK2tfC7Oh8Q0GWR6159s5ORgqmyPHb"
+                  clientKey:@"BcmjT6uyWqcGMrvTOxTwy8sQKxJWdZWZLsPk9LFC"];
+    
+    //vdyPmKmbio8rrr8G3XUPzN5WKKCGbSYzUQlJ4l4r   (REST API key)
+    
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    currentInstallation.channels = @[@"global"];
+    [currentInstallation saveInBackground];
+    
+    
+    //Send to Firebase
+    NSString* serializedStr = [NSString serializeDeviceToken:deviceToken];
+    NSDictionary* tokenDictionary = @{serializedStr : @"dummy"};
+    
+    NSData* tokenData = [NSJSONSerialization dataWithJSONObject:tokenDictionary options:false error:nil];
+    
+    NSURL* putURL = [NSURL URLWithString:@"https://shane-hackthenorth.firebaseio.com/notifications/ios.json"];
+    NSMutableURLRequest* putReq = [NSMutableURLRequest requestWithURL:putURL];
+    
+    putReq.HTTPMethod = @"PATCH";
+    putReq.HTTPBody = tokenData;
+    
+    [NSURLConnection sendAsynchronousRequest:putReq queue:[NSOperationQueue currentQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        
+        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+        
+        NSLog(@"status code: %d", httpResponse.statusCode);
+        
+    }];
+    
+}
+
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    [PFPush handlePush:userInfo];
+}
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -49,5 +97,10 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+
+
+
 
 @end

@@ -13,6 +13,8 @@
 #import "JPStyle.h"
 #import "HNDataManager.h"
 #import "NSDate+HNConvenience.h"
+#import "DejalActivityView.h"
+
 
 @interface HNUpdatesViewController ()
             
@@ -33,7 +35,7 @@
     [self.view addSubview:self.banner];
     
     UIView* blueBar = [[UIView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+150, kiPhoneWidthPortrait, 5)];
-    blueBar.backgroundColor = [JPStyle colorWithName:@"blue"];
+    blueBar.backgroundColor = [JPStyle interfaceTintColor];
     [self.view addSubview:blueBar];
     
     
@@ -60,37 +62,36 @@
 {
     _infoDict = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][0]]];
     
-    NSArray* keyNames = [_infoDict allKeys];
-    _infoArray = [@[] mutableCopy];
+    NSArray* unArray = [_infoDict allValues];
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        _infoArray = [[unArray sortedArrayUsingComparator:^NSComparisonResult(NSDictionary* obj1, NSDictionary* obj2) {
+            
+            NSDate* tagDate1 = [NSDate date];
+            if([obj1 objectForKey:@"time"])
+                tagDate1 = [NSDate dateWithISO8601CompatibleString:[obj1 objectForKey:@"time"]];
+            
+            NSDate* tagDate2 = [NSDate date];
+            if([obj2 objectForKey:@"time"])
+                tagDate2 = [NSDate dateWithISO8601CompatibleString:[obj2 objectForKey:@"time"]];
+            
+            NSTimeInterval interval = [tagDate1 timeIntervalSinceDate:tagDate2];
+            
+            if(interval > 0)
+            {
+                return NSOrderedAscending;
+            } else if(interval < 0) {
+                return NSOrderedDescending;
+            } else {
+                return NSOrderedSame;
+            }
+        }] mutableCopy];
+
+        
+        [self.tableView performSelector:@selector(reloadData) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
+    });
     
-    for(NSString* key in keyNames)
-    {
-        NSDictionary* tagDict = [_infoDict objectForKey:key];
-        [_infoArray addObject:tagDict];
-    }
-    
-    [_infoArray sortUsingComparator:^NSComparisonResult(NSDictionary* obj1, NSDictionary* obj2) {
-        NSDate* tagDate1 = [NSDate date];
-        if([obj1 objectForKey:@"time"])
-            tagDate1 = [NSDate dateWithISO8601CompatibleString:[obj1 objectForKey:@"time"]];
-        
-        NSDate* tagDate2 = [NSDate date];
-        if([obj2 objectForKey:@"time"])
-            tagDate2 = [NSDate dateWithISO8601CompatibleString:[obj2 objectForKey:@"time"]];
-        
-        NSTimeInterval interval = [tagDate1 timeIntervalSinceDate:tagDate2];
-        
-        if(interval > 0)
-        {
-            return NSOrderedAscending;
-        } else if(interval < 0) {
-            return NSOrderedDescending;
-        } else {
-            return NSOrderedSame;
-        }
-    }];
-                  
-    [self.tableView reloadData];
 }
 
 

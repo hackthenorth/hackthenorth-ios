@@ -47,7 +47,7 @@
     [self.view addSubview:self.scheduleView];
     
     UIView* blueBar = [[UIView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 90, kiPhoneWidthPortrait, 5)];
-    blueBar.backgroundColor = [JPStyle colorWithName:@"blue"];
+    blueBar.backgroundColor = [JPStyle interfaceTintColor];
     [self.view addSubview:blueBar];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 95, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait - 95) style:UITableViewStyleGrouped];
@@ -58,7 +58,6 @@
     [self.tableView registerClass:[HNScheduleTableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
     [self.view addSubview:self.tableView];
     
-
 }
 
 
@@ -73,7 +72,23 @@
 
 - (void)reloadData
 {
-    _infoArray = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][1]]];
+    NSDictionary* infoDict = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][1]]];
+    
+    NSMutableArray* array = [[infoDict allValues] mutableCopy];
+    
+    _infoArray = [array sortedArrayUsingComparator:^NSComparisonResult(NSDictionary* obj1, NSDictionary* obj2) {
+        
+        NSString* name1 = @"zzzzzz";
+        NSString* name2 = @"zzzzzz";
+        
+        if([obj1 objectForKey:@"name"])
+            name1 = [obj1 objectForKey:@"name"];
+        
+        if([obj2 objectForKey:@"name"])
+            name2 = [obj2 objectForKey:@"name"];
+        return [name1 compare:name2];
+    }];
+
     
     _friSatSunArray = [NSMutableArray arrayWithObjects:[@[] mutableCopy],[@[]mutableCopy],[@[]mutableCopy], nil];
     
@@ -112,11 +127,11 @@
     {
         cell.name = [infoDict objectForKey:@"name"];
         cell.location = [infoDict objectForKey:@"location"];
-
         cell.startTime = [infoDict objectForKey:@"start_time"];
         cell.speaker = [infoDict objectForKey:@"speaker"];
         cell.descriptor = [infoDict objectForKey:@"description"];
         cell.type = [infoDict objectForKey:@"type"];
+        cell.endTime = [infoDict objectForKey:@"end_time"];
     }
     
     return cell;

@@ -30,7 +30,8 @@
         _letterLabel.textColor = [UIColor whiteColor];
         [self addSubview:_letterLabel];
         
-        _asyncImageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+        _asyncImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+        _asyncImageView.contentMode = UIViewContentModeScaleAspectFill;
         [self addSubview:_asyncImageView];
         
     }
@@ -68,9 +69,11 @@
 {
     _letter = letter;
     
-    self.image = nil;
+    if(!letter || [letter isEqual:@""])
+        return;
+
     NSString* firstLetter = [[letter substringToIndex:1] uppercaseString];
-    _letterLabel.backgroundColor = [JPStyle colorWithLetter:firstLetter];
+    _letterLabel.backgroundColor = [JPStyle colorWithLetterVariated:firstLetter];
     _letterLabel.text = firstLetter;
     [self bringSubviewToFront:_letterLabel];
 }
@@ -79,13 +82,23 @@
 - (void)setImageUrl:(NSURL *)imageUrl
 {
     _imageUrl = imageUrl;
-    _asyncImageView.imageURL = self.imageURL;
     
+    [[AsyncImageLoader sharedLoader] loadImageWithURL:_imageUrl target:self action:@selector(imageLoaded)];
+
 }
 
-
-
-
+- (void)imageLoaded
+{
+    _asyncImageView.alpha = 0;
+    _asyncImageView.image = [[[AsyncImageLoader sharedLoader] cache] objectForKey:self.imageUrl];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        _asyncImageView.alpha = 1.0;
+    }];
+    
+    
+    
+}
 
 
 @end

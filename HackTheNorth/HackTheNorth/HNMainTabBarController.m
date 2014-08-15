@@ -8,6 +8,7 @@
 
 #import "HNMainTabBarController.h"
 #import "UserInterfaceConstants.h"
+#import "JPStyle.h"
 
 @implementation HNMainTabBarController
 
@@ -64,6 +65,8 @@
 
 - (void)revealViewController
 {
+    
+    
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         
         self.imageView.frame = CGRectMake((kiPhoneWidthPortrait-1000)/2.0, (kiPhoneHeightPortrait-1000)/2.0, 1000, 1000);
@@ -72,11 +75,19 @@
         
         whiteView.alpha = 0;
         
+    } completion:^(BOOL finished){
+        [JPStyle applyGlobalStyle];
+        self.tabBar.tintColor = [JPStyle interfaceTintColor];
         [UIApplication sharedApplication].statusBarHidden = NO;
-    } completion:nil];
+        
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    }];
     
     [gearTimer performSelector:@selector(invalidate) withObject:nil afterDelay:2];
 }
+
+
 
 
 

@@ -12,7 +12,7 @@
 static NSString* const kNeedUpdateDataNotification = @"kNeedUpdateDataNotification";
 
 
-@interface HNDataManager : NSObject
+@interface HNDataManager : NSObject <NSURLConnectionDataDelegate>
 {
     BOOL   _alertDisplayed;
     AFNetworkReachabilityManager* reachability;
@@ -21,6 +21,8 @@ static NSString* const kNeedUpdateDataNotification = @"kNeedUpdateDataNotificati
     NSTimer * _minTimer;
     
     BOOL   _shouldRetrieve;
+    
+    BOOL   _wifiStatusViewEnabled;
 }
 
 

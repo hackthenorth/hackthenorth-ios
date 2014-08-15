@@ -89,12 +89,9 @@ static const NSTimeInterval kInterfaceRefreshInterval = 10; //for time
     }
     else
     {
-        NSDateFormatter* timeFormatter = [[NSDateFormatter alloc] init];
-        [timeFormatter setDateFormat:@"hh:mm a"];
-        timeLabel.text = [timeFormatter stringFromDate:date];
+        timeLabel.text = [date timeStringForTableCell];
 
-        NSDateComponents* dateComp = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
-        NSString* dayString = [NSString stringWithFormat:@", %@ %d", [JPGlobal monthStringWithInt:[dateComp month]], [dateComp day]];
+        NSString* dayString = [NSString stringWithFormat:@", %@", [date dateStringForTableCell]];
         timeLabel.text = [timeLabel.text stringByAppendingString:dayString];
         
         [_UIUpdateTimer invalidate];
@@ -110,7 +107,11 @@ static const NSTimeInterval kInterfaceRefreshInterval = 10; //for time
 }
 
 
-
+- (void)setAvatarImgURL:(NSURL *)avatarImgURL
+{
+    _avatarImgURL = avatarImgURL;
+    avatarView.imageUrl = avatarImgURL;
+}
 
 
 @end

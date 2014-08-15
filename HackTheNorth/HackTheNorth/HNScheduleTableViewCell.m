@@ -21,13 +21,12 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
-
-    
     // Initialization code
     self.separatorInset = UIEdgeInsetsMake(0, kiPhoneWidthPortrait, 0, 0);
     self.accessoryType = UITableViewCellAccessoryNone;
     
     avatarView = [[HNAvatarView alloc] initWithFrame:CGRectMake(20, 10, 40, 40)];
+    avatarView.letter = self.type;
     [self addSubview:avatarView];
     
     nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(65, 10, kiPhoneWidthPortrait - 70, 40)];
@@ -49,9 +48,7 @@
     timeLabel.textAlignment = NSTextAlignmentLeft;
     [self addSubview:timeLabel];
     
-    
     speakerLabel = [[UILabel alloc] initWithFrame:CGRectMake(190, 60, 130, 20)];
-
     speakerLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:15];
     speakerLabel.textColor = [UIColor grayColor];
     speakerLabel.textAlignment = NSTextAlignmentLeft;
@@ -102,6 +99,14 @@
 {
     _speaker = speaker;
     speakerLabel.text = speaker;
+}
+
+
+- (void)setType:(NSString *)type
+{
+    _type = type;
+    
+    avatarView.letter = type;
 }
 
 

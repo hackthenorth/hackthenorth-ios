@@ -21,7 +21,8 @@
 
 /////////////////////////////
 ////User Interface Colors
-
++(UIColor*) interfaceTintColor;
++(void)applyGlobalStyle;
 
 //Color Conversion
 +(UIColor*)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue alpha:(CGFloat)alpha;
@@ -36,7 +37,7 @@
 //Colors from String
 + (UIColor*) colorWithName: (NSString*)colorName;
 + (UIColor*)colorWithLetter: (NSString*)letter;
-
++ (UIColor*)colorWithLetterVariated: (NSString*)letter;
 
 @end
 

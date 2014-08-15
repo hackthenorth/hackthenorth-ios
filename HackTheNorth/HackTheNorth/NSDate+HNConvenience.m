@@ -7,6 +7,7 @@
 //
 
 #import "NSDate+HNConvenience.h"
+#import "JPGlobal.h"
 
 @implementation NSDate (HNConvenience)
 
@@ -92,8 +93,22 @@
     [formatter setDateFormat:@"hh:mm a"];
     
     NSString* string = [formatter stringFromDate:self];
+    NSString* substring = [string substringFromIndex:6];
     
-    return string;
+    NSDateFormatter* newformatter = [[NSDateFormatter alloc] init];
+    [newformatter setDateFormat:@"hh:mm"];
+    NSMutableString* realString = [[newformatter stringFromDate:self] mutableCopy];
+    [realString appendString:[substring lowercaseString]];
+    
+    return realString;
+}
+
+- (NSString*)dateStringForTableCell
+{
+    NSDateComponents* dateComp = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth|NSCalendarUnitDay fromDate:self];
+    NSString* dayString = [NSString stringWithFormat:@"%@ %d", [JPGlobal monthStringWithInt:[dateComp month]], [dateComp day]];
+    
+    return dayString;
 }
 
 

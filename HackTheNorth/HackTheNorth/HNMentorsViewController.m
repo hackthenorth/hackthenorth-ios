@@ -10,6 +10,8 @@
 #import "UserInterfaceConstants.h"
 #import "HNScrollListCell.h"
 #import "HNDataManager.h"
+#import "HNMentorsDetailsViewController.h"
+#import "JPStyle.h"
 
 static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifier";
 
@@ -25,12 +27,13 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
     [self.tableView registerClass:[HNScrollListCell class] forCellReuseIdentifier:kHNScrollListCellIdentifier];
-    
     [self.view addSubview: self.tableView];
     
+    
 }
+
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -42,11 +45,29 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 }
 
 
+
 - (void)reloadData
 {
-    _infoArray = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][3]]];
+    NSDictionary* infoDict = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][3]]];
+    
+    NSMutableArray* array = [[infoDict allValues] mutableCopy];
+    
+    _infoArray = [array sortedArrayUsingComparator:^NSComparisonResult(NSDictionary* obj1, NSDictionary* obj2) {
+        
+        NSString* name1 = @"zzzzzz";
+        NSString* name2 = @"zzzzzz";
+        
+        if([obj1 objectForKey:@"name"])
+            name1 = [obj1 objectForKey:@"name"];
+        
+        if([obj2 objectForKey:@"name"])
+            name2 = [obj2 objectForKey:@"name"];
+        return [name1 compare:name2];
+    }];
+    
     [self.tableView reloadData];
 }
+
 
 
 #pragma mark - UI Table View Data Source Methods
@@ -63,14 +84,22 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     HNScrollListCell* cell = (HNScrollListCell*)[self.tableView dequeueReusableCellWithIdentifier:kHNScrollListCellIdentifier];
+    cell.backgroundColor = [JPStyle colorWithHex:@"FFFFFF" alpha:1]; //DE6" alpha:1];
+    
     
     NSDictionary* infoDict = [_infoArray objectAtIndex:indexPath.row];
     
     if(![infoDict isEqual: [NSNull null]])
     {
-    cell.title =  [infoDict objectForKey:@"name"];
-    cell.subtitle = [infoDict objectForKey:@"organization"];
-    cell.detailList = [infoDict objectForKey:@"skills"];
+        cell.title =  [infoDict objectForKey:@"name"];
+        cell.subtitle = [infoDict objectForKey:@"organization"];
+        cell.detailList = [infoDict objectForKey:@"skills"];
+        NSString* urlString = [infoDict objectForKey:@"image"];
+        NSURL* url = [NSURL URLWithString:urlString];
+        if(url)
+            cell.imageURL = url;
+        cell.availability = [infoDict objectForKey:@"availability"];
+        
     }
     
     return cell;
@@ -85,6 +114,11 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    HNMentorsDetailsViewController* detailController =[[HNMentorsDetailsViewController alloc] initWithCell:(HNScrollListCell*)[self.tableView cellForRowAtIndexPath:indexPath]];
+    
+    
+    [self.navigationController pushViewController:detailController animated:YES];
     
     
 }

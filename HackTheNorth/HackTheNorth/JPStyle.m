@@ -7,6 +7,7 @@
 //
 
 #import "JPStyle.h"
+#import "UIColor+RGBValues.h"
 
 @implementation JPStyle
 
@@ -32,6 +33,20 @@
 +(BOOL) iPhone4Inch
 {
     return ([UIScreen mainScreen].bounds.size.height == 568.0) ? YES : NO;
+}
+
+
+#pragma mark - User Interface Colors
++(UIColor*) interfaceTintColor
+{
+    return [JPStyle colorWithName:@"blue"];
+}
+
++(void)applyGlobalStyle
+{
+    [[UINavigationBar appearance] setTintColor:[JPStyle interfaceTintColor]];
+    [[UISearchBar appearance] setTintColor:[JPStyle interfaceTintColor]];
+    [[UITabBar appearance] setTintColor:[JPStyle interfaceTintColor]];
 }
 
 
@@ -343,6 +358,126 @@
 }
 
 
++ (UIColor*)colorWithLetterVariated: (NSString*)letter
+{
+    NSString* character = @"";
+    if(letter.length > 0) {
+        character = [[letter substringToIndex:1] lowercaseString];
+    }
+    
+    UIColor* color = [self rainbowColorWithIndex:(arc4random()%6)];
+    
+    if([character isEqual:@"a"])
+    {
+        color = [self rainbowColorWithIndex:0];
+    }
+    else if([character isEqual:@"b"])
+    {
+        color = [self rainbowColorWithIndex:1];
+    }
+    else if([character isEqual:@"c"])
+    {
+        color = [self rainbowColorWithIndex:2];
+    }
+    else if([character isEqual:@"d"])
+    {
+        color = [self rainbowColorWithIndex:3];
+    }
+    else if([character isEqual:@"e"])
+    {
+        color = [self rainbowColorWithIndex:4];
+    }
+    else if([character isEqual:@"f"])
+    {
+        color = [self rainbowColorWithIndex:5];
+    }
+    else if([character isEqual:@"g"])
+    {
+        color = [UIColor grayColor];
+    }
+    else if([character isEqual:@"h"])
+    {
+        color = [[self backgroundRainbowColorWithIndex:0] lighterColor];
+    }
+    else if([character isEqual:@"i"])
+    {
+        color = [[self backgroundRainbowColorWithIndex:6] lighterColor];
+    }
+    else if([character isEqual:@"j"])
+    {
+        color = [[self backgroundRainbowColorWithIndex:1]lighterColor];
+    }
+    else if([character isEqual:@"k"])
+    {
+        color = [[self backgroundRainbowColorWithIndex:3]lighterColor];
+    }
+    else if([character isEqual:@"l"])
+    {
+        color = [[self backgroundRainbowColorWithIndex:4]lighterColor];
+    }
+    else if([character isEqual:@"m"])
+    {
+        color = [[self backgroundRainbowColorWithIndex:5]lighterColor];
+    }
+    else if([character isEqual:@"n"])
+    {
+        color = [UIColor darkGrayColor];
+    }
+    else if([character isEqual:@"o"])
+    {
+        color = [[self rainbowColorWithIndex:3]darkerColor];
+    }
+    else if([character isEqual:@"p"])
+    {
+        color = [[self rainbowColorWithIndex:2]darkerColor];
+    }
+    else if([character isEqual:@"q"])
+    {
+        color = [[self rainbowColorWithIndex:1]darkerColor];
+    }
+    else if([character isEqual:@"r"])
+    {
+        color = [[self rainbowColorWithIndex:4]darkerColor];
+    }
+    else if([character isEqual:@"s"])
+    {
+        color = [[self rainbowColorWithIndex:5]darkerColor];
+    }
+    else if([character isEqual:@"t"])
+    {
+        color = [[self backgroundRainbowColorWithIndex:6]darkerColor];
+    }
+    else if([character isEqual:@"u"])
+    {
+        color = [UIColor lightGrayColor];
+    }
+    else if([character isEqual:@"v"])
+    {
+        color = [[self rainbowColorWithIndex:0] darkerColor];
+    }
+    else if([character isEqual:@"w"])
+    {
+        color = [[UIColor greenColor] darkerColor];
+    }
+    else if([character isEqual:@"x"])
+    {
+        color = [[UIColor orangeColor] darkerColor];
+    }
+    else if([character isEqual:@"y"])
+    {
+        color = [UIColor purpleColor];
+    }
+    else if([character isEqual:@"z"])
+    {
+        color = [UIColor blueColor];
+    }
+    else
+    {
+        color = [UIColor blackColor];
+    }
+    
+    return  color;
+}
 
 
 @end

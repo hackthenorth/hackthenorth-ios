@@ -84,6 +84,7 @@ extern NSString *const AsyncImageErrorKey;
 
 - (id)initWithFrame:(CGRect)frame withPlaceholder: (BOOL)showPlaceholder;
 - (id)initWithFrame:(CGRect)frame withPlaceholderImgName: (NSString*)img;
+
 @end
 
 

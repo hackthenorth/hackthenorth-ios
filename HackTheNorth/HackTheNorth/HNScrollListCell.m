@@ -108,6 +108,10 @@
     
     scrollListView.contentSize = CGSizeMake(0, 0);
     scrollListView.contentOffset = CGPointMake(0, 0);
+    
+    self.title = @"";
+    self.subtitle = @"";
+    
 }
 
 

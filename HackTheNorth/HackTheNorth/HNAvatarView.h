@@ -12,7 +12,7 @@
 @interface HNAvatarView : UIImageView
 {
     UILabel*  _letterLabel;
-    AsyncImageView* _asyncImageView;
+    UIImageView* _asyncImageView;
 }
 
 

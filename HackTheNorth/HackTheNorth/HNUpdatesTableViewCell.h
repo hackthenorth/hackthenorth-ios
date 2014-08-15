@@ -22,7 +22,7 @@
 }
 
 
-@property (nonatomic, strong) NSURL*   avatarImgURL;
+@property (nonatomic, strong) NSURL*    avatarImgURL;
 
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSDate*   date;

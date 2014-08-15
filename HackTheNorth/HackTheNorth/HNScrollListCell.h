@@ -25,9 +25,11 @@
 @property (nonatomic, strong) NSString* title;
 @property (nonatomic, strong) NSString* subtitle;
 
+@property (nonatomic, strong) NSURL* imageURL;
+
 @property (nonatomic, strong) NSArray* detailList; //array of NSString names;
 
-
+@property (nonatomic, strong) NSArray* availability;
 
 
 
