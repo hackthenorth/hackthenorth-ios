@@ -39,9 +39,8 @@
     [super viewDidLoad];
 
     nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 10, kiPhoneWidthPortrait-10, 40)];
-
     nameLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:35];
-    nameLabel.textColor = [JPStyle interfaceTintColor];
+    nameLabel.textColor = [[JPStyle interfaceTintColor] darkerColor];
     [self.view addSubview:nameLabel];
     
     
