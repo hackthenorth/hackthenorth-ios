@@ -50,10 +50,10 @@
     
     UIView* shadowView = [[UIView alloc] initWithFrame:imageView.frame];
     shadowView.backgroundColor = [UIColor whiteColor];
-    shadowView.layer.cornerRadius = imageView.layer.cornerRadius;
-    shadowView.layer.shadowOffset = CGSizeMake(4, 8);
-    shadowView.layer.shadowOpacity = 0.5;
-    shadowView.layer.shadowRadius = 5;
+//    shadowView.layer.cornerRadius = imageView.layer.cornerRadius;
+//    shadowView.layer.shadowOffset = CGSizeMake(4, 8);
+//    shadowView.layer.shadowOpacity = 0.5;
+//    shadowView.layer.shadowRadius = 5;
     [self.view insertSubview:shadowView belowSubview:imageView];
     
     UILabel* orgLabel = [[UILabel alloc] initWithFrame:CGRectMake(125, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 60, kiPhoneWidthPortrait-130, 25)];
