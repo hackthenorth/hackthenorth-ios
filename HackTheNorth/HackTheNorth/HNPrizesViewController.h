@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
 @class HNDataManager;
-@interface HNPrizesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface HNPrizesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
 {
     HNDataManager*  manager;
     NSArray*     _infoArray;
+    
+    MFMailComposeViewController* mailController;
 }
 
 

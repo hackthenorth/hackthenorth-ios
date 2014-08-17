@@ -127,6 +127,15 @@
 }
 
 
+- (void)setEmail:(NSString *)email
+{
+    _email = email;
+ 
+    if([email isEqual:@""] || [email rangeOfString:@"@"].location == NSNotFound)
+        _email = nil;
+}
+
+
 - (void)prepareForReuse
 {
     for(UIView* subview in [scrollListView subviews])
@@ -137,9 +146,10 @@
     scrollListView.contentSize = CGSizeMake(0, 0);
     scrollListView.contentOffset = CGPointMake(0, 0);
     
-    self.title = @"";
-    self.subtitle = @"";
-    
+    self.title = nil;
+    self.subtitle = nil;
+    self.availability = @[];
+    self.email = nil;    
 }
 
 

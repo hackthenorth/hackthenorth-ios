@@ -10,6 +10,7 @@
 #import "UserInterfaceConstants.h"
 #import "HNScrollListCell.h"
 #import "HNDataManager.h"
+#import "SVStatusHUD.h"
 
 static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifier";
 
@@ -88,6 +89,8 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
         cell.title = [infoDict objectForKey:@"name"];
         cell.subtitle = [NSString stringWithFormat:@"%@",[infoDict objectForKey:@"twitter"]];
         cell.detailList = [infoDict objectForKey:@"role"];
+        cell.imageURL = [NSURL URLWithString:[infoDict objectForKey:@"image"]];
+        cell.email = [infoDict objectForKey:@"email"];
     }
     
     return cell;
@@ -104,8 +107,38 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    if(![MFMailComposeViewController canSendMail])
+    {
+        [[[UIAlertView alloc] initWithTitle:@"Can't Send Email" message:@"Please setup your email account first in the Settings app" delegate:nil cancelButtonTitle:@"I See" otherButtonTitles: nil] show];
+        return;
+    }
+    
+    HNScrollListCell* cell = (HNScrollListCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+    
+    mailController = [[MFMailComposeViewController alloc] init];
+    [mailController setSubject:@"HackTheNorth: "];
+    mailController.mailComposeDelegate = self;
+    
+    if(cell.email)
+    {
+        [mailController setToRecipients:@[cell.email]];
+    }
+    else
+    {
+        [SVStatusHUD showWithImage:[UIImage imageNamed:@"cantSendEmailHUD.png"] status:@"No Email Info"];
+        return;
+    }
+    
+    [self presentViewController:mailController animated:YES completion:nil];
     
 }
+
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 - (void)viewWillDisappear:(BOOL)animated
 {

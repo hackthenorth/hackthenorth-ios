@@ -32,7 +32,7 @@
 @property (nonatomic, strong) NSArray* detailList; //array of NSString names;
 
 @property (nonatomic, strong) NSArray* availability;
-
+@property (nonatomic, strong) NSString* email;
 
 
 @end
