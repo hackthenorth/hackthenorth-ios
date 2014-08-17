@@ -14,6 +14,7 @@
 #import "UIColor+RGBValues.h"
 #import "HNAvatarView.h"
 #import "NSDate+HNConvenience.h"
+#import "NSString+HNConvenience.h"
 
 @interface HNMentorsDetailsViewController ()
 
@@ -96,7 +97,7 @@
     [self.view addSubview:skillLabel];
     
     
-    skillVal = [[UITextView alloc] initWithFrame:CGRectMake(20, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 250, kiPhoneWidthPortrait-20, 50)];
+    skillVal = [[UITextView alloc] initWithFrame:CGRectMake(20, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 250, kiPhoneWidthPortrait-20, 200)];
     skillVal.backgroundColor = [UIColor clearColor];
     skillVal.editable = NO;
     skillVal.selectable = NO;
@@ -108,10 +109,6 @@
     
 
 }
-
-
-
-
 
 
 - (void)setCell:(HNScrollListCell *)cell
@@ -140,7 +137,7 @@
     
     for(NSString* skill in self.cell.detailList)
     {
-        [skillText appendString:[NSString stringWithFormat:@"%@, ", skill]];
+        [skillText appendString:[NSString stringWithFormat:@"%@, ", [skill cappedString]]];
     }
     
     if(skillText.length>=2)
@@ -148,13 +145,6 @@
     
 
 }
-
-
-
-
-
-
-
 
 
 

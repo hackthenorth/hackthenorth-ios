@@ -14,5 +14,7 @@
 
 + (NSString*) serializeDeviceToken:(NSData*) deviceToken;
 
+- (NSString*)cappedString;
+
 
 @end

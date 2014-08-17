@@ -136,6 +136,13 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 }
 
 
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Tap To Email";
+}
+
+
+
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
     [self dismissViewControllerAnimated:YES completion:nil];

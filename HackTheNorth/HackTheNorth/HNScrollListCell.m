@@ -14,6 +14,7 @@
 #import "HNScrollListItem.h"
 #import "AutoScrollLabel.h"
 #import "HNScrollView.h"
+#import "NSString+HNConvenience.h"
 
 @implementation HNScrollListCell
 
@@ -90,13 +91,7 @@
     
     for(NSString* itemName in detailList)
     {
-        NSString* capItemName = itemName;
-        if(itemName && ![itemName isEqual:@""])
-        {
-            NSString* cap = [[itemName substringToIndex:1] uppercaseString];
-            NSString* half = [itemName substringFromIndex:1];
-            capItemName = [cap stringByAppendingString:half];
-        }
+        NSString* capItemName = [itemName cappedString];
         
         CGFloat itemWidth = [HNScrollListItem widthWithString: capItemName];
         

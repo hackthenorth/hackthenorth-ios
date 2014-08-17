@@ -17,6 +17,9 @@
 		5DF1443419A05F3B002CA204 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF1443319A05F3B002CA204 /* MessageUI.framework */; };
 		5DF1443F19A062E0002CA204 /* canSendEmailHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1443D19A062E0002CA204 /* canSendEmailHUD.png */; };
 		5DF1444019A062E0002CA204 /* cantSendEmailHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1443E19A062E0002CA204 /* cantSendEmailHUD.png */; };
+		5DF1444319A06B84002CA204 /* HNTeamDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1444219A06B84002CA204 /* HNTeamDetailsViewController.m */; };
+		5DF1444619A0705A002CA204 /* HNBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1444519A0705A002CA204 /* HNBorderButton.m */; };
+		5DF1444819A07577002CA204 /* copiedHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1444719A07577002CA204 /* copiedHUD.png */; };
 		AA1FC0A6198F443800B1B765 /* AutoScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1FC0A5198F443800B1B765 /* AutoScrollLabel.m */; };
 		AA1FC0AA198F53C200B1B765 /* HNMentorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1FC0A9198F53C200B1B765 /* HNMentorsViewController.m */; };
 		AA1FC0AD198F545B00B1B765 /* HNTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1FC0AC198F545B00B1B765 /* HNTeamViewController.m */; };
@@ -106,6 +109,11 @@
 		5DF1443319A05F3B002CA204 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		5DF1443D19A062E0002CA204 /* canSendEmailHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = canSendEmailHUD.png; sourceTree = "<group>"; };
 		5DF1443E19A062E0002CA204 /* cantSendEmailHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cantSendEmailHUD.png; sourceTree = "<group>"; };
+		5DF1444119A06B84002CA204 /* HNTeamDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNTeamDetailsViewController.h; sourceTree = "<group>"; };
+		5DF1444219A06B84002CA204 /* HNTeamDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNTeamDetailsViewController.m; sourceTree = "<group>"; };
+		5DF1444419A0705A002CA204 /* HNBorderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNBorderButton.h; sourceTree = "<group>"; };
+		5DF1444519A0705A002CA204 /* HNBorderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNBorderButton.m; sourceTree = "<group>"; };
+		5DF1444719A07577002CA204 /* copiedHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = copiedHUD.png; sourceTree = "<group>"; };
 		AA1FC0A4198F443800B1B765 /* AutoScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoScrollLabel.h; sourceTree = "<group>"; };
 		AA1FC0A5198F443800B1B765 /* AutoScrollLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoScrollLabel.m; sourceTree = "<group>"; };
 		AA1FC0A8198F53C200B1B765 /* HNMentorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNMentorsViewController.h; sourceTree = "<group>"; };
@@ -290,6 +298,10 @@
 				AA54F008199DD21C00751823 /* HNMentorsDetailsViewController.m */,
 				AA1FC0AB198F545B00B1B765 /* HNTeamViewController.h */,
 				AA1FC0AC198F545B00B1B765 /* HNTeamViewController.m */,
+				5DF1444119A06B84002CA204 /* HNTeamDetailsViewController.h */,
+				5DF1444219A06B84002CA204 /* HNTeamDetailsViewController.m */,
+				5DF1444419A0705A002CA204 /* HNBorderButton.h */,
+				5DF1444519A0705A002CA204 /* HNBorderButton.m */,
 			);
 			name = "Mentors & Team VCs";
 			sourceTree = "<group>";
@@ -514,6 +526,7 @@
 			children = (
 				5DF1443D19A062E0002CA204 /* canSendEmailHUD.png */,
 				5DF1443E19A062E0002CA204 /* cantSendEmailHUD.png */,
+				5DF1444719A07577002CA204 /* copiedHUD.png */,
 				5DF1440A19A039DA002CA204 /* noWifi.png */,
 				5DF1440B19A039DA002CA204 /* noWifi@2x.png */,
 				5DF1440C19A039DA002CA204 /* SVStatusHUD.h */,
@@ -623,6 +636,7 @@
 				5DF1441719A039DA002CA204 /* wifi.png in Resources */,
 				5DF1444019A062E0002CA204 /* cantSendEmailHUD.png in Resources */,
 				AA63DCBC196E1A42001D9768 /* Main.storyboard in Resources */,
+				5DF1444819A07577002CA204 /* copiedHUD.png in Resources */,
 				5DF1441219A039DA002CA204 /* noWifi.png in Resources */,
 				5DF1441819A039DA002CA204 /* wifi@2x.png in Resources */,
 				5DF1441519A039DA002CA204 /* sync.png in Resources */,
@@ -677,6 +691,7 @@
 				AAAC61B01991C6870043A6CD /* AFHTTPSessionManager.m in Sources */,
 				AA34FA4519888CD300A73292 /* UIColor+RGBValues.m in Sources */,
 				AAF683CB19999E7D0069B2A3 /* AsyncImageView.m in Sources */,
+				5DF1444619A0705A002CA204 /* HNBorderButton.m in Sources */,
 				AAAC61B11991C6870043A6CD /* AFNetworkReachabilityManager.m in Sources */,
 				AA2006F0199307E0007E3F48 /* NSDate+HNConvenience.m in Sources */,
 				AA1FC0B4198F5BD500B1B765 /* HNScheduleDetailViewController.m in Sources */,
@@ -690,6 +705,7 @@
 				AA63DCB0196E1A42001D9768 /* main.m in Sources */,
 				AA34FA9D198D639000A73292 /* HNPrizesViewController.m in Sources */,
 				AA63DCDB196E24C6001D9768 /* JPStyle.m in Sources */,
+				5DF1444319A06B84002CA204 /* HNTeamDetailsViewController.m in Sources */,
 				AA54F009199DD21C00751823 /* HNMentorsDetailsViewController.m in Sources */,
 				AA34FAA0198D650100A73292 /* HNScrollListCell.m in Sources */,
 				AA1FC0A6198F443800B1B765 /* AutoScrollLabel.m in Sources */,

@@ -29,5 +29,19 @@
 }
 
 
+- (NSString*)cappedString
+{
+    NSString* capItemName = self;
+    if(self && ![self isEqual:@""])
+    {
+        NSString* cap = [[self substringToIndex:1] uppercaseString];
+        NSString* half = [self substringFromIndex:1];
+        capItemName = [cap stringByAppendingString:half];
+    }
+    
+    return capItemName;
+}
+
+
 
 @end
