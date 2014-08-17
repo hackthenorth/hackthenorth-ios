@@ -39,11 +39,12 @@ static const NSTimeInterval kInterfaceRefreshInterval = 10; //for time
         timeLabel.textAlignment = NSTextAlignmentLeft;
         [self addSubview:timeLabel];
         
-        messageView = [[UITextView alloc] initWithFrame:CGRectMake(10, 55, kiPhoneWidthPortrait-20, 65)];
+        messageView = [[UITextView alloc] initWithFrame:CGRectMake(10, 60, kiPhoneWidthPortrait-20, 60)];
         messageView.backgroundColor = [UIColor clearColor];
         messageView.editable = NO;
         messageView.selectable = NO;
         messageView.font = [UIFont fontWithName:[JPFont defaultFont] size:13];
+        messageView.textContainerInset = UIEdgeInsetsZero;
         [self addSubview:messageView];
         
         _UIUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:kInterfaceRefreshInterval target:self selector:@selector(reloadTimeLabel) userInfo:nil repeats:YES];

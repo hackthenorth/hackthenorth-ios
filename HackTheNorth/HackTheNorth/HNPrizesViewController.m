@@ -25,7 +25,7 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
     
     manager = [[HNDataManager alloc] init];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 44, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44) style:UITableViewStylePlain];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -51,7 +51,7 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
     
     NSMutableArray* array = [[infoDict allValues] mutableCopy];
     
-    _infoArray = [array sortedArrayUsingComparator:^NSComparisonResult(NSDictionary* obj1, NSDictionary* obj2) {
+    self.origCellDictArray = [array sortedArrayUsingComparator:^NSComparisonResult(NSDictionary* obj1, NSDictionary* obj2) {
         
         NSString* name1 = @"zzzzzz";
         NSString* name2 = @"zzzzzz";
@@ -64,8 +64,9 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
         return [name1 compare:name2];
     }];
 
+    self.cellDictArray = [self.origCellDictArray copy];
     
-    [self.tableView reloadData];
+    [self reloadDataForFiltering];
 }
 
 
@@ -73,7 +74,7 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_infoArray count];
+    return [self.cellDictArray count];
 }
 
 
@@ -82,7 +83,7 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 {
     HNScrollListCell* cell = (HNScrollListCell*)[self.tableView dequeueReusableCellWithIdentifier:kHNScrollListCellIdentifier];
     
-    NSDictionary* infoDict = [_infoArray objectAtIndex:indexPath.row];
+    NSDictionary* infoDict = [self.cellDictArray objectAtIndex:indexPath.row];
     
     if(![infoDict isEqual: [NSNull null]])
     {

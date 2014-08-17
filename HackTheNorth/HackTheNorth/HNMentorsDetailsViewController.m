@@ -78,6 +78,7 @@
     avai.editable = NO;
     avai.selectable = NO;
     avai.textContainer.lineFragmentPadding = 0;
+    avai.showsVerticalScrollIndicator = NO;
     avai.textContainerInset = UIEdgeInsetsZero;
     avai.font = [JPFont fontWithName:[JPFont defaultThinFont] size:16];
     avai.textColor = [UIColor darkGrayColor];

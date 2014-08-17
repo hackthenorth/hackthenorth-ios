@@ -11,7 +11,8 @@
 
 
 
-#define minUpdateTime  20.0f
+#define minUpdateTime      20.0f
+#define regularUpdateTime  60.0f
 
 @implementation HNDataManager
 
@@ -40,7 +41,7 @@
     
     _minTimer = [NSTimer scheduledTimerWithTimeInterval:minUpdateTime target:self selector:@selector(enableRetrieve) userInfo:nil repeats:YES];
     
-    _timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(retrieveAppDataAndSaveToFile) userInfo:nil repeats:YES];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:regularUpdateTime target:self selector:@selector(retrieveAppDataAndSaveToFile) userInfo:nil repeats:YES];
     [_timer fire];
 }
 

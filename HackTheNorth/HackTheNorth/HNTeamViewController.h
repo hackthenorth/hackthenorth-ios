@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
+#import "HNSearchViewController.h"
 
 @class HNDataManager;
-@interface HNTeamViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
+@interface HNTeamViewController : HNSearchViewController<UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
 {
     HNDataManager*  manager;
     NSArray*     _infoArray;
@@ -18,6 +19,9 @@
     MFMailComposeViewController* mailController;
 }
 
-@property (nonatomic, strong) UITableView* tableView;
+
+
+
+
 
 @end

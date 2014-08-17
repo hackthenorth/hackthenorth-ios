@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HNSearchViewController.h"
 
 @class HNDataManager;
-@interface HNMentorsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface HNMentorsViewController : HNSearchViewController <UITableViewDelegate, UITableViewDataSource>
 {
     HNDataManager*  manager;
     NSArray*     _infoArray;
@@ -17,7 +18,8 @@
 
 
 
-@property (nonatomic, strong) UITableView* tableView;
+
+
 
 
 

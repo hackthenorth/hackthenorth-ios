@@ -20,6 +20,7 @@
 		5DF1444319A06B84002CA204 /* HNTeamDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1444219A06B84002CA204 /* HNTeamDetailsViewController.m */; };
 		5DF1444619A0705A002CA204 /* HNBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1444519A0705A002CA204 /* HNBorderButton.m */; };
 		5DF1444819A07577002CA204 /* copiedHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1444719A07577002CA204 /* copiedHUD.png */; };
+		5DF1444D19A07D8A002CA204 /* HNSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1444C19A07D8A002CA204 /* HNSearchViewController.m */; };
 		AA1FC0A6198F443800B1B765 /* AutoScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1FC0A5198F443800B1B765 /* AutoScrollLabel.m */; };
 		AA1FC0AA198F53C200B1B765 /* HNMentorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1FC0A9198F53C200B1B765 /* HNMentorsViewController.m */; };
 		AA1FC0AD198F545B00B1B765 /* HNTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1FC0AC198F545B00B1B765 /* HNTeamViewController.m */; };
@@ -114,6 +115,8 @@
 		5DF1444419A0705A002CA204 /* HNBorderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNBorderButton.h; sourceTree = "<group>"; };
 		5DF1444519A0705A002CA204 /* HNBorderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNBorderButton.m; sourceTree = "<group>"; };
 		5DF1444719A07577002CA204 /* copiedHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = copiedHUD.png; sourceTree = "<group>"; };
+		5DF1444B19A07D8A002CA204 /* HNSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNSearchViewController.h; sourceTree = "<group>"; };
+		5DF1444C19A07D8A002CA204 /* HNSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNSearchViewController.m; sourceTree = "<group>"; };
 		AA1FC0A4198F443800B1B765 /* AutoScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoScrollLabel.h; sourceTree = "<group>"; };
 		AA1FC0A5198F443800B1B765 /* AutoScrollLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoScrollLabel.m; sourceTree = "<group>"; };
 		AA1FC0A8198F53C200B1B765 /* HNMentorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNMentorsViewController.h; sourceTree = "<group>"; };
@@ -265,6 +268,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5DF1444E19A07D92002CA204 /* Sorting View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5DF1444B19A07D8A002CA204 /* HNSearchViewController.h */,
+				5DF1444C19A07D8A002CA204 /* HNSearchViewController.m */,
+			);
+			name = "Sorting View Controller";
+			sourceTree = "<group>";
+		};
 		AA1FC0A3198F443800B1B765 /* AutoScrollLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +406,7 @@
 				AA34FA4C198891AD00A73292 /* Schedule View Controller */,
 				AA1FC0A7198F539500B1B765 /* Prizes View Controller */,
 				AA1FC0AE198F54A000B1B765 /* Mentors & Team VCs */,
+				5DF1444E19A07D92002CA204 /* Sorting View Controller */,
 				AA63DCBD196E1A42001D9768 /* Images.xcassets */,
 				AAAC61D8199210760043A6CD /* data.json */,
 				AA63DCAD196E1A42001D9768 /* Supporting Files */,
@@ -677,6 +690,7 @@
 				AA54F006199DC1BB00751823 /* DejalActivityView.m in Sources */,
 				AAAC61C01991C6870043A6CD /* UIWebView+AFNetworking.m in Sources */,
 				AA34FA3E1988888200A73292 /* HNAvatarView.m in Sources */,
+				5DF1444D19A07D8A002CA204 /* HNSearchViewController.m in Sources */,
 				AAAC61BD1991C6870043A6CD /* UIImageView+AFNetworking.m in Sources */,
 				AA34FA4419888CD300A73292 /* LDProgressView.m in Sources */,
 				AA34FAA6198D697D00A73292 /* HNScrollListItem.m in Sources */,
