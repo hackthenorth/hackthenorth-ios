@@ -11,7 +11,6 @@
 @class HNAvatarView, AutoScrollLabel, HNScrollView;
 @interface HNScrollListCell : UITableViewCell <UIGestureRecognizerDelegate>
 {
-    HNAvatarView* avatarView;
     
     AutoScrollLabel* titleLabel;
     UILabel* subtitleLabel;
@@ -25,6 +24,9 @@
 @property (nonatomic, strong) NSString* title;
 @property (nonatomic, strong) NSString* subtitle;
 
+
+@property (nonatomic, strong) HNAvatarView* avatarView;
+@property (nonatomic, assign) BOOL shouldShowAvatarLetter;
 @property (nonatomic, strong) NSURL* imageURL;
 
 @property (nonatomic, strong) NSArray* detailList; //array of NSString names;

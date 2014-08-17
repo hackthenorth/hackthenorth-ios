@@ -24,9 +24,8 @@
     
     self.separatorInset = UIEdgeInsetsMake(0, kiPhoneWidthPortrait, 0, 0);
     
-    
-    avatarView = [[HNAvatarView alloc] initWithFrame:CGRectMake(20, 10, 40, 40)];
-    [self addSubview:avatarView];
+    self.avatarView = [[HNAvatarView alloc] initWithFrame:CGRectMake(20, 10, 40, 40)];
+    [self addSubview:self.avatarView];
     
     titleLabel = [[AutoScrollLabel alloc] initWithFrame:CGRectMake(65, 10, kiPhoneWidthPortrait - 70, 22)];
     titleLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:18];
@@ -54,7 +53,7 @@
     
 }
 
-
+#pragma mark - Setter Methods
 
 - (void)setTitle:(NSString *)title
 {
@@ -67,8 +66,21 @@
 {
     _subtitle = subtitle;
     subtitleLabel.text = subtitle;
+    
+    [self setAvatarLetter];
 }
 
+
+- (void)setAvatarLetter
+{
+    if(self.shouldShowAvatarLetter)
+    {
+        self.avatarView.letter = self.subtitle;
+        self.avatarView.letterBackColor = [JPStyle colorWithCompanyName:self.subtitle];
+    }
+    else
+        self.avatarView.letter = nil;
+}
 
 - (void)setDetailList:(NSArray *)detailList
 {
@@ -99,6 +111,22 @@
 }
 
 
+- (void)setImageURL:(NSURL *)imageURL
+{
+    _imageURL = imageURL;
+    self.avatarView.imageUrl = imageURL;
+}
+
+
+- (void)setShouldShowAvatarLetter:(BOOL)shouldShowAvatarLetter
+{
+    _shouldShowAvatarLetter = shouldShowAvatarLetter;
+    
+    [self setAvatarLetter];
+    
+}
+
+
 - (void)prepareForReuse
 {
     for(UIView* subview in [scrollListView subviews])
@@ -121,6 +149,9 @@
 {
     return YES;
 }
+
+
+
 
 
 @end

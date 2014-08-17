@@ -37,7 +37,7 @@
 {
     [super viewDidAppear:animated];
     
-    [self performSelector:@selector(revealViewController) withObject:nil afterDelay:3];
+    [self performSelector:@selector(revealViewController) withObject:nil afterDelay:2];
     
     gearSide = 0;
     gearTimer = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(spinGear) userInfo:nil repeats:YES];

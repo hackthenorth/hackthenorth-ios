@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 
 
+
 @interface JPStyle : NSObject
 
 
@@ -38,6 +39,7 @@
 + (UIColor*) colorWithName: (NSString*)colorName;
 + (UIColor*)colorWithLetter: (NSString*)letter;
 + (UIColor*)colorWithLetterVariated: (NSString*)letter;
++ (UIColor*)colorWithCompanyName: (NSString*)companyName;
 
 @end
 

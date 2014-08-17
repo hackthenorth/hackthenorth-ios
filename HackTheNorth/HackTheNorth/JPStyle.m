@@ -457,7 +457,7 @@
     }
     else if([character isEqual:@"w"])
     {
-        color = [[UIColor greenColor] darkerColor];
+        color = [UIColor redColor];
     }
     else if([character isEqual:@"x"])
     {
@@ -478,6 +478,42 @@
     
     return  color;
 }
+
+
++ (UIColor*)colorWithCompanyName: (NSString*)companyName
+{
+    NSString* name = [companyName lowercaseString];
+    UIColor* color = [UIColor blackColor];
+    
+    NSDictionary* colorDict = @{@"facebook":@"3B5998", @"bloomberg":@"000000",
+                                @"pagerduty":@"09C700", @"velocity":@"16446D",
+                                @"kik":@"88D100", @"unity":@"000000",
+                                @"pebble":@"000000", @"mozilla":@"C9D1CF",
+                                @"slyce":@"00C0FF", @"yelp":@"FF0900",
+                                @"yext":@"003B6B", @"stackoverflow":@"FF8000",
+                                @"magnet":@"006EC0", @"moxtra":@"00A6FF",
+                                @"big viking":@"000000", @"microsoft":@"0016FF",
+                                @"wit.ai":@"5196CF", @"spark":@"56ACDD",
+                                @"estimote":@"00AC8C", @"base":@"00BD1F",
+                                @"a thinking ape":@"4A4D4D", @"kloudless":@"A38700",
+                                @"ethereum":@"6E718F", @"5∞":@"000000",@"5infinity":@"000000",
+                                @"university of waterloo":@"EE9600", @"y combinator":@"ED6C00",
+                                @"mlh":@"296792", @"techyon":@"666569"
+                                
+                                };
+    
+    NSString* colorVal = [colorDict valueForKey:name];
+    if(colorVal)
+        color = [self colorWithHex:colorVal alpha:1];
+    
+    if([companyName isEqual:@"hack the north"] || [companyName isEqual:@"hackthenorth"])
+    {
+        color = [self interfaceTintColor];
+    }
+    
+    return color;
+}
+
 
 
 @end

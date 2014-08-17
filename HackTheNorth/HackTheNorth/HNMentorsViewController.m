@@ -96,8 +96,8 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
         cell.detailList = [infoDict objectForKey:@"skills"];
         NSString* urlString = [infoDict objectForKey:@"image"];
         NSURL* url = [NSURL URLWithString:urlString];
-        if(url)
-            cell.imageURL = url;
+        
+        cell.imageURL = url;
         cell.availability = [infoDict objectForKey:@"availability"];
         
     }

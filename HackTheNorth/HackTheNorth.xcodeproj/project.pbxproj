@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5DF1441219A039DA002CA204 /* noWifi.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1440A19A039DA002CA204 /* noWifi.png */; };
+		5DF1441319A039DA002CA204 /* noWifi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1440B19A039DA002CA204 /* noWifi@2x.png */; };
+		5DF1441419A039DA002CA204 /* SVStatusHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1440D19A039DA002CA204 /* SVStatusHUD.m */; };
+		5DF1441519A039DA002CA204 /* sync.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1440E19A039DA002CA204 /* sync.png */; };
+		5DF1441619A039DA002CA204 /* sync@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1440F19A039DA002CA204 /* sync@2x.png */; };
+		5DF1441719A039DA002CA204 /* wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1441019A039DA002CA204 /* wifi.png */; };
+		5DF1441819A039DA002CA204 /* wifi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1441119A039DA002CA204 /* wifi@2x.png */; };
 		AA1FC0A6198F443800B1B765 /* AutoScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1FC0A5198F443800B1B765 /* AutoScrollLabel.m */; };
 		AA1FC0AA198F53C200B1B765 /* HNMentorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1FC0A9198F53C200B1B765 /* HNMentorsViewController.m */; };
 		AA1FC0AD198F545B00B1B765 /* HNTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1FC0AC198F545B00B1B765 /* HNTeamViewController.m */; };
@@ -71,13 +78,6 @@
 		AAAC61CE1991F83B0043A6CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAC61CC1991F8300043A6CD /* Foundation.framework */; };
 		AAAC61D71992049A0043A6CD /* HNMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC61D61992049A0043A6CD /* HNMainTabBarController.m */; };
 		AAAC61D9199210760043A6CD /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AAAC61D8199210760043A6CD /* data.json */; };
-		AAC6BDEB199DA00600683DB1 /* SVStatusHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC6BDEA199DA00600683DB1 /* SVStatusHUD.m */; };
-		AAC6BDEF199DA06400683DB1 /* wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC6BDED199DA06400683DB1 /* wifi.png */; };
-		AAC6BDF0199DA06400683DB1 /* wifi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC6BDEE199DA06400683DB1 /* wifi@2x.png */; };
-		AAC6BDF3199DA06F00683DB1 /* sync.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC6BDF1199DA06F00683DB1 /* sync.png */; };
-		AAC6BDF4199DA06F00683DB1 /* sync@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC6BDF2199DA06F00683DB1 /* sync@2x.png */; };
-		AAC6BDF7199DA34700683DB1 /* noWifi.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC6BDF5199DA34700683DB1 /* noWifi.png */; };
-		AAC6BDF8199DA34700683DB1 /* noWifi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC6BDF6199DA34700683DB1 /* noWifi@2x.png */; };
 		AAF683CB19999E7D0069B2A3 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF683CA19999E7D0069B2A3 /* AsyncImageView.m */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +92,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5DF1440A19A039DA002CA204 /* noWifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noWifi.png; path = SVStatusHUD/noWifi.png; sourceTree = "<group>"; };
+		5DF1440B19A039DA002CA204 /* noWifi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "noWifi@2x.png"; path = "SVStatusHUD/noWifi@2x.png"; sourceTree = "<group>"; };
+		5DF1440C19A039DA002CA204 /* SVStatusHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVStatusHUD.h; path = SVStatusHUD/SVStatusHUD.h; sourceTree = "<group>"; };
+		5DF1440D19A039DA002CA204 /* SVStatusHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVStatusHUD.m; path = SVStatusHUD/SVStatusHUD.m; sourceTree = "<group>"; };
+		5DF1440E19A039DA002CA204 /* sync.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sync.png; path = SVStatusHUD/sync.png; sourceTree = "<group>"; };
+		5DF1440F19A039DA002CA204 /* sync@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sync@2x.png"; path = "SVStatusHUD/sync@2x.png"; sourceTree = "<group>"; };
+		5DF1441019A039DA002CA204 /* wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wifi.png; path = SVStatusHUD/wifi.png; sourceTree = "<group>"; };
+		5DF1441119A039DA002CA204 /* wifi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi@2x.png"; path = "SVStatusHUD/wifi@2x.png"; sourceTree = "<group>"; };
 		AA1FC0A4198F443800B1B765 /* AutoScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoScrollLabel.h; sourceTree = "<group>"; };
 		AA1FC0A5198F443800B1B765 /* AutoScrollLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoScrollLabel.m; sourceTree = "<group>"; };
 		AA1FC0A8198F53C200B1B765 /* HNMentorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNMentorsViewController.h; sourceTree = "<group>"; };
@@ -207,14 +215,6 @@
 		AAAC61D51992049A0043A6CD /* HNMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNMainTabBarController.h; sourceTree = "<group>"; };
 		AAAC61D61992049A0043A6CD /* HNMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNMainTabBarController.m; sourceTree = "<group>"; };
 		AAAC61D8199210760043A6CD /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
-		AAC6BDE9199DA00600683DB1 /* SVStatusHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVStatusHUD.h; sourceTree = "<group>"; };
-		AAC6BDEA199DA00600683DB1 /* SVStatusHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVStatusHUD.m; sourceTree = "<group>"; };
-		AAC6BDED199DA06400683DB1 /* wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi.png; sourceTree = "<group>"; };
-		AAC6BDEE199DA06400683DB1 /* wifi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi@2x.png"; sourceTree = "<group>"; };
-		AAC6BDF1199DA06F00683DB1 /* sync.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sync.png; sourceTree = "<group>"; };
-		AAC6BDF2199DA06F00683DB1 /* sync@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sync@2x.png"; sourceTree = "<group>"; };
-		AAC6BDF5199DA34700683DB1 /* noWifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noWifi.png; sourceTree = "<group>"; };
-		AAC6BDF6199DA34700683DB1 /* noWifi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noWifi@2x.png"; sourceTree = "<group>"; };
 		AAF683C919999E7D0069B2A3 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		AAF683CA19999E7D0069B2A3 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -504,14 +504,14 @@
 		AAC6BDEC199DA00C00683DB1 /* SVStatusHUD */ = {
 			isa = PBXGroup;
 			children = (
-				AAC6BDE9199DA00600683DB1 /* SVStatusHUD.h */,
-				AAC6BDEA199DA00600683DB1 /* SVStatusHUD.m */,
-				AAC6BDF1199DA06F00683DB1 /* sync.png */,
-				AAC6BDF2199DA06F00683DB1 /* sync@2x.png */,
-				AAC6BDF5199DA34700683DB1 /* noWifi.png */,
-				AAC6BDF6199DA34700683DB1 /* noWifi@2x.png */,
-				AAC6BDED199DA06400683DB1 /* wifi.png */,
-				AAC6BDEE199DA06400683DB1 /* wifi@2x.png */,
+				5DF1440A19A039DA002CA204 /* noWifi.png */,
+				5DF1440B19A039DA002CA204 /* noWifi@2x.png */,
+				5DF1440C19A039DA002CA204 /* SVStatusHUD.h */,
+				5DF1440D19A039DA002CA204 /* SVStatusHUD.m */,
+				5DF1440E19A039DA002CA204 /* sync.png */,
+				5DF1440F19A039DA002CA204 /* sync@2x.png */,
+				5DF1441019A039DA002CA204 /* wifi.png */,
+				5DF1441119A039DA002CA204 /* wifi@2x.png */,
 			);
 			name = SVStatusHUD;
 			sourceTree = "<group>";
@@ -578,6 +578,7 @@
 					};
 					AA63DCC2196E1A42001D9768 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 52GHE2Q332;
 						TestTargetID = AA63DCA9196E1A42001D9768;
 					};
 				};
@@ -607,14 +608,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAAC61D9199210760043A6CD /* data.json in Resources */,
-				AAC6BDF0199DA06400683DB1 /* wifi@2x.png in Resources */,
-				AAC6BDEF199DA06400683DB1 /* wifi.png in Resources */,
 				AAAC61B71991C6870043A6CD /* LICENSE in Resources */,
-				AAC6BDF3199DA06F00683DB1 /* sync.png in Resources */,
-				AAC6BDF4199DA06F00683DB1 /* sync@2x.png in Resources */,
-				AAC6BDF8199DA34700683DB1 /* noWifi@2x.png in Resources */,
+				5DF1441719A039DA002CA204 /* wifi.png in Resources */,
 				AA63DCBC196E1A42001D9768 /* Main.storyboard in Resources */,
-				AAC6BDF7199DA34700683DB1 /* noWifi.png in Resources */,
+				5DF1441219A039DA002CA204 /* noWifi.png in Resources */,
+				5DF1441819A039DA002CA204 /* wifi@2x.png in Resources */,
+				5DF1441519A039DA002CA204 /* sync.png in Resources */,
+				5DF1441619A039DA002CA204 /* sync@2x.png in Resources */,
+				5DF1441319A039DA002CA204 /* noWifi@2x.png in Resources */,
 				AA63DCBE196E1A42001D9768 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -648,7 +649,6 @@
 				AA63DCE3196E32F6001D9768 /* HNUpdatesTableViewCell.m in Sources */,
 				AAAC61BB1991C6870043A6CD /* UIAlertView+AFNetworking.m in Sources */,
 				AA54F006199DC1BB00751823 /* DejalActivityView.m in Sources */,
-				AAC6BDEB199DA00600683DB1 /* SVStatusHUD.m in Sources */,
 				AAAC61C01991C6870043A6CD /* UIWebView+AFNetworking.m in Sources */,
 				AA34FA3E1988888200A73292 /* HNAvatarView.m in Sources */,
 				AAAC61BD1991C6870043A6CD /* UIImageView+AFNetworking.m in Sources */,
@@ -656,6 +656,7 @@
 				AA34FAA6198D697D00A73292 /* HNScrollListItem.m in Sources */,
 				AAAC61BA1991C6870043A6CD /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				AAAC61B21991C6870043A6CD /* AFSecurityPolicy.m in Sources */,
+				5DF1441419A039DA002CA204 /* SVStatusHUD.m in Sources */,
 				AAAC61B61991C6870043A6CD /* AFURLSessionManager.m in Sources */,
 				AA63DCE0196E25A6001D9768 /* HNBannerView.m in Sources */,
 				AAAC61BF1991C6870043A6CD /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -800,7 +801,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: SITE FENG (PAR485YFSL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HackTheNorth",
@@ -809,7 +810,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "59c06503-81f2-48ed-99f6-a94c5d5e362f";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -819,7 +820,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SITE FENG (52GHE2Q332)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HackTheNorth",
@@ -828,7 +829,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "927e17c3-43a0-4dc6-a60c-1360763039a4";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -836,6 +837,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HackTheNorth.app/HackTheNorth";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -849,6 +852,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -857,6 +861,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HackTheNorth.app/HackTheNorth";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -866,6 +872,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;

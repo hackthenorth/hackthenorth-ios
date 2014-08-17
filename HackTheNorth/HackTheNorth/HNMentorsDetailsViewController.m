@@ -85,18 +85,23 @@
     
     /////////////////////////////////////////////////////
     
-    UILabel* skillLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 200, kiPhoneWidthPortrait-20, 30)];
+    UIView* skillBackground = [[UIView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 210, kiPhoneWidthPortrait, kiPhoneHeightPortrait - 275)];
+    skillBackground.backgroundColor = [[JPStyle interfaceTintColor] colorWithAlphaComponent:0.2];
+    [self.view addSubview:skillBackground];
+    
+    UILabel* skillLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 220, kiPhoneWidthPortrait-20, 30)];
     skillLabel.text = @"Skills";
     skillLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
+    skillLabel.textColor = [UIColor blackColor];
     [self.view addSubview:skillLabel];
     
     
-    skillVal = [[UITextView alloc] initWithFrame:CGRectMake(20, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 230, kiPhoneWidthPortrait-20, 70)];
+    skillVal = [[UITextView alloc] initWithFrame:CGRectMake(20, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 250, kiPhoneWidthPortrait-20, 50)];
     skillVal.backgroundColor = [UIColor clearColor];
     skillVal.editable = NO;
     skillVal.selectable = NO;
+    skillVal.textColor = [[JPStyle interfaceTintColor] darkerColor];
     skillVal.font = [JPFont fontWithName:[JPFont defaultBoldFont] size:26];
-    skillVal.textColor = [JPStyle interfaceTintColor];
     skillVal.textContainer.lineFragmentPadding = 0;
     skillVal.textContainerInset = UIEdgeInsetsZero;
     [self.view addSubview:skillVal];

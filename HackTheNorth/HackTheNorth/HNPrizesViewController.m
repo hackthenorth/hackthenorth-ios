@@ -10,6 +10,7 @@
 #import "UserInterfaceConstants.h"
 #import "HNScrollListCell.h"
 #import "HNDataManager.h"
+#import "HNAvatarView.h"
 
 
 static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifier";
@@ -87,6 +88,7 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
         cell.title = [infoDict objectForKey:@"name"];
         cell.subtitle = [infoDict objectForKey:@"company"];
         cell.detailList = [infoDict objectForKey:@"prize"];
+        cell.shouldShowAvatarLetter = YES;
     }
     
     return cell;

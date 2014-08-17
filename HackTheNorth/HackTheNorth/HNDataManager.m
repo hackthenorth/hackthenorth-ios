@@ -103,7 +103,7 @@
         _shouldRetrieve = YES;
         _alertDisplayed = YES;
         
-        [SVStatusHUD showWithImage:[UIImage imageNamed:@"noWifi.png"] status:@"Offline Mode"];
+        [SVStatusHUD showWithImage:[UIImage imageNamed:@"sync"] status:@"Sync Timed Out"];
     }
 }
 
@@ -189,11 +189,11 @@
         if(!_wifiStatusViewEnabled)
             _wifiStatusViewEnabled = YES;
         else
-            [SVStatusHUD showWithImage:[UIImage imageNamed:@"wifi.png"] status:@"Connected!"];
+            [SVStatusHUD showWithImage:[UIImage imageNamed:@"wifi"] status:@"Connected!"];
     }
     else
     {
-        [SVStatusHUD showWithImage:[UIImage imageNamed:@"noWifi.png"] status:@"Offline Mode"];
+        [SVStatusHUD showWithImage:[UIImage imageNamed:@"noWifi"] status:@"Offline Mode"];
     }
     
 }

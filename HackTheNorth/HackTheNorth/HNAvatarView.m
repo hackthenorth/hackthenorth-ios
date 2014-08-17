@@ -26,7 +26,7 @@
         
         _letterLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         _letterLabel.textAlignment = NSTextAlignmentCenter;
-        _letterLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:self.frame.size.width*0.85];
+        _letterLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:self.frame.size.width*0.8];
         _letterLabel.textColor = [UIColor whiteColor];
         [self addSubview:_letterLabel];
         
@@ -70,13 +70,26 @@
     _letter = letter;
     
     if(!letter || [letter isEqual:@""])
+    {
+        _letterLabel.hidden = YES;
         return;
+    }
 
     NSString* firstLetter = [[letter substringToIndex:1] uppercaseString];
     _letterLabel.backgroundColor = [JPStyle colorWithLetterVariated:firstLetter];
     _letterLabel.text = firstLetter;
     [self bringSubviewToFront:_letterLabel];
+    
+    _letterLabel.hidden = NO;
 }
+
+
+- (void)setLetterBackColor:(UIColor *)letterBackColor
+{
+    _letterBackColor = letterBackColor;
+    _letterLabel.backgroundColor = letterBackColor;
+}
+
 
 
 - (void)setImageUrl:(NSURL *)imageUrl
@@ -87,6 +100,7 @@
 
 }
 
+
 - (void)imageLoaded
 {
     _asyncImageView.alpha = 0;
@@ -95,10 +109,9 @@
     [UIView animateWithDuration:0.5 animations:^{
         _asyncImageView.alpha = 1.0;
     }];
-    
-    
-    
+
 }
+
 
 
 @end

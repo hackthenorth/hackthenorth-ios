@@ -17,6 +17,7 @@
 
 
 @property (nonatomic, strong) NSString* letter;
+@property (nonatomic, strong) UIColor* letterBackColor;
 
 @property (nonatomic, strong) NSURL* imageUrl;
 
