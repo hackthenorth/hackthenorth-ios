@@ -11,8 +11,8 @@
 
 
 
-#define minUpdateTime      20.0f
-#define regularUpdateTime  60.0f
+#define minUpdateTime      10.0f
+#define regularUpdateTime  10.0f
 
 @implementation HNDataManager
 
@@ -23,6 +23,7 @@
     _alertDisplayed = NO;
     _shouldRetrieve = YES;
     _wifiStatusViewEnabled = NO;
+    _saveSuccess = YES;
     return self;
 }
 
@@ -73,15 +74,16 @@
     for(NSString* keyName in [self keyNames])
     {
         NSString* requestString = [NSString stringWithFormat:@"https://shane-hackthenorth.firebaseio.com/%@.json", keyName];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestString] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:20];
-        [request setHTTPMethod:@"GET"];
+        _request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestString] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:20];
+        [_request setHTTPMethod:@"GET"];
         
-        NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
-        connection.accessibilityLabel = keyName;
-        [connection start];
+        _connection = [[NSURLConnection alloc] initWithRequest:_request delegate:self startImmediately:NO];
+        _connection.accessibilityLabel = keyName;
+        [_connection start];
         
-        [self performSelectorOnMainThread:@selector(postNeedUpdateDataNotification) withObject:nil waitUntilDone:YES];
     }
+    
+    [self performSelector:@selector(postNeedUpdateDataNotification) withObject:nil afterDelay:3];
 
 }
 
@@ -92,12 +94,18 @@
 
     NSString* keyName = connection.accessibilityLabel;
     
-    [self saveData:data toFileWithName:[NSString stringWithFormat:@"%@.json", keyName]];
+    BOOL success = [self saveData:data toFileWithName:[NSString stringWithFormat:@"%@.json", keyName]];
+    
+    if(!success)
+        _saveSuccess = NO;
+    
 }
 
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    
     NSLog(@"Connection ERROR: %@", error.localizedDescription);
     if(self.displayAlert && !_alertDisplayed)
     {
@@ -116,38 +124,41 @@
     NSData* data = [NSData dataWithContentsOfFile:filePath];
     NSDictionary* fileDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     
+    BOOL successful = YES;
     for(NSString* keyName in [self keyNames])
     {
         NSArray* keyArray = [fileDictionary objectForKey:keyName];
         
         NSData* localData = [NSJSONSerialization dataWithJSONObject:keyArray options:0 error:nil];
         
-        [self saveData:localData toFileWithName:[NSString stringWithFormat:@"%@.json", keyName]];
+        BOOL indSuccess = [self saveData:localData toFileWithName:[NSString stringWithFormat:@"%@.json", keyName]];
+        if(indSuccess==NO)
+            successful = NO;
     }
     
-    [self performSelectorOnMainThread:@selector(postNeedUpdateDataNotification) withObject:nil waitUntilDone:YES];
+    if(successful)
+        [self performSelectorOnMainThread:@selector(postNeedUpdateDataNotification) withObject:nil waitUntilDone:YES];
 }
 
 
 
-- (void)saveData: (NSData*)data toFileWithName: (NSString*)filename
+- (BOOL)saveData: (NSData*)data toFileWithName: (NSString*)filename
 {
     if(!data || !filename)
     {
         NSLog(@"File Data Missing, can't save");
-        return;
+        return NO;
     }
     
-//    NSString* dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSString* dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
     NSURL* url = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:nil];
     
     NSURL* fileURL = [url URLByAppendingPathComponent:filename];
     
-    [[NSFileManager defaultManager] createFileAtPath:[fileURL path] contents:data attributes:nil];
+    return [[NSFileManager defaultManager] createFileAtPath:[fileURL path] contents:data attributes:nil];
 
 }
-
 
 
 
@@ -164,6 +175,7 @@
         fileData = [[NSFileManager defaultManager] contentsAtPath:[fileURL path]];
     }
     
+    
     id fileArrayOrDict = [NSJSONSerialization JSONObjectWithData:fileData options:NSJSONReadingAllowFragments error:nil];
     
     return fileArrayOrDict;
@@ -172,8 +184,10 @@
 
 - (void)postNeedUpdateDataNotification
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kNeedUpdateDataNotification object:self];
+    if(_saveSuccess == YES)
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNeedUpdateDataNotification object:self];
     
+    _saveSuccess = YES;
 }
 
 

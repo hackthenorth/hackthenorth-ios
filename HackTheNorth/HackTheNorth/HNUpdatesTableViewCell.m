@@ -23,7 +23,8 @@ static const NSTimeInterval kInterfaceRefreshInterval = 10; //for time
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        self.separatorInset = UIEdgeInsetsMake(0, kiPhoneWidthPortrait, 0, 0);
+        self.separatorInset = UIEdgeInsetsZero;
+//        UIEdgeInsetsMake(0, kiPhoneWidthPortrait, 0, 0);
         
         avatarView = [[HNAvatarView alloc] initWithFrame:CGRectMake(20, 10, 40, 40)];
         [self addSubview:avatarView];

@@ -22,7 +22,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     // Initialization code
-    self.separatorInset = UIEdgeInsetsMake(0, kiPhoneWidthPortrait, 0, 0);
+    self.separatorInset = UIEdgeInsetsZero;
+    //UIEdgeInsetsMake(0, kiPhoneWidthPortrait, 0, 0);
     self.accessoryType = UITableViewCellAccessoryNone;
     
     avatarView = [[HNAvatarView alloc] initWithFrame:CGRectMake(20, 10, 40, 40)];

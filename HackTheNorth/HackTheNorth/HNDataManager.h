@@ -17,12 +17,17 @@ static NSString* const kNeedUpdateDataNotification = @"kNeedUpdateDataNotificati
     BOOL   _alertDisplayed;
     AFNetworkReachabilityManager* reachability;
     
+    NSMutableURLRequest* _request;
+    NSURLConnection* _connection;
+    
     NSTimer * _timer;
     NSTimer * _minTimer;
     
     BOOL   _shouldRetrieve;
     
     BOOL   _wifiStatusViewEnabled;
+    
+    BOOL   _saveSuccess;
 }
 
 
@@ -36,7 +41,8 @@ static NSString* const kNeedUpdateDataNotification = @"kNeedUpdateDataNotificati
 
 - (void)retrieveAppDataAndSaveToFile;
 
-- (void)saveData: (NSData*)data toFileWithName: (NSString*)filename;
+//return isSuccessful
+- (BOOL)saveData: (NSData*)data toFileWithName: (NSString*)filename;
 
 - (id)retrieveArrayOrDictFromFile: (NSString*)fileName;
 

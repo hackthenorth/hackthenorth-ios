@@ -88,6 +88,9 @@
 {
     NSDictionary* infoDict = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][1]]];
     
+    if(!infoDict)
+        return;
+    
     NSMutableArray* array = [[infoDict allValues] mutableCopy];
     
     self.cellDictArray = [array sortedArrayUsingComparator:^NSComparisonResult(NSDictionary* obj1, NSDictionary* obj2) {

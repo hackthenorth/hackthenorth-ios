@@ -60,7 +60,12 @@
 
 - (void)reloadData
 {
-    _infoDict = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][0]]];
+    NSDictionary* updateDict = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][0]]];
+    
+    if(!updateDict)
+        return;
+    
+    _infoDict = updateDict;
     
     NSArray* unArray = [_infoDict allValues];
 
@@ -88,11 +93,21 @@
             }
         }] mutableCopy];
 
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self reloadTableView];
+        });
         
-        [self.tableView performSelector:@selector(reloadData) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
     });
     
 }
+
+
+- (void)reloadTableView
+{
+    [self.tableView reloadData];
+}
+
 
 
 

@@ -49,6 +49,8 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 - (void)reloadData
 {
     NSDictionary* infoDict = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][2]]];
+    if(!infoDict)
+        return;
     
     NSMutableArray* array = [[infoDict allValues] mutableCopy];
     
