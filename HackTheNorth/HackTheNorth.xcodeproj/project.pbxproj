@@ -60,6 +60,8 @@
 		AA789636199DB868001E28EB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA789635199DB868001E28EB /* Security.framework */; };
 		AA789638199DB86D001E28EB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA789637199DB86D001E28EB /* StoreKit.framework */; };
 		AA78963A199DB883001E28EB /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA789639199DB883001E28EB /* Parse.framework */; };
+		AA7BED5B19A2CE0100F68FCA /* HNPrizesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7BED5A19A2CE0100F68FCA /* HNPrizesDetailsViewController.m */; };
+		AA7BED5E19A2D1B500F68FCA /* HNAutoresizingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7BED5D19A2D1B500F68FCA /* HNAutoresizingLabel.m */; };
 		AAAC61AE1991C6870043A6CD /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC61881991C6870043A6CD /* AFHTTPRequestOperation.m */; };
 		AAAC61AF1991C6870043A6CD /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC618A1991C6870043A6CD /* AFHTTPRequestOperationManager.m */; };
 		AAAC61B01991C6870043A6CD /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC618C1991C6870043A6CD /* AFHTTPSessionManager.m */; };
@@ -186,6 +188,10 @@
 		AA789635199DB868001E28EB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AA789637199DB86D001E28EB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		AA789639199DB883001E28EB /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		AA7BED5919A2CE0100F68FCA /* HNPrizesDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPrizesDetailsViewController.h; sourceTree = "<group>"; };
+		AA7BED5A19A2CE0100F68FCA /* HNPrizesDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPrizesDetailsViewController.m; sourceTree = "<group>"; };
+		AA7BED5C19A2D1B500F68FCA /* HNAutoresizingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNAutoresizingLabel.h; sourceTree = "<group>"; };
+		AA7BED5D19A2D1B500F68FCA /* HNAutoresizingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNAutoresizingLabel.m; sourceTree = "<group>"; };
 		AAAC61871991C6870043A6CD /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		AAAC61881991C6870043A6CD /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		AAAC61891991C6870043A6CD /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -291,12 +297,8 @@
 			children = (
 				AA34FA9B198D639000A73292 /* HNPrizesViewController.h */,
 				AA34FA9C198D639000A73292 /* HNPrizesViewController.m */,
-				AA34FA9E198D650100A73292 /* HNScrollListCell.h */,
-				AA34FA9F198D650100A73292 /* HNScrollListCell.m */,
-				AA1FC0AF198F595000B1B765 /* HNScrollView.h */,
-				AA1FC0B0198F595000B1B765 /* HNScrollView.m */,
-				AA34FAA4198D697D00A73292 /* HNScrollListItem.h */,
-				AA34FAA5198D697D00A73292 /* HNScrollListItem.m */,
+				AA7BED5919A2CE0100F68FCA /* HNPrizesDetailsViewController.h */,
+				AA7BED5A19A2CE0100F68FCA /* HNPrizesDetailsViewController.m */,
 			);
 			name = "Prizes View Controller";
 			sourceTree = "<group>";
@@ -312,8 +314,6 @@
 				AA1FC0AC198F545B00B1B765 /* HNTeamViewController.m */,
 				5DF1444119A06B84002CA204 /* HNTeamDetailsViewController.h */,
 				5DF1444219A06B84002CA204 /* HNTeamDetailsViewController.m */,
-				5DF1444419A0705A002CA204 /* HNBorderButton.h */,
-				5DF1444519A0705A002CA204 /* HNBorderButton.m */,
 			);
 			name = "Mentors & Team VCs";
 			sourceTree = "<group>";
@@ -356,16 +356,6 @@
 		AA63DCA1196E1A42001D9768 = {
 			isa = PBXGroup;
 			children = (
-				5DF1443319A05F3B002CA204 /* MessageUI.framework */,
-				AA54F001199DC07700751823 /* CFNetwork.framework */,
-				AA789637199DB86D001E28EB /* StoreKit.framework */,
-				AA789635199DB868001E28EB /* Security.framework */,
-				AA789633199DB863001E28EB /* QuartzCore.framework */,
-				AA789631199DB85B001E28EB /* MobileCoreServices.framework */,
-				AA78962F199DB854001E28EB /* libz.dylib */,
-				AA78962D199DB84A001E28EB /* CoreLocation.framework */,
-				AA78962B199DB843001E28EB /* CoreGraphics.framework */,
-				AA789627199DB834001E28EB /* AudioToolbox.framework */,
 				AA63DCAC196E1A42001D9768 /* HackTheNorth */,
 				AA54F003199DC1BB00751823 /* DejalActivityView */,
 				AAC6BDEC199DA00C00683DB1 /* SVStatusHUD */,
@@ -404,6 +394,7 @@
 				AAAC61D61992049A0043A6CD /* HNMainTabBarController.m */,
 				AA63DCE4196E32FC001D9768 /* Notification View Controller */,
 				AA34FA4C198891AD00A73292 /* Schedule View Controller */,
+				AA7BED5819A2CD7D00F68FCA /* Common Views */,
 				AA1FC0A7198F539500B1B765 /* Prizes View Controller */,
 				AA1FC0AE198F54A000B1B765 /* Mentors & Team VCs */,
 				5DF1444E19A07D92002CA204 /* Sorting View Controller */,
@@ -417,6 +408,16 @@
 		AA63DCAD196E1A42001D9768 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5DF1443319A05F3B002CA204 /* MessageUI.framework */,
+				AA54F001199DC07700751823 /* CFNetwork.framework */,
+				AA789637199DB86D001E28EB /* StoreKit.framework */,
+				AA789635199DB868001E28EB /* Security.framework */,
+				AA789633199DB863001E28EB /* QuartzCore.framework */,
+				AA789631199DB85B001E28EB /* MobileCoreServices.framework */,
+				AA78962F199DB854001E28EB /* libz.dylib */,
+				AA78962D199DB84A001E28EB /* CoreLocation.framework */,
+				AA78962B199DB843001E28EB /* CoreGraphics.framework */,
+				AA789627199DB834001E28EB /* AudioToolbox.framework */,
 				AA789639199DB883001E28EB /* Parse.framework */,
 				AAAC61CC1991F8300043A6CD /* Foundation.framework */,
 				AAAC61C91991F8130043A6CD /* UIKit.framework */,
@@ -471,6 +472,23 @@
 				AA34FA3D1988888200A73292 /* HNAvatarView.m */,
 			);
 			name = "Notification View Controller";
+			sourceTree = "<group>";
+		};
+		AA7BED5819A2CD7D00F68FCA /* Common Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA34FA9E198D650100A73292 /* HNScrollListCell.h */,
+				AA34FA9F198D650100A73292 /* HNScrollListCell.m */,
+				AA1FC0AF198F595000B1B765 /* HNScrollView.h */,
+				AA1FC0B0198F595000B1B765 /* HNScrollView.m */,
+				AA34FAA4198D697D00A73292 /* HNScrollListItem.h */,
+				AA34FAA5198D697D00A73292 /* HNScrollListItem.m */,
+				AA7BED5C19A2D1B500F68FCA /* HNAutoresizingLabel.h */,
+				AA7BED5D19A2D1B500F68FCA /* HNAutoresizingLabel.m */,
+				5DF1444419A0705A002CA204 /* HNBorderButton.h */,
+				5DF1444519A0705A002CA204 /* HNBorderButton.m */,
+			);
+			name = "Common Views";
 			sourceTree = "<group>";
 		};
 		AAAC61851991C6870043A6CD /* AFNetworking */ = {
@@ -688,6 +706,7 @@
 				AA63DCE3196E32F6001D9768 /* HNUpdatesTableViewCell.m in Sources */,
 				AAAC61BB1991C6870043A6CD /* UIAlertView+AFNetworking.m in Sources */,
 				AA54F006199DC1BB00751823 /* DejalActivityView.m in Sources */,
+				AA7BED5E19A2D1B500F68FCA /* HNAutoresizingLabel.m in Sources */,
 				AAAC61C01991C6870043A6CD /* UIWebView+AFNetworking.m in Sources */,
 				AA34FA3E1988888200A73292 /* HNAvatarView.m in Sources */,
 				5DF1444D19A07D8A002CA204 /* HNSearchViewController.m in Sources */,
@@ -719,6 +738,7 @@
 				AA63DCB0196E1A42001D9768 /* main.m in Sources */,
 				AA34FA9D198D639000A73292 /* HNPrizesViewController.m in Sources */,
 				AA63DCDB196E24C6001D9768 /* JPStyle.m in Sources */,
+				AA7BED5B19A2CE0100F68FCA /* HNPrizesDetailsViewController.m in Sources */,
 				5DF1444319A06B84002CA204 /* HNTeamDetailsViewController.m in Sources */,
 				AA54F009199DD21C00751823 /* HNMentorsDetailsViewController.m in Sources */,
 				AA34FAA0198D650100A73292 /* HNScrollListCell.m in Sources */,

@@ -12,6 +12,7 @@
 #import "HNDataManager.h"
 #import "HNAvatarView.h"
 #import "SVStatusHUD.h"
+#import "HNPrizesDetailsViewController.h"
 
 
 static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifier";
@@ -91,6 +92,7 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
         cell.subtitle = [infoDict objectForKey:@"company"];
         cell.detailList = [infoDict objectForKey:@"prize"];
         cell.email = [infoDict objectForKey:@"contact"];
+        cell.descriptor = [infoDict objectForKey:@"description"];
         cell.shouldShowAvatarLetter = YES;
     }
     
@@ -117,30 +119,13 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
     HNScrollListCell* cell = (HNScrollListCell*)[self.tableView cellForRowAtIndexPath:indexPath];
     
 
-    mailController = [[MFMailComposeViewController alloc] init];
-    [mailController setSubject:@"HackTheNorth: "];
-    mailController.mailComposeDelegate = self;
+    HNPrizesDetailsViewController* prizesController = [[HNPrizesDetailsViewController alloc] initWithCell:cell];
     
+    [self.navigationController pushViewController:prizesController animated:YES];
     
-    if(cell.email)
-    {
-        [mailController setToRecipients:@[cell.email]];
-    }
-    else
-    {
-        [SVStatusHUD showWithImage:[UIImage imageNamed:@"cantSendEmailHUD.png"] status:@"No Email Info"];
-        return;
-    }
-    
-    [self presentViewController:mailController animated:YES completion:nil];
     
 }
 
-
-- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return @"Tap To Email";
-}
 
 
 
@@ -150,6 +135,26 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 }
 
 
+#pragma mark - Search Bar Delegate
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [super searchBarTextDidBeginEditing:searchBar];
+    
+    [UIView animateWithDuration:kKeyboardRetractAnimationSpeed delay:0 options: UIViewAnimationOptionCurveEaseOut animations:^{
+        self.tableView.frame = CGRectMake(0, self.tableView.frame.origin.y, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44+kiPhoneTabBarHeight-kiPhoneKeyboardHeightPortrait);
+    } completion:nil];
+}
+
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    [super searchBarTextDidEndEditing:searchBar];
+    
+    [UIView animateWithDuration:kKeyboardRetractAnimationSpeed delay:0 options: UIViewAnimationOptionCurveEaseOut animations:^{
+        self.tableView.frame = CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 44, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44);
+    } completion:nil];
+}
 
 
 - (void)viewWillDisappear:(BOOL)animated

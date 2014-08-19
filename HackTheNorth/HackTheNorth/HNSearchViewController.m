@@ -67,7 +67,7 @@
     
     NSMutableArray* newArray = [NSMutableArray array];
  
-    NSArray* stringSearches = @[@"company", @"contact", @"name", @"organization", @"email", @"phone", @"twitter"];
+    NSArray* stringSearches = @[@"company", @"contact", @"name", @"organization", @"email", @"phone", @"twitter", @"location", @"start_time", @"speaker", @"type", @"end_time"];
     //not searching: @"description"
     NSArray* arrayOfStringSearches = @[@"prize", @"skills", @"role", @"availability"];
     

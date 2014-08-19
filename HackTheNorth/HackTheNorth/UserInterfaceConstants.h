@@ -34,6 +34,10 @@
 #define kiPhoneHeightPortrait           568
 #define kiPhoneWidthPortrait            320
 
+#define kiPhoneKeyboardHeightPortrait   216
+
+#define kKeyboardRetractAnimationSpeed   0.3
+
 //-----------------
 
 #define kiPadKeyboardHeightLandscape 		  352

@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HNSearchViewController.h"
 
 @class HNScheduleProgressView, HNDataManager;
-@interface HNScheduleViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface HNScheduleViewController : HNSearchViewController <UITableViewDataSource, UITableViewDelegate>
 {
     HNDataManager*  manager;
-    NSArray*     _infoArray;
+    
+    UIBarButtonItem* _searchItem;
+    
     
     NSMutableArray* _friSatSunArray;
     

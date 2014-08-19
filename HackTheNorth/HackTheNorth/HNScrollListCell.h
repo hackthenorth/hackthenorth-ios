@@ -34,5 +34,6 @@
 @property (nonatomic, strong) NSArray* availability;
 @property (nonatomic, strong) NSString* email;
 
+@property (nonatomic, strong) NSString* descriptor;
 
 @end

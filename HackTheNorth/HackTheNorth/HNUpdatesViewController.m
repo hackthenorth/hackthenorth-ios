@@ -31,7 +31,7 @@
     _infoDict = [NSDictionary dictionary];
     
     self.banner = [[HNBannerView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight, kiPhoneWidthPortrait, 150)];
-    self.banner.imgNameArray = [@[@"hackTheNorthBanner", @"hackersBanner", @"hoursBanner", @"locationBanner"] mutableCopy];
+    self.banner.imgNameArray = [@[@"hackTheNorthBanner1", @"hackersBanner", @"hoursBanner", @"locationBanner"] mutableCopy];
     [self.view addSubview:self.banner];
     
     UIView* blueBar = [[UIView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+150, kiPhoneWidthPortrait, 5)];

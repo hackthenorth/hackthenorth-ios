@@ -57,9 +57,11 @@
     
     if([_imgNameArray count]==0)
     {
-        UIImage* defaultImage = [UIImage imageNamed:@"hackTheNorthBanner"];
+        UIImage* defaultImage = [UIImage imageNamed:@"hackTheNorthBanner2"];
     
         UIImageView* imgView = [[UIImageView alloc] initWithImage:defaultImage];
+        imgView.contentMode = UIViewContentModeScaleAspectFill;
+        imgView.clipsToBounds = YES;
         imgView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
         
         [self.bannerArray addObject:imgView];
@@ -70,6 +72,8 @@
     else if([_imgNameArray count]==1)
     {
         UIImageView* imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+        imgView.contentMode = UIViewContentModeScaleAspectFill;
+        imgView.clipsToBounds = YES;
         imgView.image = [UIImage imageNamed:[_imgNameArray firstObject]];
         
         [self.bannerArray addObject:imgView];
@@ -84,7 +88,8 @@
         for(int i=0; i< [_imgNameArray count]; i++)
         {
             UIImageView* imgView = [[UIImageView alloc] initWithFrame:CGRectMake(i*frame.size.width, 0, frame.size.width, frame.size.height)];
-            
+            imgView.contentMode = UIViewContentModeScaleAspectFill;
+            imgView.clipsToBounds = YES;
             imgView.image = [UIImage imageNamed:_imgNameArray[i]];
             
             [self.bannerArray addObject:imgView];
@@ -95,7 +100,8 @@
         for(int i=0; i< 2; i++)
         {
             UIImageView* imgView = [[UIImageView alloc] initWithFrame:CGRectMake((i+[_imgNameArray count])*frame.size.width, 0, frame.size.width, frame.size.height)];
-            
+            imgView.contentMode = UIViewContentModeScaleAspectFill;
+            imgView.clipsToBounds = YES;
             imgView.image = [UIImage imageNamed:_imgNameArray[i]];
             
             [self.bannerArray addObject:imgView];
