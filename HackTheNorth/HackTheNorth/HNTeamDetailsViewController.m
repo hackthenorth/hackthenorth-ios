@@ -100,6 +100,7 @@
     
     
     rolesVal = [[UITextView alloc] initWithFrame:CGRectMake(20, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 250, kiPhoneWidthPortrait-20, 200)];
+    rolesVal.showsVerticalScrollIndicator = NO;
     rolesVal.backgroundColor = [UIColor clearColor];
     rolesVal.editable = NO;
     rolesVal.selectable = NO;

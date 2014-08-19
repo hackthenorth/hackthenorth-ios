@@ -11,6 +11,7 @@
 #import "HNDataManager.h"
 #import "JPStyle.h"
 #import "JPFont.h"
+#import "NSDate+HNConvenience.h"
 
 
 @interface HNSearchViewController ()
@@ -81,6 +82,13 @@
                 continue;
             
             NSString* value = [(NSString*)stringValue lowercaseString];
+            
+            if([stringKey isEqual:@"start_time"] || [stringKey isEqual:@"end_time"])
+            {
+                NSDate* theTime = [NSDate dateWithISO8601CompatibleString:stringValue];
+                if(theTime)
+                    value = [theTime timeStringForTableCell];
+            }
             
             //if term matches and Cell haven't been added yet, add it
             if(!([value rangeOfString: term].location==NSNotFound) && ![newArray containsObject:cellDict])

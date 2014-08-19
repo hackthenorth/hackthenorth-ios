@@ -99,6 +99,7 @@
     
     
     skillVal = [[UITextView alloc] initWithFrame:CGRectMake(20, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 250, kiPhoneWidthPortrait-20, 200)];
+    skillVal.showsVerticalScrollIndicator = NO;
     skillVal.backgroundColor = [UIColor clearColor];
     skillVal.editable = NO;
     skillVal.selectable = NO;
