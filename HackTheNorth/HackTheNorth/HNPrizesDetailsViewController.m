@@ -111,7 +111,7 @@
     
     ///////////////
     
-    UILabel* detailsLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 370, kiPhoneWidthPortrait-20, 30)];
+    detailsLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 370, kiPhoneWidthPortrait-20, 30)];
     detailsLabel.text = @"Details";
     detailsLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
     detailsLabel.textColor = [UIColor blackColor];
@@ -127,11 +127,10 @@
     detailsVal.textContainerInset = UIEdgeInsetsZero;
     [mainScrollView addSubview:detailsVal];
     
-    
-    mainScrollView.contentSize = CGSizeMake(kiPhoneWidthPortrait, 500);
-    UIView* skillBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 210, kiPhoneWidthPortrait, mainScrollView.contentSize.height - 210 + 100)];
-    skillBackground.backgroundColor = [[JPStyle interfaceTintColor] colorWithAlphaComponent:0.2];
-    [mainScrollView addSubview:skillBackground];
+    mainScrollView.contentSize = CGSizeZero;
+    _skillBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 210, kiPhoneWidthPortrait, mainScrollView.contentSize.height - 210 + 100)];
+    _skillBackground.backgroundColor = [[JPStyle interfaceTintColor] colorWithAlphaComponent:0.2];
+    [mainScrollView addSubview:_skillBackground];
 }
 
 
@@ -198,7 +197,10 @@
     imageView.letter= self.cell.subtitle;
     imageView.letterBackColor = [JPStyle colorWithCompanyName:self.cell.subtitle];
     
+    ////////////////////////
+    //Prizes
     NSMutableString* prizesText = [@"" mutableCopy];
+    prizesVal.text = @"";
     
     for(NSString* prize in self.cell.detailList)
     {
@@ -206,14 +208,38 @@
     }
     
     if(prizesText.length>=2)
+    {
         prizesVal.text = [prizesText substringToIndex:prizesText.length-2];
+    }
+
+    CGSize prizeSize = [prizesVal sizeThatFits:prizesVal.frame.size];
+    prizesVal.frame = CGRectMake(prizesVal.frame.origin.x, prizesVal.frame.origin.y, prizesVal.frame.size.width, prizeSize.height + 10);
+    CGFloat currYPos = prizesVal.frame.origin.y + prizesVal.frame.size.height + 20;
     
+    /////////////////////
+    //Detail Label
+    detailsLabel.frame = CGRectMake(detailsLabel.frame.origin.x, currYPos, detailsLabel.frame.size.width, detailsLabel.frame.size.height);
+    currYPos += detailsLabel.frame.size.height + 5;
+
+    /////////////////////
+    //Detail Text
     NSString* detailText = @"";
-    
     if(cell.descriptor && ![cell.descriptor isEqual:[NSNull null]])
+    {
         detailText = cell.descriptor;
+    }
     
+    [detailsVal removeFromSuperview];
     detailsVal.text = detailText;
+    [mainScrollView addSubview:detailsVal];
+    
+    CGSize detailsSize = [detailsVal sizeThatFits:detailsVal.frame.size];
+    detailsVal.frame = CGRectMake(detailsVal.frame.origin.x, currYPos, detailsVal.frame.size.width, detailsSize.height + 10);
+    currYPos += detailsVal.frame.size.height + 20;
+    
+    mainScrollView.contentSize = CGSizeMake(kiPhoneWidthPortrait, currYPos);
+    _skillBackground.frame = CGRectMake(0, 210, kiPhoneWidthPortrait, mainScrollView.contentSize.height - 210 + 300);
+    
 }
 
 

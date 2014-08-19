@@ -23,7 +23,10 @@
     HNBorderButton* sendEmailButton;
     
     UITextView* prizesVal;
+    UILabel*    detailsLabel;
     UITextView* detailsVal;
+    
+    UIView*     _skillBackground;
     
     MFMailComposeViewController* mailController;
 }
