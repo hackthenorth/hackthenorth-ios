@@ -137,8 +137,7 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    self.cellDictArray = [self.origCellDictArray copy];
-    [searchBar resignFirstResponder];
+    [self searchBarTextDidEndEditing:_searchBar];
 }
 
 
@@ -146,11 +145,14 @@
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
     searchBar.showsCancelButton = YES;
+    [searchBar becomeFirstResponder];
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
     searchBar.showsCancelButton = NO;
+    self.cellDictArray = [self.origCellDictArray copy];
+    [searchBar resignFirstResponder];
 }
 
 

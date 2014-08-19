@@ -192,6 +192,8 @@
         _searchItem.tag = 1;
         self.navigationItem.rightBarButtonItem = _searchItem;
         /////////////////////////////
+        [self searchBarTextDidBeginEditing:_searchBar];
+        
         [UIView animateWithDuration:0.5 animations:^{
             //show search bar
             _searchBar.alpha = 1.0;
@@ -204,8 +206,7 @@
         _searchItem.tag = 0;
         self.navigationItem.rightBarButtonItem = _searchItem;
         ////////////////////////////////
-        _searchBar.text = @"";
-        [_searchBar resignFirstResponder];
+        [self searchBarTextDidEndEditing:_searchBar];
         
         [UIView animateWithDuration:0.5 animations:^{
             _searchBar.alpha = 0;

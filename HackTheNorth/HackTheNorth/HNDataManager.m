@@ -12,7 +12,7 @@
 
 
 #define minUpdateTime      10.0f
-#define regularUpdateTime  10.0f
+#define regularUpdateTime  90.0f
 
 @implementation HNDataManager
 
