@@ -13,9 +13,7 @@
     @protected
     UISearchBar* _searchBar;
     
-
 }
-
 
 
 @property (nonatomic, strong) UITableView* tableView;
@@ -28,5 +26,6 @@
 - (void)reloadDataForFiltering;
 - (NSArray*)searchFromDictArray:(NSArray*)array bySearchTerm: (NSString*)term;
 
+- (void)endSearchingWithSearchBar: (UISearchBar *)searchBar;
 
 @end

@@ -27,7 +27,6 @@
 
 @property (nonatomic, strong) HNScheduleProgressView* scheduleView;
 
-@property (nonatomic, strong) UITableView* tableView;
 
 
 @end

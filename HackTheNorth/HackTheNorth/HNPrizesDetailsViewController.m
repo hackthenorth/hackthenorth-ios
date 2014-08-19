@@ -45,6 +45,7 @@
     [super viewDidLoad];
     
     mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kiPhoneWidthPortrait, kiPhoneHeightPortrait)];
+    mainScrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:mainScrollView];
     
     nameLabel = [[HNAutoresizingLabel alloc] initWithFrame:CGRectMake(10, 10, kiPhoneWidthPortrait-20, 40)];

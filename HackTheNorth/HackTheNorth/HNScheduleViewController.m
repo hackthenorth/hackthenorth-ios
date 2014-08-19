@@ -206,7 +206,7 @@
         _searchItem.tag = 0;
         self.navigationItem.rightBarButtonItem = _searchItem;
         ////////////////////////////////
-        [self searchBarTextDidEndEditing:_searchBar];
+        [self endSearchingWithSearchBar:_searchBar];
         
         [UIView animateWithDuration:0.5 animations:^{
             _searchBar.alpha = 0;
@@ -255,6 +255,7 @@
     } completion:nil];
 }
 
+
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
     [super searchBarTextDidEndEditing:searchBar];
@@ -274,5 +275,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
 }
+
 
 @end

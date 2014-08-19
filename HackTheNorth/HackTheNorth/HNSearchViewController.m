@@ -137,7 +137,7 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    [self searchBarTextDidEndEditing:_searchBar];
+    [self endSearchingWithSearchBar:searchBar];
 }
 
 
@@ -148,13 +148,20 @@
     [searchBar becomeFirstResponder];
 }
 
+
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
     searchBar.showsCancelButton = NO;
-    self.cellDictArray = [self.origCellDictArray copy];
-    [searchBar resignFirstResponder];
 }
 
+
+- (void)endSearchingWithSearchBar: (UISearchBar *)searchBar
+{
+    searchBar.text = @"";
+    self.cellDictArray = [self.origCellDictArray copy];
+    [searchBar resignFirstResponder];
+    [self reloadDataForFiltering];
+}
 
 
 #pragma mark - Setter Methods
