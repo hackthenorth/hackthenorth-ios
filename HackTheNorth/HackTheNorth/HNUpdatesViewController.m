@@ -63,7 +63,10 @@
     NSDictionary* updateDict = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][0]]];
     
     if(!updateDict)
+    {
+        _reUpdateLocallyTimer = [NSTimer scheduledTimerWithTimeInterval:7 target:self selector:@selector(reloadData) userInfo:nil repeats:NO];
         return;
+    }
     
     _infoDict = updateDict;
     
