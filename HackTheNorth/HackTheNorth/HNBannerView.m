@@ -29,6 +29,7 @@
 
         //Setting up properties for Scroll View
         self.showsVerticalScrollIndicator = NO;
+        self.scrollsToTop = NO;
         self.showsHorizontalScrollIndicator = NO;
         self.contentInset = UIEdgeInsetsZero;
         self.pagingEnabled = YES;

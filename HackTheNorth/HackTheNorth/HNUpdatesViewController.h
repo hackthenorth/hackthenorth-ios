@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class HNBannerView, HNDataManager;
-@interface HNUpdatesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface HNUpdatesViewController : UITableViewController
 {
     HNDataManager*  manager;
     NSDictionary*  _infoDict;
@@ -21,9 +21,6 @@
 
 
 @property (nonatomic, strong) HNBannerView* banner;
-
-
-@property (nonatomic, strong) UITableView* tableView;
 
 
 

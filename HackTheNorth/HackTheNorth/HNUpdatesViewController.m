@@ -14,6 +14,7 @@
 #import "HNDataManager.h"
 #import "NSDate+HNConvenience.h"
 #import "DejalActivityView.h"
+#import "UIViewController+ScrollingNavbar.h"
 
 
 @interface HNUpdatesViewController ()
@@ -32,20 +33,22 @@
     
     self.banner = [[HNBannerView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight, kiPhoneWidthPortrait, 150)];
     self.banner.imgNameArray = [@[@"hackTheNorthBanner1", @"hackersBanner", @"hoursBanner", @"locationBanner"] mutableCopy];
-    [self.view addSubview:self.banner];
     
     UIView* blueBar = [[UIView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+150, kiPhoneWidthPortrait, 5)];
     blueBar.backgroundColor = [JPStyle interfaceTintColor];
-    [self.view addSubview:blueBar];
+    
+    [self.tableView setTableHeaderView:self.banner];
     
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.banner.frame) + 5, kiPhoneWidthPortrait, 568-20-155-44)];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    [self.tableView setTableFooterView:[UIView new]];
+    
     [self.tableView registerClass:[HNUpdatesTableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
-    [self.view addSubview:self.tableView];
     
+    [self followScrollView:self.tableView withDelay:60];
+    [self.navigationController.navigationBar setTranslucent:NO];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
 }
+
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -112,8 +115,6 @@
 }
 
 
-
-
 #pragma mark - Table View Data Source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -122,7 +123,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[_infoDict allKeys] count];
+    return [[_infoDict allKeys] count] == 0? 1 :[[_infoDict allKeys] count] ;
 }
 
 

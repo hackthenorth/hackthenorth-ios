@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F9B0D9319BD3B060052F9F6 /* UIViewController+ScrollingNavbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B0D9219BD3B060052F9F6 /* UIViewController+ScrollingNavbar.m */; };
 		5DF1441219A039DA002CA204 /* noWifi.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1440A19A039DA002CA204 /* noWifi.png */; };
 		5DF1441319A039DA002CA204 /* noWifi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1440B19A039DA002CA204 /* noWifi@2x.png */; };
 		5DF1441419A039DA002CA204 /* SVStatusHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1440D19A039DA002CA204 /* SVStatusHUD.m */; };
@@ -101,6 +102,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F9B0D9119BD3B060052F9F6 /* UIViewController+ScrollingNavbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ScrollingNavbar.h"; sourceTree = "<group>"; };
+		1F9B0D9219BD3B060052F9F6 /* UIViewController+ScrollingNavbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ScrollingNavbar.m"; sourceTree = "<group>"; };
 		5DF1440A19A039DA002CA204 /* noWifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noWifi.png; path = SVStatusHUD/noWifi.png; sourceTree = "<group>"; };
 		5DF1440B19A039DA002CA204 /* noWifi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "noWifi@2x.png"; path = "SVStatusHUD/noWifi@2x.png"; sourceTree = "<group>"; };
 		5DF1440C19A039DA002CA204 /* SVStatusHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVStatusHUD.h; path = SVStatusHUD/SVStatusHUD.h; sourceTree = "<group>"; };
@@ -274,6 +277,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F9B0D9019BD3B060052F9F6 /* AMScrollingNavbar */ = {
+			isa = PBXGroup;
+			children = (
+				1F9B0D9119BD3B060052F9F6 /* UIViewController+ScrollingNavbar.h */,
+				1F9B0D9219BD3B060052F9F6 /* UIViewController+ScrollingNavbar.m */,
+			);
+			path = AMScrollingNavbar;
+			sourceTree = "<group>";
+		};
 		5DF1444E19A07D92002CA204 /* Sorting View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +370,7 @@
 			children = (
 				AA63DCAC196E1A42001D9768 /* HackTheNorth */,
 				AA54F003199DC1BB00751823 /* DejalActivityView */,
+				1F9B0D9019BD3B060052F9F6 /* AMScrollingNavbar */,
 				AAC6BDEC199DA00C00683DB1 /* SVStatusHUD */,
 				AAAC61851991C6870043A6CD /* AFNetworking */,
 				AAF683C819999E7D0069B2A3 /* AsyncImageView */,
@@ -723,6 +736,7 @@
 				AA34FA4F198891CF00A73292 /* HNScheduleProgressView.m in Sources */,
 				AAAC61B01991C6870043A6CD /* AFHTTPSessionManager.m in Sources */,
 				AA34FA4519888CD300A73292 /* UIColor+RGBValues.m in Sources */,
+				1F9B0D9319BD3B060052F9F6 /* UIViewController+ScrollingNavbar.m in Sources */,
 				AAF683CB19999E7D0069B2A3 /* AsyncImageView.m in Sources */,
 				5DF1444619A0705A002CA204 /* HNBorderButton.m in Sources */,
 				AAAC61B11991C6870043A6CD /* AFNetworkReachabilityManager.m in Sources */,
