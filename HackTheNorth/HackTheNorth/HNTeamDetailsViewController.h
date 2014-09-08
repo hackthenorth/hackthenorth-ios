@@ -17,7 +17,7 @@
     
     UILabel* twitterVal;
     
-    HNBorderButton* copyEmailButton;
+    HNBorderButton* phoneButton;
     HNBorderButton* sendEmailButton;
     
     

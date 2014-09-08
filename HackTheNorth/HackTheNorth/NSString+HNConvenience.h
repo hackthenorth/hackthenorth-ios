@@ -17,4 +17,6 @@
 - (NSString*)cappedString;
 
 
+- (NSNumber*)convertFromPhoneStringToNumber;
+
 @end

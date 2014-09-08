@@ -29,6 +29,18 @@
 	return [[UIDevice currentDevice].systemVersion hasPrefix:@"7"];
 }
 
++ (BOOL)isPhone
+{
+    NSString* deviceModel = [[UIDevice currentDevice] model];
+    if([deviceModel rangeOfString: @"iPhone"].location != NSNotFound)
+    {
+        return YES;
+    }
+    else {
+        return NO;
+    }
+}
+
 
 +(BOOL) iPhone4Inch
 {

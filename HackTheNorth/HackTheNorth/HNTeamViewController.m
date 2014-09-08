@@ -12,6 +12,9 @@
 #import "HNDataManager.h"
 #import "SVStatusHUD.h"
 #import "HNTeamDetailsViewController.h"
+#import "NSString+HNConvenience.h"
+#import "HNAvatarView.h"
+
 
 static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifier";
 
@@ -84,7 +87,7 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     HNScrollListCell* cell = (HNScrollListCell*)[self.tableView dequeueReusableCellWithIdentifier:kHNScrollListCellIdentifier];
-
+    
     NSDictionary* infoDict = [self.cellDictArray objectAtIndex:indexPath.row];
     
     if(![infoDict isEqual: [NSNull null]])
@@ -92,8 +95,15 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
         cell.title = [infoDict objectForKey:@"name"];
         cell.subtitle = [NSString stringWithFormat:@"%@",[infoDict objectForKey:@"twitter"]];
         cell.detailList = [infoDict objectForKey:@"role"];
-        cell.imageURL = [NSURL URLWithString:[infoDict objectForKey:@"image"]];
+        cell.imageURL = [NSURL URLWithString:[infoDict objectForKey:@"avatar"]];
         cell.email = [infoDict objectForKey:@"email"];
+        
+        id phoneId = [infoDict objectForKey:@"phone"];
+        if([phoneId isKindOfClass:[NSNumber class]])
+            cell.phone = (NSNumber*)phoneId;
+        else if([phoneId isKindOfClass:[NSString class]])
+            cell.phone = [(NSString*)phoneId convertFromPhoneStringToNumber];
+
     }
     
     return cell;

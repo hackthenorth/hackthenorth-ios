@@ -33,6 +33,8 @@
 
 @property (nonatomic, strong) NSArray* availability;
 @property (nonatomic, strong) NSString* email;
+@property (nonatomic, strong) NSNumber* phone;
+@property (nonatomic, strong) NSString* github;
 
 @property (nonatomic, strong) NSString* descriptor;
 

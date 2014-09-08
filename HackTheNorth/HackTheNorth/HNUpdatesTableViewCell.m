@@ -64,7 +64,6 @@ static const NSTimeInterval kInterfaceRefreshInterval = 10; //for time
 {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
 }
 
 

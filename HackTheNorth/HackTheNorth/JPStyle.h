@@ -18,7 +18,7 @@
 +(BOOL) iPad;
 +(BOOL) iOS7;
 +(BOOL) iPhone4Inch;
-
++ (BOOL)isPhone;
 
 /////////////////////////////
 ////User Interface Colors

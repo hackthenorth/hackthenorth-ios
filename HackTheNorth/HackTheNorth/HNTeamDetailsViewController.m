@@ -71,17 +71,17 @@
     twitterVal.textColor = [UIColor darkGrayColor];
     [self.view addSubview:twitterVal];
     
-    UILabel* avaiLabel = [[UILabel alloc] initWithFrame:CGRectMake(125, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 115, kiPhoneWidthPortrait-130, 25)];
-    avaiLabel.text = @"Email";
-    avaiLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
-    [self.view addSubview:avaiLabel];
+    UILabel* contactLabel = [[UILabel alloc] initWithFrame:CGRectMake(125, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 115, kiPhoneWidthPortrait-130, 25)];
+    contactLabel.text = @"Contact";
+    contactLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
+    [self.view addSubview:contactLabel];
     
-    copyEmailButton = [[HNBorderButton alloc] initWithFrame:CGRectMake(125, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 145, 92, 50)];
-    [copyEmailButton addTarget:self action:@selector(copyEmail) forControlEvents:UIControlEventTouchUpInside];
-    [copyEmailButton setTitle:@"Copy Email" forState:UIControlStateNormal];
-    [self.view addSubview:copyEmailButton];
+    phoneButton = [[HNBorderButton alloc] initWithFrame:CGRectMake(125, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 145, 92, 44)];
+    [phoneButton addTarget:self action:@selector(startPhoneCall) forControlEvents:UIControlEventTouchUpInside];
+    [phoneButton setTitle:@"Phone" forState:UIControlStateNormal];
+    [self.view addSubview:phoneButton];
     
-    sendEmailButton = [[HNBorderButton alloc] initWithFrame:CGRectMake(125 + 95, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 145, 92, 50)];
+    sendEmailButton = [[HNBorderButton alloc] initWithFrame:CGRectMake(125 + 95, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 145, 92, 44)];
     [sendEmailButton setTitle:@"Send Email" forState:UIControlStateNormal];
     [sendEmailButton addTarget:self action:@selector(sendEmail) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:sendEmailButton];
@@ -148,14 +148,23 @@
 }
 
 
-- (void)copyEmail
+- (void)startPhoneCall
 {
-    UIPasteboard* paste = [UIPasteboard generalPasteboard];
-    
-    if(self.cell.email)
+    if(self.cell.phone)
     {
-        [paste setString:self.cell.email];
-        [SVStatusHUD showWithImage:[UIImage imageNamed:@"copiedHUD"] status:@"Copied"];
+        if([JPStyle isPhone])
+        {
+            NSString* phonePath = [NSString stringWithFormat:@"tel://%@", self.cell.phone];
+            NSURL* phoneURL = [NSURL URLWithString:phonePath];
+            [[UIApplication sharedApplication] openURL:phoneURL];
+        }
+        else
+        {
+            UIPasteboard* paste = [UIPasteboard generalPasteboard];
+            [paste setString:[NSString stringWithFormat:@"%@", self.cell.phone]];
+            [SVStatusHUD showWithImage:[UIImage imageNamed:@"copiedHUD"] status:@"Copied"];
+        }
+        
     }
     else
     {

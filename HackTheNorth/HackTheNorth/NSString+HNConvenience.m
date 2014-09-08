@@ -43,5 +43,23 @@
 }
 
 
+- (NSNumber*)convertFromPhoneStringToNumber
+{
+    NSString* inter = [self substringWithRange:NSMakeRange(1, 1)];
+    NSString* area = [self substringWithRange:NSMakeRange(4, 3)];
+    
+    NSString* num1 = [self substringWithRange:NSMakeRange(9, 3)];
+    NSString* num2 = [self substringWithRange:NSMakeRange(13, 4)];
+    
+    NSString* phoneString = [NSString stringWithFormat:@"%@%@%@%@", inter, area, num1, num2];
+
+    NSNumber* phoneNumber = [NSNumber numberWithLongLong:[phoneString longLongValue]];
+    return phoneNumber;
+}
+
+
+
+
+
 
 @end

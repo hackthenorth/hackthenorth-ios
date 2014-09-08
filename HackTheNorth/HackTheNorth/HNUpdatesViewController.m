@@ -189,7 +189,6 @@
     
     HNCampusMapViewController* mapController = [[HNCampusMapViewController alloc] initWithNibName:nil bundle:nil];
     
-    
     [self.navigationController pushViewController:mapController animated:YES];
     
 }

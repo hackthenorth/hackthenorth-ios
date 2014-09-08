@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@class HNScrollListCell, HNAvatarView;
-@interface HNMentorsDetailsViewController : UIViewController
+@class HNScrollListCell, HNAvatarView, HNBorderButton;
+@interface HNMentorsDetailsViewController : UIViewController <MFMailComposeViewControllerDelegate>
 {
     UILabel* nameLabel;
     HNAvatarView* imageView;
@@ -17,7 +18,12 @@
     UILabel* org;
     UITextView* avai;
     UITextView* skillVal;
+    UILabel* git;
     
+    MFMailComposeViewController* mailController;
+    
+    HNBorderButton* phoneButton;
+    HNBorderButton* sendEmailButton;
 }
 
 

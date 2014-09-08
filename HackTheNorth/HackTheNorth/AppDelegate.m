@@ -46,25 +46,27 @@
     [currentInstallation saveInBackground];
     
     
-    //Send to Firebase
-    NSString* serializedStr = [NSString serializeDeviceToken:deviceToken];
-    NSDictionary* tokenDictionary = @{serializedStr : @"dummy"};
+    //Send to Firebase deprecated, using parse instead
+//    NSString* serializedStr = [NSString serializeDeviceToken:deviceToken];
+//    NSDictionary* tokenDictionary = @{serializedStr : @"dummy"};
+//    
+//    NSData* tokenData = [NSJSONSerialization dataWithJSONObject:tokenDictionary options:false error:nil];
+//    
+//    NSURL* putURL = [NSURL URLWithString:@"https://shane-hackthenorth.firebaseio.com/notifications/ios.json"];
+//    NSMutableURLRequest* putReq = [NSMutableURLRequest requestWithURL:putURL];
+//    
+//    putReq.HTTPMethod = @"PATCH";
+//    putReq.HTTPBody = tokenData;
+//    
+//    [NSURLConnection sendAsynchronousRequest:putReq queue:[NSOperationQueue currentQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//        
+//        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+//        
+//        NSLog(@"status code: %d", httpResponse.statusCode);
+//        
+//    }];
     
-    NSData* tokenData = [NSJSONSerialization dataWithJSONObject:tokenDictionary options:false error:nil];
     
-    NSURL* putURL = [NSURL URLWithString:@"https://shane-hackthenorth.firebaseio.com/notifications/ios.json"];
-    NSMutableURLRequest* putReq = [NSMutableURLRequest requestWithURL:putURL];
-    
-    putReq.HTTPMethod = @"PATCH";
-    putReq.HTTPBody = tokenData;
-    
-    [NSURLConnection sendAsynchronousRequest:putReq queue:[NSOperationQueue currentQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        
-        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
-        
-        NSLog(@"status code: %d", httpResponse.statusCode);
-        
-    }];
     
 }
 

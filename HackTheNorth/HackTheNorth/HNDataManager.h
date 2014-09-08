@@ -16,9 +16,16 @@ static NSString* const kNeedUpdateDataNotification = @"kNeedUpdateDataNotificati
 {
     BOOL   _alertDisplayed;
     AFNetworkReachabilityManager* reachability;
+    NSInteger _currentKeyIndex; //for download one file at a time
     
+    NSMutableArray* _requests;
+    NSMutableArray* _connections;
+    NSURLConnection*     _connection;
     NSMutableURLRequest* _request;
-    NSURLConnection* _connection;
+    
+    
+    NSTimer*   _statusTimer;
+    NSTimer*   _stopStatusTimer;
     
     NSTimer * _timer;
     NSTimer * _minTimer;
@@ -28,8 +35,9 @@ static NSString* const kNeedUpdateDataNotification = @"kNeedUpdateDataNotificati
     BOOL   _wifiStatusViewEnabled;
     
     BOOL   _saveSuccess;
-    
     NSInteger _savedFiles;
+    
+    NSTimer* _saveTimer;
 }
 
 

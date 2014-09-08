@@ -10,9 +10,8 @@
 #import "SVStatusHUD.h"
 
 
-
 #define minUpdateTime      10.0f
-#define regularUpdateTime  90.0f
+#define regularUpdateTime  20.0f
 
 @implementation HNDataManager
 
@@ -25,6 +24,8 @@
     _wifiStatusViewEnabled = NO;
     _saveSuccess = YES;
     _savedFiles = 0;
+    _connections = [@[@"",@"",@"",@"",@""] mutableCopy];
+    _requests = [@[@"",@"",@"",@"",@""] mutableCopy];
     return self;
 }
 
@@ -41,20 +42,57 @@
     [reachability startMonitoring];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChanged:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
     
+    
     _minTimer = [NSTimer scheduledTimerWithTimeInterval:minUpdateTime target:self selector:@selector(enableRetrieve) userInfo:nil repeats:YES];
     
     _timer = [NSTimer scheduledTimerWithTimeInterval:regularUpdateTime target:self selector:@selector(retrieveAppDataAndSaveToFile) userInfo:nil repeats:YES];
     [_timer fire];
+    
+    
+    _statusTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(checkNetworkStatus) userInfo:nil repeats:YES];
+    
+    _stopStatusTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(stopStatusTimer) userInfo:nil repeats:NO];
+    
 }
 
 
+- (void)checkNetworkStatus
+{
+    BOOL reach = [reachability isReachable];
+    if(reach)
+    {
+        NSLog(@"Reachable");
+        [self retrieveAppDataAndSaveToFile];
+        [_statusTimer invalidate];
+        _statusTimer = nil;
+    }
+    else
+    {
+        NSLog(@"Not Reachable");
+    }
+}
+
+
+- (void)stopStatusTimer
+{
+    [_statusTimer invalidate];
+    _statusTimer = nil;
+    [_stopStatusTimer invalidate];
+    _stopStatusTimer = nil;
+}
+
 - (void)stopUpdating
 {
+    [_statusTimer invalidate];
+    _statusTimer = nil;
+    [_stopStatusTimer invalidate];
+    _stopStatusTimer = nil;
     [_minTimer invalidate];
     [_timer invalidate];
     [reachability stopMonitoring];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
 
 
 - (void)enableRetrieve
@@ -72,38 +110,65 @@
     _shouldRetrieve = NO;
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    for(NSString* keyName in [self keyNames])
+    
+    _currentKeyIndex = -1;
+    _saveTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(private_retrieveAppDataForOneKey) userInfo:nil repeats:YES];
+    
+}
+
+
+- (void)private_retrieveAppDataForOneKey
+{
+    _currentKeyIndex++;
+    NSLog(@"retrieving...");
+    if(_currentKeyIndex < [[self keyNames] count])
     {
+        NSString* keyName = [[self keyNames] objectAtIndex: _currentKeyIndex];
         NSString* requestString = [NSString stringWithFormat:@"https://hackthenorth.firebaseio.com/mobile/%@.json", keyName];
-        _request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestString] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:30];
-        [_request setHTTPMethod:@"GET"];
+        _request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestString]];
+//        [_requests replaceObjectAtIndex:_currentKeyIndex withObject:_request];
         
         _connection = [[NSURLConnection alloc] initWithRequest:_request delegate:self startImmediately:NO];
         _connection.accessibilityLabel = keyName;
+//        [_connections replaceObjectAtIndex:_currentKeyIndex withObject:_connection];
         [_connection start];
         
     }
-
+    else
+    {
+        //finished
+        NSLog(@"Index: %d", _currentKeyIndex);
+        [_saveTimer invalidate];
+        _saveTimer = nil;
+    }
 }
 
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-
+    _savedFiles++;
+    
     NSString* keyName = connection.accessibilityLabel;
     
-    BOOL success = [self saveData:data toFileWithName:[NSString stringWithFormat:@"%@.json", keyName]];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        BOOL success = [self saveData:data toFileWithName:[NSString stringWithFormat:@"%@.json", keyName]];
+        
+        if(!success)
+        {
+            _saveSuccess = NO;
+            NSLog(@"Saving File Failed");
+            return;
+        }
+        
+        if(_savedFiles == [[self keyNames] count]){
+            [self postNeedUpdateDataNotification];
+            _savedFiles = 0;
+        }
+
+    });
     
-    if(!success)
-    {
-        _saveSuccess = NO;
-        return;
-    }
-    else if(_savedFiles == [[self keyNames] count]){
-        [self postNeedUpdateDataNotification];
-        _savedFiles = 0;
-    }
+    
 }
 
 
@@ -119,6 +184,7 @@
         
         [SVStatusHUD showWithImage:[UIImage imageNamed:@"sync"] status:@"Sync Timed Out"];
     }
+    
 }
 
 

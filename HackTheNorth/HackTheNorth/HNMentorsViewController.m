@@ -12,6 +12,7 @@
 #import "HNDataManager.h"
 #import "HNMentorsDetailsViewController.h"
 #import "JPStyle.h"
+#import "NSString+HNConvenience.h"
 
 static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifier";
 
@@ -97,6 +98,9 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
         cell.title =  [infoDict objectForKey:@"name"];
         cell.subtitle = [infoDict objectForKey:@"organization"];
         cell.detailList = [infoDict objectForKey:@"skills"];
+        cell.email = [infoDict objectForKey:@"email"];
+        cell.github = [infoDict objectForKey:@"github"];
+        cell.phone = [[infoDict objectForKey:@"phone"] convertFromPhoneStringToNumber];
         NSString* urlString = [infoDict objectForKey:@"image"];
         NSURL* url = [NSURL URLWithString:urlString];
         
