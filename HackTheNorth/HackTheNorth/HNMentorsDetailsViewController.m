@@ -126,6 +126,12 @@
     
     
     skillVal = [[UITextView alloc] initWithFrame:CGRectMake(20, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 350, kiPhoneWidthPortrait-20, 100)];
+    if(![JPStyle iPhone4Inch])
+    {
+        CGRect frame = skillVal.frame;
+        frame.size.height -= 88;
+        skillVal.frame = frame;
+    }
     skillVal.showsVerticalScrollIndicator = NO;
     skillVal.backgroundColor = [UIColor clearColor];
     skillVal.editable = NO;
