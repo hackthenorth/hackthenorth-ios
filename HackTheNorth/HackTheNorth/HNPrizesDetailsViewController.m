@@ -45,6 +45,12 @@
     [super viewDidLoad];
     
     mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kiPhoneWidthPortrait, kiPhoneHeightPortrait)];
+    if(![JPStyle iPhone4Inch])
+    {
+        CGRect frame = mainScrollView.frame;
+        frame.size.height -= 88;
+        mainScrollView.frame = frame;
+    }
     mainScrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:mainScrollView];
     

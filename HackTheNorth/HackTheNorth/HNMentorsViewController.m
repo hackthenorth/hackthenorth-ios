@@ -25,7 +25,12 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
     manager = [[HNDataManager alloc] init];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+44, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44) style:UITableViewStylePlain];
-    
+    if(![JPStyle iPhone4Inch])
+    {
+        CGRect frame = self.tableView.frame;
+        frame.size.height -= 88;
+        self.tableView.frame = frame;
+    }
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerClass:[HNScrollListCell class] forCellReuseIdentifier:kHNScrollListCellIdentifier];
@@ -139,6 +144,12 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
     
     [UIView animateWithDuration:kKeyboardRetractAnimationSpeed delay:0 options: UIViewAnimationOptionCurveEaseOut animations:^{
         self.tableView.frame = CGRectMake(0, self.tableView.frame.origin.y, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44+kiPhoneTabBarHeight-kiPhoneKeyboardHeightPortrait);
+        if(![JPStyle iPhone4Inch])
+        {
+            CGRect frame = self.tableView.frame;
+            frame.size.height -= 88;
+            self.tableView.frame = frame;
+        }
     } completion:nil];
 }
 
@@ -149,6 +160,12 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
     
     [UIView animateWithDuration:kKeyboardRetractAnimationSpeed delay:0 options: UIViewAnimationOptionCurveEaseOut animations:^{
         self.tableView.frame = CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 44, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44);
+        if(![JPStyle iPhone4Inch])
+        {
+            CGRect frame = self.tableView.frame;
+            frame.size.height -= 88;
+            self.tableView.frame = frame;
+        }
     } completion:nil];
 }
 

@@ -376,7 +376,6 @@
 		AA63DCA1196E1A42001D9768 = {
 			isa = PBXGroup;
 			children = (
-				AAAEE37C19BD928C00988810 /* AddressBook.framework */,
 				AA63DCAC196E1A42001D9768 /* HackTheNorth */,
 				AAAEE36E19BD833800988810 /* HNPanImageView */,
 				AA54F003199DC1BB00751823 /* DejalActivityView */,
@@ -431,6 +430,7 @@
 		AA63DCAD196E1A42001D9768 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AAAEE37C19BD928C00988810 /* AddressBook.framework */,
 				AAAEE37A19BD8E9F00988810 /* MapKit.framework */,
 				5DF1443319A05F3B002CA204 /* MessageUI.framework */,
 				AA54F001199DC07700751823 /* CFNetwork.framework */,

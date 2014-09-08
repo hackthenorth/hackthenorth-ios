@@ -10,6 +10,7 @@
 #import "UserInterfaceConstants.h"
 #import "HNPanImageView.h"
 #import "HNAnnotation.h"
+#import "JPStyle.h"
 
 static NSString* const kMapViewAnnotation;
 
@@ -38,6 +39,12 @@ static NSString* const kMapViewAnnotation;
     NSString* imagePath = [[NSBundle mainBundle] pathForResource:@"map" ofType:@"pdf"];
 //    NSURL* mapURL = [NSURL URLWithString:imagePath];
     webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait)];
+    if(![JPStyle iPhone4Inch])
+    {
+        CGRect frame = webView.frame;
+        frame.size.height -= 88;
+        webView.frame = frame;
+    }
     [webView loadData:[NSData dataWithContentsOfFile:imagePath] MIMEType:@"application/pdf" textEncodingName:nil baseURL:nil];
     webView.scrollView.minimumZoomScale = 1;
     webView.scrollView.maximumZoomScale = 6;
@@ -49,6 +56,12 @@ static NSString* const kMapViewAnnotation;
 
     //MKMapView
     mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait)];
+    if(![JPStyle iPhone4Inch])
+    {
+        CGRect frame = mapView.frame;
+        frame.size.height -= 88;
+        mapView.frame = frame;
+    }
     mapView.delegate = self;
     mapView.mapType = MKMapTypeStandard;
     CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(43.47285803,-80.54014385);

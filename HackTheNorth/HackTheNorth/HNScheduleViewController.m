@@ -62,7 +62,12 @@
     [self.view addSubview:blueBar];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 95, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait - 95) style:UITableViewStyleGrouped];
-    
+    if(![JPStyle iPhone4Inch])
+    {
+        CGRect frame = self.tableView.frame;
+        frame.size.height -= 88;
+        self.tableView.frame = frame;
+    }
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
@@ -251,6 +256,12 @@
     [UIView animateWithDuration:kKeyboardRetractAnimationSpeed delay:0 options: UIViewAnimationOptionCurveEaseOut animations:^{
         
         self.tableView.frame = CGRectMake(0, self.tableView.frame.origin.y, kiPhoneWidthPortrait, kiPhoneHeightPortrait- kiPhoneKeyboardHeightPortrait - 159);
+        if(![JPStyle iPhone4Inch])
+        {
+            CGRect frame = self.tableView.frame;
+            frame.size.height -= 88;
+            self.tableView.frame = frame;
+        }
         
     } completion:nil];
 }
@@ -263,6 +274,12 @@
     [UIView animateWithDuration:kKeyboardRetractAnimationSpeed delay:0 options: UIViewAnimationOptionCurveEaseOut animations:^{
         
         self.tableView.frame = CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 95, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait - 95);
+        if(![JPStyle iPhone4Inch])
+        {
+            CGRect frame = self.tableView.frame;
+            frame.size.height -= 88;
+            self.tableView.frame = frame;
+        }
     } completion:nil];
     
 

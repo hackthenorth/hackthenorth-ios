@@ -20,6 +20,10 @@
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake((kiPhoneWidthPortrait-240)/2.0, (kiPhoneHeightPortrait-240)/2.0, 240, 240)];
     originalImageWidth = self.imageView.frame.size.width;
     self.imageView.center = CGPointMake(kiPhoneWidthPortrait/2.0, kiPhoneHeightPortrait/2.0);
+    if(![JPStyle iPhone4Inch])
+    {
+        self.imageView.center = CGPointMake(kiPhoneWidthPortrait/2.0, 480/2.0);
+    }
     self.imageView.image = [UIImage imageNamed:@"iconWithoutGear"];
     
     self.gearView = [[UIImageView alloc] initWithFrame:CGRectMake(76, 146, 33, 33)];

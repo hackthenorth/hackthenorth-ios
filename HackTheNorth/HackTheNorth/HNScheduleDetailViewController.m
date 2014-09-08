@@ -104,6 +104,12 @@
     
     
     textView = [[UITextView alloc] initWithFrame:CGRectMake(10, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight+ 150, kiPhoneWidthPortrait - 20, 305)];
+    if(![JPStyle iPhone4Inch])
+    {
+        CGRect frame = textView.frame;
+        frame.size.height -= 88;
+        textView.frame = frame;
+    }
     textView.backgroundColor = [UIColor clearColor];
     textView.showsVerticalScrollIndicator = NO;
     textView.font = [UIFont fontWithName:[JPFont defaultThinFont] size:17];

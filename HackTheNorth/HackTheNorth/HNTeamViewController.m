@@ -14,6 +14,7 @@
 #import "HNTeamDetailsViewController.h"
 #import "NSString+HNConvenience.h"
 #import "HNAvatarView.h"
+#import "JPStyle.h"
 
 
 static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifier";
@@ -28,7 +29,12 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+44, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44) style:UITableViewStylePlain];
-    
+    if(![JPStyle iPhone4Inch])
+    {
+        CGRect frame = self.tableView.frame;
+        frame.size.height -= 88;
+        self.tableView.frame = frame;
+    }
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -145,6 +151,12 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
     
     [UIView animateWithDuration:kKeyboardRetractAnimationSpeed delay:0 options: UIViewAnimationOptionCurveEaseOut animations:^{
         self.tableView.frame = CGRectMake(0, self.tableView.frame.origin.y, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44+kiPhoneTabBarHeight-kiPhoneKeyboardHeightPortrait);
+        if(![JPStyle iPhone4Inch])
+        {
+            CGRect frame = self.tableView.frame;
+            frame.size.height -= 88;
+            self.tableView.frame = frame;
+        }
     } completion:nil];
 }
 
@@ -155,6 +167,12 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
     
     [UIView animateWithDuration:kKeyboardRetractAnimationSpeed delay:0 options: UIViewAnimationOptionCurveEaseOut animations:^{
         self.tableView.frame = CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 44, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44);
+        if(![JPStyle iPhone4Inch])
+        {
+            CGRect frame = self.tableView.frame;
+            frame.size.height -= 88;
+            self.tableView.frame = frame;
+        }
     } completion:nil];
 }
 

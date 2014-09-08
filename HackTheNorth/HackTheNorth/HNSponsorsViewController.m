@@ -10,6 +10,7 @@
 #import "UserInterfaceConstants.h"
 #import "SVStatusHUD.h"
 #import "DejalActivityView.h"
+#import "JPStyle.h"
 
 @interface HNSponsorsViewController ()
 
@@ -27,6 +28,13 @@
     self.title = @"Sponsors";
     
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait)];
+    if(![JPStyle iPhone4Inch])
+    {
+        CGRect frame = self.webView.frame;
+        frame.size.height -= 88;
+        self.webView.frame = frame;
+    }
+    
     self.webView.delegate = self;
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://i.imgur.com/VLyNA7m.png"]];
     [self.webView loadRequest:request];

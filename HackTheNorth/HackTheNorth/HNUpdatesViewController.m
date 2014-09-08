@@ -43,6 +43,13 @@
     
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+5, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait)];
+    if(![JPStyle iPhone4Inch])
+    {
+        CGRect frame = self.tableView.frame;
+        frame.size.height -= 88;
+        self.tableView.frame = frame;
+    }
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerClass:[HNUpdatesTableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
