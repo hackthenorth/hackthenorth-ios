@@ -37,10 +37,17 @@
 {
     [super viewDidAppear:animated];
     
-    [self performSelector:@selector(revealViewController) withObject:nil afterDelay:2];
+    [self performSelector:@selector(revealViewController) withObject:nil afterDelay:1];
     
     gearSide = 0;
     gearTimer = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(spinGear) userInfo:nil repeats:YES];
+    
+//    UIImage* mapImage = [UIImage imageNamed:@"waterlooMap3.jpg"];
+//    UIImageView* mapImageView = [[UIImageView alloc] initWithImage:mapImage];
+//    mapImageView.frame = CGRectMake(1, 1, 1, 1);
+//    mapImageView.alpha = 0.01;
+//    [self.view addSubview:mapImageView];
+
 }
 
 
@@ -65,9 +72,8 @@
 
 - (void)revealViewController
 {
-    
-    
-    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+    [UIApplication sharedApplication].statusBarHidden = NO;
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         
         self.imageView.frame = CGRectMake((kiPhoneWidthPortrait-1000)/2.0, (kiPhoneHeightPortrait-1000)/2.0, 1000, 1000);
         CGFloat scale = self.imageView.frame.size.width / originalImageWidth;
@@ -78,7 +84,6 @@
     } completion:^(BOOL finished){
         [JPStyle applyGlobalStyle];
         self.tabBar.tintColor = [JPStyle interfaceTintColor];
-        [UIApplication sharedApplication].statusBarHidden = NO;
         
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
          (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];

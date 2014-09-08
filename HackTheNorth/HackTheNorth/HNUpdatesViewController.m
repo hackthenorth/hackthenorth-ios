@@ -8,12 +8,13 @@
 
 #import "HNUpdatesViewController.h"
 #import "UserInterfaceConstants.h"
-#import "HNBannerView.h"
 #import "HNUpdatesTableViewCell.h"
 #import "JPStyle.h"
 #import "HNDataManager.h"
 #import "NSDate+HNConvenience.h"
 #import "DejalActivityView.h"
+#import "HNSponsorsViewController.h"
+#import "HNCampusMapViewController.h"
 
 
 @interface HNUpdatesViewController ()
@@ -29,17 +30,19 @@
     
      manager = [[HNDataManager alloc] init];
     _infoDict = [NSDictionary dictionary];
+
+    UIBarButtonItem* leftItem = [[UIBarButtonItem alloc] initWithTitle:@"Sponsors" style:UIBarButtonItemStylePlain target:self action:@selector(sponsorButtonPressed)];
+    self.navigationItem.leftBarButtonItem = leftItem;
     
-    self.banner = [[HNBannerView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight, kiPhoneWidthPortrait, 150)];
-    self.banner.imgNameArray = [@[@"hackTheNorthBanner1", @"hackersBanner", @"hoursBanner", @"locationBanner"] mutableCopy];
-    [self.view addSubview:self.banner];
+    UIBarButtonItem* rightItem = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain target:self action:@selector(mapButtonPressed)];
+    self.navigationItem.rightBarButtonItem = rightItem;
     
-    UIView* blueBar = [[UIView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+150, kiPhoneWidthPortrait, 5)];
+    UIView* blueBar = [[UIView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight + kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, 5)];
     blueBar.backgroundColor = [JPStyle interfaceTintColor];
     [self.view addSubview:blueBar];
     
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.banner.frame) + 5, kiPhoneWidthPortrait, 568-20-155-44)];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+5, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait)];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerClass:[HNUpdatesTableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
@@ -53,7 +56,6 @@
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kNeedUpdateDataNotification object:nil];
     
-    [self.banner activateAutoscroll];
     [self reloadData];
 }
 
@@ -170,13 +172,36 @@
 
 
 
+#pragma mark - Navigation Controller Methods
+
+- (void)sponsorButtonPressed
+{
+    HNSponsorsViewController* sponsorsController = [[HNSponsorsViewController alloc] initWithNibName:nil bundle:nil];
+    
+    [self.navigationController pushViewController:sponsorsController animated:YES];
+    
+}
+
+
+
+- (void)mapButtonPressed
+{
+    
+    HNCampusMapViewController* mapController = [[HNCampusMapViewController alloc] initWithNibName:nil bundle:nil];
+    
+    
+    [self.navigationController pushViewController:mapController animated:YES];
+    
+}
+
+
+
 
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     
-    [self.banner pauseAutoscroll];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
 }

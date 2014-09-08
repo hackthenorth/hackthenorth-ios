@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class HNBannerView, HNDataManager;
+@class HNDataManager;
 @interface HNUpdatesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     HNDataManager*  manager;
@@ -18,9 +18,6 @@
     NSTimer   * _reUpdateLocallyTimer;
 }
 
-
-
-@property (nonatomic, strong) HNBannerView* banner;
 
 
 @property (nonatomic, strong) UITableView* tableView;

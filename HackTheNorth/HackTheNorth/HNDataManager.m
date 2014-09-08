@@ -24,6 +24,7 @@
     _shouldRetrieve = YES;
     _wifiStatusViewEnabled = NO;
     _saveSuccess = YES;
+    _savedFiles = 0;
     return self;
 }
 
@@ -73,8 +74,8 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     for(NSString* keyName in [self keyNames])
     {
-        NSString* requestString = [NSString stringWithFormat:@"https://shane-hackthenorth.firebaseio.com/%@.json", keyName];
-        _request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestString] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:20];
+        NSString* requestString = [NSString stringWithFormat:@"https://hackthenorth.firebaseio.com/mobile/%@.json", keyName];
+        _request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestString] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:30];
         [_request setHTTPMethod:@"GET"];
         
         _connection = [[NSURLConnection alloc] initWithRequest:_request delegate:self startImmediately:NO];
@@ -82,8 +83,6 @@
         [_connection start];
         
     }
-    
-    [self performSelector:@selector(postNeedUpdateDataNotification) withObject:nil afterDelay:3];
 
 }
 
@@ -97,8 +96,14 @@
     BOOL success = [self saveData:data toFileWithName:[NSString stringWithFormat:@"%@.json", keyName]];
     
     if(!success)
+    {
         _saveSuccess = NO;
-    
+        return;
+    }
+    else if(_savedFiles == [[self keyNames] count]){
+        [self postNeedUpdateDataNotification];
+        _savedFiles = 0;
+    }
 }
 
 

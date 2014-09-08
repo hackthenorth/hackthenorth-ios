@@ -28,6 +28,8 @@ static NSString* const kNeedUpdateDataNotification = @"kNeedUpdateDataNotificati
     BOOL   _wifiStatusViewEnabled;
     
     BOOL   _saveSuccess;
+    
+    NSInteger _savedFiles;
 }
 
 

@@ -87,6 +87,13 @@
 		AAAC61CB1991F8240043A6CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAC61C91991F8130043A6CD /* UIKit.framework */; };
 		AAAC61CE1991F83B0043A6CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAC61CC1991F8300043A6CD /* Foundation.framework */; };
 		AAAC61D71992049A0043A6CD /* HNMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC61D61992049A0043A6CD /* HNMainTabBarController.m */; };
+		AAAEE36419BD76DD00988810 /* HNCampusMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAEE36319BD76DD00988810 /* HNCampusMapViewController.m */; };
+		AAAEE36719BD76EA00988810 /* HNSponsorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAEE36619BD76EA00988810 /* HNSponsorsViewController.m */; };
+		AAAEE37119BD833800988810 /* HNPanImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAEE37019BD833800988810 /* HNPanImageView.m */; };
+		AAAEE37919BD8B4F00988810 /* map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AAAEE37819BD8B4F00988810 /* map.pdf */; };
+		AAAEE37B19BD8E9F00988810 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAEE37A19BD8E9F00988810 /* MapKit.framework */; };
+		AAAEE37D19BD928C00988810 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAEE37C19BD928C00988810 /* AddressBook.framework */; };
+		AAAEE38019BD988700988810 /* HNAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAEE37F19BD988700988810 /* HNAnnotation.m */; };
 		AAF683CB19999E7D0069B2A3 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF683CA19999E7D0069B2A3 /* AsyncImageView.m */; };
 /* End PBXBuildFile section */
 
@@ -238,6 +245,17 @@
 		AAAC61CC1991F8300043A6CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AAAC61D51992049A0043A6CD /* HNMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNMainTabBarController.h; sourceTree = "<group>"; };
 		AAAC61D61992049A0043A6CD /* HNMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNMainTabBarController.m; sourceTree = "<group>"; };
+		AAAEE36219BD76DD00988810 /* HNCampusMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNCampusMapViewController.h; sourceTree = "<group>"; };
+		AAAEE36319BD76DD00988810 /* HNCampusMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNCampusMapViewController.m; sourceTree = "<group>"; };
+		AAAEE36519BD76EA00988810 /* HNSponsorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNSponsorsViewController.h; sourceTree = "<group>"; };
+		AAAEE36619BD76EA00988810 /* HNSponsorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNSponsorsViewController.m; sourceTree = "<group>"; };
+		AAAEE36F19BD833800988810 /* HNPanImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPanImageView.h; sourceTree = "<group>"; };
+		AAAEE37019BD833800988810 /* HNPanImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPanImageView.m; sourceTree = "<group>"; };
+		AAAEE37819BD8B4F00988810 /* map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = map.pdf; sourceTree = "<group>"; };
+		AAAEE37A19BD8E9F00988810 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AAAEE37C19BD928C00988810 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		AAAEE37E19BD988700988810 /* HNAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNAnnotation.h; sourceTree = "<group>"; };
+		AAAEE37F19BD988700988810 /* HNAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNAnnotation.m; sourceTree = "<group>"; };
 		AAF683C919999E7D0069B2A3 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		AAF683CA19999E7D0069B2A3 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -247,6 +265,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAAEE37D19BD928C00988810 /* AddressBook.framework in Frameworks */,
+				AAAEE37B19BD8E9F00988810 /* MapKit.framework in Frameworks */,
 				5DF1443419A05F3B002CA204 /* MessageUI.framework in Frameworks */,
 				AA54F002199DC07700751823 /* CFNetwork.framework in Frameworks */,
 				AAAC61C81991F8080043A6CD /* SystemConfiguration.framework in Frameworks */,
@@ -356,7 +376,9 @@
 		AA63DCA1196E1A42001D9768 = {
 			isa = PBXGroup;
 			children = (
+				AAAEE37C19BD928C00988810 /* AddressBook.framework */,
 				AA63DCAC196E1A42001D9768 /* HackTheNorth */,
+				AAAEE36E19BD833800988810 /* HNPanImageView */,
 				AA54F003199DC1BB00751823 /* DejalActivityView */,
 				AAC6BDEC199DA00C00683DB1 /* SVStatusHUD */,
 				AAAC61851991C6870043A6CD /* AFNetworking */,
@@ -399,6 +421,7 @@
 				AA1FC0AE198F54A000B1B765 /* Mentors & Team VCs */,
 				5DF1444E19A07D92002CA204 /* Sorting View Controller */,
 				AA63DCBD196E1A42001D9768 /* Images.xcassets */,
+				AAAEE37819BD8B4F00988810 /* map.pdf */,
 				AA47993619A3896D00E352D0 /* data.json */,
 				AA63DCAD196E1A42001D9768 /* Supporting Files */,
 			);
@@ -408,6 +431,7 @@
 		AA63DCAD196E1A42001D9768 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AAAEE37A19BD8E9F00988810 /* MapKit.framework */,
 				5DF1443319A05F3B002CA204 /* MessageUI.framework */,
 				AA54F001199DC07700751823 /* CFNetwork.framework */,
 				AA789637199DB86D001E28EB /* StoreKit.framework */,
@@ -464,12 +488,16 @@
 			children = (
 				AA63DCB4196E1A42001D9768 /* HNUpdatesViewController.h */,
 				AA63DCB5196E1A42001D9768 /* HNUpdatesViewController.m */,
+				AAAEE36519BD76EA00988810 /* HNSponsorsViewController.h */,
+				AAAEE36619BD76EA00988810 /* HNSponsorsViewController.m */,
+				AAAEE36219BD76DD00988810 /* HNCampusMapViewController.h */,
+				AAAEE36319BD76DD00988810 /* HNCampusMapViewController.m */,
+				AAAEE37E19BD988700988810 /* HNAnnotation.h */,
+				AAAEE37F19BD988700988810 /* HNAnnotation.m */,
 				AA63DCDE196E25A6001D9768 /* HNBannerView.h */,
 				AA63DCDF196E25A6001D9768 /* HNBannerView.m */,
 				AA63DCE1196E32F6001D9768 /* HNUpdatesTableViewCell.h */,
 				AA63DCE2196E32F6001D9768 /* HNUpdatesTableViewCell.m */,
-				AA34FA3C1988888200A73292 /* HNAvatarView.h */,
-				AA34FA3D1988888200A73292 /* HNAvatarView.m */,
 			);
 			name = "Notification View Controller";
 			sourceTree = "<group>";
@@ -477,6 +505,8 @@
 		AA7BED5819A2CD7D00F68FCA /* Common Views */ = {
 			isa = PBXGroup;
 			children = (
+				AA34FA3C1988888200A73292 /* HNAvatarView.h */,
+				AA34FA3D1988888200A73292 /* HNAvatarView.m */,
 				AA34FA9E198D650100A73292 /* HNScrollListCell.h */,
 				AA34FA9F198D650100A73292 /* HNScrollListCell.m */,
 				AA1FC0AF198F595000B1B765 /* HNScrollView.h */,
@@ -550,6 +580,15 @@
 				AAAC61AD1991C6870043A6CD /* UIWebView+AFNetworking.m */,
 			);
 			path = "UIKit+AFNetworking";
+			sourceTree = "<group>";
+		};
+		AAAEE36E19BD833800988810 /* HNPanImageView */ = {
+			isa = PBXGroup;
+			children = (
+				AAAEE36F19BD833800988810 /* HNPanImageView.h */,
+				AAAEE37019BD833800988810 /* HNPanImageView.m */,
+			);
+			path = HNPanImageView;
 			sourceTree = "<group>";
 		};
 		AAC6BDEC199DA00C00683DB1 /* SVStatusHUD */ = {
@@ -665,6 +704,7 @@
 				5DF1443F19A062E0002CA204 /* canSendEmailHUD.png in Resources */,
 				5DF1441719A039DA002CA204 /* wifi.png in Resources */,
 				5DF1444019A062E0002CA204 /* cantSendEmailHUD.png in Resources */,
+				AAAEE37919BD8B4F00988810 /* map.pdf in Resources */,
 				AA63DCBC196E1A42001D9768 /* Main.storyboard in Resources */,
 				5DF1444819A07577002CA204 /* copiedHUD.png in Resources */,
 				AA47993719A3896D00E352D0 /* data.json in Resources */,
@@ -721,6 +761,8 @@
 				AAAC61BF1991C6870043A6CD /* UIRefreshControl+AFNetworking.m in Sources */,
 				AAAC61C51991C7900043A6CD /* HNDataManager.m in Sources */,
 				AA34FA4F198891CF00A73292 /* HNScheduleProgressView.m in Sources */,
+				AAAEE38019BD988700988810 /* HNAnnotation.m in Sources */,
+				AAAEE37119BD833800988810 /* HNPanImageView.m in Sources */,
 				AAAC61B01991C6870043A6CD /* AFHTTPSessionManager.m in Sources */,
 				AA34FA4519888CD300A73292 /* UIColor+RGBValues.m in Sources */,
 				AAF683CB19999E7D0069B2A3 /* AsyncImageView.m in Sources */,
@@ -730,6 +772,7 @@
 				AA1FC0B4198F5BD500B1B765 /* HNScheduleDetailViewController.m in Sources */,
 				AAAC61AF1991C6870043A6CD /* AFHTTPRequestOperationManager.m in Sources */,
 				AAAC61B41991C6870043A6CD /* AFURLRequestSerialization.m in Sources */,
+				AAAEE36719BD76EA00988810 /* HNSponsorsViewController.m in Sources */,
 				AAAC61B81991C6870043A6CD /* README.md in Sources */,
 				AA63DCB3196E1A42001D9768 /* AppDelegate.m in Sources */,
 				AA63DCB6196E1A42001D9768 /* HNUpdatesViewController.m in Sources */,
@@ -744,6 +787,7 @@
 				AA34FAA0198D650100A73292 /* HNScrollListCell.m in Sources */,
 				AA1FC0A6198F443800B1B765 /* AutoScrollLabel.m in Sources */,
 				AA34FA4819888CF300A73292 /* HNScheduleViewController.m in Sources */,
+				AAAEE36419BD76DD00988810 /* HNCampusMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -869,7 +913,7 @@
 					"$(PROJECT_DIR)/HackTheNorth",
 				);
 				INFOPLIST_FILE = HackTheNorth/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -888,7 +932,7 @@
 					"$(PROJECT_DIR)/HackTheNorth",
 				);
 				INFOPLIST_FILE = HackTheNorth/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

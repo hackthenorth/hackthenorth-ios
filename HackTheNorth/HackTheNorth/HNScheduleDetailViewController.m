@@ -84,7 +84,7 @@
     [speakerIcon setImage:[UIImage imageNamed:@"speakerIcon"]];
     [self.view addSubview:speakerIcon];
     
-    UILabel* speakerLabel = [[UILabel alloc] initWithFrame:CGRectMake(speakerIcon.frame.origin.x + speakerIcon.frame.size.width + 1, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight+60+ 20, 130, 20)];
+    UILabel* speakerLabel = [[UILabel alloc] initWithFrame:CGRectMake(speakerIcon.frame.origin.x + speakerIcon.frame.size.width + 1, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight+60+ 20, 180, 20)];
     speakerLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:17];
 //    speakerLabel.textColor = [UIColor grayColor];
     speakerLabel.textAlignment = NSTextAlignmentLeft;

@@ -1,0 +1,58 @@
+let's have a tour.
+
+Hello fellow hackers of Hack The North 2014
+
+In this HackTheNorth App, you'll stay up to date to what's happening around you, and find out lots of information you need. This iOS version is compatible with iPhone 5, 5S, and iPod 5th Gen on iOS 7.0+, although you may try to use it on iPhone 4. An app for the other platform is available as well. Internet connectivity is required.
+
+This project is Open Source, and you may find the project on the official Hack The North Github Repo.
+
+Have Fun Hacking!
+
+---
+
+##Features
+
+###Updates and Notifications
+- Get quick updates on when meals are ready or if anything unusual pops up.
+- If you happen to be not using the app, you'll receive an instant Push Notification.
+- Within the app, an alert will be shown whenever an update was made.
+- The updates screen updates every 90 seconds, so the changes might no be immediately reflected. The constant is changeable in `HNConnectivityManager.m`
+- The UI updates automatically when an update in received at the 90s marks.
+
+
+###Schedule
+- A Table View that list the all events by grouping them into days of the week.
+- Filter is activated when taping on the Search Button on the top right corner. and it covers the event progress bar. Tap again to dismiss.
+- Tapping any item in the Table View takes you into the schedule details.
+
+
+###Filtering
+- Filter Bar is available directly on the top.
+- Filtering allows you to search for the Title, Name, Email, etc at the same time. Basically everything except for Description paragraph. When searching for time, user is allow to use natural format, and search for the start time and end time. e.g. (acceptable 11:53pm, 07:32, 7:32am) (unacceptable 11:52 AM)
+
+
+###Prizes
+- You can scroll through the prizes list in each Table View Row
+- Tapping any item in the Table View takes you into the details screen, where you can tap on the email button to send out an email to the corresponding company directly or tap on the copy button.
+
+###Mentors and Team
+- You can scroll through the skills list in each Table View Row
+- Tapping any item in the Table View takes you into the corresponding details screens.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
