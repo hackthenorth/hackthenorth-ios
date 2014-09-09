@@ -10,9 +10,9 @@
 #import <MessageUI/MessageUI.h>
 
 @class HNScrollListCell, HNAvatarView, HNBorderButton, HNAutoresizingLabel;
-@interface HNPrizesDetailsViewController : UIViewController <MFMailComposeViewControllerDelegate>
+@interface HNPrizesDetailsViewController : UITableViewController <MFMailComposeViewControllerDelegate>
 {
-    UIScrollView* mainScrollView;
+    UIView* mainView;
     
     HNAutoresizingLabel* nameLabel;
     HNAvatarView* imageView;

@@ -103,7 +103,7 @@
     [self.view addSubview:detailLabel];
     
     
-    textView = [[UITextView alloc] initWithFrame:CGRectMake(10, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight+ 150, kiPhoneWidthPortrait - 20, 305)];
+    textView = [[UITextView alloc] initWithFrame:CGRectMake(10, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight+ 150, kiPhoneWidthPortrait - 20, self.view.frame.size.height - CGRectGetMaxX(detailLabel.frame) - self.tabBarController.tabBar.frame.size.height)];
     textView.backgroundColor = [UIColor clearColor];
     textView.showsVerticalScrollIndicator = NO;
     textView.font = [UIFont fontWithName:[JPFont defaultThinFont] size:17];

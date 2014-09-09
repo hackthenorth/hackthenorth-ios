@@ -44,19 +44,18 @@
 {
     [super viewDidLoad];
     
-    mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kiPhoneWidthPortrait, kiPhoneHeightPortrait)];
-    mainScrollView.showsVerticalScrollIndicator = NO;
-    [self.view addSubview:mainScrollView];
+    mainView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kiPhoneWidthPortrait, kiPhoneHeightPortrait)];
+    [self.view addSubview:mainView];
     
     nameLabel = [[HNAutoresizingLabel alloc] initWithFrame:CGRectMake(10, 10, kiPhoneWidthPortrait-20, 40)];
     nameLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:35];
     nameLabel.titleLabel.textColor = [[JPStyle interfaceTintColor] darkerColor];
-    [mainScrollView addSubview:nameLabel];
+    [mainView addSubview:nameLabel];
     
     
     imageView = [[HNAvatarView alloc] initWithFrame:CGRectMake(10,65, 100, 100)];
     imageView.contentMode = UIViewContentModeScaleAspectFill;
-    [mainScrollView addSubview:imageView];
+    [mainView addSubview:imageView];
     
     UIView* shadowView = [[UIView alloc] initWithFrame:imageView.frame];
     shadowView.backgroundColor = [UIColor whiteColor];
@@ -64,32 +63,32 @@
     //    shadowView.layer.shadowOffset = CGSizeMake(4, 8);
     //    shadowView.layer.shadowOpacity = 0.5;
     //    shadowView.layer.shadowRadius = 5;
-    [mainScrollView insertSubview:shadowView belowSubview:imageView];
+    [mainView insertSubview:shadowView belowSubview:imageView];
     
     UILabel* twitterLabel = [[UILabel alloc] initWithFrame:CGRectMake(125, 60, kiPhoneWidthPortrait-130, 25)];
     twitterLabel.text = @"Company";
     twitterLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
-    [mainScrollView addSubview:twitterLabel];
+    [mainView addSubview:twitterLabel];
     
     twitterVal = [[UILabel alloc] initWithFrame:CGRectMake(125, 85, kiPhoneWidthPortrait-130, 20)];
     twitterVal.font = [JPFont fontWithName:[JPFont defaultThinFont] size:16];
     twitterVal.textColor = [UIColor darkGrayColor];
-    [mainScrollView addSubview:twitterVal];
+    [mainView addSubview:twitterVal];
     
     UILabel* avaiLabel = [[UILabel alloc] initWithFrame:CGRectMake(125, 115, kiPhoneWidthPortrait-130, 25)];
     avaiLabel.text = @"Email";
     avaiLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
-    [mainScrollView addSubview:avaiLabel];
+    [mainView addSubview:avaiLabel];
     
     copyEmailButton = [[HNBorderButton alloc] initWithFrame:CGRectMake(125, 145, 92, 50)];
     [copyEmailButton addTarget:self action:@selector(copyEmail) forControlEvents:UIControlEventTouchUpInside];
     [copyEmailButton setTitle:@"Copy Email" forState:UIControlStateNormal];
-    [mainScrollView addSubview:copyEmailButton];
+    [mainView addSubview:copyEmailButton];
     
     sendEmailButton = [[HNBorderButton alloc] initWithFrame:CGRectMake(125 + 95, 145, 92, 50)];
     [sendEmailButton setTitle:@"Send Email" forState:UIControlStateNormal];
     [sendEmailButton addTarget:self action:@selector(sendEmail) forControlEvents:UIControlEventTouchUpInside];
-    [mainScrollView addSubview:sendEmailButton];
+    [mainView addSubview:sendEmailButton];
     
     /////////////////////////////////////////////////////
     
@@ -97,7 +96,7 @@
     prizesLabel.text = @"Prizes";
     prizesLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
     prizesLabel.textColor = [UIColor blackColor];
-    [mainScrollView addSubview:prizesLabel];
+    [mainView addSubview:prizesLabel];
     
     prizesVal = [[UITextView alloc] initWithFrame:CGRectMake(15, 250, kiPhoneWidthPortrait-30, 100)];
     prizesVal.backgroundColor = [UIColor clearColor];
@@ -107,7 +106,7 @@
     prizesVal.font = [JPFont fontWithName:[JPFont defaultBoldFont] size:26];
     prizesVal.textContainer.lineFragmentPadding = 0;
     prizesVal.textContainerInset = UIEdgeInsetsZero;
-    [mainScrollView addSubview:prizesVal];
+    [mainView addSubview:prizesVal];
     
     
     ///////////////
@@ -116,7 +115,7 @@
     detailsLabel.text = @"Details";
     detailsLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
     detailsLabel.textColor = [UIColor blackColor];
-    [mainScrollView addSubview:detailsLabel];
+    [mainView addSubview:detailsLabel];
     
     detailsVal = [[UITextView alloc] initWithFrame:CGRectMake(15, 400, kiPhoneWidthPortrait-30, 200)];
     detailsVal.backgroundColor = [UIColor clearColor];
@@ -126,12 +125,12 @@
     detailsVal.font = [JPFont fontWithName:[JPFont defaultThinFont] size:17];
     detailsVal.textContainer.lineFragmentPadding = 0;
     detailsVal.textContainerInset = UIEdgeInsetsZero;
-    [mainScrollView addSubview:detailsVal];
+    [mainView addSubview:detailsVal];
     
-    mainScrollView.contentSize = CGSizeZero;
-    _skillBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 210, kiPhoneWidthPortrait, mainScrollView.contentSize.height - 210 + 100)];
+    _skillBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 210, kiPhoneWidthPortrait, mainView.frame.size.height - 210 + 100)];
     _skillBackground.backgroundColor = [[JPStyle interfaceTintColor] colorWithAlphaComponent:0.2];
-    [mainScrollView addSubview:_skillBackground];
+    [mainView addSubview:_skillBackground];
+    [self.tableView setTableHeaderView:mainView];
 }
 
 
@@ -232,14 +231,14 @@
     
     [detailsVal removeFromSuperview];
     detailsVal.text = detailText;
-    [mainScrollView addSubview:detailsVal];
+    [mainView addSubview:detailsVal];
     
     CGSize detailsSize = [detailsVal sizeThatFits:detailsVal.frame.size];
     detailsVal.frame = CGRectMake(detailsVal.frame.origin.x, currYPos, detailsVal.frame.size.width, detailsSize.height + 10);
     currYPos += detailsVal.frame.size.height + 20;
     
-    mainScrollView.contentSize = CGSizeMake(kiPhoneWidthPortrait, currYPos);
-    _skillBackground.frame = CGRectMake(0, 210, kiPhoneWidthPortrait, mainScrollView.contentSize.height - 210 + 300);
+    [self.tableView.tableHeaderView setFrame:CGRectMake(0, 0, self.tableView.tableHeaderView.frame.size.width, currYPos)];
+
     
 }
 
