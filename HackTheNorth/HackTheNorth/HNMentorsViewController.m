@@ -12,6 +12,7 @@
 #import "HNDataManager.h"
 #import "HNMentorsDetailsViewController.h"
 #import "JPStyle.h"
+#import "UIViewController+ScrollingNavbar.h"
 
 static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifier";
 
@@ -27,6 +28,9 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
     [self.tableView setTableHeaderView:_searchBar];
     [self.tableView setTableFooterView:[UIView new]];
     
+    [self followScrollView:self.tableView withDelay:60];
+    [self.navigationController.navigationBar setTranslucent:NO];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
 }
 
 

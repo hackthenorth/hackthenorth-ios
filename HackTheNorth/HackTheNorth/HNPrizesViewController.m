@@ -13,6 +13,7 @@
 #import "HNAvatarView.h"
 #import "SVStatusHUD.h"
 #import "HNPrizesDetailsViewController.h"
+#import "UIViewController+ScrollingNavbar.h"
 
 
 static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifier";
@@ -29,6 +30,10 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
     [self.tableView registerClass:[HNScrollListCell class] forCellReuseIdentifier:kHNScrollListCellIdentifier];
  
     [self.tableView setTableHeaderView:_searchBar];
+    
+    [self followScrollView:self.tableView withDelay:60];
+    [self.navigationController.navigationBar setTranslucent:NO];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
