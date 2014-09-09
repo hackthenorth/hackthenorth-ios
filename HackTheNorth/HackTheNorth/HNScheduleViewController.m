@@ -63,7 +63,7 @@
     [self.tableView registerClass:[HNScheduleTableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
     
 
-    [self followScrollView:self.tableView withDelay:60];
+    //[self followScrollView:self.tableView withDelay:60];
     [self.navigationController.navigationBar setTranslucent:NO];
     [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
     
