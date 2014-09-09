@@ -26,15 +26,9 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
     
     manager = [[HNDataManager alloc] init];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 44, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44) style:UITableViewStylePlain];
-    
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    
     [self.tableView registerClass:[HNScrollListCell class] forCellReuseIdentifier:kHNScrollListCellIdentifier];
-    
-    [self.view addSubview: self.tableView];
-    
+ 
+    [self.tableView setTableHeaderView:_searchBar];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -143,19 +137,13 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 {
     [super searchBarTextDidBeginEditing:searchBar];
     
-    [UIView animateWithDuration:kKeyboardRetractAnimationSpeed delay:0 options: UIViewAnimationOptionCurveEaseOut animations:^{
-        self.tableView.frame = CGRectMake(0, self.tableView.frame.origin.y, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44+kiPhoneTabBarHeight-kiPhoneKeyboardHeightPortrait);
-    } completion:nil];
 }
 
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
     [super searchBarTextDidEndEditing:searchBar];
-    
-    [UIView animateWithDuration:kKeyboardRetractAnimationSpeed delay:0 options: UIViewAnimationOptionCurveEaseOut animations:^{
-        self.tableView.frame = CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 44, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44);
-    } completion:nil];
+
 }
 
 

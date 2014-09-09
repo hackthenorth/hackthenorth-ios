@@ -15,6 +15,13 @@
 #import "HNDataManager.h"
 #import "NSDate+HNConvenience.h"
 
+
+@interface HNScheduleViewController ()
+
+@property (nonatomic, assign) BOOL isSearching;
+
+@end
+
 @implementation HNScheduleViewController
 
 - (void)viewDidLoad
@@ -24,13 +31,7 @@
     _sectionTitles = @[@"Friday Event", @"Saturday Event", @"Sunday Event"];
     manager = [[HNDataManager alloc] init];
     
-    
-    _searchItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"searchIcon"] style: UIBarButtonItemStylePlain target:self action:@selector(searchButtonPressed:)];
-    _searchItem.tag = 0;
-    self.navigationItem.rightBarButtonItem = _searchItem;
-    
-    [self.view sendSubviewToBack:_searchBar];
-    _searchBar.alpha = 0;
+    //_searchBar.alpha = 0;
     
     NSDateComponents* startComp = [[NSDateComponents alloc] init];
     [startComp setDay:20];
@@ -49,25 +50,18 @@
 
     
     self.scheduleView = [[HNScheduleProgressView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, 90) startDate:startDate endDate:endDate];
+    self.scheduleView.backgroundColor = [UIColor whiteColor];
+    self.scheduleView.layer.borderWidth = 0.5;
+    self.scheduleView.layer.borderColor = [UIColor grayColor].CGColor;
     
-    [self.view addSubview:self.scheduleView];
     
+    [self.tableView setTableHeaderView:_searchBar];
     
-    _searchBar.frame = self.scheduleView.frame;
     self.cellDictArray = @[];
     
-    
-    UIView* blueBar = [[UIView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 90, kiPhoneWidthPortrait, 5)];
-    blueBar.backgroundColor = [JPStyle interfaceTintColor];
-    [self.view addSubview:blueBar];
-    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 95, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait - 95) style:UITableViewStyleGrouped];
-    
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    
     [self.tableView registerClass:[HNScheduleTableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
-    [self.view addSubview:self.tableView];
+    
+
     
 }
 
@@ -77,12 +71,29 @@
     [super viewWillAppear:animated];
     [self reloadData];
     
+
+
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kNeedUpdateDataNotification object:nil];
-    
-    
-    
 }
 
+
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section == 0 && !self.isSearching){
+        return  self.scheduleView;
+    }
+    return nil;
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0 && !self.isSearching){
+        return self.scheduleView.frame.size.height;
+    } else if (self.isSearching){
+        return 0;
+    }
+    return 25;
+}
 
 - (void)reloadData
 {
@@ -247,23 +258,17 @@
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
     [super searchBarTextDidBeginEditing:searchBar];
+    self.isSearching = YES;
+    [self.tableView reloadData];
 
-    [UIView animateWithDuration:kKeyboardRetractAnimationSpeed delay:0 options: UIViewAnimationOptionCurveEaseOut animations:^{
-        
-        self.tableView.frame = CGRectMake(0, self.tableView.frame.origin.y, kiPhoneWidthPortrait, kiPhoneHeightPortrait- kiPhoneKeyboardHeightPortrait - 159);
-        
-    } completion:nil];
 }
 
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
     [super searchBarTextDidEndEditing:searchBar];
-    
-    [UIView animateWithDuration:kKeyboardRetractAnimationSpeed delay:0 options: UIViewAnimationOptionCurveEaseOut animations:^{
-        
-        self.tableView.frame = CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 95, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait - 95);
-    } completion:nil];
+    self.isSearching = NO;
+    [self.tableView reloadData];
     
 
 }
@@ -272,6 +277,8 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    self.isSearching = NO;
+    [self.tableView reloadData];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
 }

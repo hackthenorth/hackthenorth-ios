@@ -24,14 +24,10 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
     manager = [[HNDataManager alloc] init];
 
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+44, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44) style:UITableViewStylePlain];
-    
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
     
     [self.tableView registerClass:[HNScrollListCell class] forCellReuseIdentifier:kHNScrollListCellIdentifier];
-    
-    [self.view addSubview: self.tableView];
+    [self.tableView setTableHeaderView:_searchBar];
+    [self.tableView setTableFooterView:[UIView new]];
     
 }
 

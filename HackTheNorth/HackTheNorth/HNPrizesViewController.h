@@ -11,7 +11,7 @@
 #import "HNSearchViewController.h"
 
 @class HNDataManager;
-@interface HNPrizesViewController : HNSearchViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
+@interface HNPrizesViewController : HNSearchViewController  <MFMailComposeViewControllerDelegate>
 {
     HNDataManager*  manager;
     NSArray*     _infoArray;

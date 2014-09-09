@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HNSearchViewController : UIViewController <UISearchBarDelegate>
+@interface HNSearchViewController : UITableViewController <UISearchBarDelegate>
 {
     @protected
     UISearchBar* _searchBar;
