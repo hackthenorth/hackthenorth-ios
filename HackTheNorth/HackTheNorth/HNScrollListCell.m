@@ -13,8 +13,11 @@
 #import "JPFont.h"
 #import "HNScrollListItem.h"
 #import "AutoScrollLabel.h"
-#import "HNScrollView.h"
 #import "NSString+HNConvenience.h"
+
+const CGFloat HNScrollListCellExternalMargin = 20.0f;
+const CGFloat HNScrollListCellInternalMargin = 5.0f;
+const CGFloat HNScrollListCellAvatarSize = 40.0f;
 
 @implementation HNScrollListCell
 
@@ -23,26 +26,24 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
-    self.separatorInset = UIEdgeInsetsMake(0, kiPhoneWidthPortrait, 0, 0);
+    self.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     
-    self.avatarView = [[HNAvatarView alloc] initWithFrame:CGRectMake(20, 10, 40, 40)];
+    self.avatarView = [[HNAvatarView alloc] initWithFrame:CGRectMake(HNScrollListCellExternalMargin, 10, HNScrollListCellAvatarSize, HNScrollListCellAvatarSize)];
     [self addSubview:self.avatarView];
     
-    titleLabel = [[AutoScrollLabel alloc] initWithFrame:CGRectMake(65, 10, kiPhoneWidthPortrait - 70, 22)];
+    titleLabel = [[AutoScrollLabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX([self.avatarView frame]) + HNScrollListCellInternalMargin, 10, kiPhoneWidthPortrait - HNScrollListCellExternalMargin - 65, 22)];
     titleLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:18];
     [self addSubview:titleLabel];
 
-    subtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(65, 32, kiPhoneWidthPortrait - 70, 18)];
+    subtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX([self.avatarView frame]) + HNScrollListCellInternalMargin, 32, kiPhoneWidthPortrait - 70, 18)];
     subtitleLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:15];
     subtitleLabel.textColor = [UIColor grayColor];
 
     [self addSubview:subtitleLabel];
     
-    
-    scrollListView = [[HNScrollView alloc] initWithFrame:CGRectMake(0, 60, kiPhoneWidthPortrait, 35)];
-    scrollListView.showsHorizontalScrollIndicator = NO;
-
-    [self addSubview:scrollListView];
+    itemsLabel = [[AutoScrollLabel alloc] initWithFrame:CGRectMake(HNScrollListCellExternalMargin, CGRectGetMaxY([self.avatarView frame]) + HNScrollListCellInternalMargin, kiPhoneWidthPortrait - 2 * HNScrollListCellExternalMargin, 20)];
+    itemsLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:15];
+    [self addSubview:itemsLabel];
     
     for(UIGestureRecognizer* rec in self.gestureRecognizers)
     {
@@ -87,22 +88,17 @@
 {
     _detailList = detailList;
     
-    CGFloat currXPos = 10;
-    
-    for(NSString* itemName in detailList)
-    {
-        NSString* capItemName = [itemName cappedString];
-        
-        CGFloat itemWidth = [HNScrollListItem widthWithString: capItemName];
-        
-        HNScrollListItem* itemView = [[HNScrollListItem alloc] initWithFrame:CGRectMake(currXPos, 0, itemWidth, scrollListView.frame.size.height)];
-        itemView.text = capItemName;
-        currXPos += itemWidth + 10;
-        
-        [scrollListView addSubview:itemView];
+    // Build the result string
+    NSString *text = @"";
+    for (int i = 0; i < [_detailList count] - 1; i++) {
+        // Add every string except the last one with a bullet point after.
+        NSString *detail = [_detailList objectAtIndex:i];
+        text = [text stringByAppendingFormat:@"%@ \u2022 ", detail];
     }
+    // Finally, add the last one without the bullet point.
+    text = [text stringByAppendingString:[_detailList objectAtIndex:[_detailList count] - 1]];
     
-    scrollListView.contentSize = CGSizeMake(currXPos, scrollListView.frame.size.height);
+    [itemsLabel setText:text];
 }
 
 
@@ -131,16 +127,15 @@
 }
 
 
++ (CGFloat)getCellHeight
+{
+    return 80;
+}
+
+
+
 - (void)prepareForReuse
 {
-    for(UIView* subview in [scrollListView subviews])
-    {
-        [subview removeFromSuperview];
-    }
-    
-    scrollListView.contentSize = CGSizeMake(0, 0);
-    scrollListView.contentOffset = CGPointMake(0, 0);
-    
     self.title = nil;
     self.subtitle = nil;
     self.availability = @[];

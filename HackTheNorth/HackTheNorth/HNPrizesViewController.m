@@ -111,7 +111,7 @@ static NSString* const PRIZES_PATH = @"/prizes/";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return [HNScrollListCell getCellHeight];
 }
 
 

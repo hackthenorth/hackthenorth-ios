@@ -72,7 +72,7 @@
     gitLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
     [self.view addSubview:gitLabel];
     
-    git = [[UILabel alloc] initWithFrame:CGRectMake(5, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 185, 130, 20)];
+    git = [[UILabel alloc] initWithFrame:CGRectMake(5, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 185, kiPhoneWidthPortrait- 10, 20)];
     git.font = [JPFont fontWithName:[JPFont defaultThinFont] size:16];
     git.textColor = [UIColor darkGrayColor];
     [self.view addSubview:git];

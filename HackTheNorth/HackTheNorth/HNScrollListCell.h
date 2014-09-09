@@ -8,14 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+
 @class HNAvatarView, AutoScrollLabel, HNScrollView;
 @interface HNScrollListCell : UITableViewCell <UIGestureRecognizerDelegate>
 {
     
     AutoScrollLabel* titleLabel;
     UILabel* subtitleLabel;
-    HNScrollView*  scrollListView;
-    
+    // can be skills, roles, prizes depending on the controller
+    AutoScrollLabel* itemsLabel;
     
 }
 
@@ -37,5 +38,8 @@
 @property (nonatomic, strong) NSString* github;
 
 @property (nonatomic, strong) NSString* descriptor;
+
+
++ (CGFloat)getCellHeight;
 
 @end
