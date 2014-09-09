@@ -16,6 +16,7 @@
 #import "HNSponsorsViewController.h"
 #import "HNCampusMapViewController.h"
 
+static NSString* const UPDATES_PATH = @"/updates/";
 
 @interface HNUpdatesViewController ()
             
@@ -61,15 +62,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kNeedUpdateDataNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData:) name:UPDATES_PATH object:nil];
     
-    [self reloadData];
+    [HNDataManager loadDataForPath:UPDATES_PATH];
 }
 
 
-- (void)reloadData
+- (void)reloadData:(NSNotification *)notification
 {
-    NSDictionary* updateDict = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][0]]];
+    NSDictionary* updateDict = [notification userInfo][HNDataManagerKeyData];
     
     if(!updateDict)
     {

@@ -17,6 +17,8 @@
 
 @implementation HNScheduleViewController
 
+static NSString* const SCHEDULE_PATH = @"/schedule/";
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -80,18 +82,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self reloadData];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kNeedUpdateDataNotification object:nil];
-    
-    
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData:) name:SCHEDULE_PATH object:nil];
+    [HNDataManager loadDataForPath:SCHEDULE_PATH];
 }
 
 
-- (void)reloadData
+- (void)reloadData:(NSNotification *)notification
 {
-    NSDictionary* infoDict = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][1]]];
+    NSDictionary* infoDict = [notification userInfo][HNDataManagerKeyData];
     
     if(!infoDict)
         return;

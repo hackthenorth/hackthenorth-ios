@@ -16,6 +16,8 @@
 
 static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifier";
 
+NSString *MENTORS_PATH = @"/mentors/";
+
 @implementation HNMentorsViewController
 
 - (void)viewDidLoad
@@ -45,16 +47,15 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 {
     [super viewWillAppear:animated];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kNeedUpdateDataNotification object:nil];
-    
-    [self reloadData];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData:) name:MENTORS_PATH object:nil];
+    [HNDataManager loadDataForPath:MENTORS_PATH];
 }
 
 
-
-- (void)reloadData
+- (void)reloadData:(NSNotification *)notification
 {
-    NSDictionary* infoDict = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][3]]];
+    NSDictionary* infoDict = [notification userInfo][HNDataManagerKeyData];
+    
     if(!infoDict)
         return;
     

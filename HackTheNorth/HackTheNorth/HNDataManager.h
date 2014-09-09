@@ -9,20 +9,19 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 
-static NSString* const kNeedUpdateDataNotification = @"kNeedUpdateDataNotification";
-
+// The NSString key for JSON response data in the userInfo of the notification posted by the method
+// loadDataForPath:NSString.
+static NSString* const HNDataManagerKeyData = @"data";
 
 @interface HNDataManager : NSObject <NSURLConnectionDataDelegate>
 {
     BOOL   _alertDisplayed;
     AFNetworkReachabilityManager* reachability;
-    NSInteger _currentKeyIndex; //for download one file at a time
     
     NSMutableArray* _requests;
     NSMutableArray* _connections;
     NSURLConnection*     _connection;
     NSMutableURLRequest* _request;
-    
     
     NSTimer*   _statusTimer;
     NSTimer*   _stopStatusTimer;
@@ -46,19 +45,11 @@ static NSString* const kNeedUpdateDataNotification = @"kNeedUpdateDataNotificati
 //Networking and Files
 - (NSArray*)keyNames;
 
-- (void)startUpdating;
-- (void)stopUpdating;
-
 - (void)retrieveAppDataAndSaveToFile;
-
-//return isSuccessful
 - (BOOL)saveData: (NSData*)data toFileWithName: (NSString*)filename;
-
 - (id)retrieveArrayOrDictFromFile: (NSString*)fileName;
 
-
-
-
++ (void)loadDataForPath:(NSString *)path;
 
 @end
 

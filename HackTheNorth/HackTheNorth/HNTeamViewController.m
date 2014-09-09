@@ -16,6 +16,7 @@
 #import "HNAvatarView.h"
 #import "JPStyle.h"
 
+static NSString *const TEAM_PATH = @"/team/";
 
 static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifier";
 
@@ -49,15 +50,14 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 {
     [super viewWillAppear:animated];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kNeedUpdateDataNotification object:nil];
-    
-    [self reloadData];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData:) name:TEAM_PATH object:nil];
+    [HNDataManager loadDataForPath:TEAM_PATH];
 }
 
 
-- (void)reloadData
+- (void)reloadData:(NSNotification *)notification
 {
-    NSDictionary* infoDict = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][4]]];
+    NSDictionary* infoDict = [notification userInfo][HNDataManagerKeyData];
     if(!infoDict)
         return;
     

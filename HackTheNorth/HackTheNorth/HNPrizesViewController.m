@@ -16,6 +16,7 @@
 #import "JPStyle.h"
 
 static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifier";
+static NSString* const PRIZES_PATH = @"/prizes/";
 
 @implementation HNPrizesViewController
 
@@ -45,15 +46,16 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self reloadData];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kNeedUpdateDataNotification object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData:) name:PRIZES_PATH object:nil];
+    [HNDataManager loadDataForPath:PRIZES_PATH];
 }
 
 
-- (void)reloadData
+- (void)reloadData:(NSNotification *)notification
 {
-    NSDictionary* infoDict = [manager retrieveArrayOrDictFromFile:[NSString stringWithFormat:@"%@.json",[manager keyNames][2]]];
+    NSDictionary *infoDict = [notification userInfo][HNDataManagerKeyData];
+    
     if(!infoDict)
         return;
     
