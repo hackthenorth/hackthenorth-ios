@@ -413,7 +413,7 @@
 				AA63DCDD196E24CB001D9768 /* Convenience Classes */,
 				AAAC61D51992049A0043A6CD /* HNMainTabBarController.h */,
 				AAAC61D61992049A0043A6CD /* HNMainTabBarController.m */,
-				AA63DCE4196E32FC001D9768 /* Notification View Controller */,
+				AA63DCE4196E32FC001D9768 /* Updates View Controller */,
 				AA34FA4C198891AD00A73292 /* Schedule View Controller */,
 				AA7BED5819A2CD7D00F68FCA /* Common Views */,
 				AA1FC0A7198F539500B1B765 /* Prizes View Controller */,
@@ -483,7 +483,7 @@
 			name = "Convenience Classes";
 			sourceTree = "<group>";
 		};
-		AA63DCE4196E32FC001D9768 /* Notification View Controller */ = {
+		AA63DCE4196E32FC001D9768 /* Updates View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				AA63DCB4196E1A42001D9768 /* HNUpdatesViewController.h */,
@@ -499,7 +499,7 @@
 				AA63DCE1196E32F6001D9768 /* HNUpdatesTableViewCell.h */,
 				AA63DCE2196E32F6001D9768 /* HNUpdatesTableViewCell.m */,
 			);
-			name = "Notification View Controller";
+			name = "Updates View Controller";
 			sourceTree = "<group>";
 		};
 		AA7BED5819A2CD7D00F68FCA /* Common Views */ = {

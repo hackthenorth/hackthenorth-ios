@@ -22,7 +22,6 @@
     // Override point for customization after application launch.
     
     dataManager = [[HNDataManager alloc] init];
-    dataManager.displayAlert = YES;
     
     return YES;
 }

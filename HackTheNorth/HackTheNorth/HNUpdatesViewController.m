@@ -17,6 +17,7 @@
 #import "HNCampusMapViewController.h"
 
 static NSString* const UPDATES_PATH = @"/updates/";
+static NSString* const UPDATES_CELL_IDENTIFIER = @"updatesCell";
 
 @interface HNUpdatesViewController ()
             
@@ -53,9 +54,8 @@ static NSString* const UPDATES_PATH = @"/updates/";
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView registerClass:[HNUpdatesTableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
+    [self.tableView registerClass:[HNUpdatesTableViewCell class] forCellReuseIdentifier:UPDATES_CELL_IDENTIFIER];
     [self.view addSubview:self.tableView];
-    
 }
 
 
@@ -138,7 +138,11 @@ static NSString* const UPDATES_PATH = @"/updates/";
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HNUpdatesTableViewCell* cell = [[HNUpdatesTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuseIdentifier"];
+    HNUpdatesTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:UPDATES_CELL_IDENTIFIER];
+    
+    if (cell == nil) {
+        cell = [[HNUpdatesTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:UPDATES_CELL_IDENTIFIER];
+    }
     
     NSDictionary* tagDict = [_infoArray objectAtIndex:indexPath.row];
     

@@ -110,12 +110,12 @@
 
 - (void)setImageUrl:(NSURL *)imageUrl
 {
-    _imageUrl = imageUrl;
-    
-    self.image = nil;
-    
-    [[AsyncImageLoader sharedLoader] loadImageWithURL:_imageUrl target:self action:@selector(imageLoaded)];
-    
+    // If the string URL changes, save the new one and reload the image.
+    if (![[imageUrl absoluteString] isEqualToString:[_imageUrl absoluteString]]) {
+        _imageUrl = imageUrl;
+        self.image = nil;
+        [[AsyncImageLoader sharedLoader] loadImageWithURL:_imageUrl target:self action:@selector(imageLoaded)];
+    }
 }
 
 
