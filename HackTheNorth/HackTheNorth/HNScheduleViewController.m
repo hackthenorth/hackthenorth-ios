@@ -44,7 +44,7 @@ static NSString* const SCHEDULE_PATH = @"/schedule/";
     [endComp setDay:21];
     [endComp setMonth:9];
     [endComp setYear:2014];
-    [endComp setHour:11];
+    [endComp setHour:10];
     
     NSDate* startDate = [[NSCalendar currentCalendar] dateFromComponents:startComp];
     NSDate* endDate = [[NSCalendar currentCalendar] dateFromComponents:endComp];

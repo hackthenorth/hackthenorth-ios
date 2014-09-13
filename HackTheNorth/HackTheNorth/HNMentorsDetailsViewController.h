@@ -12,6 +12,8 @@
 @class HNScrollListCell, HNAvatarView, HNBorderButton;
 @interface HNMentorsDetailsViewController : UIViewController <MFMailComposeViewControllerDelegate>
 {
+    UIScrollView* mainScrollView;
+    
     UILabel* nameLabel;
     HNAvatarView* imageView;
 

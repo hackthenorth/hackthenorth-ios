@@ -50,6 +50,8 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 {
     [super viewWillAppear:animated];
     
+    [self reloadData:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData:) name:TEAM_PATH object:nil];
     [HNDataManager loadDataForPath:TEAM_PATH];
 }
@@ -57,26 +59,44 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 
 - (void)reloadData:(NSNotification *)notification
 {
-    NSDictionary* infoDict = [notification userInfo][HNDataManagerKeyData];
-    if(!infoDict)
-        return;
+    NSArray* headersArray =
+    @[
+      @{ @"name":@"Kartik Talwar", @"email":@"kartik@hackthenorth.com", @"phone":@"+1 (647) 225-4089", @"twitter": @"@TheRealKartik", @"role":@[@"organizer"]},
+      @{ @"name":@"Kevin Lau", @"email":@"kevin@hackthenorth.com", @"phone":@"+1 (647) 627-8630", @"twitter": @"@thekevlau", @"role":@[@"organizer"]}
+      ];
     
-    NSMutableArray* array = [[infoDict allValues] mutableCopy];
+    NSDictionary* infoDict = [notification userInfo][HNDataManagerKeyData];
+//    if(!infoDict)
+//        return;
+    
+    NSMutableArray* array = [NSMutableArray array];
+    NSArray* keyArray = [infoDict allKeys];
+    for(NSString* key in keyArray)
+    {
+        NSMutableDictionary* dictionary = [[infoDict objectForKey:key] mutableCopy];
+        [dictionary setObject:key forKey:@"id"];
+        [array addObject:dictionary];
+    }
     
     self.origCellDictArray = [array sortedArrayUsingComparator:^NSComparisonResult(NSDictionary* obj1, NSDictionary* obj2) {
         
         NSString* name1 = @"zzzzzz";
         NSString* name2 = @"zzzzzz";
         
-        if([obj1 objectForKey:@"name"])
-            name1 = [obj1 objectForKey:@"name"];
+        if([obj1 objectForKey:@"id"])
+            name1 = [obj1 objectForKey:@"id"];
         
-        if([obj2 objectForKey:@"name"])
-            name2 = [obj2 objectForKey:@"name"];
+        if([obj2 objectForKey:@"id"])
+            name2 = [obj2 objectForKey:@"id"];
         return [name1 compare:name2];
     }];
-
-    self.cellDictArray = [self.origCellDictArray copy];
+    
+    // We want the headers to be located at the top of the cellDictArray.
+    NSArray* appendedArray = [headersArray arrayByAddingObjectsFromArray:self.origCellDictArray];
+    
+    self.origCellDictArray = [appendedArray copy];
+    self.cellDictArray = [appendedArray copy];
+    
     [self reloadDataForFiltering];
 }
 

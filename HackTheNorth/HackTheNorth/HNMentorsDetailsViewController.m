@@ -40,73 +40,66 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kiPhoneWidthPortrait, kiPhoneHeightPortrait)];
+    [self.view addSubview:mainScrollView];
 
-    nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 10, kiPhoneWidthPortrait-10, 40)];
+    nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, kiPhoneWidthPortrait-10, 40)];
     nameLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:35];
     nameLabel.textColor = [[JPStyle interfaceTintColor] darkerColor];
-    [self.view addSubview:nameLabel];
+    [mainScrollView addSubview:nameLabel];
     
-    
-    imageView = [[HNAvatarView alloc] initWithFrame:CGRectMake(10, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 65, 100, 100)];
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
-    [self.view addSubview:imageView];
-    
-    UIView* shadowView = [[UIView alloc] initWithFrame:imageView.frame];
-    shadowView.backgroundColor = [UIColor whiteColor];
-    [self.view insertSubview:shadowView belowSubview:imageView];
-    
-    UILabel* orgLabel = [[UILabel alloc] initWithFrame:CGRectMake(125, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 60, kiPhoneWidthPortrait-130, 25)];
+    UILabel* orgLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 60, kiPhoneWidthPortrait-130, 25)];
     orgLabel.text = @"Organization";
     orgLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
-    [self.view addSubview:orgLabel];
+    [mainScrollView addSubview:orgLabel];
 
-    org = [[UILabel alloc] initWithFrame:CGRectMake(125, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 85, kiPhoneWidthPortrait-130, 20)];
+    org = [[UILabel alloc] initWithFrame:CGRectMake(10, 85, kiPhoneWidthPortrait-130, 20)];
     org.font = [JPFont fontWithName:[JPFont defaultThinFont] size:16];
     org.textColor = [UIColor darkGrayColor];
-    [self.view addSubview:org];
+    [mainScrollView addSubview:org];
 
     //Github
-    
-    UILabel* gitLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 165, kiPhoneWidthPortrait-10, 23)];
+    UILabel* gitLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 115, kiPhoneWidthPortrait-130, 25)];
     gitLabel.text = @"Github";
     gitLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
-    [self.view addSubview:gitLabel];
+    [mainScrollView addSubview:gitLabel];
     
-    git = [[UILabel alloc] initWithFrame:CGRectMake(5, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 185, kiPhoneWidthPortrait- 10, 20)];
+    git = [[UILabel alloc] initWithFrame:CGRectMake(10, 140, kiPhoneWidthPortrait-130, 25)];
     git.font = [JPFont fontWithName:[JPFont defaultThinFont] size:16];
     git.textColor = [UIColor darkGrayColor];
-    [self.view addSubview:git];
+    [mainScrollView addSubview:git];
     
     //Function Buttons
-    UILabel* contactLabel = [[UILabel alloc] initWithFrame:CGRectMake(125, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 115, kiPhoneWidthPortrait-130, 25)];
+    UILabel* contactLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 175, kiPhoneWidthPortrait-130, 25)];
     contactLabel.text = @"Contact";
     contactLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
-    [self.view addSubview:contactLabel];
+    [mainScrollView addSubview:contactLabel];
     
-    phoneButton = [[HNBorderButton alloc] initWithFrame:CGRectMake(125, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 145, 92, 44)];
+    phoneButton = [[HNBorderButton alloc] initWithFrame:CGRectMake(10, 200, 90, 44)];
     [phoneButton addTarget:self action:@selector(startPhoneCall) forControlEvents:UIControlEventTouchUpInside];
     [phoneButton setTitle:@"Phone" forState:UIControlStateNormal];
-    [self.view addSubview:phoneButton];
+    [mainScrollView addSubview:phoneButton];
     
-    sendEmailButton = [[HNBorderButton alloc] initWithFrame:CGRectMake(125 + 95, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 145, 92, 44)];
+    sendEmailButton = [[HNBorderButton alloc] initWithFrame:CGRectMake(10 + 110, 200, 90, 44)];
     [sendEmailButton setTitle:@"Send Email" forState:UIControlStateNormal];
     [sendEmailButton addTarget:self action:@selector(sendEmail) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:sendEmailButton];
+    [mainScrollView addSubview:sendEmailButton];
     
     
     /////////////////////////////////////////////////////
     
-    UIView* skillBackground = [[UIView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 210, kiPhoneWidthPortrait, kiPhoneHeightPortrait - 275)];
+    UIView* skillBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 250, kiPhoneWidthPortrait, kiPhoneHeightPortrait - 275)];
     skillBackground.backgroundColor = [[JPStyle interfaceTintColor] colorWithAlphaComponent:0.2];
-    [self.view addSubview:skillBackground];
+    [mainScrollView addSubview:skillBackground];
     
     
-    UILabel* avaiLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 220, kiPhoneWidthPortrait-20, 30)];
+    UILabel* avaiLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 260, kiPhoneWidthPortrait-20, 30)];
     avaiLabel.text = @"Availability";
     avaiLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
-    [self.view addSubview:avaiLabel];
+    [mainScrollView addSubview:avaiLabel];
     
-    avai = [[UITextView alloc] initWithFrame:CGRectMake(125, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 225, kiPhoneWidthPortrait-130, 105)];
+    avai = [[UITextView alloc] initWithFrame:CGRectMake(125, 260, kiPhoneWidthPortrait-130, 105)];
     avai.backgroundColor = [UIColor clearColor];
     avai.editable = NO;
     avai.selectable = NO;
@@ -115,17 +108,16 @@
     avai.textContainerInset = UIEdgeInsetsZero;
     avai.font = [JPFont fontWithName:[JPFont defaultThinFont] size:16];
     avai.textColor = [UIColor darkGrayColor];
-    [self.view addSubview:avai];
+    [mainScrollView addSubview:avai];
 
 
-    UILabel* skillLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 320, kiPhoneWidthPortrait-20, 30)];
+    UILabel* skillLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 350, kiPhoneWidthPortrait-20, 30)];
     skillLabel.text = @"Skills";
     skillLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
     skillLabel.textColor = [UIColor blackColor];
-    [self.view addSubview:skillLabel];
+    [mainScrollView addSubview:skillLabel];
     
-    
-    skillVal = [[UITextView alloc] initWithFrame:CGRectMake(20, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 350, kiPhoneWidthPortrait-20, 100)];
+    skillVal = [[UITextView alloc] initWithFrame:CGRectMake(20, 380, kiPhoneWidthPortrait-20, 100)];
     if(![JPStyle iPhone4Inch])
     {
         CGRect frame = skillVal.frame;
@@ -140,7 +132,8 @@
     skillVal.font = [JPFont fontWithName:[JPFont defaultBoldFont] size:26];
     skillVal.textContainer.lineFragmentPadding = 0;
     skillVal.textContainerInset = UIEdgeInsetsZero;
-    [self.view addSubview:skillVal];
+    [skillVal setUserInteractionEnabled:NO];
+    [mainScrollView addSubview:skillVal];
     
 
 }
@@ -182,9 +175,17 @@
     if(skillText.length>=2)
         skillVal.text = [skillText substringToIndex:skillText.length-2];
     
+    [skillVal sizeToFit];
     
+    CGRect skillValRect = skillVal.frame;
     
-
+    [mainScrollView setContentSize:CGSizeMake(kiPhoneWidthPortrait, CGRectGetMaxY(skillValRect)+ 10)];
+    if(![JPStyle iPhone4Inch])
+    {
+        CGRect frame = mainScrollView.frame;
+        frame.size.height -= 88;
+        mainScrollView.frame = frame;
+    }
 }
 
 

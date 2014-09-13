@@ -28,20 +28,20 @@ const CGFloat HNScrollListCellAvatarSize = 40.0f;
     
     self.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     
-    self.avatarView = [[HNAvatarView alloc] initWithFrame:CGRectMake(HNScrollListCellExternalMargin, 10, HNScrollListCellAvatarSize, HNScrollListCellAvatarSize)];
-    [self addSubview:self.avatarView];
+//    self.avatarView = [[HNAvatarView alloc] initWithFrame:CGRectMake(HNScrollListCellExternalMargin, 10, HNScrollListCellAvatarSize, HNScrollListCellAvatarSize)];
+//    [self addSubview:self.avatarView];
     
-    titleLabel = [[AutoScrollLabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX([self.avatarView frame]) + HNScrollListCellInternalMargin, 10, kiPhoneWidthPortrait - HNScrollListCellExternalMargin - 65, 22)];
+    titleLabel = [[AutoScrollLabel alloc] initWithFrame:CGRectMake(HNScrollListCellExternalMargin, 10, kiPhoneWidthPortrait - HNScrollListCellExternalMargin - 65, 22)];
     titleLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:18];
     [self addSubview:titleLabel];
 
-    subtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX([self.avatarView frame]) + HNScrollListCellInternalMargin, 32, kiPhoneWidthPortrait - 70, 18)];
+    subtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(HNScrollListCellExternalMargin, 32, kiPhoneWidthPortrait - 70, 18)];
     subtitleLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:15];
     subtitleLabel.textColor = [UIColor grayColor];
 
     [self addSubview:subtitleLabel];
     
-    itemsLabel = [[AutoScrollLabel alloc] initWithFrame:CGRectMake(HNScrollListCellExternalMargin, CGRectGetMaxY([self.avatarView frame]) + HNScrollListCellInternalMargin, kiPhoneWidthPortrait - 2 * HNScrollListCellExternalMargin, 20)];
+    itemsLabel = [[AutoScrollLabel alloc] initWithFrame:CGRectMake(HNScrollListCellExternalMargin, CGRectGetMaxY(subtitleLabel.frame) + HNScrollListCellInternalMargin, kiPhoneWidthPortrait - 2 * HNScrollListCellExternalMargin, 20)];
     itemsLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:15];
     [self addSubview:itemsLabel];
     

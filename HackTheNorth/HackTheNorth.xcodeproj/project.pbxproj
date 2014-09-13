@@ -73,7 +73,6 @@
 		AAAC61B51991C6870043A6CD /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC61971991C6870043A6CD /* AFURLResponseSerialization.m */; };
 		AAAC61B61991C6870043A6CD /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC61991991C6870043A6CD /* AFURLSessionManager.m */; };
 		AAAC61B71991C6870043A6CD /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = AAAC619A1991C6870043A6CD /* LICENSE */; };
-		AAAC61B81991C6870043A6CD /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = AAAC619B1991C6870043A6CD /* README.md */; };
 		AAAC61B91991C6870043A6CD /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC619E1991C6870043A6CD /* AFNetworkActivityIndicatorManager.m */; };
 		AAAC61BA1991C6870043A6CD /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC61A01991C6870043A6CD /* UIActivityIndicatorView+AFNetworking.m */; };
 		AAAC61BB1991C6870043A6CD /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC61A21991C6870043A6CD /* UIAlertView+AFNetworking.m */; };
@@ -220,7 +219,6 @@
 		AAAC61981991C6870043A6CD /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		AAAC61991991C6870043A6CD /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		AAAC619A1991C6870043A6CD /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		AAAC619B1991C6870043A6CD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AAAC619D1991C6870043A6CD /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
 		AAAC619E1991C6870043A6CD /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
 		AAAC619F1991C6870043A6CD /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
@@ -526,7 +524,6 @@
 			children = (
 				AAAC61861991C6870043A6CD /* AFNetworking */,
 				AAAC619A1991C6870043A6CD /* LICENSE */,
-				AAAC619B1991C6870043A6CD /* README.md */,
 				AAAC619C1991C6870043A6CD /* UIKit+AFNetworking */,
 			);
 			path = AFNetworking;
@@ -773,7 +770,6 @@
 				AAAC61AF1991C6870043A6CD /* AFHTTPRequestOperationManager.m in Sources */,
 				AAAC61B41991C6870043A6CD /* AFURLRequestSerialization.m in Sources */,
 				AAAEE36719BD76EA00988810 /* HNSponsorsViewController.m in Sources */,
-				AAAC61B81991C6870043A6CD /* README.md in Sources */,
 				AA63DCB3196E1A42001D9768 /* AppDelegate.m in Sources */,
 				AA63DCB6196E1A42001D9768 /* HNUpdatesViewController.m in Sources */,
 				AA63DCDC196E24C6001D9768 /* JPFont.m in Sources */,
@@ -838,8 +834,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: SITE FENG (PAR485YFSL)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: SITE FENG (PAR485YFSL)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -859,7 +855,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "59c06503-81f2-48ed-99f6-a94c5d5e362f";
+				PROVISIONING_PROFILE = "ce2eec89-9bf7-4587-8987-606ae56086c5";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -881,8 +877,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: SITE FENG (52GHE2Q332)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SITE FENG (52GHE2Q332)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -895,7 +891,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "927e17c3-43a0-4dc6-a60c-1360763039a4";
+				PROVISIONING_PROFILE = "7338296d-4f80-469d-9390-a0d4bc032f82";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -916,7 +912,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "59c06503-81f2-48ed-99f6-a94c5d5e362f";
+				PROVISIONING_PROFILE = "ce2eec89-9bf7-4587-8987-606ae56086c5";
 			};
 			name = Debug;
 		};
@@ -935,7 +931,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "927e17c3-43a0-4dc6-a60c-1360763039a4";
+				PROVISIONING_PROFILE = "7338296d-4f80-469d-9390-a0d4bc032f82";
 			};
 			name = Release;
 		};

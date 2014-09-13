@@ -48,40 +48,28 @@
     nameLabel.textColor = [[JPStyle interfaceTintColor] darkerColor];
     [self.view addSubview:nameLabel];
     
-    
-    imageView = [[HNAvatarView alloc] initWithFrame:CGRectMake(10, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 65, 100, 100)];
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
-    [self.view addSubview:imageView];
-    
-    UIView* shadowView = [[UIView alloc] initWithFrame:imageView.frame];
-    shadowView.backgroundColor = [UIColor whiteColor];
-    //    shadowView.layer.cornerRadius = imageView.layer.cornerRadius;
-    //    shadowView.layer.shadowOffset = CGSizeMake(4, 8);
-    //    shadowView.layer.shadowOpacity = 0.5;
-    //    shadowView.layer.shadowRadius = 5;
-    [self.view insertSubview:shadowView belowSubview:imageView];
-    
-    UILabel* twitterLabel = [[UILabel alloc] initWithFrame:CGRectMake(125, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 60, kiPhoneWidthPortrait-130, 25)];
+    ///////////////////////
+    UILabel* twitterLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 60, kiPhoneWidthPortrait-130, 25)];
     twitterLabel.text = @"Twitter";
     twitterLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
     [self.view addSubview:twitterLabel];
     
-    twitterVal = [[UILabel alloc] initWithFrame:CGRectMake(125, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 85, kiPhoneWidthPortrait-130, 20)];
+    twitterVal = [[UILabel alloc] initWithFrame:CGRectMake(10, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 85, kiPhoneWidthPortrait-130, 20)];
     twitterVal.font = [JPFont fontWithName:[JPFont defaultThinFont] size:16];
     twitterVal.textColor = [UIColor darkGrayColor];
     [self.view addSubview:twitterVal];
     
-    UILabel* contactLabel = [[UILabel alloc] initWithFrame:CGRectMake(125, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 115, kiPhoneWidthPortrait-130, 25)];
+    UILabel* contactLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 115, kiPhoneWidthPortrait-130, 25)];
     contactLabel.text = @"Contact";
     contactLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
     [self.view addSubview:contactLabel];
     
-    phoneButton = [[HNBorderButton alloc] initWithFrame:CGRectMake(125, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 145, 92, 44)];
+    phoneButton = [[HNBorderButton alloc] initWithFrame:CGRectMake(10, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 145, 90, 44)];
     [phoneButton addTarget:self action:@selector(startPhoneCall) forControlEvents:UIControlEventTouchUpInside];
     [phoneButton setTitle:@"Phone" forState:UIControlStateNormal];
     [self.view addSubview:phoneButton];
     
-    sendEmailButton = [[HNBorderButton alloc] initWithFrame:CGRectMake(125 + 95, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 145, 92, 44)];
+    sendEmailButton = [[HNBorderButton alloc] initWithFrame:CGRectMake(10 + 110, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 145, 90, 44)];
     [sendEmailButton setTitle:@"Send Email" forState:UIControlStateNormal];
     [sendEmailButton addTarget:self action:@selector(sendEmail) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:sendEmailButton];

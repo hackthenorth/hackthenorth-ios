@@ -11,6 +11,7 @@
 #import "SVStatusHUD.h"
 #import "DejalActivityView.h"
 #import "JPStyle.h"
+#import "AFNetworking.h"
 
 @interface HNSponsorsViewController ()
 
@@ -34,10 +35,24 @@
         frame.size.height -= 88;
         self.webView.frame = frame;
     }
+
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager GET:@"https://hackthenorth.firebaseio.com/mobile/sponsors.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString* imageLink = (NSString*)[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        
+        NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:imageLink]];
+        [self.webView loadRequest:request];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"Failure: %@", error.localizedDescription);
+    }];
     
     self.webView.delegate = self;
-    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://i.imgur.com/VLyNA7m.png"]];
-    [self.webView loadRequest:request];
+    
     
     self.webView.scalesPageToFit = YES;
     [self.view addSubview:self.webView];
