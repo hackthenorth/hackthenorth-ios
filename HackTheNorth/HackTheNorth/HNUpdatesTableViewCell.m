@@ -91,10 +91,8 @@ static const NSTimeInterval kInterfaceRefreshInterval = 10; //for time
     else
     {
         timeLabel.text = [date timeStringForTableCell];
-
         NSString* dayString = [NSString stringWithFormat:@", %@", [date dateStringForTableCell]];
         timeLabel.text = [timeLabel.text stringByAppendingString:dayString];
-        
         [_UIUpdateTimer invalidate];
     }
     

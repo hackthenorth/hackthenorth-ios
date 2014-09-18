@@ -25,6 +25,7 @@
         self.clipsToBounds = YES;
         
         backgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+        backgroundView.image = nil;
         [self addSubview:backgroundView];
         
         _letterLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
@@ -35,6 +36,7 @@
         
         _asyncImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         _asyncImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _asyncImageView.backgroundColor = [UIColor clearColor];
         [self addSubview:_asyncImageView];
         
     }
@@ -110,20 +112,24 @@
 
 - (void)setImageUrl:(NSURL *)imageUrl
 {
-    // If the string URL changes, save the new one and reload the image.
-    if (![[imageUrl absoluteString] isEqualToString:[_imageUrl absoluteString]]) {
-        _imageUrl = imageUrl;
-        self.image = nil;
+    _imageUrl = imageUrl;
+    
+    if(!_imageUrl || [_imageUrl.path isEqual:@""] || !_imageUrl.path)
+    {
+        self.image = [UIImage imageNamed:@"avatarIcon"];
+        backgroundView.image = nil;
+    }
+    else
+    {
+        backgroundView.image = [UIImage imageWithColor:[UIColor whiteColor]];
         [[AsyncImageLoader sharedLoader] loadImageWithURL:_imageUrl target:self action:@selector(imageLoaded)];
     }
+    
 }
-
-
 
 
 - (void)imageLoaded
 {
-    
     _asyncImageView.alpha = 0;
     _asyncImageView.image = [[[AsyncImageLoader sharedLoader] cache] objectForKey:self.imageUrl];
     
@@ -131,7 +137,6 @@
         _asyncImageView.alpha = 1.0;
         
     } completion:^(BOOL finished) {
-        
         
     }];
 
