@@ -34,46 +34,46 @@
     
     ///////////////////////////////////////////
     
-    UIImageView* locationIcon = [[UIImageView alloc] initWithFrame:CGRectMake(10, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight+64.5, 15, 15)];
-    [locationIcon setImage:[UIImage imageNamed:@"locationIcon"]];
-    [self.view addSubview:locationIcon];
-    
-    UILabel* locationLabel = [[UILabel alloc] initWithFrame:CGRectMake(locationIcon.frame.origin.x + locationIcon.frame.size.width + 1, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight+60, 80, 20)];
-    locationLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:17];
-//    locationLabel.textColor = [UIColor grayColor];
-    locationLabel.textAlignment = NSTextAlignmentLeft;
-    locationLabel.text = self.cell.location;
-    [self.view addSubview:locationLabel];
-
-    //////////////////////////////////////////////
-    
-    UIImageView* timeIcon = [[UIImageView alloc] initWithFrame:CGRectMake(118, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight+64.5, 15, 15)];
+    UIImageView* timeIcon = [[UIImageView alloc] initWithFrame:CGRectMake(10, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight+64.5, 15, 15)];
     [timeIcon setImage:[UIImage imageNamed:@"timeIcon"]];
     [self.view addSubview:timeIcon];
     
-    UILabel* timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(timeIcon.frame.origin.x + timeIcon.frame.size.width + 1, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight+60, 70, 20)];
+    UILabel* timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(timeIcon.frame.origin.x + timeIcon.frame.size.width + 1, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight+61, 70, 20)];
     timeLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:17];
     timeLabel.textAlignment = NSTextAlignmentLeft;
     timeLabel.text = [[NSDate dateWithISO8601CompatibleString:self.cell.startTime] timeStringForTableCell];
     [self.view addSubview:timeLabel];
     
-    UIImageView* rightArrow = [[UIImageView alloc] initWithFrame:CGRectMake(200, timeIcon.frame.origin.y - 2, 16, 16)];
+    UIImageView* rightArrow = [[UIImageView alloc] initWithFrame:CGRectMake(89, timeIcon.frame.origin.y - 2, 16, 16)];
     rightArrow.contentMode = UIViewContentModeScaleAspectFit;
     rightArrow.image = [UIImage imageNamed:@"rightArrow"];
     [self.view addSubview:rightArrow];
     
-    UILabel* endTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(rightArrow.frame.origin.x + rightArrow.frame.size.width + 1, timeLabel.frame.origin.y, timeLabel.frame.size.width, timeLabel.frame.size.height)];
+    UILabel* endTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(rightArrow.frame.origin.x + rightArrow.frame.size.width - 2, timeLabel.frame.origin.y, timeLabel.frame.size.width, timeLabel.frame.size.height)];
     NSDate* startDate = [NSDate dateWithISO8601CompatibleString:self.cell.endTime];
     endTimeLabel.text = [startDate timeStringForTableCell];
-//    endTimeLabel.textColor = [UIColor grayColor];
+    //    endTimeLabel.textColor = [UIColor grayColor];
     endTimeLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:17];
     [self.view addSubview:endTimeLabel];
+
+    //////////////////////////////////////////////
+    UIImageView* locationIcon = [[UIImageView alloc] initWithFrame:CGRectMake(172, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight+64.5, 15, 15)];
+    [locationIcon setImage:[UIImage imageNamed:@"locationIcon"]];
+    [self.view addSubview:locationIcon];
     
+    UILabel* locationLabel = [[UILabel alloc] initWithFrame:CGRectMake(locationIcon.frame.origin.x + locationIcon.frame.size.width + 1, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight+61, kiPhoneWidthPortrait-189, 20)];
+    locationLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:17];
+    //    locationLabel.textColor = [UIColor grayColor];
+    locationLabel.textAlignment = NSTextAlignmentLeft;
+    locationLabel.text = self.cell.location;
+    [self.view addSubview:locationLabel];
+    
+    //////////////////////////////////////////////////////
     UIImageView* typeIcon = [[UIImageView alloc] initWithFrame:CGRectMake(10, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight+64.5 + 20, 15, 15)];
-    [typeIcon setImage:[UIImage imageNamed:@"locationIcon"]];
+    [typeIcon setImage:[UIImage imageNamed:@"typeIcon"]];
     [self.view addSubview:typeIcon];
     
-    UILabel* typeLabel = [[UILabel alloc] initWithFrame:CGRectMake(typeIcon.frame.origin.x + typeIcon.frame.size.width + 1, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight+60 + 20, 130, 20)];
+    UILabel* typeLabel = [[UILabel alloc] initWithFrame:CGRectMake(typeIcon.frame.origin.x + typeIcon.frame.size.width + 1, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight+61 + 20, 130, 20)];
     typeLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:17];
 //    typeLabel.textColor = [UIColor grayColor];
     typeLabel.text = [self.cell.type capitalizedString];
@@ -84,7 +84,7 @@
     [speakerIcon setImage:[UIImage imageNamed:@"speakerIcon"]];
     [self.view addSubview:speakerIcon];
     
-    UILabel* speakerLabel = [[UILabel alloc] initWithFrame:CGRectMake(speakerIcon.frame.origin.x + speakerIcon.frame.size.width + 1, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight+60+ 20, 180, 20)];
+    UILabel* speakerLabel = [[UILabel alloc] initWithFrame:CGRectMake(speakerIcon.frame.origin.x + speakerIcon.frame.size.width + 1, kiPhoneStatusBarHeight+ kiPhoneNavigationBarHeight+61+ 20, 180, 20)];
     speakerLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:17];
 //    speakerLabel.textColor = [UIColor grayColor];
     speakerLabel.textAlignment = NSTextAlignmentLeft;

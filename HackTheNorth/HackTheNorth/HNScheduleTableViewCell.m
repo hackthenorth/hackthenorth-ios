@@ -30,42 +30,34 @@
     avatarView.letter = self.type;
     [self addSubview:avatarView];
     
+    
     nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(65, 10, kiPhoneWidthPortrait - 70, 40)];
     nameLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:17];
     nameLabel.numberOfLines = 2;
 
     [self addSubview:nameLabel];
     
-    locationLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 60, 70, 20)];
-
-    locationLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:15];
-    locationLabel.textColor = [UIColor grayColor];
-    locationLabel.textAlignment = NSTextAlignmentLeft;
-    [self addSubview:locationLabel];
+    UIImageView* timeIcon = [[UIImageView alloc] initWithFrame:CGRectMake(8, 64.5, 12, 12)];
+    [timeIcon setImage:[UIImage imageNamed:@"timeIcon"]];
+    [self addSubview:timeIcon];
     
-    timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 60, 90, 20)];
+    timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(22, 60, 90, 20)];
     timeLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:15];
     timeLabel.textColor = [UIColor grayColor];
     timeLabel.textAlignment = NSTextAlignmentLeft;
     [self addSubview:timeLabel];
     
-    speakerLabel = [[UILabel alloc] initWithFrame:CGRectMake(190, 60, 130, 20)];
-    speakerLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:15];
-    speakerLabel.textColor = [UIColor grayColor];
-    speakerLabel.textAlignment = NSTextAlignmentLeft;
-    [self addSubview:speakerLabel];
+    ////////////////////////
     
-    UIImageView* locationIcon = [[UIImageView alloc] initWithFrame:CGRectMake(8, 64.5, 12, 12)];
+    UIImageView* locationIcon = [[UIImageView alloc] initWithFrame:CGRectMake(100, 64.5, 12, 12)];
     [locationIcon setImage:[UIImage imageNamed:@"locationIcon"]];
     [self addSubview:locationIcon];
     
-    UIImageView* timeIcon = [[UIImageView alloc] initWithFrame:CGRectMake(88, 64.5, 12, 12)];
-    [timeIcon setImage:[UIImage imageNamed:@"timeIcon"]];
-    [self addSubview:timeIcon];
-    
-    UIImageView* speakerIcon = [[UIImageView alloc] initWithFrame:CGRectMake(178, 64.5, 12, 12)];
-    [speakerIcon setImage:[UIImage imageNamed:@"speakerIcon"]];
-    [self addSubview:speakerIcon];
+    locationLabel = [[UILabel alloc] initWithFrame:CGRectMake(114, 60, kiPhoneWidthPortrait-120, 20)];
+    locationLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:15];
+    locationLabel.textColor = [UIColor grayColor];
+    locationLabel.textAlignment = NSTextAlignmentLeft;
+    [self addSubview:locationLabel];
     
     return self;
 }
@@ -82,7 +74,10 @@
 - (void)setLocation:(NSString *)location
 {
     _location = location;
-    locationLabel.text = location;
+    if(!_location || [_location isEqualToString:@""])
+        _location = @"TBD";
+    
+    locationLabel.text = _location;
 }
 
 - (void)setStartTime:(NSString *)startTime
@@ -99,7 +94,8 @@
 - (void)setSpeaker:(NSString *)speaker
 {
     _speaker = speaker;
-    speakerLabel.text = speaker;
+    if(!speaker || [speaker isEqualToString:@""])
+        _speaker = @"TBD";
 }
 
 

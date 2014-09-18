@@ -89,7 +89,7 @@
     
     /////////////////////////////////////////////////////
     
-    UIView* skillBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 250, kiPhoneWidthPortrait, kiPhoneHeightPortrait - 275)];
+    UIView* skillBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 250, kiPhoneWidthPortrait, 2000)];
     skillBackground.backgroundColor = [[JPStyle interfaceTintColor] colorWithAlphaComponent:0.2];
     [mainScrollView addSubview:skillBackground];
     

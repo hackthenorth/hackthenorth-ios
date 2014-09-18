@@ -28,9 +28,6 @@ const CGFloat HNScrollListCellAvatarSize = 40.0f;
     
     self.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     
-//    self.avatarView = [[HNAvatarView alloc] initWithFrame:CGRectMake(HNScrollListCellExternalMargin, 10, HNScrollListCellAvatarSize, HNScrollListCellAvatarSize)];
-//    [self addSubview:self.avatarView];
-    
     titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(HNScrollListCellExternalMargin, 10, kiPhoneWidthPortrait - HNScrollListCellExternalMargin - 65, 22)];
     titleLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:18];
     [self addSubview:titleLabel];
@@ -67,9 +64,14 @@ const CGFloat HNScrollListCellAvatarSize = 40.0f;
 - (void)setSubtitle:(NSString *)subtitle
 {
     _subtitle = subtitle;
-    subtitleLabel.text = subtitle;
+    if(!subtitle || [subtitle isEqual:@""] || [subtitle isEqual:[NSNull null]])
+        _subtitle = @"No Info";
+    else
+        _subtitle = subtitle;
+        
+    subtitleLabel.text = _subtitle;
     
-    [self setAvatarLetter];
+//    [self setAvatarLetter];
 }
 
 
@@ -122,8 +124,17 @@ const CGFloat HNScrollListCellAvatarSize = 40.0f;
 {
     _email = email;
  
-    if([email isEqual:@""] || [email rangeOfString:@"@"].location == NSNotFound)
-        _email = nil;
+    if([email isEqual:@""] || !email || [email isEqual:[NSNull null]])
+        _email = @"No Info";
+}
+
+
+- (void)setGithub:(NSString *)github
+{
+    _github = github;
+    
+    if(!github || [github isEqual:@""] || [github isEqual:[NSNull null]])
+        _github = @"No Info";
 }
 
 
@@ -131,7 +142,6 @@ const CGFloat HNScrollListCellAvatarSize = 40.0f;
 {
     return 80;
 }
-
 
 
 - (void)prepareForReuse

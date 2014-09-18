@@ -60,8 +60,8 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
 {
     NSArray* headersArray =
     @[
-      @{ @"name":@"Kartik Talwar", @"email":@"kartik@hackthenorth.com", @"phone":@"+1 (647) 225-4089", @"twitter": @"@TheRealKartik", @"role":@[@"organizer"]},
-      @{ @"name":@"Kevin Lau", @"email":@"kevin@hackthenorth.com", @"phone":@"+1 (647) 627-8630", @"twitter": @"@thekevlau", @"role":@[@"organizer"]}
+      @{ @"name":@"Kartik Talwar", @"email":@"kartik@hackthenorth.com", @"phone":@"+1 (647) 225-4089", @"twitter": @"@TheRealKartik", @"role":@[@"Organizer"]},
+      @{ @"name":@"Kevin Lau", @"email":@"kevin@hackthenorth.com", @"phone":@"+1 (647) 627-8630", @"twitter": @"@thekevlau", @"role":@[@"Organizer"]}
       ];
     
     NSDictionary* infoDict = [notification userInfo][HNDataManagerKeyData];
@@ -118,7 +118,8 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
     if(![infoDict isEqual: [NSNull null]])
     {
         cell.title = [infoDict objectForKey:@"name"];
-        cell.subtitle = [NSString stringWithFormat:@"%@",[infoDict objectForKey:@"twitter"]];
+        NSString* theSubtitle = [infoDict objectForKey:@"twitter"];
+        cell.subtitle = theSubtitle;
         cell.detailList = [infoDict objectForKey:@"role"];
         cell.imageURL = [NSURL URLWithString:[infoDict objectForKey:@"avatar"]];
         cell.email = [infoDict objectForKey:@"email"];

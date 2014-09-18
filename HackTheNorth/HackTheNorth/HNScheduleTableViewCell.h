@@ -17,9 +17,6 @@
     UILabel*     nameLabel;
     UILabel*     timeLabel;
     UILabel*     locationLabel;
-    
-    UILabel*     speakerLabel;
-
 
 }
 
