@@ -49,7 +49,7 @@
     [self.view addSubview:nameLabel];
     
     ///////////////////////
-    UILabel* twitterLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 60, kiPhoneWidthPortrait-130, 25)];
+    UILabel* twitterLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 60, kiPhoneWidthPortrait-20, 25)];
     twitterLabel.text = @"Twitter";
     twitterLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
     [self.view addSubview:twitterLabel];
@@ -87,7 +87,7 @@
     [self.view addSubview:rolesLabel];
     
     
-    rolesVal = [[UITextView alloc] initWithFrame:CGRectMake(20, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 250, kiPhoneWidthPortrait-20, 200)];
+    rolesVal = [[UITextView alloc] initWithFrame:CGRectMake(20, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 250, kiPhoneWidthPortrait-30, 200)];
     if(![JPStyle iPhone4Inch])
     {
         CGRect frame = rolesVal.frame;
@@ -146,23 +146,20 @@
 {
     if(self.cell.phone)
     {
+        UIPasteboard* paste = [UIPasteboard generalPasteboard];
+        [paste setString:[NSString stringWithFormat:@"%@", self.cell.phone]];
+        [SVStatusHUD showWithImage:[UIImage imageNamed:@"copiedHUD"] status:@"Copied"];
+        
         if([JPStyle isPhone])
         {
             NSString* phonePath = [NSString stringWithFormat:@"tel://%@", self.cell.phone];
             NSURL* phoneURL = [NSURL URLWithString:phonePath];
             [[UIApplication sharedApplication] openURL:phoneURL];
         }
-        else
-        {
-            UIPasteboard* paste = [UIPasteboard generalPasteboard];
-            [paste setString:[NSString stringWithFormat:@"%@", self.cell.phone]];
-            [SVStatusHUD showWithImage:[UIImage imageNamed:@"copiedHUD"] status:@"Copied"];
-        }
-        
     }
     else
     {
-        [SVStatusHUD showWithImage:[UIImage imageNamed:@"cantSendEmailHUD.png"] status:@"No Email Info"];
+        [SVStatusHUD showWithImage:[UIImage imageNamed:@"questionHUD.png"] status:@"No Phone Info"];
         return;
     }
     
@@ -189,6 +186,24 @@
     
     if(skillText.length>=2)
         rolesVal.text = [skillText substringToIndex:skillText.length-2];
+    
+    //email button
+    if(!cell.email ||[cell.email isEqualToString:@""])
+    {
+        sendEmailButton.backgroundColor = [JPStyle colorWithHex:@"e6e6e6" alpha:1];
+    }
+    else
+    {
+        sendEmailButton.backgroundColor = [UIColor clearColor];
+    }
+    
+    //phone button
+    if(!cell.phone)
+    {
+        phoneButton.backgroundColor = [JPStyle colorWithHex:@"e6e6e6" alpha:1];
+    } else {
+        phoneButton.backgroundColor = [UIColor clearColor];
+    }
     
 }
 

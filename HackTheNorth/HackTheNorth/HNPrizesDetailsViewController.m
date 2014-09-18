@@ -99,7 +99,7 @@
     
     /////////////////////////////////////////////////////
     
-    UILabel* prizesLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 220, kiPhoneWidthPortrait-20, 30)];
+    UILabel* prizesLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 220, kiPhoneWidthPortrait-30, 30)];
     prizesLabel.text = @"Prizes";
     prizesLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
     prizesLabel.textColor = [UIColor blackColor];
@@ -242,10 +242,22 @@
     
     CGSize detailsSize = [detailsVal sizeThatFits:detailsVal.frame.size];
     detailsVal.frame = CGRectMake(detailsVal.frame.origin.x, currYPos, detailsVal.frame.size.width, detailsSize.height + 10);
-    currYPos += detailsVal.frame.size.height + 20;
+    currYPos += detailsVal.frame.size.height + 30;
     
     mainScrollView.contentSize = CGSizeMake(kiPhoneWidthPortrait, currYPos);
     _skillBackground.frame = CGRectMake(0, 210, kiPhoneWidthPortrait, mainScrollView.contentSize.height - 210 + 300);
+    
+    //Phone button
+    if(!cell.email ||[cell.email isEqualToString:@""])
+    {
+        copyEmailButton.backgroundColor = [JPStyle colorWithHex:@"e6e6e6" alpha:1];
+        sendEmailButton.backgroundColor = [JPStyle colorWithHex:@"e6e6e6" alpha:1];
+    }
+    else
+    {
+        copyEmailButton.backgroundColor = [UIColor clearColor];
+        sendEmailButton.backgroundColor = [UIColor clearColor];
+    }
     
 }
 

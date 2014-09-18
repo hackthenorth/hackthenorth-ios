@@ -93,6 +93,7 @@
 		AAAEE37B19BD8E9F00988810 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAEE37A19BD8E9F00988810 /* MapKit.framework */; };
 		AAAEE37D19BD928C00988810 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAEE37C19BD928C00988810 /* AddressBook.framework */; };
 		AAAEE38019BD988700988810 /* HNAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAEE37F19BD988700988810 /* HNAnnotation.m */; };
+		AABC43D319CA54D200B83D26 /* questionHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AABC43D219CA54D200B83D26 /* questionHUD.png */; };
 		AAF683CB19999E7D0069B2A3 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF683CA19999E7D0069B2A3 /* AsyncImageView.m */; };
 /* End PBXBuildFile section */
 
@@ -254,6 +255,7 @@
 		AAAEE37C19BD928C00988810 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		AAAEE37E19BD988700988810 /* HNAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNAnnotation.h; sourceTree = "<group>"; };
 		AAAEE37F19BD988700988810 /* HNAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNAnnotation.m; sourceTree = "<group>"; };
+		AABC43D219CA54D200B83D26 /* questionHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questionHUD.png; sourceTree = "<group>"; };
 		AAF683C919999E7D0069B2A3 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		AAF683CA19999E7D0069B2A3 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -591,6 +593,7 @@
 		AAC6BDEC199DA00C00683DB1 /* SVStatusHUD */ = {
 			isa = PBXGroup;
 			children = (
+				AABC43D219CA54D200B83D26 /* questionHUD.png */,
 				5DF1443D19A062E0002CA204 /* canSendEmailHUD.png */,
 				5DF1443E19A062E0002CA204 /* cantSendEmailHUD.png */,
 				5DF1444719A07577002CA204 /* copiedHUD.png */,
@@ -701,6 +704,7 @@
 				5DF1443F19A062E0002CA204 /* canSendEmailHUD.png in Resources */,
 				5DF1441719A039DA002CA204 /* wifi.png in Resources */,
 				5DF1444019A062E0002CA204 /* cantSendEmailHUD.png in Resources */,
+				AABC43D319CA54D200B83D26 /* questionHUD.png in Resources */,
 				AAAEE37919BD8B4F00988810 /* map.pdf in Resources */,
 				AA63DCBC196E1A42001D9768 /* Main.storyboard in Resources */,
 				5DF1444819A07577002CA204 /* copiedHUD.png in Resources */,

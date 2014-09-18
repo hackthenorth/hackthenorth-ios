@@ -42,9 +42,17 @@
     return capItemName;
 }
 
+//+1 (416) 123-4567 format
+//or 4161234567 regular format
 
 - (NSNumber*)convertFromPhoneStringToNumber
 {
+    if([self rangeOfString:@"("].location==NSNotFound && [self rangeOfString:@")"].location==NSNotFound)
+    {
+        NSNumber* phoneNum = [NSNumber numberWithLongLong:[self longLongValue]];
+        return phoneNum;
+    }
+        
     NSString* inter = [self substringWithRange:NSMakeRange(1, 1)];
     NSString* area = [self substringWithRange:NSMakeRange(4, 3)];
     

@@ -38,7 +38,14 @@ const CGFloat REQUEST_TIMEOUT = 60.0f;
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager GET:urlPath parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSDictionary *info = @{ HNDataManagerKeyData : [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil] };
+        id dataItem = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        
+        if(!dataItem)
+        {
+            NSLog(@"No Data Available");
+            return ;
+        }
+        NSDictionary *info = @{ HNDataManagerKeyData : dataItem };
         [[NSNotificationCenter defaultCenter] postNotificationName:path object:self userInfo:info];
         
         // Save to cache if the data has changed.

@@ -54,7 +54,7 @@
     orgLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
     [mainScrollView addSubview:orgLabel];
 
-    org = [[UILabel alloc] initWithFrame:CGRectMake(10, 85, kiPhoneWidthPortrait-130, 20)];
+    org = [[UILabel alloc] initWithFrame:CGRectMake(10, 85, kiPhoneWidthPortrait-20, 20)];
     org.font = [JPFont fontWithName:[JPFont defaultThinFont] size:16];
     org.textColor = [UIColor darkGrayColor];
     [mainScrollView addSubview:org];
@@ -65,7 +65,7 @@
     gitLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
     [mainScrollView addSubview:gitLabel];
     
-    git = [[UILabel alloc] initWithFrame:CGRectMake(10, 140, kiPhoneWidthPortrait-130, 25)];
+    git = [[UILabel alloc] initWithFrame:CGRectMake(10, 140, kiPhoneWidthPortrait-20, 25)];
     git.font = [JPFont fontWithName:[JPFont defaultThinFont] size:16];
     git.textColor = [UIColor darkGrayColor];
     [mainScrollView addSubview:git];
@@ -111,7 +111,7 @@
     [mainScrollView addSubview:avai];
 
 
-    UILabel* skillLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 350, kiPhoneWidthPortrait-20, 30)];
+    UILabel* skillLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 350, kiPhoneWidthPortrait-30, 30)];
     skillLabel.text = @"Skills";
     skillLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
     skillLabel.textColor = [UIColor blackColor];
@@ -179,12 +179,30 @@
     
     CGRect skillValRect = skillVal.frame;
     
-    [mainScrollView setContentSize:CGSizeMake(kiPhoneWidthPortrait, CGRectGetMaxY(skillValRect)+ 10)];
+    [mainScrollView setContentSize:CGSizeMake(kiPhoneWidthPortrait, CGRectGetMaxY(skillValRect)+ 30)];
     if(![JPStyle iPhone4Inch])
     {
         CGRect frame = mainScrollView.frame;
         frame.size.height -= 88;
         mainScrollView.frame = frame;
+    }
+    
+    //email button
+    if(!cell.email ||[cell.email isEqualToString:@""])
+    {
+        sendEmailButton.backgroundColor = [JPStyle colorWithHex:@"e6e6e6" alpha:1];
+    }
+    else
+    {
+        sendEmailButton.backgroundColor = [UIColor clearColor];
+    }
+    
+    //phone button
+    if(!cell.phone)
+    {
+        phoneButton.backgroundColor = [JPStyle colorWithHex:@"e6e6e6" alpha:1];
+    } else {
+        phoneButton.backgroundColor = [UIColor clearColor];
     }
 }
 
@@ -229,23 +247,20 @@
 {
     if(self.cell.phone)
     {
+        UIPasteboard* paste = [UIPasteboard generalPasteboard];
+        [paste setString:[NSString stringWithFormat:@"%@", self.cell.phone]];
+        [SVStatusHUD showWithImage:[UIImage imageNamed:@"copiedHUD"] status:@"Copied"];
+        
         if([JPStyle isPhone])
         {
             NSString* phonePath = [NSString stringWithFormat:@"tel://%@", self.cell.phone];
             NSURL* phoneURL = [NSURL URLWithString:phonePath];
             [[UIApplication sharedApplication] openURL:phoneURL];
         }
-        else
-        {
-            UIPasteboard* paste = [UIPasteboard generalPasteboard];
-            [paste setString:[NSString stringWithFormat:@"%@", self.cell.phone]];
-            [SVStatusHUD showWithImage:[UIImage imageNamed:@"copiedHUD"] status:@"Copied"];
-        }
-
     }
     else
     {
-        [SVStatusHUD showWithImage:[UIImage imageNamed:@"cantSendEmailHUD.png"] status:@"No Email Info"];
+        [SVStatusHUD showWithImage:[UIImage imageNamed:@"questionHUD.png"] status:@"No Phone Info"];
         return;
     }
     
