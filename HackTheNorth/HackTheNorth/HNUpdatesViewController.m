@@ -39,12 +39,8 @@ static NSString* const UPDATES_CELL_IDENTIFIER = @"updatesCell";
     UIBarButtonItem* rightItem = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain target:self action:@selector(mapButtonPressed)];
     self.navigationItem.rightBarButtonItem = rightItem;
     
-    UIView* blueBar = [[UIView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight + kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, 5)];
-    blueBar.backgroundColor = [JPStyle interfaceTintColor];
-    [self.view addSubview:blueBar];
     
-    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+5, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait)];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait)];
     if(![JPStyle iPhone4Inch])
     {
         CGRect frame = self.tableView.frame;

@@ -31,7 +31,7 @@ const CGFloat HNScrollListCellAvatarSize = 40.0f;
 //    self.avatarView = [[HNAvatarView alloc] initWithFrame:CGRectMake(HNScrollListCellExternalMargin, 10, HNScrollListCellAvatarSize, HNScrollListCellAvatarSize)];
 //    [self addSubview:self.avatarView];
     
-    titleLabel = [[AutoScrollLabel alloc] initWithFrame:CGRectMake(HNScrollListCellExternalMargin, 10, kiPhoneWidthPortrait - HNScrollListCellExternalMargin - 65, 22)];
+    titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(HNScrollListCellExternalMargin, 10, kiPhoneWidthPortrait - HNScrollListCellExternalMargin - 65, 22)];
     titleLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:18];
     [self addSubview:titleLabel];
 
@@ -139,7 +139,12 @@ const CGFloat HNScrollListCellAvatarSize = 40.0f;
     self.title = nil;
     self.subtitle = nil;
     self.availability = @[];
-    self.email = nil;    
+    self.email = nil;
+    
+    [itemsLabel removeFromSuperview];
+    itemsLabel = [[AutoScrollLabel alloc] initWithFrame:CGRectMake(HNScrollListCellExternalMargin, CGRectGetMaxY(subtitleLabel.frame) + HNScrollListCellInternalMargin, kiPhoneWidthPortrait - 2 * HNScrollListCellExternalMargin, 20)];
+    itemsLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:15];
+    [self addSubview:itemsLabel];
 }
 
 

@@ -59,11 +59,7 @@ static NSString* const SCHEDULE_PATH = @"/schedule/";
     self.cellDictArray = @[];
     
     
-    UIView* blueBar = [[UIView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 90, kiPhoneWidthPortrait, 5)];
-    blueBar.backgroundColor = [JPStyle interfaceTintColor];
-    [self.view addSubview:blueBar];
-    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 95, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait - 95) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 90, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait - 90) style:UITableViewStyleGrouped];
     if(![JPStyle iPhone4Inch])
     {
         CGRect frame = self.tableView.frame;
@@ -272,7 +268,7 @@ static NSString* const SCHEDULE_PATH = @"/schedule/";
     
     [UIView animateWithDuration:kKeyboardRetractAnimationSpeed delay:0 options: UIViewAnimationOptionCurveEaseOut animations:^{
         
-        self.tableView.frame = CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 95, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait - 95);
+        self.tableView.frame = CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 90, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait - 90);
         if(![JPStyle iPhone4Inch])
         {
             CGRect frame = self.tableView.frame;

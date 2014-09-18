@@ -13,7 +13,7 @@
 @interface HNScrollListCell : UITableViewCell <UIGestureRecognizerDelegate>
 {
     
-    AutoScrollLabel* titleLabel;
+    UILabel* titleLabel;
     UILabel* subtitleLabel;
     // can be skills, roles, prizes depending on the controller
     AutoScrollLabel* itemsLabel;

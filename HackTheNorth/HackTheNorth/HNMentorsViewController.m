@@ -26,11 +26,7 @@ NSString *MENTORS_PATH = @"/mentors/";
     
     manager = [[HNDataManager alloc] init];
     
-    blueBar = [[UIView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 44, kiPhoneWidthPortrait, 5)];
-    blueBar.backgroundColor = [JPStyle interfaceTintColor];
-    [self.view addSubview:blueBar];
-    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(blueBar.frame), kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_searchBar.frame), kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44) style:UITableViewStylePlain];
     if(![JPStyle iPhone4Inch])
     {
         CGRect frame = self.tableView.frame;
@@ -164,7 +160,7 @@ NSString *MENTORS_PATH = @"/mentors/";
     [super searchBarTextDidEndEditing:searchBar];
     
     [UIView animateWithDuration:kKeyboardRetractAnimationSpeed delay:0 options: UIViewAnimationOptionCurveEaseOut animations:^{
-        self.tableView.frame = CGRectMake(0, CGRectGetMaxY(blueBar.frame), kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44);
+        self.tableView.frame = CGRectMake(0, CGRectGetMaxY(_searchBar.frame), kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44);
         if(![JPStyle iPhone4Inch])
         {
             CGRect frame = self.tableView.frame;
