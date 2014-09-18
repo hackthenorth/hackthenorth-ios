@@ -27,7 +27,11 @@ static NSString* const PRIZES_PATH = @"/prizes/";
     
     manager = [[HNDataManager alloc] init];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 44, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44) style:UITableViewStylePlain];
+    blueBar = [[UIView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 44, kiPhoneWidthPortrait, 5)];
+    blueBar.backgroundColor = [JPStyle interfaceTintColor];
+    [self.view addSubview:blueBar];
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(blueBar.frame), kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44) style:UITableViewStylePlain];
     if(![JPStyle iPhone4Inch])
     {
         CGRect frame = self.tableView.frame;
@@ -167,7 +171,7 @@ static NSString* const PRIZES_PATH = @"/prizes/";
     [super searchBarTextDidEndEditing:searchBar];
     
     [UIView animateWithDuration:kKeyboardRetractAnimationSpeed delay:0 options: UIViewAnimationOptionCurveEaseOut animations:^{
-        self.tableView.frame = CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 44, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44);
+        self.tableView.frame = CGRectMake(0, CGRectGetMaxY(blueBar.frame), kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-44);
         if(![JPStyle iPhone4Inch])
         {
             CGRect frame = self.tableView.frame;

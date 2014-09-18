@@ -17,6 +17,8 @@
     NSArray*     _infoArray;
     
     MFMailComposeViewController* mailController;
+    
+    UIView*   blueBar;
 }
 
 

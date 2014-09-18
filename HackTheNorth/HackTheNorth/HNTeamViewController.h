@@ -16,6 +16,8 @@
     HNDataManager*  manager;
     NSArray*     _infoArray;
     
+    UIView*   blueBar;
+    
     MFMailComposeViewController* mailController;
 }
 
