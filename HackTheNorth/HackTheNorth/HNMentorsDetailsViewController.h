@@ -26,6 +26,8 @@
     
     HNBorderButton* phoneButton;
     HNBorderButton* sendEmailButton;
+    
+    UIView*   skillBackground;
 }
 
 

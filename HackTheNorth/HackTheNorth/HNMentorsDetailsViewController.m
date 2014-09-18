@@ -89,7 +89,7 @@
     
     /////////////////////////////////////////////////////
     
-    UIView* skillBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 250, kiPhoneWidthPortrait, 2000)];
+    skillBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 250, kiPhoneWidthPortrait, 2000)];
     skillBackground.backgroundColor = [[JPStyle interfaceTintColor] colorWithAlphaComponent:0.2];
     [mainScrollView addSubview:skillBackground];
     
@@ -145,11 +145,11 @@
     
     nameLabel.text = self.cell.title;
     org.text = self.cell.subtitle;
-    
     imageView.imageUrl = self.cell.imageURL;
-    
     git.text = cell.github;
     
+    UIColor* orgColor = [JPStyle colorWithCompanyName:org.text];
+    skillBackground.backgroundColor = [orgColor colorWithAlphaComponent:0.2];
     
     //////////////////////////////////
     NSMutableString* totalText = [@"" mutableCopy];

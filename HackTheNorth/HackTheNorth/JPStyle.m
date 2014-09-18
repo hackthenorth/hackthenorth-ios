@@ -512,11 +512,12 @@
                                 @"university of waterloo":@"EE9600", @"y combinator":@"ED6C00",
                                 @"mlh":@"296792", @"techyon":@"666569",
                                 @"apple inc." :@"AAAAAA",@"apple":@"AAAAAA",
-                                @"teespring":@"5FBFE9", @"ibm":@"74D0F7",
+                                @"teespring":@"5FBFE9", @"ibm canada":@"74D0F7",
                                 @"twilio":@"FF0A00", @"ziggeo":@"FF7400",
                                 @"sendgrid":@"5B9FDD", @"the next 36": @"F18A27",
                                 @"affirm":@"00B459", @"shopify":@"92E254",
-                                @"capital one":@"AD1000", @"enflick":@"7AD7FF"
+                                @"capitalone":@"AD1000", @"enflick":@"7AD7FF",
+                                @"cisco":@"003680", @"magnet forensics":@"45A3CA"
                                 };
     
     NSString* colorVal = [colorDict valueForKey:name];
