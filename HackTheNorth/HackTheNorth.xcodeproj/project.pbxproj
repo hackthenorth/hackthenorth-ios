@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FCCE3CF19CB4AE100B1B9A9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FCCE3CE19CB4AE100B1B9A9 /* StoreKit.framework */; };
 		5DF1441219A039DA002CA204 /* noWifi.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1440A19A039DA002CA204 /* noWifi.png */; };
 		5DF1441319A039DA002CA204 /* noWifi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1440B19A039DA002CA204 /* noWifi@2x.png */; };
 		5DF1441419A039DA002CA204 /* SVStatusHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1440D19A039DA002CA204 /* SVStatusHUD.m */; };
@@ -59,7 +60,6 @@
 		AA789632199DB85B001E28EB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA789631199DB85B001E28EB /* MobileCoreServices.framework */; };
 		AA789634199DB863001E28EB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA789633199DB863001E28EB /* QuartzCore.framework */; };
 		AA789636199DB868001E28EB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA789635199DB868001E28EB /* Security.framework */; };
-		AA789638199DB86D001E28EB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA789637199DB86D001E28EB /* StoreKit.framework */; };
 		AA78963A199DB883001E28EB /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA789639199DB883001E28EB /* Parse.framework */; };
 		AA7BED5B19A2CE0100F68FCA /* HNPrizesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7BED5A19A2CE0100F68FCA /* HNPrizesDetailsViewController.m */; };
 		AA7BED5E19A2D1B500F68FCA /* HNAutoresizingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7BED5D19A2D1B500F68FCA /* HNAutoresizingLabel.m */; };
@@ -108,6 +108,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FCCE3CE19CB4AE100B1B9A9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		5DF1440A19A039DA002CA204 /* noWifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noWifi.png; path = SVStatusHUD/noWifi.png; sourceTree = "<group>"; };
 		5DF1440B19A039DA002CA204 /* noWifi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "noWifi@2x.png"; path = "SVStatusHUD/noWifi@2x.png"; sourceTree = "<group>"; };
 		5DF1440C19A039DA002CA204 /* SVStatusHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVStatusHUD.h; path = SVStatusHUD/SVStatusHUD.h; sourceTree = "<group>"; };
@@ -194,7 +195,6 @@
 		AA789631199DB85B001E28EB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		AA789633199DB863001E28EB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AA789635199DB868001E28EB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		AA789637199DB86D001E28EB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		AA789639199DB883001E28EB /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		AA7BED5919A2CE0100F68FCA /* HNPrizesDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPrizesDetailsViewController.h; sourceTree = "<group>"; };
 		AA7BED5A19A2CE0100F68FCA /* HNPrizesDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPrizesDetailsViewController.m; sourceTree = "<group>"; };
@@ -268,9 +268,9 @@
 				AAAEE37D19BD928C00988810 /* AddressBook.framework in Frameworks */,
 				AAAEE37B19BD8E9F00988810 /* MapKit.framework in Frameworks */,
 				5DF1443419A05F3B002CA204 /* MessageUI.framework in Frameworks */,
+				0FCCE3CF19CB4AE100B1B9A9 /* StoreKit.framework in Frameworks */,
 				AA54F002199DC07700751823 /* CFNetwork.framework in Frameworks */,
 				AAAC61C81991F8080043A6CD /* SystemConfiguration.framework in Frameworks */,
-				AA789638199DB86D001E28EB /* StoreKit.framework in Frameworks */,
 				AA789636199DB868001E28EB /* Security.framework in Frameworks */,
 				AA789634199DB863001E28EB /* QuartzCore.framework in Frameworks */,
 				AA789632199DB85B001E28EB /* MobileCoreServices.framework in Frameworks */,
@@ -376,6 +376,7 @@
 		AA63DCA1196E1A42001D9768 = {
 			isa = PBXGroup;
 			children = (
+				0FCCE3CE19CB4AE100B1B9A9 /* StoreKit.framework */,
 				AA63DCAC196E1A42001D9768 /* HackTheNorth */,
 				AAAEE36E19BD833800988810 /* HNPanImageView */,
 				AA54F003199DC1BB00751823 /* DejalActivityView */,
@@ -434,7 +435,6 @@
 				AAAEE37A19BD8E9F00988810 /* MapKit.framework */,
 				5DF1443319A05F3B002CA204 /* MessageUI.framework */,
 				AA54F001199DC07700751823 /* CFNetwork.framework */,
-				AA789637199DB86D001E28EB /* StoreKit.framework */,
 				AA789635199DB868001E28EB /* Security.framework */,
 				AA789633199DB863001E28EB /* QuartzCore.framework */,
 				AA789631199DB85B001E28EB /* MobileCoreServices.framework */,
@@ -667,7 +667,12 @@
 				TargetAttributes = {
 					AA63DCA9196E1A42001D9768 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = 52GHE2Q332;
+						DevelopmentTeam = JS66J7ZHQB;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					AA63DCC2196E1A42001D9768 = {
 						CreatedOnToolsVersion = 6.0;
@@ -881,8 +886,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Syrp Inc";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Syrp Inc";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -906,8 +911,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: SITE FENG (PAR485YFSL)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: SITE FENG (PAR485YFSL)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HackTheNorth",
@@ -916,7 +921,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ce2eec89-9bf7-4587-8987-606ae56086c5";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -925,8 +930,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: SITE FENG (52GHE2Q332)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SITE FENG (52GHE2Q332)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Syrp Inc";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Syrp Inc";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HackTheNorth",
@@ -935,7 +940,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7338296d-4f80-469d-9390-a0d4bc032f82";
+				PROVISIONING_PROFILE = "bdd8f12a-8ae0-4ba5-a5fc-1183b13fbb68";
 			};
 			name = Release;
 		};
