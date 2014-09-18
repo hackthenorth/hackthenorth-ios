@@ -499,7 +499,8 @@
     
     NSDictionary* colorDict = @{@"facebook":@"3B5998", @"bloomberg":@"000000",
                                 @"pagerduty":@"09C700", @"velocity":@"16446D",
-                                @"kik interactive inc.":@"88D100", @"unity":@"000000",
+                                @"kik interactive inc.":@"88D100", @"kik": @"88D100",
+                                @"unity":@"000000",
                                 @"pebble":@"000000", @"mozilla":@"C9D1CF",
                                 @"slyce":@"00C0FF", @"yelp":@"FF0900",
                                 @"yext":@"003B6B", @"stack overflow":@"FF8000",
@@ -518,7 +519,7 @@
                                 @"affirm":@"00B459", @"shopify":@"92E254",
                                 @"capitalone":@"AD1000", @"enflick":@"7AD7FF",
                                 @"cisco":@"003680", @"magnet forensics":@"45A3CA",
-                                @"bubl technology":@"57C3FF"
+                                @"bubl technology":@"57C3FF", @"ibm": @"74D0F7"
                                 };
     
     NSString* colorVal = [colorDict valueForKey:name];
@@ -532,7 +533,6 @@
     
     return color;
 }
-
 
 
 @end
@@ -582,50 +582,9 @@
 
 
 
-
-
-
-
-
-
 @end
 
 
-
-
-
-
-
-
-//// Colours
-//#define kWhiteText 				0xFFFFFF
-//#define kDeactiveText 			0xB0B0B0
-//#define kRegularText 			0x4A4A4A
-//#define kLightenedText 			0x7B7979
-//#define kGreenRegularText 		0x586B70
-//#define kGreenLightenedText 	0x648991
-//#define kUnitBoardCell 			0xE2ECF1
-//#define kLightBlueText 			0x6BE0D8
-//#define kLightGrey 				0x666666
-//
-//// Cell Background Colors
-//#define kLightBlue 				0x9AD4ED
-//#define klightPink 				0xF7BBC5
-//#define kRed 					0xF76858
-//#define kYellow 				0xEDDC88
-//#define kOrange 				0xFCAE54
-//#define kGreen 					0x9AC555
-//#define kBlue 					0x42A9De
-//#define kPurple 				0xC39BCC
-//#define kBrown 					0xB2A786
-//#define kLightGreen 			0xBDCCD4
-//#define kLightGreyBackground 	0xF2F2F2
-//#define kDarkGreyBackground 	0xCFCED1
-//#define kDarkLine 				0x8C9EA7
-//#define kRefreshBackground 		0xCCCCCC
-//#define kDarkBlueColorHex       0x6D8991
-//#define kDarkBlueColorRGB       [UIColor colorWithRed:109/255.0 green:137/255.0 blue:145/255.0 alpha:1.0]
-//#define kBorderColor			0x97BFBC
 
 
 
