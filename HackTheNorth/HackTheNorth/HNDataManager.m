@@ -22,8 +22,6 @@ const CGFloat REQUEST_TIMEOUT = 60.0f;
 + (void)loadDataForPath:(NSString *)path {
     UIView* rootView = [[[UIApplication sharedApplication] keyWindow] rootViewController].view;
     
-    [DejalBezelActivityView activityViewForView:rootView withLabel:@"Loading" width:100];
-    
     // Check for cached data, and notify with that if it exists.
     NSString *cachedFilePath = [HNDataManager getDataPathForPath:path];
     NSData *cachedData = [[NSFileManager defaultManager] contentsAtPath:cachedFilePath];
@@ -57,7 +55,7 @@ const CGFloat REQUEST_TIMEOUT = 60.0f;
         [[NSFileManager defaultManager] createFileAtPath:cachedFilePath contents:responseObject attributes:nil];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [DejalBezelActivityView removeViewAnimated:YES];
+
         NSLog(@"HTTP request error: %@", error);
     }];
 }

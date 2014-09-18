@@ -376,7 +376,6 @@
 		AA63DCA1196E1A42001D9768 = {
 			isa = PBXGroup;
 			children = (
-				0FCCE3CE19CB4AE100B1B9A9 /* StoreKit.framework */,
 				AA63DCAC196E1A42001D9768 /* HackTheNorth */,
 				AAAEE36E19BD833800988810 /* HNPanImageView */,
 				AA54F003199DC1BB00751823 /* DejalActivityView */,
@@ -431,6 +430,7 @@
 		AA63DCAD196E1A42001D9768 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0FCCE3CE19CB4AE100B1B9A9 /* StoreKit.framework */,
 				AAAEE37C19BD928C00988810 /* AddressBook.framework */,
 				AAAEE37A19BD8E9F00988810 /* MapKit.framework */,
 				5DF1443319A05F3B002CA204 /* MessageUI.framework */,
@@ -667,7 +667,7 @@
 				TargetAttributes = {
 					AA63DCA9196E1A42001D9768 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = JS66J7ZHQB;
+						DevelopmentTeam = 52GHE2Q332;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 1;
@@ -930,8 +930,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Syrp Inc";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Syrp Inc";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HackTheNorth",
@@ -940,7 +940,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bdd8f12a-8ae0-4ba5-a5fc-1183b13fbb68";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
