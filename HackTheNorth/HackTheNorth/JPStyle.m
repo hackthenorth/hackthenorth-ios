@@ -517,7 +517,8 @@
                                 @"sendgrid":@"5B9FDD", @"the next 36": @"F18A27",
                                 @"affirm":@"00B459", @"shopify":@"92E254",
                                 @"capitalone":@"AD1000", @"enflick":@"7AD7FF",
-                                @"cisco":@"003680", @"magnet forensics":@"45A3CA"
+                                @"cisco":@"003680", @"magnet forensics":@"45A3CA",
+                                @"bubl technology":@"57C3FF"
                                 };
     
     NSString* colorVal = [colorDict valueForKey:name];
