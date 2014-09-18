@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0FCCE3CF19CB4AE100B1B9A9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FCCE3CE19CB4AE100B1B9A9 /* StoreKit.framework */; };
 		5DF1441219A039DA002CA204 /* noWifi.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1440A19A039DA002CA204 /* noWifi.png */; };
 		5DF1441319A039DA002CA204 /* noWifi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1440B19A039DA002CA204 /* noWifi@2x.png */; };
 		5DF1441419A039DA002CA204 /* SVStatusHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1440D19A039DA002CA204 /* SVStatusHUD.m */; };
@@ -108,7 +107,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0FCCE3CE19CB4AE100B1B9A9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		5DF1440A19A039DA002CA204 /* noWifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noWifi.png; path = SVStatusHUD/noWifi.png; sourceTree = "<group>"; };
 		5DF1440B19A039DA002CA204 /* noWifi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "noWifi@2x.png"; path = "SVStatusHUD/noWifi@2x.png"; sourceTree = "<group>"; };
 		5DF1440C19A039DA002CA204 /* SVStatusHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVStatusHUD.h; path = SVStatusHUD/SVStatusHUD.h; sourceTree = "<group>"; };
@@ -268,7 +266,6 @@
 				AAAEE37D19BD928C00988810 /* AddressBook.framework in Frameworks */,
 				AAAEE37B19BD8E9F00988810 /* MapKit.framework in Frameworks */,
 				5DF1443419A05F3B002CA204 /* MessageUI.framework in Frameworks */,
-				0FCCE3CF19CB4AE100B1B9A9 /* StoreKit.framework in Frameworks */,
 				AA54F002199DC07700751823 /* CFNetwork.framework in Frameworks */,
 				AAAC61C81991F8080043A6CD /* SystemConfiguration.framework in Frameworks */,
 				AA789636199DB868001E28EB /* Security.framework in Frameworks */,
@@ -430,7 +427,6 @@
 		AA63DCAD196E1A42001D9768 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0FCCE3CE19CB4AE100B1B9A9 /* StoreKit.framework */,
 				AAAEE37C19BD928C00988810 /* AddressBook.framework */,
 				AAAEE37A19BD8E9F00988810 /* MapKit.framework */,
 				5DF1443319A05F3B002CA204 /* MessageUI.framework */,
@@ -670,7 +666,7 @@
 						DevelopmentTeam = 52GHE2Q332;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};

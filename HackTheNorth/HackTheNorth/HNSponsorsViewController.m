@@ -53,7 +53,6 @@
     
     self.webView.delegate = self;
     
-    
     self.webView.scalesPageToFit = YES;
     [self.view addSubview:self.webView];
 }

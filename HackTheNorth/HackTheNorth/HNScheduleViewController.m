@@ -97,15 +97,29 @@ static NSString* const SCHEDULE_PATH = @"/schedule/";
     
     self.cellDictArray = [array sortedArrayUsingComparator:^NSComparisonResult(NSDictionary* obj1, NSDictionary* obj2) {
         
-        NSString* name1 = @"zzzzzz";
-        NSString* name2 = @"zzzzzz";
+        NSDate* date1 = nil;
+        NSDate* date2 = nil;
         
-        if([obj1 objectForKey:@"name"])
-            name1 = [obj1 objectForKey:@"name"];
+        if([obj1 objectForKey:@"start_time"])
+        {
+            NSString* time1 = [obj1 objectForKey:@"start_time"];
+            date1 = [NSDate dateWithISO8601CompatibleString:time1];
+        }
         
-        if([obj2 objectForKey:@"name"])
-            name2 = [obj2 objectForKey:@"name"];
-        return [name1 compare:name2];
+        if([obj1 objectForKey:@"start_time"])
+        {
+            NSString* time2 = [obj2 objectForKey:@"start_time"];
+            date2 = [NSDate dateWithISO8601CompatibleString:time2];
+        }
+        
+        if(date1 && date2)
+        {
+            return [date1 compare:date2];
+        }
+        else {
+            return NSOrderedAscending;
+        }
+        
     }];
 
     self.origCellDictArray = [self.cellDictArray copy];
