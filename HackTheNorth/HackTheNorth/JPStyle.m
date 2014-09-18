@@ -499,10 +499,10 @@
     
     NSDictionary* colorDict = @{@"facebook":@"3B5998", @"bloomberg":@"000000",
                                 @"pagerduty":@"09C700", @"velocity":@"16446D",
-                                @"kik":@"88D100", @"unity":@"000000",
+                                @"kik interactive inc.":@"88D100", @"unity":@"000000",
                                 @"pebble":@"000000", @"mozilla":@"C9D1CF",
                                 @"slyce":@"00C0FF", @"yelp":@"FF0900",
-                                @"yext":@"003B6B", @"stackoverflow":@"FF8000",
+                                @"yext":@"003B6B", @"stack overflow":@"FF8000",
                                 @"magnet":@"006EC0", @"moxtra":@"00A6FF",
                                 @"big viking":@"000000", @"microsoft":@"0016FF",
                                 @"wit.ai":@"5196CF", @"spark":@"56ACDD",
@@ -510,8 +510,13 @@
                                 @"a thinking ape":@"4A4D4D", @"kloudless":@"A38700",
                                 @"ethereum":@"6E718F", @"5∞":@"000000",@"5infinity":@"000000",
                                 @"university of waterloo":@"EE9600", @"y combinator":@"ED6C00",
-                                @"mlh":@"296792", @"techyon":@"666569"
-                                
+                                @"mlh":@"296792", @"techyon":@"666569",
+                                @"apple inc." :@"AAAAAA",@"apple":@"AAAAAA",
+                                @"teespring":@"5FBFE9", @"ibm":@"74D0F7",
+                                @"twilio":@"FF0A00", @"ziggeo":@"FF7400",
+                                @"sendgrid":@"5B9FDD", @"the next 36": @"F18A27",
+                                @"affirm":@"00B459", @"shopify":@"92E254",
+                                @"capital one":@"AD1000", @"enflick":@"7AD7FF"
                                 };
     
     NSString* colorVal = [colorDict valueForKey:name];
