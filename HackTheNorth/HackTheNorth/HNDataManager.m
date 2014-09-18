@@ -8,6 +8,7 @@
 
 #import "HNDataManager.h"
 #import "SVStatusHUD.h"
+#import "DejalActivityView.h"
 
 const CGFloat REQUEST_TIMEOUT = 60.0f;
 
@@ -19,6 +20,9 @@ const CGFloat REQUEST_TIMEOUT = 60.0f;
 }
 
 + (void)loadDataForPath:(NSString *)path {
+    UIView* rootView = [[[UIApplication sharedApplication] keyWindow] rootViewController].view;
+    
+    [DejalBezelActivityView activityViewForView:rootView withLabel:@"Loading" width:100];
     
     // Check for cached data, and notify with that if it exists.
     NSString *cachedFilePath = [HNDataManager getDataPathForPath:path];
@@ -37,6 +41,7 @@ const CGFloat REQUEST_TIMEOUT = 60.0f;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager GET:urlPath parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [DejalBezelActivityView removeViewAnimated:YES];
         
         id dataItem = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
         
@@ -52,6 +57,7 @@ const CGFloat REQUEST_TIMEOUT = 60.0f;
         [[NSFileManager defaultManager] createFileAtPath:cachedFilePath contents:responseObject attributes:nil];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [DejalBezelActivityView removeViewAnimated:YES];
         NSLog(@"HTTP request error: %@", error);
     }];
 }

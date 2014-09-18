@@ -15,6 +15,8 @@
 #import "DejalActivityView.h"
 #import "HNSponsorsViewController.h"
 #import "HNCampusMapViewController.h"
+#import "DejalActivityView.h"
+
 
 static NSString* const UPDATES_PATH = @"/updates/";
 static NSString* const UPDATES_CELL_IDENTIFIER = @"updatesCell";
@@ -30,6 +32,8 @@ static NSString* const UPDATES_CELL_IDENTIFIER = @"updatesCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
      manager = [[HNDataManager alloc] init];
     _infoDict = [NSDictionary dictionary];
 
@@ -40,7 +44,7 @@ static NSString* const UPDATES_CELL_IDENTIFIER = @"updatesCell";
     self.navigationItem.rightBarButtonItem = rightItem;
     
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait)];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait)];
     if(![JPStyle iPhone4Inch])
     {
         CGRect frame = self.tableView.frame;
@@ -52,6 +56,7 @@ static NSString* const UPDATES_CELL_IDENTIFIER = @"updatesCell";
     self.tableView.dataSource = self;
     [self.tableView registerClass:[HNUpdatesTableViewCell class] forCellReuseIdentifier:UPDATES_CELL_IDENTIFIER];
     [self.view addSubview:self.tableView];
+
 }
 
 
@@ -66,6 +71,7 @@ static NSString* const UPDATES_CELL_IDENTIFIER = @"updatesCell";
 
 - (void)reloadData:(NSNotification *)notification
 {
+    
     NSDictionary* updateDict = [notification userInfo][HNDataManagerKeyData];
     
     if(!updateDict)

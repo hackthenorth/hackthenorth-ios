@@ -13,6 +13,7 @@
 #import "HNMentorsDetailsViewController.h"
 #import "JPStyle.h"
 #import "NSString+HNConvenience.h"
+#import "DejalActivityView.h"
 
 static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifier";
 
@@ -37,8 +38,6 @@ NSString *MENTORS_PATH = @"/mentors/";
     self.tableView.dataSource = self;
     [self.tableView registerClass:[HNScrollListCell class] forCellReuseIdentifier:kHNScrollListCellIdentifier];
     [self.view addSubview: self.tableView];
-    
-    
 }
 
 

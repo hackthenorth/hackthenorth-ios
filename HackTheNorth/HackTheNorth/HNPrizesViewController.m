@@ -14,6 +14,8 @@
 #import "SVStatusHUD.h"
 #import "HNPrizesDetailsViewController.h"
 #import "JPStyle.h"
+#import "DejalActivityView.h"
+
 
 static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifier";
 static NSString* const PRIZES_PATH = @"/prizes/";
@@ -40,7 +42,7 @@ static NSString* const PRIZES_PATH = @"/prizes/";
     [self.tableView registerClass:[HNScrollListCell class] forCellReuseIdentifier:kHNScrollListCellIdentifier];
     
     [self.view addSubview: self.tableView];
-    
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -54,6 +56,7 @@ static NSString* const PRIZES_PATH = @"/prizes/";
 
 - (void)reloadData:(NSNotification *)notification
 {
+    
     NSDictionary *infoDict = [notification userInfo][HNDataManagerKeyData];
     
     if(!infoDict)

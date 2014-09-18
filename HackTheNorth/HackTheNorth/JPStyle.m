@@ -381,7 +381,7 @@
     
     if([character isEqual:@"a"])
     {
-        color = [self rainbowColorWithIndex:0];
+        color = [self rainbowColorWithIndex:3];
     }
     else if([character isEqual:@"b"])
     {
@@ -389,7 +389,7 @@
     }
     else if([character isEqual:@"c"])
     {
-        color = [self rainbowColorWithIndex:2];
+        color = [self rainbowColorWithIndex:5];
     }
     else if([character isEqual:@"d"])
     {
@@ -397,11 +397,11 @@
     }
     else if([character isEqual:@"e"])
     {
-        color = [self rainbowColorWithIndex:4];
+        color = [self rainbowColorWithIndex:2];
     }
     else if([character isEqual:@"f"])
     {
-        color = [self rainbowColorWithIndex:5];
+        color = [self rainbowColorWithIndex:0];
     }
     else if([character isEqual:@"g"])
     {
@@ -453,11 +453,11 @@
     }
     else if([character isEqual:@"s"])
     {
-        color = [[self rainbowColorWithIndex:5]darkerColor];
+        color = [self rainbowColorWithIndex:1];
     }
     else if([character isEqual:@"t"])
     {
-        color = [[self backgroundRainbowColorWithIndex:6]darkerColor];
+        color = [self rainbowColorWithIndex:4];
     }
     else if([character isEqual:@"u"])
     {

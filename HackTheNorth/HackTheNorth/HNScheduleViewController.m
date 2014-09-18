@@ -14,6 +14,8 @@
 #import "HNScheduleDetailViewController.h"
 #import "HNDataManager.h"
 #import "NSDate+HNConvenience.h"
+#import "DejalActivityView.h"
+
 
 @implementation HNScheduleViewController
 
@@ -71,7 +73,7 @@ static NSString* const SCHEDULE_PATH = @"/schedule/";
     
     [self.tableView registerClass:[HNScheduleTableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
     [self.view addSubview:self.tableView];
-    
+
 }
 
 

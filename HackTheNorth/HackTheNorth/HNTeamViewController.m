@@ -15,6 +15,7 @@
 #import "NSString+HNConvenience.h"
 #import "HNAvatarView.h"
 #import "JPStyle.h"
+#import "DejalActivityView.h"
 
 static NSString *const TEAM_PATH = @"/team/";
 
@@ -39,9 +40,8 @@ static NSString* const kHNScrollListCellIdentifier = @"kHNScrollListCellIdentifi
     self.tableView.dataSource = self;
     
     [self.tableView registerClass:[HNScrollListCell class] forCellReuseIdentifier:kHNScrollListCellIdentifier];
-    
     [self.view addSubview: self.tableView];
-    
+
 }
 
 

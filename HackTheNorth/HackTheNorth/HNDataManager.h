@@ -13,7 +13,7 @@
 // loadDataForPath:NSString.
 static NSString* const HNDataManagerKeyData = @"data";
 
-@interface HNDataManager : NSObject
+@interface HNDataManager : UIViewController
 
 + (void)loadDataForPath:(NSString *)path;
 
