@@ -29,7 +29,7 @@
 @property (nonatomic, strong) NSString* message;
 
 
-
++ (CGFloat)heightRequiredForString: (NSString*)string;
 
 
 @end

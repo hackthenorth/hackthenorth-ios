@@ -25,7 +25,8 @@ static const NSTimeInterval kInterfaceRefreshInterval = 10; //for time
     if (self) {
         // Initialization code
         self.separatorInset = UIEdgeInsetsZero;
-//        UIEdgeInsetsMake(0, kiPhoneWidthPortrait, 0, 0);
+    
+        self.backgroundColor = [UIColor whiteColor];
         
         avatarView = [[HNAvatarView alloc] initWithFrame:CGRectMake(20, 10, 40, 40)];
         [self addSubview:avatarView];
@@ -40,12 +41,13 @@ static const NSTimeInterval kInterfaceRefreshInterval = 10; //for time
         timeLabel.textAlignment = NSTextAlignmentLeft;
         [self addSubview:timeLabel];
         
-        messageView = [[UITextView alloc] initWithFrame:CGRectMake(10, 60, kiPhoneWidthPortrait-20, 60)];
+        messageView = [[UITextView alloc] initWithFrame:CGRectZero];
         messageView.backgroundColor = [UIColor clearColor];
         messageView.editable = NO;
         messageView.selectable = NO;
         messageView.font = [UIFont fontWithName:[JPFont defaultFont] size:13];
         messageView.textContainerInset = UIEdgeInsetsZero;
+        [messageView setUserInteractionEnabled:NO];
         [self addSubview:messageView];
         
         _UIUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:kInterfaceRefreshInterval target:self selector:@selector(reloadTimeLabel) userInfo:nil repeats:YES];
@@ -66,6 +68,19 @@ static const NSTimeInterval kInterfaceRefreshInterval = 10; //for time
 
 }
 
+
++ (CGFloat)heightRequiredForString: (NSString*)string
+{
+    UITextView* textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 60, kiPhoneWidthPortrait-20, 60)];
+    textView.text = string;
+
+    CGSize rectSize = [textView sizeThatFits:textView.contentSize];
+    
+    CGFloat beginY  = CGRectGetMinY(textView.frame);
+    CGFloat heightReq = beginY + rectSize.height + 25;
+    
+    return heightReq;
+}
 
 
 #pragma mark - Setters and Getters
@@ -103,6 +118,13 @@ static const NSTimeInterval kInterfaceRefreshInterval = 10; //for time
 {
     _message = message;
     messageView.text = message;
+    if(!message || [message isEqual:[NSNull null]] ||[message isEqual:@"" ])
+        messageView.text = @"No Message";
+    
+    CGRect frame = CGRectMake(10, 60, kiPhoneWidthPortrait-20, 30);
+    frame.size.height = [messageView sizeThatFits:frame.size].height;
+    messageView.frame = frame;
+    
 }
 
 

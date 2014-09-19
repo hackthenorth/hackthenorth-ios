@@ -73,7 +73,7 @@ static NSString* const UPDATES_CELL_IDENTIFIER = @"updatesCell";
 {
     
     NSDictionary* updateDict = [notification userInfo][HNDataManagerKeyData];
-    
+       
     if(!updateDict)
     {
         _reUpdateLocallyTimer = [NSTimer scheduledTimerWithTimeInterval:7 target:self selector:@selector(reloadData) userInfo:nil repeats:NO];
@@ -174,8 +174,15 @@ static NSString* const UPDATES_CELL_IDENTIFIER = @"updatesCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 120;
+    NSDictionary* tagDict = [_infoArray objectAtIndex:indexPath.row];
+    NSString* message = @"No Message";
+    if([tagDict objectForKey:@"description"])
+        message = [tagDict objectForKey:@"description"];
     
+    CGFloat height = [HNUpdatesTableViewCell heightRequiredForString:message];
+    
+    return height;
+//    return 120;
 }
 
 
