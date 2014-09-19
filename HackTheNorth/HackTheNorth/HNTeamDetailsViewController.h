@@ -12,7 +12,7 @@
 @class HNScrollListCell, HNAvatarView, HNBorderButton, HNAutoresizingLabel;
 @interface HNTeamDetailsViewController : UIViewController <MFMailComposeViewControllerDelegate>
 {
-    HNAutoresizingLabel* nameLabel;
+    UILabel* nameLabel;
     HNAvatarView* imageView;
     
     UILabel* twitterVal;
