@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class HNAvatarView;
+@class HNAvatarView, HNAutoresizingLabel;
 @interface HNUpdatesTableViewCell : UITableViewCell
 {
     HNAvatarView* avatarView;
     
-    UILabel*     nameLabel;
-    UILabel*     timeLabel;
+    HNAutoresizingLabel*  nameLabel;
+    UILabel*              timeLabel;
 
     UITextView*  messageView;
     

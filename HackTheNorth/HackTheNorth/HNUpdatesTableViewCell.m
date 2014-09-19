@@ -12,6 +12,7 @@
 #import "HNAvatarView.h"
 #import "JPGlobal.h"
 #import "NSDate+HNConvenience.h"
+#import "HNAutoresizingLabel.h"
 
 static const NSTimeInterval kInterfaceRefreshInterval = 10; //for time
 
@@ -29,9 +30,8 @@ static const NSTimeInterval kInterfaceRefreshInterval = 10; //for time
         avatarView = [[HNAvatarView alloc] initWithFrame:CGRectMake(20, 10, 40, 40)];
         [self addSubview:avatarView];
         
-        nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(65, 10, kiPhoneWidthPortrait-70, 22)];
+        nameLabel = [[HNAutoresizingLabel alloc] initWithFrame:CGRectMake(65, 10, kiPhoneWidthPortrait-70, 22)];
         nameLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:18];
-        nameLabel.numberOfLines = 2;
         [self addSubview:nameLabel];
         
         timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(65, 32, kiPhoneWidthPortrait-70, 18)];
