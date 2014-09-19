@@ -91,17 +91,17 @@
     
     /////////////////////////////////////////////////////
     
-    skillBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 250, kiPhoneWidthPortrait, 2000)];
+    skillBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 260, kiPhoneWidthPortrait, 2000)];
     skillBackground.backgroundColor = [[JPStyle interfaceTintColor] colorWithAlphaComponent:0.2];
     [mainScrollView addSubview:skillBackground];
     
     
-    UILabel* avaiLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 260, kiPhoneWidthPortrait-20, 30)];
+    UILabel* avaiLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, kiPhoneWidthPortrait-20, 30)];
     avaiLabel.text = @"Availability";
     avaiLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
-    [mainScrollView addSubview:avaiLabel];
+    [skillBackground addSubview:avaiLabel];
     
-    avai = [[UITextView alloc] initWithFrame:CGRectMake(125, 260, kiPhoneWidthPortrait-130, 105)];
+    avai = [[UITextView alloc] initWithFrame:CGRectMake(125, 10, kiPhoneWidthPortrait-130, 105)];
     avai.backgroundColor = [UIColor clearColor];
     avai.editable = NO;
     avai.selectable = NO;
@@ -110,16 +110,15 @@
     avai.textContainerInset = UIEdgeInsetsZero;
     avai.font = [JPFont fontWithName:[JPFont defaultThinFont] size:16];
     avai.textColor = [UIColor darkGrayColor];
-    [mainScrollView addSubview:avai];
+    [skillBackground addSubview:avai];
 
-
-    UILabel* skillLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 350, kiPhoneWidthPortrait-30, 30)];
+    UILabel* skillLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 100, kiPhoneWidthPortrait-30, 30)];
     skillLabel.text = @"Skills";
     skillLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:20];
     skillLabel.textColor = [UIColor blackColor];
-    [mainScrollView addSubview:skillLabel];
+    [skillBackground addSubview:skillLabel];
     
-    skillVal = [[UITextView alloc] initWithFrame:CGRectMake(20, 380, kiPhoneWidthPortrait-20, 100)];
+    skillVal = [[UITextView alloc] initWithFrame:CGRectMake(20, 390, kiPhoneWidthPortrait-30, 100)];
     if(![JPStyle iPhone4Inch])
     {
         CGRect frame = skillVal.frame;
