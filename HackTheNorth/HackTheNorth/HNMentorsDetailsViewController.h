@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 
-@class HNScrollListCell, HNAvatarView, HNBorderButton;
+@class HNScrollListCell, HNAvatarView, HNBorderButton, HNAutoresizingLabel;
 @interface HNMentorsDetailsViewController : UIViewController <MFMailComposeViewControllerDelegate>
 {
     UIScrollView* mainScrollView;
     
-    UILabel* nameLabel;
+    HNAutoresizingLabel* nameLabel;
     HNAvatarView* imageView;
 
     UILabel* org;

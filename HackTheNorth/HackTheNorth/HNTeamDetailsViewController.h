@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 
-@class HNScrollListCell, HNAvatarView, HNBorderButton;
+@class HNScrollListCell, HNAvatarView, HNBorderButton, HNAutoresizingLabel;
 @interface HNTeamDetailsViewController : UIViewController <MFMailComposeViewControllerDelegate>
 {
-    UILabel* nameLabel;
+    HNAutoresizingLabel* nameLabel;
     HNAvatarView* imageView;
     
     UILabel* twitterVal;

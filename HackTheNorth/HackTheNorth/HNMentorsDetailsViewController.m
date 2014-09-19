@@ -17,6 +17,8 @@
 #import "NSString+HNConvenience.h"
 #import "HNBorderButton.h"
 #import "SVStatusHUD.h"
+#import "HNAutoresizingLabel.h"
+
 
 @interface HNMentorsDetailsViewController ()
 
@@ -44,7 +46,7 @@
     mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kiPhoneWidthPortrait, kiPhoneHeightPortrait)];
     [self.view addSubview:mainScrollView];
 
-    nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, kiPhoneWidthPortrait-10, 40)];
+    nameLabel = [[HNAutoresizingLabel alloc] initWithFrame:CGRectMake(10, 10, kiPhoneWidthPortrait-10, 40)];
     nameLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:35];
     nameLabel.textColor = [[JPStyle interfaceTintColor] darkerColor];
     [mainScrollView addSubview:nameLabel];

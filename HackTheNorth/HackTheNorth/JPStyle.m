@@ -381,7 +381,7 @@
     
     if([character isEqual:@"a"])
     {
-        color = [self rainbowColorWithIndex:3];
+        color = [[self rainbowColorWithIndex:3] darkerColor];
     }
     else if([character isEqual:@"b"])
     {
@@ -469,7 +469,7 @@
     }
     else if([character isEqual:@"w"])
     {
-        color = [UIColor redColor];
+        color = [self rainbowColorWithIndex:5];
     }
     else if([character isEqual:@"x"])
     {
